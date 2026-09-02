@@ -1,6 +1,256 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<p>hi</p>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>Global Citizenship Portfolio</title>
+
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+    <body style="background-color: white”">
+    
+<div id="header-box">
+    <h1 style="color: white;">Global Citizenship Portfolio</h1>
+</div>
+
+<ul class="nav-bar">
+    <li><a onclick="showPanel('passport')">Passport</a></li>
+    <li><a onclick="showPanel('citizen')">Global Citizen</a></li>
+    <li><a onclick="showPanel('Journal')">Journal Entries</a></li>
+</ul>
+
+<div id="passport" class="panel">
+    <h2 style="color: white">Passport</h2>
+    <button onclick="togglePersonal()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Personal Information</button>
+    <button onclick="toggleTravel()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Travel Reflection</button>
+    <button onclick="toggleMusic()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Music and Culture</button>
+    <button onclick="toggleGlobal()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Global Economy</button>
+    <button onclick="toggleCharity()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Charity and Global Contributions</button>
+    <button onclick="togglePrint()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Ecological Footprint</button>
+</div>
+
+<div id="citizen" class="panel">
+    <h2 style="color: white">Global Citizen</h2>
+    <p>A famous individual who has significantly impacted globalization, sustainability, or global awareness.</p>
+    <button onclick="toggleGlobalCitizen()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Show</button>
+</div>
+
+<div id="Journal" class="panel">
+    <h2>Journal Entries</h2>
+    <button onclick="toggleUnit1()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">show</button>
+    <button onclick="toggleUnit2()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">show</button>
+    <button onclick="toggleUnit3()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">show</button>
+</div>
+
+<div id="travelContainer" class="main-page-content">
+    <h2 style="font-size:40px; color:black">Places or Countries I Have Travelled To</h2>
+    <p><img src="download.jpeg"></p>
+    <p style="color:black"><b>Sylvan Lake</b></p>
+    <p>- I went to Sylvan lake with my grandma and my brother to have fun in the lake.</p>
+    <p style="color:black"><b>Sunshine Village Ski Resort</b></p>
+    <p>- I went to Sunshine Village Ski Resort to ski with my friend Sophie, Sophie's Mom Stephanie and Sophie's stepdad Paul to ski and have fun on the mountains.</p>
+</div>
+
+<div id="personalContainer" class="main-page-content">
+    <h2 style="font-size:40px; color:black">Personal Information</h2>
+    <p><img src="Me.jpg" width="200" height="200" alt="Profile Image"></p>
+    <p style="color:black">Name: Echo</p>
+    <p style="color:black">Date of Birth: November 27, 2009</p>
+    <p style="color:black">Place Of Birth: </p>
+    <p style="color:black">Age: 16 years old</p>
+</div>
+
+<div id="musicContainer" class="main-page-content">
+    <h2 style="font-size:40px; color:black">Music and Culture</h2>
+    <p style="font-size:20px; color:black;">Musicians/performers</p>
+    <p style="color:black;">- Famous Strangers: Gives me a different perspective of losing a parent because one of the songs they have written is about two of the band member's dad's are dead</p>
+    <p><img src="Famous-strangers.jpg" width="200" height="200" alt="Famous Strangers"></p>
+</div>
+
+<div id="printContainer" class="main-page-content">
+    <h1 style="font-size:40px; color:black;">Ecological Footprint</h1>
+    <p><img src="Ecologicalfootprint.jpg" alt="Ecological Footprint Results"></p>
+    <p><img src="EcoFootprint.jpg" alt="Footprint Breakdown"></p>
+    <h2>List of actions</h2>
+    <dl class="alignment-list">
+        <dt>Bike more to use less motor vehicles that admit more carbon dioxide into the atmosphere</dt>
+        <dt>Eat less meat.</dt>
+        <dt>Use less electricity</dt>
+    </dl>
+</div>
+
+
+
+<div id="GlobalcitizenContainer" class="main-page-content">
+<p><img src="EmmaWaton.jpg" id="emma-waston" width="100" height="100" alt="Emma"></p>
+<p>Emma Charlotte Duerre Watson</p>
+<p><i><b>What is this person’s background?</b></i></p>
+<p>Emma Watson was born in Paris, France, to British parents, Jacqueline Luesby and Chris Watson, both lawyers. She moved to Oxfordshire when she was five, where she attended the Dragon School. The same year, she was diagnosed with ADHD and was put on Ritalin as she struggled to sit still. From the age of six, Emma knew that she wanted to be an actress and, for a number of years, she trained at the Oxford branch of Stagecoach Theatre Arts, a part-time theatre school where she studied singing, dancing and acting. By the age of ten, she had performed and taken the lead in various Stagecoach productions and school plays.</p>
+<p><i><b>How did they become a global citizen?</b></i></p>
+<p>Watson's journey toward global citizenship accelerated after she completed the Harry Potter franchise. Seeking a life grounded outside of acting, she attended Brown University in the United States and the University of Oxford in the UK, graduating with a degree in English Literature.  Her formal entry onto the global stage occurred in July 2014, when she was appointed a UN Women Goodwill Ambassador at the age of 24. This role institutionalized her activism, taking her from local humanitarian trips (such as early visits to Zambia and Bangladesh to promote girls' education) to addressing world leaders at the United Nations.</p>
+<p><i><b>What contributions have they made to globalization (e.g., human rights, environment, economy, education, technology)?</b></i></p>
+Watson’s impact spans several pillars of globalization, particularly human rights, education, and the environment.1. Human Rights & Gender EqualityThis is Watson's most notable contribution. In 2014, she co-launched the UN’s HeForShe campaign with a viral speech at the UN Headquarters.  Global Solidarity: HeForShe re-framed feminism not as a "women's issue," but as a human rights issue requiring the active allyship of men and boys. The movement has engaged billions of people digitally and brought together heads of state, CEOs, and universities to commit to gender parity.  Systemic Advocacy: In 2018, she became a founding member of Time’s Up UK, donating £1 million to a fund supporting victims of sexual harassment. In 2019, she was appointed to the G7 Advisory For Women’s Rights, directly consulting world leaders on foreign policies affecting women.  2. EducationBefore her UN appointment, Watson worked closely with Camfed (Campaign for Female Education), an international non-profit dedicated to educating girls in rural Africa. She has consistently used her platform to highlight how educating girls breaks cycles of poverty and drives economic growth globally. In 2016, she also launched Our Shared Shelf, an intersectional feminist book club aimed at global open-source learning.  3. Environment & Sustainable EconomyWatson has been a vocal disruptor in the global fashion industry, which is notorious for its heavy environmental footprint and labor exploitation.Sustainable Fashion: She partnered with the fair-trade brand People Tree early in her career to create organic clothing lines.  Corporate Governance: From 2020 to 2023, she took a seat on the board of directors for Kering, a luxury global conglomerate (owning brands like Gucci and Balenciaga), acting as the chair of their sustainability committee to influence the greening of global supply chains.</p>
+<p><i><b>What challenges or opposition have they faced in their work?</b></i></p>
+<p>Stepping into the geopolitical arena brought Watson what she later described as a "baptism of fire." Her work has faced several significant challenges:1. Backlash and Security Threats Immediately following her 2014 UN speech, Watson faced intense online harassment. A hoax website threatened to leak private photos of her in an attempt to silence her advocacy. She noted that opening this "Pandora's box" exposed her to a level of critique and personal threat she had never experienced in Hollywood, though it ultimately strengthened her resolve.  2. Accusations of "Palatable" or White FeminismAcademic and grassroots critics have frequently critiqued the HeForShe campaign for being overly sanitized. Critics argue that:The campaign relies too heavily on a rigid gender binary, initially leaving out non-binary and trans perspectives.Centering men by explaining "how equality benefits them" can minimize the historical oppression of women.  As a wealthy, white, Western woman, Watson has occasionally been criticized as a "privileged mouthpiece" whose liberal approach focuses more on surface-level accessibility than dismantling deeply rooted systemic capitalism or racism.  3. The "Performative Activism" Critique  Like many celebrity activists, Watson has faced scrutiny over the depth of her digital engagement. During the 2020 Black Lives Matter protests, she faced intense public backlash for posting three black boxes on Instagram (for "Blackout Tuesday") that featured stylized white borders. Many fans criticized this as "performative activism"—prioritizing her aesthetic grid over meaningful, actionable information. Watson responded by acknowledging her blind spots regarding structural racism and committing to using her platform to amplify Black and marginalized voices moving forward.</p>              
+<p><i><b>Why do you believe this person deserves the “Global Citizen” title?</b></i></th></p>
+<p>I believe Emma Watson deserves the title because she has done a lot to help people.</p>
+<p><i><b>What lesson can you learn from their story to apply to your life?</b></i></p>
+<p>You shouldn't give up.</p>
+</div>
+
+<div id="JournalContainer" class="main-page-content">
+    <p style="color:black">Name: Echo</p>
+</div>
+
+<div id="globalContainer" class="main-page-content">
+    <p style="color:black">Name: Echo</p>
+</div>
+
+<div id="charityContainer" class="main-page-content">
+    <p style="color:black">I volunteer at my dojo, Arashi do Martial Arts Sherwood Park on Mondays, Tuesday, Wednesday and Thursday. On mondays and wednesday i'm at my dojo for an hour and 15 minutes(5:00-6:15), on tuesdays and thursdays i'm at my dojo for 3 hours</p>
+    <p style="clor: black"><img  src="Muay thai.png"</p>
+</div>
+
+
+<script>
+    function showPanel(panelId) {
+        var targetPanel = document.getElementById(panelId);
+        if (!targetPanel) return;
+        
+        if (targetPanel.style.display === "block") {
+            targetPanel.style.display = "none";
+            
+            if (panelId === 'passport') {
+                document.getElementById("personalContainer").style.display = "none";
+                document.getElementById("travelContainer").style.display = "none";
+                document.getElementById("musicContainer").style.display = "none";
+                document.getElementById("printContainer").style.display = "none";
+                document.getElementById("globalContainer").style.display = "none";
+                document.getElementById("charityContainer").style.display = "none";
+            }
+             if (panelId !== 'Journal') {
+                document.getElementById("Unit1Container").style.display = "none";
+                document.getElementById("Unit2Container").style.display = "none";
+                document.getElementById("Unit3Container").style.display = "none";
+            }
+            if (panelId === 'citizen') {
+                document.getElementById("GlobalcitizenContainer").style.display = "none";
+            }
+            return; 
+        }
+
+        var panels = document.getElementsByClassName("panel");
+        for (var i = 0; i < panels.length; i++) {
+            panels[i].style.display = "none";
+        }
+        
+        targetPanel.style.display = "block";
+        
+        if (panelId !== 'passport') {
+            document.getElementById("personalContainer").style.display = "none";
+            document.getElementById("travelContainer").style.display = "none";
+            document.getElementById("musicContainer").style.display = "none";
+            document.getElementById("printContainer").style.display = "none";
+            document.getElementById("globalContainer").style.display = "none";
+            document.getElementById("charityContainer").style.display = "none";
+        }
+        if (panelId !== 'Journal') {
+            document.getElementById("Unit1Container").style.display = "none";
+            document.getElementById("Unit2Container").style.display = "none";
+            document.getElementById("Unit3Container").style.display = "none";
+        }
+    }
+
+
+    function togglePersonal() {
+        var personalContainer = document.getElementById("personalContainer");
+        if (personalContainer.style.display === "none" || personalContainer.style.display === "") {
+            personalContainer.style.display = "block";
+        } else {
+            personalContainer.style.display = "none";
+        }
+    }
+
+    function toggleTravel() {
+        var travelBox = document.getElementById("travelContainer");
+        if (travelBox.style.display === "none" || travelBox.style.display === "") {
+            travelBox.style.display = "block";
+        } else {
+            travelBox.style.display = "none";
+        }
+    }
+
+    function toggleMusic() {
+        var musicBox = document.getElementById("musicContainer");
+        if (musicBox.style.display === "none" || musicBox.style.display === "") {
+            musicBox.style.display = "block";
+        } else {
+            musicBox.style.display = "none";
+        }
+    }
+
+    function togglePrint(){  
+        var printBox = document.getElementById("printContainer");
+        if (printBox.style.display === "none" || printBox.style.display === "") {
+            printBox.style.display = "block";
+        } else {
+           printBox.style.display = "none";
+        }
+    }
+
+    function toggleGlobal(){  
+        var globalBox = document.getElementById("globalContainer");
+        if (globalBox.style.display === "none" || globalBox.style.display === "") {
+            globalBox.style.display = "block";
+        } else {
+           globalBox.style.display = "none";
+        }
+    }
+   
+    function toggleCharity(){  
+        var charityBox = document.getElementById("charityContainer");
+        if (charityBox.style.display === "none" || charityBox.style.display === "") {
+            charityBox.style.display = "block";
+        } else {
+           charityBox.style.display = "none";
+        }
+    }
+    
+    function toggleGlobalCitizen() {
+        var tableBox = document.getElementById("GlobalcitizenContainer");
+        if (tableBox.style.display === "none" || tableBox.style.display === "") {
+            tableBox.style.display = "block";
+        } else {
+            tableBox.style.display = "none";
+        }
+    }
+        function toggleUnit1(){  
+        var JournalEntry1Box = document.getElementById("JournalEntry1Container");
+        if (JournalEntry1Box.style.display === "none" || JournalEntry1Box.style.display === "") {
+            JournalEntry1Box.style.display = "block";
+        } else {
+           JournalEntry1Box.style.display = "none";
+        }
+    }
+        function toggleUnit2(){  
+        var JournalEntry2Box = document.getElementById("JournalEntry2Container");
+        if (JournalEntry2Box.style.display === "none" || JournalEntry2Box.style.display === "") {
+            JournalEntry2Box.style.display = "block";
+        } else {
+           JournalEntry2Box.style.display = "none";
+        }
+    }
+        function toggleUnit3(){  
+        var JournalEntry3Box = document.getElementById("JournalEntry3Container");
+        if (JournalEntry3Box.style.display === "none" || JournalEntry3Box.style.display === "") {
+            JournalEntry3Box.style.display = "block";
+        } else {
+           JournalEntry3Box.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>
