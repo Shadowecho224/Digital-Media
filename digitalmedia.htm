@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<style>
-/* 1. Reset Body Spacing */
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Global Citizenship Portfolio</title>
+    
+    <!-- D&D Inspired Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Signika:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* 1. Global Reset & Portfolio Styling */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color: white;
         }
 
-        /* 2. Header Box (Full Width) */
         #header-box {
             background-color: lightblue;
             width: 100%;
@@ -18,15 +29,14 @@
             justify-content: center;
         }
 
-        h1 {
-            font-size: 52px; /* Increased from 40px to stand out more */
+        h1.site-title {
+            font-size: 52px;
             font-family: courier, monospace;
             text-align: center;
             color: black;
             margin: 0;
         }
 
-        /* 3. Navigation Bar */
         ul.nav-bar {
             list-style-type: none;
             margin: 0;
@@ -36,28 +46,23 @@
             justify-content: center;
         }
 
-        ul.nav-bar li {
-            /* Flexbox handling spacing */
-        }
-
         ul.nav-bar li a {
             display: block;
             color: white;
             text-align: center;
-            padding: 18px 24px; /* Slightly padded for larger text touch targets */
+            padding: 18px 24px;
             text-decoration: none;
             cursor: pointer;
-            font-size: 20px; /* Increased menu text size */
-            font-weight: bold; /* Added weight for better readability */
+            font-size: 20px;
+            font-weight: bold;
         }
 
         ul.nav-bar li a:hover {
             background-color: #111111;
         }
 
-        /* 4. Panel Styles (Hidden by default) */
         .panel {
-            display: none; /* Hide all panels initially */
+            display: none;
             padding: 40px;
             text-align: center;
             background-color: #333333; 
@@ -65,64 +70,215 @@
             border-bottom: 5px solid #a6d8a8;
         }
         
-        /* Containers for content outside the panels */
         .main-page-content {
             display: none;
             margin: 40px auto;
-            width: 90%;
+            width: 95%;
             max-width: 1200px;
             color: black;
         }
 
-        .game-container {
+        .sheet-page {
             display: none;
-            margin: 40px auto;
-            max-width: 485px;
+        }
+        .sheet-page.active {
+            display: block;
         }
 
-        /* Dragon Table Styles */
-        table, th, td {
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
+        /* 2. D&D Character Sheet Specific Styling */
+        #character-sheet {
+            background-color: #fdf8f0;
+            border: 2px solid #000;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Signika', sans-serif;
+            color: #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
         }
 
-        /* Hobbies List Formatting */
-        .alignment-list {
-            list-style-type: none;
-            padding: 0;
+        #character-sheet h1, 
+        #character-sheet h2, 
+        #character-sheet h3 {
+            font-family: 'Cinzel', serif;
+            color: #000;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
         }
-        .alignment-list dt {
+
+        #character-sheet input[type="text"],
+        #character-sheet input[type="number"],
+        #character-sheet textarea {
+            border: none;
+            border-bottom: 1px solid #444;
+            background: transparent;
+            font-family: 'Signika', sans-serif;
+            font-size: 13px;
+            color: #000;
+            padding: 2px;
+        }
+
+        #character-sheet textarea {
+            border: 1px solid #777;
+            border-radius: 4px;
+            background-color: #fffefb;
+            resize: vertical;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Sheet Top Header Layout */
+        .dnd-header {
+            display: flex;
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: #fff;
+            gap: 15px;
+        }
+
+        .dnd-logo-box {
+            flex: 1;
+            border-right: 2px solid #000;
+            padding-right: 15px;
+        }
+
+        .dnd-header-fields {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .header-field {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .header-field label {
+            font-size: 12px;
+            font-family: 'Cinzel', serif;
             font-weight: bold;
+        }
+
+        /* Official 5e Grid Layout: Stats Column + 3 Main Columns */
+        .dnd-main-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Vertical Ability Scores Column (Leftmost) */
+        .ability-scores-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ability-box {
+            border: 2px solid #000;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            padding: 6px 2px;
+            position: relative;
+        }
+
+        .ability-box label {
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 10px;
+            display: block;
+        }
+
+        .ability-score input {
             font-size: 18px;
-            margin-top: 15px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            border: none !important;
         }
-        .alignment-list dd {
-            margin-left: 20px;
+
+        .ability-mod input {
+            width: 32px !important;
+            height: 24px;
+            border: 1px solid #000 !important;
+            border-radius: 50%;
+            text-align: center;
+            margin: 2px auto 0;
+            display: block;
+            font-weight: bold;
+            background: #fff;
+        }
+
+        /* Card Sections */
+        .dnd-box {
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 10px;
+            background: #fff;
             margin-bottom: 15px;
-            color: #333;
         }
-        .About-container {
-            display: none;
-            margin: 40px auto;
-            max-width: 485px;
+
+        .dnd-box h2 {
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3px;
         }
-</style>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <title>Global Citizenship Portfolio</title>
+        .vital-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            text-align: center;
+        }
 
-    <link rel="stylesheet" href="Style.css">
+        .vital-cell {
+            border: 1px solid #000;
+            border-radius: 6px;
+            padding: 4px;
+            flex: 1;
+        }
+
+        .vital-cell label {
+            font-size: 9px;
+            font-family: 'Cinzel', serif;
+            display: block;
+        }
+
+        .vital-cell input {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            border: none !important;
+        }
+
+        .checkbox-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .checkbox-list li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 3px;
+        }
+
+        .checkbox-list input[type="text"] {
+            width: 30px;
+            text-align: center;
+        }
+    </style>
 </head>
 
-    <body style="background-color: white”">
+<body>
     
 <div id="header-box">
-    <h1 style="color: white;">Global Citizenship Portfolio</h1>
+    <h1 class="site-title" style="color: white;">Global Citizenship Portfolio</h1>
 </div>
 
 <ul class="nav-bar">
@@ -131,14 +287,9 @@
     <li><a onclick="showPanel('Journal')">Journal Entries</a></li>
 </ul>
 
-<div id="passport" class="panel">
-    <h2 style="color: white">Passport</h2>
-    <button onclick="togglePersonal()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Personal Information</button>
-    <button onclick="toggleTravel()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Travel Reflection</button>
-    <button onclick="toggleMusic()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Music and Culture</button>
-    <button onclick="toggleGlobal()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Global Economy</button>
-    <button onclick="toggleCharity()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Charity and Global Contributions</button>
-    <button onclick="togglePrint()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Ecological Footprint</button>
+<div id="hero" class="panel">
+    <h2 style="color: white">Hero Card</h2>
+    <button onclick="toggleCharacter()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Main Page</button>
 </div>
 
 <div id="citizen" class="panel">
@@ -149,80 +300,261 @@
 
 <div id="Journal" class="panel">
     <h2>Journal Entries</h2>
-    <button onclick="toggleUnit1()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">show</button>
-    <button onclick="toggleUnit2()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">show</button>
-    <button onclick="toggleUnit3()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">show</button>
+    <button onclick="toggleUnit1()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 1</button>
+    <button onclick="toggleUnit2()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 2</button>
+    <button onclick="toggleUnit3()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 3</button>
 </div>
 
+<!-- Character Sheet Container -->
+<div id="characterContainer" class="main-page-content">
+  <div class="sheet-controls" style="margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+    <button type="button" onclick="rollD20()">🎲 Roll d20</button>
+    <button type="button" onclick="showSheetPage('sheet-main')"> Main Page</button>
+    <button type="button" onclick="toggleMiddle()"> Backstory & Roleplay Page</button>
+    <button type="button" onclick="toggleBack()"> Spell Sheet</button>
+    <span id="rollOutput" style="font-weight: bold; margin-left: 10px; color: #2c3e50;"></span>
+  </div>
+
+  <form id="character-form">
+    <article id="character-sheet">
+      
+      <!-- MAIN CHARACTER SHEET PAGE -->
+      <div id="sheet-main" class="sheet-page active">
+        
+        <!-- Header Banner -->
+        <header class="dnd-header">
+          <div class="dnd-logo-box">
+            <h1>Dungeons & Dragons</h1>
+            <div class="header-field">
+              <input type="text" style="font-size: 20px" name="charName" value="Echo" readonly>
+              <label>Character Name</label>
+            </div>
+          </div>
+          <div class="dnd-header-fields">
+            <div class="header-field"><input type="text" name="classLevel" readonly><label>Class & Level</label></div>
+            <div class="header-field"><input type="text" name="background" readonly><label>Background</label></div>
+            <div class="header-field"><input type="text" name="playerName" readonly><label>Player Name</label></div>
+            <div class="header-field"><input type="text" name="race" readonly><label>Race</label></div>
+            <div class="header-field"><input type="text" name="alignment" readonly><label>Alignment</label></div>
+            <div class="header-field"><input type="number" name="xp" readonly><label>Experience Points</label></div>
+          </div>
+        </header>
+
+        <!-- Official Layout Grid -->
+        <div class="dnd-main-grid">
+          
+          <!-- Far Left: Vertical Ability Scores Block -->
+          <div class="ability-scores-column">
+            <div class="ability-box">
+              <label>STRENGTH</label>
+              <div class="ability-mod"><input type="text" name="strMod" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="number" name="strScore" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>DEXTERITY</label>
+              <div class="ability-mod"><input type="text" name="dexMod" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="number" name="dexScore" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>CONSTITUTION</label>
+              <div class="ability-mod"><input type="text" name="conMod" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="number" name="conScore" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>INTELLIGENCE</label>
+              <div class="ability-mod"><input type="text" name="intMod" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="number" name="intScore" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>WISDOM</label>
+              <div class="ability-mod"><input type="text" name="wisMod" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="number" name="wisScore" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>CHARISMA</label>
+              <div class="ability-mod"><input type="text" name="chaMod" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="number" name="chaScore" readonly></div>
+            </div>
+          </div>
+
+          <!-- Column 1: Saving Throws & Skills -->
+          <div class="column">
+            <div class="dnd-box">
+              <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+                <input type="text" name="inspiration" style="width: 30px; text-align:center;" readonly>
+                <label style="font-size:11px; font-weight:bold;">INSPIRATION</label>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <input type="text" name="proficiencyBonus" style="width: 30px; text-align:center;" readonly>
+                <label style="font-size:11px; font-weight:bold;">PROFICIENCY BONUS</label>
+              </div>
+            </div>
+
+            <div class="dnd-box">
+              <h2>Saving Throws</h2>
+              <ul class="checkbox-list">
+                <li><input type="checkbox" name="saveProf_str" disabled> <input type="text" name="saveMod_str" readonly> Strength</li>
+                <li><input type="checkbox" name="saveProf_dex" disabled> <input type="text" name="saveMod_dex" readonly> Dexterity</li>
+                <li><input type="checkbox" name="saveProf_con" disabled> <input type="text" name="saveMod_con" readonly> Constitution</li>
+                <li><input type="checkbox" name="saveProf_int" disabled> <input type="text" name="saveMod_int" readonly> Intelligence</li>
+                <li><input type="checkbox" name="saveProf_wis" disabled> <input type="text" name="saveMod_wis" readonly> Wisdom</li>
+                <li><input type="checkbox" name="saveProf_cha" disabled> <input type="text" name="saveMod_cha" readonly> Charisma</li>
+              </ul>
+            </div>
+
+            <div class="dnd-box">
+              <h2>Skills</h2>
+              <ul class="checkbox-list">
+                <li><input type="checkbox" name="skillProf_acrobatics" disabled> <input type="text" name="skillMod_acrobatics" readonly> Acrobatics <span style="font-size:9px;">(Dex)</span></li>
+                <li><input type="checkbox" name="skillProf_animal" disabled> <input type="text" name="skillMod_animal" readonly> Animal Handling <span style="font-size:9px;">(Wis)</span></li>
+                <li><input type="checkbox" name="skillProf_arcana" disabled> <input type="text" name="skillMod_arcana" readonly> Arcana <span style="font-size:9px;">(Int)</span></li>
+                <li><input type="checkbox" name="skillProf_athletics" disabled> <input type="text" name="skillMod_athletics" readonly> Athletics <span style="font-size:9px;">(Str)</span></li>
+                <li><input type="checkbox" name="skillProf_deception" disabled> <input type="text" name="skillMod_deception" readonly> Deception <span style="font-size:9px;">(Cha)</span></li>
+                <li><input type="checkbox" name="skillProf_history" disabled> <input type="text" name="skillMod_history" readonly> History <span style="font-size:9px;">(Int)</span></li>
+                <li><input type="checkbox" name="skillProf_insight" disabled> <input type="text" name="skillMod_insight" readonly> Insight <span style="font-size:9px;">(Wis)</span></li>
+                <li><input type="checkbox" name="skillProf_intimidation" disabled> <input type="text" name="skillMod_intimidation" readonly> Intimidation <span style="font-size:9px;">(Cha)</span></li>
+                <li><input type="checkbox" name="skillProf_investigation" disabled> <input type="text" name="skillMod_investigation" readonly> Investigation <span style="font-size:9px;">(Int)</span></li>
+                <li><input type="checkbox" name="skillProf_medicine" disabled> <input type="text" name="skillMod_medicine" readonly> Medicine <span style="font-size:9px;">(Wis)</span></li>
+                <li><input type="checkbox" name="skillProf_nature" disabled> <input type="text" name="skillMod_nature" readonly> Nature <span style="font-size:9px;">(Int)</span></li>
+                <li><input type="checkbox" name="skillProf_perception" disabled> <input type="text" name="skillMod_perception" readonly> Perception <span style="font-size:9px;">(Wis)</span></li>
+                <li><input type="checkbox" name="skillProf_performance" disabled> <input type="text" name="skillMod_performance" readonly> Performance <span style="font-size:9px;">(Cha)</span></li>
+                <li><input type="checkbox" name="skillProf_persuasion" disabled> <input type="text" name="skillMod_persuasion" readonly> Persuasion <span style="font-size:9px;">(Cha)</span></li>
+                <li><input type="checkbox" name="skillProf_religion" disabled> <input type="text" name="skillMod_religion" readonly> Religion <span style="font-size:9px;">(Int)</span></li>
+                <li><input type="checkbox" name="skillProf_sleight" disabled> <input type="text" name="skillMod_sleight" readonly> Sleight of Hand <span style="font-size:9px;">(Dex)</span></li>
+                <li><input type="checkbox" name="skillProf_stealth" disabled> <input type="text" name="skillMod_stealth" readonly> Stealth <span style="font-size:9px;">(Dex)</span></li>
+                <li><input type="checkbox" name="skillProf_survival" disabled> <input type="text" name="skillMod_survival" readonly> Survival <span style="font-size:9px;">(Wis)</span></li>
+              </ul>
+            </div>
+
+            <div class="dnd-box">
+              <h2>Proficiencies & Languages</h2>
+              <textarea name="proficiencies" rows="4" readonly></textarea>
+            </div>
+          </div>
+
+          <!-- Column 2: Combat & Gear -->
+          <div class="column">
+            <div class="dnd-box">
+              <div class="vital-row">
+                <div class="vital-cell"><label>ARMOR CLASS</label><input type="number" name="ac" readonly></div>
+                <div class="vital-cell"><label>INITIATIVE</label><input type="text" name="initiative" readonly></div>
+                <div class="vital-cell"><label>SPEED</label><input type="text" name="speed" readonly></div>
+              </div>
+            </div>
+
+            <div class="dnd-box">
+              <h2>Hit Points</h2>
+              <p><label style="font-size:10px;">HP Maximum:</label> <input type="number" name="hpMax" style="width:50px;" readonly></p>
+              <p><label style="font-size:10px;">Current HP:</label> <input type="number" name="hpCurrent" style="width:50px;" readonly></p>
+              <p><label style="font-size:10px;">Temp HP:</label> <input type="number" name="hpTemp" style="width:50px;" readonly></p>
+            </div>
+
+            <div class="dnd-box">
+              <h2>Attacks & Spellcasting</h2>
+              <table style="width:100%; font-size:11px; margin-bottom:8px;">
+                <thead>
+                  <tr><th>Name</th><th>Atk</th><th>Damage</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" name="atkName1" style="width:100%" readonly></td>
+                    <td><input type="text" name="atkBonus1" style="width:30px" readonly></td>
+                    <td><input type="text" name="atkDmg1" style="width:100%" readonly></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="atkName2" style="width:100%" readonly></td>
+                    <td><input type="text" name="atkBonus2" style="width:30px" readonly></td>
+                    <td><input type="text" name="atkDmg2" style="width:100%" readonly></td>
+                  </tr>
+                </tbody>
+              </table>
+              <textarea name="spellNotes" rows="4" placeholder="Spell/attack notes..." readonly></textarea>
+            </div>
+
+            <div class="dnd-box">
+              <h2>Equipment</h2>
+              <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:5px;">
+                <span>CP: <input type="number" name="cp" style="width:30px" readonly></span>
+                <span>SP: <input type="number" name="sp" style="width:30px" readonly></span>
+                <span>GP: <input type="number" name="gp" style="width:30px" readonly></span>
+                <span>PP: <input type="number" name="pp" style="width:30px" readonly></span>
+              </div>
+              <textarea name="inventory" rows="6" readonly></textarea>
+            </div>
+          </div>
+
+          <!-- Column 3: Roleplay & Traits -->
+          <div class="column">
+            <div class="dnd-box">
+              <h2>Personality Traits</h2>
+              <textarea name="traits" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Ideals</h2>
+              <textarea name="ideals" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Bonds</h2>
+              <textarea name="bonds" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Flaws</h2>
+              <textarea name="flaws" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Features & Traits</h2>
+              <textarea name="features" rows="8" readonly></textarea>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAGE 2: BACKSTORY -->
+      <div id="sheet-middle" class="sheet-page">
+        <div class="dnd-box">
+          <h2>Character Backstory</h2>
+          <textarea name="characterBackstory" rows="12" readonly></textarea>
+        </div>
+      </div>
+
+      <!-- PAGE 3: SPELLS -->
+      <div id="sheet-back" class="sheet-page">
+        <div class="dnd-box">
+          <h2>Spellcasting Details</h2>
+          <p><label>Class:</label> <input type="text" name="spellClass" readonly></p>
+          <p><label>Save DC:</label> <input type="text" name="spellSaveDC" style="width:50px" readonly></p>
+          <p><label>Attack Bonus:</label> <input type="text" name="spellAtkBonus" style="width:50px" readonly></p>
+          <h3>Cantrips</h3>
+          <textarea name="cantrips" rows="4" readonly></textarea>
+          <h3>Spells List</h3>
+          <textarea name="spellsList" rows="8" readonly></textarea>
+        </div>
+      </div>
+
+    </article>
+  </form>
+</div>
+
+<!-- Remaining Portfolio Sections -->
 <div id="travelContainer" class="main-page-content">
     <h2 style="font-size:40px; color:black">Places or Countries I Have Travelled To</h2>
-    <p><img src="download.jpeg"></p>
+    <p><img src="download.jpeg" alt="Travel Location"></p>
     <p style="color:black"><b>Sylvan Lake</b></p>
     <p>- I went to Sylvan lake with my grandma and my brother to have fun in the lake.</p>
-    <p style="color:black"><b>Sunshine Village Ski Resort</b></p>
-    <p>- I went to Sunshine Village Ski Resort to ski with my friend Sophie, Sophie's Mom Stephanie and Sophie's stepdad Paul to ski and have fun on the mountains.</p>
 </div>
 
-<div id="personalContainer" class="main-page-content">
-    <h2 style="font-size:40px; color:black">Personal Information</h2>
-    <p><img src="Me.jpg" width="200" height="200" alt="Profile Image"></p>
-    <p style="color:black">Name: Echo</p>
-    <p style="color:black">Date of Birth: November 27, 2009</p>
-    <p style="color:black">Place Of Birth: </p>
-    <p style="color:black">Age: 16 years old</p>
+<div id="JournalEntry1Container" class="main-page-content">
+    <p style="color:black">Journal Entry 1 Content</p>
 </div>
 
-<div id="musicContainer" class="main-page-content">
-    <h2 style="font-size:40px; color:black">Music and Culture</h2>
-    <p style="font-size:20px; color:black;">Musicians/performers</p>
-    <p style="color:black;">- Famous Strangers: Gives me a different perspective of losing a parent because one of the songs they have written is about two of the band member's dad's are dead</p>
-    <p><img src="Famous-strangers.jpg" width="200" height="200" alt="Famous Strangers"></p>
+<div id="JournalEntry2Container" class="main-page-content">
+    <p style="color:black">Journal Entry 2 Content</p>
 </div>
 
-<div id="printContainer" class="main-page-content">
-    <h1 style="font-size:40px; color:black;">Ecological Footprint</h1>
-    <p><img src="Ecologicalfootprint.jpg" alt="Ecological Footprint Results"></p>
-    <p><img src="EcoFootprint.jpg" alt="Footprint Breakdown"></p>
-    <h2>List of actions</h2>
-    <dl class="alignment-list">
-        <dt>Bike more to use less motor vehicles that admit more carbon dioxide into the atmosphere</dt>
-        <dt>Eat less meat.</dt>
-        <dt>Use less electricity</dt>
-    </dl>
+<div id="JournalEntry3Container" class="main-page-content">
+    <p style="color:black">Journal Entry 3 Content</p>
 </div>
-
-
-
-<div id="GlobalcitizenContainer" class="main-page-content">
-<p><img src="EmmaWaton.jpg" id="emma-waston" width="100" height="100" alt="Emma"></p>
-<p>Emma Charlotte Duerre Watson</p>
-<p><i><b>What is this person’s background?</b></i></p>
-<p>Emma Watson was born in Paris, France, to British parents, Jacqueline Luesby and Chris Watson, both lawyers. She moved to Oxfordshire when she was five, where she attended the Dragon School. The same year, she was diagnosed with ADHD and was put on Ritalin as she struggled to sit still. From the age of six, Emma knew that she wanted to be an actress and, for a number of years, she trained at the Oxford branch of Stagecoach Theatre Arts, a part-time theatre school where she studied singing, dancing and acting. By the age of ten, she had performed and taken the lead in various Stagecoach productions and school plays.</p>
-<p><i><b>How did they become a global citizen?</b></i></p>
-<p>Watson's journey toward global citizenship accelerated after she completed the Harry Potter franchise. Seeking a life grounded outside of acting, she attended Brown University in the United States and the University of Oxford in the UK, graduating with a degree in English Literature.  Her formal entry onto the global stage occurred in July 2014, when she was appointed a UN Women Goodwill Ambassador at the age of 24. This role institutionalized her activism, taking her from local humanitarian trips (such as early visits to Zambia and Bangladesh to promote girls' education) to addressing world leaders at the United Nations.</p>
-<p><i><b>What contributions have they made to globalization (e.g., human rights, environment, economy, education, technology)?</b></i></p>
-Watson’s impact spans several pillars of globalization, particularly human rights, education, and the environment.1. Human Rights & Gender EqualityThis is Watson's most notable contribution. In 2014, she co-launched the UN’s HeForShe campaign with a viral speech at the UN Headquarters.  Global Solidarity: HeForShe re-framed feminism not as a "women's issue," but as a human rights issue requiring the active allyship of men and boys. The movement has engaged billions of people digitally and brought together heads of state, CEOs, and universities to commit to gender parity.  Systemic Advocacy: In 2018, she became a founding member of Time’s Up UK, donating £1 million to a fund supporting victims of sexual harassment. In 2019, she was appointed to the G7 Advisory For Women’s Rights, directly consulting world leaders on foreign policies affecting women.  2. EducationBefore her UN appointment, Watson worked closely with Camfed (Campaign for Female Education), an international non-profit dedicated to educating girls in rural Africa. She has consistently used her platform to highlight how educating girls breaks cycles of poverty and drives economic growth globally. In 2016, she also launched Our Shared Shelf, an intersectional feminist book club aimed at global open-source learning.  3. Environment & Sustainable EconomyWatson has been a vocal disruptor in the global fashion industry, which is notorious for its heavy environmental footprint and labor exploitation.Sustainable Fashion: She partnered with the fair-trade brand People Tree early in her career to create organic clothing lines.  Corporate Governance: From 2020 to 2023, she took a seat on the board of directors for Kering, a luxury global conglomerate (owning brands like Gucci and Balenciaga), acting as the chair of their sustainability committee to influence the greening of global supply chains.</p>
-<p><i><b>What challenges or opposition have they faced in their work?</b></i></p>
-<p>Stepping into the geopolitical arena brought Watson what she later described as a "baptism of fire." Her work has faced several significant challenges:1. Backlash and Security Threats Immediately following her 2014 UN speech, Watson faced intense online harassment. A hoax website threatened to leak private photos of her in an attempt to silence her advocacy. She noted that opening this "Pandora's box" exposed her to a level of critique and personal threat she had never experienced in Hollywood, though it ultimately strengthened her resolve.  2. Accusations of "Palatable" or White FeminismAcademic and grassroots critics have frequently critiqued the HeForShe campaign for being overly sanitized. Critics argue that:The campaign relies too heavily on a rigid gender binary, initially leaving out non-binary and trans perspectives.Centering men by explaining "how equality benefits them" can minimize the historical oppression of women.  As a wealthy, white, Western woman, Watson has occasionally been criticized as a "privileged mouthpiece" whose liberal approach focuses more on surface-level accessibility than dismantling deeply rooted systemic capitalism or racism.  3. The "Performative Activism" Critique  Like many celebrity activists, Watson has faced scrutiny over the depth of her digital engagement. During the 2020 Black Lives Matter protests, she faced intense public backlash for posting three black boxes on Instagram (for "Blackout Tuesday") that featured stylized white borders. Many fans criticized this as "performative activism"—prioritizing her aesthetic grid over meaningful, actionable information. Watson responded by acknowledging her blind spots regarding structural racism and committing to using her platform to amplify Black and marginalized voices moving forward.</p>              
-<p><i><b>Why do you believe this person deserves the “Global Citizen” title?</b></i></th></p>
-<p>I believe Emma Watson deserves the title because she has done a lot to help people.</p>
-<p><i><b>What lesson can you learn from their story to apply to your life?</b></i></p>
-<p>You shouldn't give up.</p>
-</div>
-
-<div id="JournalContainer" class="main-page-content">
-    <p style="color:black">Name: Echo</p>
-</div>
-
-<div id="globalContainer" class="main-page-content">
-    <p style="color:black">Name: Echo</p>
-</div>
-
-<div id="charityContainer" class="main-page-content">
-    <p style="color:black">I volunteer at my dojo, Arashi do Martial Arts Sherwood Park on Mondays, Tuesday, Wednesday and Thursday. On mondays and wednesday i'm at my dojo for an hour and 15 minutes(5:00-6:15), on tuesdays and thursdays i'm at my dojo for 3 hours</p>
-    <p style="clor: black"><img  src="Muay thai.png"</p>
-</div>
-
 
 <script>
     function showPanel(panelId) {
@@ -231,23 +563,6 @@ Watson’s impact spans several pillars of globalization, particularly human rig
         
         if (targetPanel.style.display === "block") {
             targetPanel.style.display = "none";
-            
-            if (panelId === 'passport') {
-                document.getElementById("personalContainer").style.display = "none";
-                document.getElementById("travelContainer").style.display = "none";
-                document.getElementById("musicContainer").style.display = "none";
-                document.getElementById("printContainer").style.display = "none";
-                document.getElementById("globalContainer").style.display = "none";
-                document.getElementById("charityContainer").style.display = "none";
-            }
-             if (panelId !== 'Journal') {
-                document.getElementById("Unit1Container").style.display = "none";
-                document.getElementById("Unit2Container").style.display = "none";
-                document.getElementById("Unit3Container").style.display = "none";
-            }
-            if (panelId === 'citizen') {
-                document.getElementById("GlobalcitizenContainer").style.display = "none";
-            }
             return; 
         }
 
@@ -257,108 +572,46 @@ Watson’s impact spans several pillars of globalization, particularly human rig
         }
         
         targetPanel.style.display = "block";
-        
-        if (panelId !== 'passport') {
-            document.getElementById("personalContainer").style.display = "none";
-            document.getElementById("travelContainer").style.display = "none";
-            document.getElementById("musicContainer").style.display = "none";
-            document.getElementById("printContainer").style.display = "none";
-            document.getElementById("globalContainer").style.display = "none";
-            document.getElementById("charityContainer").style.display = "none";
-        }
-        if (panelId !== 'Journal') {
-            document.getElementById("Unit1Container").style.display = "none";
-            document.getElementById("Unit2Container").style.display = "none";
-            document.getElementById("Unit3Container").style.display = "none";
-        }
     }
 
-
-    function togglePersonal() {
-        var personalContainer = document.getElementById("personalContainer");
-        if (personalContainer.style.display === "none" || personalContainer.style.display === "") {
-            personalContainer.style.display = "block";
-        } else {
-            personalContainer.style.display = "none";
-        }
+    function toggleCharacter() {
+        document.getElementById('hero').style.display = "none";
+        document.getElementById("characterContainer").style.display = "block";
     }
 
-    function toggleTravel() {
-        var travelBox = document.getElementById("travelContainer");
-        if (travelBox.style.display === "none" || travelBox.style.display === "") {
-            travelBox.style.display = "block";
-        } else {
-            travelBox.style.display = "none";
-        }
-    }
-
-    function toggleMusic() {
-        var musicBox = document.getElementById("musicContainer");
-        if (musicBox.style.display === "none" || musicBox.style.display === "") {
-            musicBox.style.display = "block";
-        } else {
-            musicBox.style.display = "none";
-        }
-    }
-
-    function togglePrint(){  
-        var printBox = document.getElementById("printContainer");
-        if (printBox.style.display === "none" || printBox.style.display === "") {
-            printBox.style.display = "block";
-        } else {
-           printBox.style.display = "none";
-        }
-    }
-
-    function toggleGlobal(){  
-        var globalBox = document.getElementById("globalContainer");
-        if (globalBox.style.display === "none" || globalBox.style.display === "") {
-            globalBox.style.display = "block";
-        } else {
-           globalBox.style.display = "none";
-        }
-    }
-   
-    function toggleCharity(){  
-        var charityBox = document.getElementById("charityContainer");
-        if (charityBox.style.display === "none" || charityBox.style.display === "") {
-            charityBox.style.display = "block";
-        } else {
-           charityBox.style.display = "none";
-        }
-    }
-    
     function toggleGlobalCitizen() {
-        var tableBox = document.getElementById("GlobalcitizenContainer");
-        if (tableBox.style.display === "none" || tableBox.style.display === "") {
-            tableBox.style.display = "block";
-        } else {
-            tableBox.style.display = "none";
-        }
+        document.getElementById('citizen').style.display = "none";
     }
-        function toggleUnit1(){  
-        var JournalEntry1Box = document.getElementById("JournalEntry1Container");
-        if (JournalEntry1Box.style.display === "none" || JournalEntry1Box.style.display === "") {
-            JournalEntry1Box.style.display = "block";
-        } else {
-           JournalEntry1Box.style.display = "none";
-        }
+
+    function toggleUnit1() {  
+        document.getElementById('Journal').style.display = "none";
+        document.getElementById("JournalEntry1Container").style.display = "block";
     }
-        function toggleUnit2(){  
-        var JournalEntry2Box = document.getElementById("JournalEntry2Container");
-        if (JournalEntry2Box.style.display === "none" || JournalEntry2Box.style.display === "") {
-            JournalEntry2Box.style.display = "block";
-        } else {
-           JournalEntry2Box.style.display = "none";
-        }
+
+    function toggleUnit2() {  
+        document.getElementById('Journal').style.display = "none";
+        document.getElementById("JournalEntry2Container").style.display = "block";
     }
-        function toggleUnit3(){  
-        var JournalEntry3Box = document.getElementById("JournalEntry3Container");
-        if (JournalEntry3Box.style.display === "none" || JournalEntry3Box.style.display === "") {
-            JournalEntry3Box.style.display = "block";
-        } else {
-           JournalEntry3Box.style.display = "none";
+
+    function toggleUnit3() {  
+        document.getElementById('Journal').style.display = "none";
+        document.getElementById("JournalEntry3Container").style.display = "block";
+    }
+
+    function showSheetPage(pageId) {
+        var pages = document.getElementsByClassName('sheet-page');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
         }
+        document.getElementById(pageId).classList.add('active');
+    }
+
+    function toggleMiddle() { showSheetPage('sheet-middle'); }
+    function toggleBack() { showSheetPage('sheet-back'); }
+
+    function rollD20() {
+        const roll = Math.floor(Math.random() * 20) + 1;
+        document.getElementById('rollOutput').innerText = `Rolled: ${roll}`;
     }
 </script>
 </body>
