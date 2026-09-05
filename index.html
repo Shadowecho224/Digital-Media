@@ -108,10 +108,9 @@
             </div>
           </div>
 
-          <!-- Column 1: Saving Throws & Skills -->
+          <!-- Column 1: Inspiration, Proficiency, Saving Throws & Skills -->
           <div class="column">
             <div class="dnd-box"> 
-              <h2>Hit Points</h2>
               <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
                 <input type="text" name="inspiration" style="width: 30px; text-align:center;" readonly>
                 <label style="font-size:11px; font-weight:bold;">INSPIRATION</label>
@@ -164,7 +163,7 @@
             </div>
           </div>
 
-          <!-- Column 2: Combat & Gear -->
+          <!-- Column 2: Combat, HP Heart & Gear -->
           <div class="column">
             <div class="dnd-box">
               <div class="vital-row">
@@ -174,11 +173,18 @@
               </div>
             </div>
 
+            <!-- Custom Heart-Shaped Hit Points Box -->
             <div class="dnd-box">
               <h2>Hit Points</h2>
-              <p><label style="font-size:10px;">HP Maximum:</label> <input type="number" name="hpMax" style="width:50px;" readonly></p>
-              <p><label style="font-size:10px;">Current HP:</label> <input type="number" name="hpCurrent" style="width:50px;" readonly></p>
-              <p><label style="font-size:10px;">Temp HP:</label> <input type="number" name="hpTemp" style="width:50px;" readonly></p>
+              <div class="hp-heart-wrapper">
+                <div class="hp-heart-shape">
+                  <div class="hp-content">
+                    <p><label>HP Max:</label><br><input type="number" class="hp-input" name="hpMax" readonly></p>
+                    <p><label>Current HP:</label><br><input type="number" class="hp-input" name="hpCurrent" readonly></p>
+                    <p><label>Temp HP:</label><br><input type="number" class="hp-input" name="hpTemp" readonly></p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="dnd-box">
