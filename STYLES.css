@@ -259,52 +259,73 @@ ul.nav-bar li a:hover {
     text-align: center;
 }
 
-/* Center and scale the HP Heart wrapper */
+/* Hit Points Container Box Adjustments */
+.dnd-box.hp-box-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Scaled Heart Wrapper */
 .hp-heart-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  width: 100%;
+  margin-top: 5px;
 }
 
-/* The physical Heart background */
+/* Full-Sized Heart Shape */
 .hp-heart-shape {
-  width: 180px;
-  height: 170px;
+  width: 100%;
+  max-width: 250px;
+  height: 210px;
   background-color: #8b0000; /* Dark Red heart background */
-  clip-path: path("M 90,30 C 90,30 65,0 35,0 C 15,0 0,15 0,35 C 0,65 30,95 90,150 C 150,95 180,65 180,35 C 180,15 165,0 145,0 C 115,0 90,30 90,30 Z");
+  clip-path: path("M 125,35 C 125,35 90,0 48,0 C 21,0 0,21 0,48 C 0,90 42,130 125,205 C 208,130 250,90 250,48 C 250,21 229,0 202,0 C 160,0 125,35 125,35 Z");
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 15px; /* Offset text slightly for the heart notch */
+  padding-top: 15px; /* Offset for top heart notch */
 }
 
-/* Text and inputs placed over the heart */
+/* Text and Input Styling inside the Heart */
 .hp-content {
   color: white;
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .hp-content p {
-  margin: 3px 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .hp-content label {
   font-weight: bold;
-  font-size: 10px;
-  color: white;
+  font-size: 11px;
+  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Style the inputs so they fit neatly inside the heart */
 .hp-input {
-  width: 40px !important;
+  width: 50px !important;
+  height: 24px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #333;
-  border-radius: 3px;
-  color: black;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid #000 !important;
+  border-radius: 4px;
+  color: #000;
   font-weight: bold;
+  font-size: 14px;
 }
 
 /* Passive Perception Eye Styling */
