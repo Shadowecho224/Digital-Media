@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="strict-origin-when-cross-origin">   
+    <meta name="referrer" content="strict-origin-when-cross-origin">    
     <title>Digital Media</title> 
     <link rel="stylesheet" href="STYLES.css">
+
 </head>
 
 <body>
@@ -43,6 +44,7 @@
   <div class="sheet-controls" style="margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
     <button type="button" onclick="showSheetPage('sheet-main')"> Main Page</button>
     <button type="button" onclick="toggleMiddle()"> Backstory & Roleplay Page</button>
+    <button type="button" onclick="rollD20()"> Roll d20</button>
     <span id="rollOutput" style="font-weight: bold; margin-left: 10px; color: #2c3e50;"></span>
   </div>
 
@@ -81,7 +83,7 @@
             </div>
             <div class="ability-box">
               <label>DEXTERITY</label>
-              <div class="ability-mod"><input type="text" class="ability-score" name="dexScore" value="15"  style="width:20px" readonly></div>
+              <div class="ability-mod"><input type="text" class="ability-score" name="dexScore" value="15" style="width:20px" readonly></div>
               <div class="ability-score"><input type="text" class="ability-mod" name="dexMod" value="+2" readonly></div>
             </div>
             <div class="ability-box">
@@ -103,6 +105,7 @@
               <label>CHARISMA</label>
               <div class="ability-mod"><input type="text" class="ability-score" name="chaScore" value="15" style="width:20px" readonly></div>
               <div class="ability-score"><input type="text" class="ability-mod" name="chaMod" value="+2" readonly></div>
+            </div>
           </div>
 
           <!-- Column 1: Saving Throws & Skills -->
@@ -241,7 +244,6 @@
       <!-- PAGE 2: BACKSTORY -->
       <div id="sheet-middle" class="sheet-page">
         <div class="dnd-box">
-          Pre-game character backstory...
           <h2>Character Backstory</h2>
           <textarea name="characterBackstory" rows="12" readonly></textarea>
         </div>
@@ -272,7 +274,6 @@
 </div>
 
 <script>
-    // Helper to hide all main-page-content elements (including character sheet)
     function hideAllMainContent() {
         var contents = document.getElementsByClassName("main-page-content");
         for (var i = 0; i < contents.length; i++) {
@@ -286,16 +287,13 @@
         
         var isCurrentlyOpen = (targetPanel.style.display === "block");
 
-        // Hide all top navigation panels
         var panels = document.getElementsByClassName("panel");
         for (var i = 0; i < panels.length; i++) {
             panels[i].style.display = "none";
         }
 
-        // Hide the character sheet and all other main contents whenever nav links are clicked
         hideAllMainContent();
 
-        // Toggle panel display
         if (!isCurrentlyOpen) {
             targetPanel.style.display = "block";
         }
