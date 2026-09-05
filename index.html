@@ -8,7 +8,268 @@
     <title>Digital Media</title>
     
     <link rel="stylesheet" href="style.css">
+    <style>
+         /* 1. Global Reset & Portfolio Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
 
+        #header-box {
+            background-color: lightblue;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1.site-title {
+            font-size: 52px;
+            font-family: courier, monospace;
+            text-align: center;
+            color: black;
+            margin: 0;
+        }
+
+        ul.nav-bar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333333;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul.nav-bar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 18px 24px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        ul.nav-bar li a:hover {
+            background-color: #111111;
+        }
+
+        .panel {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            background-color: #333333; 
+            color: white;
+            border-bottom: 5px solid #a6d8a8;
+        }
+        
+        .main-page-content {
+            display: none;
+            margin: 40px auto;
+            width: 95%;
+            max-width: 1200px;
+            color: black;
+        }
+
+        .sheet-page {
+            display: none;
+        }
+        .sheet-page.active {
+            display: block;
+        }
+
+        /* 2. D&D Character Sheet Specific Styling */
+        #character-sheet {
+            background-color: #fdf8f0;
+            border: 2px solid #000;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Signika', sans-serif;
+            color: #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        #character-sheet h1, 
+        #character-sheet h2, 
+        #character-sheet h3 {
+            font-family: 'Cinzel', serif;
+            color: #000;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+        }
+
+        #character-sheet input[type="text"],
+        #character-sheet input[type="number"],
+        #character-sheet textarea {
+            border: none;
+            border-bottom: 1px solid #444;
+            background: transparent;
+            font-family: 'Signika', sans-serif;
+            font-size: 13px;
+            color: #000;
+            padding: 2px;
+        }
+
+        #character-sheet textarea {
+            border: 1px solid #777;
+            border-radius: 4px;
+            background-color: #fffefb;
+            resize: vertical;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Sheet Top Header Layout */
+        .dnd-header {
+            display: flex;
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: #fff;
+            gap: 15px;
+        }
+
+        .dnd-logo-box {
+            flex: 1;
+            border-right: 2px solid #000;
+            padding-right: 15px;
+        }
+
+        .dnd-header-fields {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .header-field {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .header-field label {
+            font-size: 12px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+        }
+
+        /* Official 5e Grid Layout: Stats Column + 3 Main Columns */
+        .dnd-main-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Vertical Ability Scores Column (Leftmost) */
+        .ability-scores-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ability-box {
+            border: 2px solid #000;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            padding: 6px 2px;
+            position: relative;
+        }
+
+        .ability-box label {
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 10px;
+            display: block;
+        }
+
+        .ability-score input {
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            border: none !important;
+        }
+
+        .ability-mod input {
+            width: 32px !important;
+            height: 24px;
+            border: 1px solid #000 !important;
+            border-radius: 50%;
+            text-align: center;
+            margin: 2px auto 0;
+            display: block;
+            font-weight: bold;
+            background: #fff;
+        }
+
+        /* Card Sections */
+        .dnd-box {
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 10px;
+            background: #fff;
+            margin-bottom: 15px;
+        }
+
+        .dnd-box h2 {
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3px;
+        }
+
+        .vital-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            text-align: center;
+        }
+
+        .vital-cell {
+            border: 1px solid #000;
+            border-radius: 6px;
+            padding: 4px;
+            flex: 1;
+        }
+
+        .vital-cell label {
+            font-size: 9px;
+            font-family: 'Cinzel', serif;
+            display: block;
+        }
+
+        .vital-cell input {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            border: none !important;
+        }
+
+        .checkbox-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .checkbox-list li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 3px;
+        }
+
+        .checkbox-list input[type="text"] {
+            width: 30px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
