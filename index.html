@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">    
     <title>Digital Media</title> 
-    <link rel="stylesheet" href="STYLES.css"> 
+    <link rel="stylesheet" href="STYLES.css">
 </head>
 
 <body>
@@ -110,7 +110,7 @@
           <!-- Column 1: Saving Throws & Skills -->
           <div class="column">
             <div class="dnd-box"> 
-              <h2>Vitals & Bonuses</h2>
+              <h2>Hit Points</h2>
               <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
                 <input type="text" name="inspiration" style="width: 30px; text-align:center;" readonly>
                 <label style="font-size:11px; font-weight:bold;">INSPIRATION</label>
@@ -118,19 +118,6 @@
               <div style="display:flex; gap:10px; align-items:center;">
                 <input type="text" name="proficiencyBonus" style="width: 30px; text-align:center;" readonly>
                 <label style="font-size:11px; font-weight:bold;">PROFICIENCY BONUS</label>
-              </div>
-            </div>
-
-            <!-- Passive Perception Box with Eye Icon -->
-            <div class="dnd-box passive-perception-box">
-              <div class="passive-perception-content">
-                <input type="text" name="passivePerception" value="12" readonly>
-                <div class="eye-wrapper">
-                  <svg class="eye-icon" viewBox="0 0 24 24" width="22" height="22">
-                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                  </svg>
-                  <label>PASSIVE WISDOM (PERCEPTION)</label>
-                </div>
               </div>
             </div>
 
@@ -170,6 +157,15 @@
               </ul>
             </div>
 
+            <!-- Passive Perception Eye Box -->
+            <div class="dnd-box passive-perception-box">
+              <div class="eye-icon">
+                <div class="eye-pupil"></div>
+              </div>
+              <input type="text" name="passivePerception" value="12" readonly>
+              <label>PASSIVE WISDOM (PERCEPTION)</label>
+            </div>
+
             <div class="dnd-box">
               <h2>Proficiencies & Languages</h2>
               <textarea name="proficiencies" rows="4" readonly></textarea>
@@ -186,18 +182,18 @@
               </div>
             </div>
 
-        <div class="dnd-box">
-  <h2>Hit Points</h2>
-  <div class="hp-heart-wrapper">
-    <div class="hp-heart-shape">
-      <div class="hp-content">
-        <p><label>HP Max:</label> <input type="number" name="hpMax" class="hp-input" readonly></p>
-        <p><label>Current:</label> <input type="number" name="hpCurrent" class="hp-input" readonly></p>
-        <p><label>Temp:</label> <input type="number" name="hpTemp" class="hp-input" readonly></p>
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="dnd-box">
+              <h2>Hit Points</h2>
+              <div class="hp-heart-wrapper">
+                <div class="hp-heart-shape">
+                  <div class="hp-content">
+                    <p><label>HP Max:</label> <input type="number" name="hpMax" class="hp-input" readonly></p>
+                    <p><label>Current HP:</label> <input type="number" name="hpCurrent" class="hp-input" readonly></p>
+                    <p><label>Temp HP:</label> <input type="number" name="hpTemp" class="hp-input" readonly></p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="dnd-box">
               <h2>Attacks & Spellcasting</h2>
