@@ -258,3 +258,50 @@
             width: 30px;
             text-align: center;
         }
+        /* Center and scale the wrapper */
+        .hp-heart-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 10px 0;
+        }
+
+        /* The physical Heart background */
+        .hp-heart-shape {
+          width: 180px;
+          height: 170px;
+          background-color: #8b0000; /* Dark Red heart background */
+          clip-path: path("M 90,30 C 90,30 65,0 35,0 C 15,0 0,15 0,35 C 0,65 30,95 90,150 C 150,95 180,65 180,35 C 180,15 165,0 145,0 C 115,0 90,30 90,30 Z");
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 15px; /* Offset text slightly for the heart notch */
+        }
+
+        /* Text and inputs placed over the heart */
+        .hp-content {
+          color: white;
+          text-align: center;
+          font-size: 11px;
+        }
+
+        .hp-content p {
+          margin: 3px 0;
+        }
+
+        .hp-content label {
+          font-weight: bold;
+          font-size: 10px;
+          color: white;
+        }
+
+        /* Style the inputs so they fit neatly inside the heart */
+        .hp-input {
+          width: 40px !important;
+          text-align: center;
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid #333;
+          border-radius: 3px;
+          color: black;
+          font-weight: bold;
+        }
