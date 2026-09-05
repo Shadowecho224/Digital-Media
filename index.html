@@ -186,12 +186,18 @@
               </div>
             </div>
 
-            <div class="dnd-box">
-              <h2>Hit Points</h2>
-              <p><label style="font-size:10px;">HP Maximum:</label> <input type="number" name="hpMax" style="width:50px;" readonly></p>
-              <p><label style="font-size:10px;">Current HP:</label> <input type="number" name="hpCurrent" style="width:50px;" readonly></p>
-              <p><label style="font-size:10px;">Temp HP:</label> <input type="number" name="hpTemp" style="width:50px;" readonly></p>
-            </div>
+        <div class="dnd-box">
+  <h2>Hit Points</h2>
+  <div class="hp-heart-wrapper">
+    <div class="hp-heart-shape">
+      <div class="hp-content">
+        <p><label>HP Max:</label> <input type="number" name="hpMax" class="hp-input" readonly></p>
+        <p><label>Current:</label> <input type="number" name="hpCurrent" class="hp-input" readonly></p>
+        <p><label>Temp:</label> <input type="number" name="hpTemp" class="hp-input" readonly></p>
+      </div>
+    </div>
+  </div>
+</div>
 
             <div class="dnd-box">
               <h2>Attacks & Spellcasting</h2>
