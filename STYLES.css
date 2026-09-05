@@ -259,7 +259,7 @@ ul.nav-bar li a:hover {
     text-align: center;
 }
 
-/* Center and scale the wrapper */
+/* Center and scale the HP Heart wrapper */
 .hp-heart-wrapper {
   display: flex;
   justify-content: center;
@@ -307,42 +307,49 @@ ul.nav-bar li a:hover {
   font-weight: bold;
 }
 
-/* 3. Passive Perception Box Styling */
+/* Passive Perception Eye Styling */
 .passive-perception-box {
-    padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
 }
 
-.passive-perception-content {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.passive-perception-box input[type="text"] {
+  width: 32px !important;
+  height: 28px;
+  border: 2px solid #000 !important;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  background: #fff;
 }
 
-.passive-perception-content input[type="text"] {
-    width: 32px !important;
-    height: 28px;
-    border: 1px solid #000 !important;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    background: #fff;
+.passive-perception-box label {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 9px;
+  letter-spacing: 0.5px;
 }
 
-.eye-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
+/* CSS Drawn Eye Icon */
 .eye-icon {
-    fill: #000;
-    flex-shrink: 0;
+  width: 24px;
+  height: 14px;
+  border: 2px solid #000;
+  border-radius: 80% 0;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 2px;
 }
 
-.eye-wrapper label {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    font-weight: bold;
-    line-height: 1.1;
+.eye-pupil {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
 }
