@@ -1,311 +1,398 @@
-<!DOCTYPE html>
+make it so the format on html code matches this photo
+
+add to code: <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="strict-origin-when-cross-origin">    
-    <title>Digital Media</title> 
-    <link rel="stylesheet" href="STYLES.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">    
+    <title>Digital Media</title> 
+    <link rel="stylesheet" href="STYLES.css">
+
 </head>
 
 <body>
 <div id="header-box">
-    <h1 class="site-title" style="color: white;">Digital Media Portfolio</h1>
+    <h1 class="site-title" style="color: white;">Digital Media Portfolio</h1>
 </div>
 
 <ul class="nav-bar">
-    <li><a onclick="showPanel('hero')">Hero Card</a></li>
-    <li><a onclick="showPanel('citizen')">Global Citizen</a></li>
-    <li><a onclick="showPanel('Journal')">Journal Entries</a></li>
+    <li><a onclick="showPanel('hero')">Hero Card</a></li>
+    <li><a onclick="showPanel('citizen')">Global Citizen</a></li>
+    <li><a onclick="showPanel('Journal')">Journal Entries</a></li>
 </ul>
 
 <div id="hero" class="panel">
-    <h2 style="color: white">Hero Card</h2>
-    <button onclick="toggleCharacter()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Character Sheet</button>
+    <h2 style="color: white">Hero Card</h2>
+    <button onclick="toggleCharacter()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Character Sheet</button>
 </div>
 
 <div id="citizen" class="panel">
-    <h2 style="color: white">Global Citizen</h2>
-    <p>A famous individual who has significantly impacted globalization, sustainability, or global awareness.</p>
-    <button onclick="toggleGlobalCitizen()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Show</button>
+    <h2 style="color: white">Global Citizen</h2>
+    <p>A famous individual who has significantly impacted globalization, sustainability, or global awareness.</p>
+    <button onclick="toggleGlobalCitizen()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Show</button>
 </div>
 
 <div id="Journal" class="panel">
-    <h2>Journal Entries</h2>
-    <button onclick="toggleUnit1()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 1</button>
-    <button onclick="toggleUnit2()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 2</button>
-    <button onclick="toggleUnit3()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 3</button>
+    <h2>Journal Entries</h2>
+    <button onclick="toggleUnit1()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 1</button>
+    <button onclick="toggleUnit2()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 2</button>
+    <button onclick="toggleUnit3()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; background-color:#5A5A5D;color:#F8F8FF">Unit 3</button>
 </div>
 
 <!-- Character Sheet Container -->
 <div id="characterContainer" class="main-page-content">
-  <div class="sheet-controls" style="margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-    <button type="button" onclick="showSheetPage('sheet-main')"> Main Page</button>
-    <button type="button" onclick="toggleMiddle()"> Backstory & Roleplay Page</button>
-  </div>
+  <div class="sheet-controls" style="margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+    <button type="button" onclick="showSheetPage('sheet-main')"> Main Page</button>
+    <button type="button" onclick="toggleMiddle()"> Backstory & Roleplay Page</button>
+  </div>
 
-  <form id="character-form">
-    <article id="character-sheet">
-      
-      <!-- MAIN CHARACTER SHEET PAGE -->
-      <div id="sheet-main" class="sheet-page active">
-        
-        <!-- Header Banner matching the sketch -->
-        <header class="dnd-header">
-          <div class="dnd-logo-box">
-            <div class="header-field">
-              <input type="text" style="font-size: 20px;" name="charName" value="Echo" readonly>
-              <label>Character Name</label>
-            </div>
-          </div>
-          <div class="dnd-header-fields">
-            <div class="header-field"><input type="text" style="font-size: 20px;" name="class" value="Monk" readonly><label>Class</label></div>
-            <div class="header-field"><input type="text" style="font-size: 20px;" name="age" value="16" readonly><label>Age</label></div>
-            <div class="header-field"><input type="text" style="font-size: 20px;" name="race" value="Human" readonly><label>Race</label></div>
-          </div>
-        </header>
+  <form id="character-form">
+    <article id="character-sheet">
+      
+      <!-- MAIN CHARACTER SHEET PAGE -->
+      <div id="sheet-main" class="sheet-page active">
+        
+        <!-- Header Banner -->
+        <header class="dnd-header">
+          <div class="dnd-logo-box">
+            <h1>Dungeons & Dragons</h1>
+            <div class="header-field">
+              <input type="text" style="font-size: 20px;" name="charName" value="Echo" readonly>
+              <label>Character Name</label>
+            </div>
+          </div>
+          <div class="dnd-header-fields">
+            <div class="header-field"><input type="text" style="font-size: 20px;" name="class" value="Monk" readonly><label>Class</label></div>
+            <div class="header-field"><input type="text" style="font-size: 20px;" name="age" value="16" readonly><label>Age</label></div>
+            <div class="header-field"><input type="text" style="font-size: 20px;" name="race" value="Human" readonly><label>Race</label></div>
+            <div class="header-field"><input type="text" style="font-size: 20px;" name="alignment" value="Chaotic Neutral" readonly><label>Alignment</label></div>
+          </div>
+        </header>
 
-        <!-- Main Layout Grid matching drawing layout -->
-        <div class="dnd-main-grid">
-          
-          <!-- Column 1: Vertical Ability Scores Block -->
-          <div class="ability-scores-column">
-            <div class="ability-box">
-              <label>Strength</label>
-              <div class="ability-score"><input type="text" name="strScore" value="17" readonly></div>
-              <div class="ability-mod"><input type="text" name="strMod" value="+3" readonly></div>
-            </div>
-            <div class="ability-box">
-              <label>Dexterity</label>
-              <div class="ability-score"><input type="text" name="dexScore" value="20" readonly></div>
-              <div class="ability-mod"><input type="text" name="dexMod" value="+5" readonly></div>
-            </div>
-            <div class="ability-box">
-              <label>Constitution</label>
-              <div class="ability-score"><input type="text" name="conScore" value="16" readonly></div>
-              <div class="ability-mod"><input type="text" name="conMod" value="+3" readonly></div>
-            </div>
-            <div class="ability-box">
-              <label>Intelligence</label>
-              <div class="ability-score"><input type="text" name="intScore" value="15" readonly></div>
-              <div class="ability-mod"><input type="text" name="intMod" value="+2" readonly></div>
-            </div>
-            <div class="ability-box">
-              <label>Wisdom</label>
-              <div class="ability-score"><input type="text" name="wisScore" value="15" readonly></div>
-              <div class="ability-mod"><input type="text" name="wisMod" value="+2" readonly></div>
-            </div>
-            <div class="ability-box">
-              <label>Charisma</label>
-              <div class="ability-score"><input type="text" name="chaScore" value="15" readonly></div>
-              <div class="ability-mod"><input type="text" name="chaMod" value="+2" readonly></div>
-            </div>
-          </div>
+        <!-- Official Layout Grid -->
+        <div class="dnd-main-grid">
+          
+          <!-- Far Left: Vertical Ability Scores Block -->
+          <div class="ability-scores-column">
+            <div class="ability-box">
+              <label>STRENGTH</label>
+              <div class="ability-mod"><input type="text" class="ability-score" name="strScore" value="17" style="width:20px;" readonly></div>
+              <div class="ability-score"><input type="text" class="ability-mod" name="strMod" value="+3" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>DEXTERITY</label>
+              <div class="ability-mod"><input type="text" class="ability-score" name="dexScore" value="20" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="text" class="ability-mod" name="dexMod" value="+5" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>CONSTITUTION</label>
+              <div class="ability-mod"><input type="text" class="ability-score" name="conScore" value="15" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="text" class="ability-mod" name="conMod" value="+2" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>INTELLIGENCE</label>
+              <div class="ability-mod"><input type="text" class="ability-score" name="intScore" value="14" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="text" class="ability-mod" name="intMod" value="+2" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>WISDOM</label>
+              <div class="ability-mod"><input type="text" class="ability-score" name="wisScore" value="14" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="text" class="ability-mod" name="wisMod" value="+2" readonly></div>
+            </div>
+            <div class="ability-box">
+              <label>CHARISMA</label>
+              <div class="ability-mod"><input type="text" class="ability-score" name="chaScore" value="15" style="width:20px" readonly></div>
+              <div class="ability-score"><input type="text" class="ability-mod" name="chaMod" value="+2" readonly></div>
+            </div>
+          </div>
 
-          <!-- Column 2: Skills Block (Placed beside Ability Scores) -->
-          <div class="column">
-            <div class="dnd-box">
-              <h2>Skills</h2>
-              <ul class="checkbox-list">
-                <li><input type="checkbox" name="skillProf_adaptable"> Adaptable <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Adjusts quickly to new environments and challenges.</span></li>
-                <li><input type="checkbox" name="skill2"> _________</li>
-                <li><input type="checkbox" name="skill3"> _________</li>
-                <li><input type="checkbox" name="skill4"> _________</li>
-                <li><input type="checkbox" name="skill5"> _________</li>
-                <li><input type="checkbox" name="skill6"> _________</li>
-                <li><input type="checkbox" name="skill7"> _________</li>
-                <li><input type="checkbox" name="skill8"> _________</li>
-                <li><input type="checkbox" name="skill9"> _________</li>
-                <li><input type="checkbox" name="skill10"> _________</li>
-                <li><input type="checkbox" name="skill11"> _________</li>
-                <li><input type="checkbox" name="skill12"> _________</li>
-                <li><input type="checkbox" name="skill13"> _________</li>
-                <li><input type="checkbox" name="skill14"> _________</li>
-                <li><input type="checkbox" name="skill15"> _________</li>
-                <li><input type="checkbox" name="skill16"> _________</li>
-                <li><input type="checkbox" name="skill17"> _________</li>
-                <li><input type="checkbox" name="skill18"> _________</li>
-              </ul>
-            </div>
-          </div>
 
-          <!-- Column 3: Combat Stats & Detailed Attacks -->
-          <div class="column">
-            <div class="dnd-box">
-              <div class="vital-row" style="display: flex; gap: 10px; justify-content: space-around;">
-                <div class="vital-cell"><label>Armor Class</label><input type="text" name="ac" readonly></div>
-                <div class="vital-cell"><label>Speed</label><input type="text" name="speed" value="30ft" readonly></div>
-                <div class="vital-cell"><label>Initiative</label><input type="text" name="initiative" value="+5" readonly></div>
-              </div>
-            </div>
+            <div class="dnd-box">
+              <h2>Proficiencies & Languages</h2>
+              <textarea name="proficiencies" rows="4" readonly></textarea>
+            </div>
+          </div>
 
-            <div class="dnd-box">
-              <h2>Attacks</h2>
-              <textarea name="attacks" rows="22" style="width: 100%; font-family: monospace;" readonly>Punches:
-1 (Jab) 1d6 + 13
-2 (Cross) 1d6 + 13
-3 (L Hook) 1d6 + 13
-4 (R Hook) 1d6 + 13
-5 (L Uppercut) 1d6 + 13
-6 (R Uppercut) 1d6 + 13
-7 (R Overhand) 1d6 + 13
+          <!-- Column 1: Saving Throws & Skills -->
+          <div class="column">
+            <div class="dnd-box"> 
+              <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+                <input type="text" name="inspiration" style="width: 30px; text-align:center;" readonly>
+                <label style="font-size:11px; font-weight:bold;">INSPIRATION</label>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <input type="text" class="ability-mod" name="proficiencyBonus" value="+5" style="width: 30px; text-align:center;" readonly>
+                <label style="font-size:11px; font-weight:bold;">PROFICIENCY BONUS</label>
+              </div>
+            </div>
 
-Elbows:
-Overhand Elbow 1d6 + 13
-Upper Elbow 1d6 + 13
-Elbow (across) 1d6 + 13
+            <div class="dnd-box">
+              <h2>Saving Throws</h2>
+              <ul class="checkbox-list">
+                <li><input type="checkbox" checked disabled name="saveProf_str"><input type="text" name="saveMod_str" value="+8" readonly> Strength</li>
+                <li><input type="checkbox" checked disabled name="saveProf_dex"><input type="text" name="saveMod_dex" value="+10" readonly> Dexterity</li>
+                <li><input type="checkbox" disabled name="saveProf_con"><input type="text" name="saveMod_con" value="+2" readonly> Constitution</li>
+                <li><input type="checkbox" disabled name="saveProf_int"><input type="text" name="saveMod_int" value="+2" readonly> Intelligence</li>
+                <li><input type="checkbox" disabled name="saveProf_wis"><input type="text" name="saveMod_wis" value="+2" readonly> Wisdom</li>
+                <li><input type="checkbox" disabled name="saveProf_cha"><input type="text" name="saveMod_cha" value="+2" readonly> Charisma</li>
+              </ul>
+            </div>
 
-Kicks & Knees:
-Roundhouse kick 1d6 + 13
-Teep (front kick) 1d6 + 13
-Jump knee 1d6 + 13
-Knee 1d6 + 13</textarea>
-            </div>
-          </div>
+            <div class="dnd-box">
+              <h2>Skills</h2>
+              <ul class="checkbox-list">
+                <li><input type="checkbox" checked disabled name="skillProf_adaptable"> <input type="text" name="skillMod_adaptable" value="+10" readonly> Adaptable <span style="font-size:9px;">(Dex)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Adjusts quickly to new environments and challenges.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_affectionate"> <input type="text" name="skillMod_affectionate" value="+7" readonly> Affectionate <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Warm and expressive in building emotional bonds.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_agreeable"> <input type="text" name="skillMod_agreeable" value="+7" readonly> Agreeable <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Fosters harmony and diffuses social friction.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_attentive"> <input type="text" name="skillMod_attentive" value="+7" readonly> Attentive <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Notices subtle details and hidden clues easily.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_authentic"> <input type="text" name="skillMod_authentic" value="+7" readonly> Authentic <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stays genuine and true without pretense.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_calm"> <input type="text" name="skillMod_calm" value="+7" readonly> Calm <span style="font-size:9px;">(Con)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Maintains focus under intense pressure.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_candid"> <input type="text" name="skillMod_candid" value="+7" readonly> Candid <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Speaks directly and cuts through deception.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_caring"> <input type="text" name="skillMod_caring" value="+7" readonly> Caring <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows deep concern for the well-being of others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_cheerful"> <input type="text" name="skillMod_cheerful" value="+7" readonly> Cheerful <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Lifts party morale in difficult situations.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_compassionate"> <input type="text" name="skillMod_compassionate" value="+7" readonly> Compassionate <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Acts with mercy and deep empathy toward others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_courageous"> <input type="text" name="skillMod_courageous" value="+8" readonly> Courageous <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stands firm against overwhelming threats.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_creative"> <input type="text" name="skillMod_creative" value="+7" readonly> Creative <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Devises innovative and unexpected solutions.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_curious"> <input type="text" name="skillMod_curious" value="+7" readonly> Curious <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Driven to investigate and uncover mysteries.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_daring"> <input type="text" name="skillMod_daring" value="+8" readonly> Daring <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Executes bold, high-risk physical actions.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_earnest"> <input type="text" name="skillMod_earnest" value="+7" readonly> Earnest <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows sincere and dedicated commitment.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_easygoing"> <input type="text" name="skillMod_easygoing" value="+7" readonly> Easygoing <span style="font-size:9px;">(Con)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shrugs off fatigue and minor troubles effortlessly.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_empathetic"> <input type="text" name="skillMod_empathetic" value="+7" readonly> Empathetic <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Senses hidden feelings and intentions of others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_energetic"> <input type="text" name="skillMod_energetic" value="+8" readonly> Energetic <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Possesses relentless stamina and vigor.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_faithful"> <input type="text" name="skillMod_faithful" value="+7" readonly> Faithful <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stays steadfast to personal beliefs and oaths.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_fearless"> <input type="text" name="skillMod_fearless" value="+8" readonly> Fearless <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Resists physical intimidation with ease.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_generous"> <input type="text" name="skillMod_generous" value="+7" readonly> Generous <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Freely shares assistance and gear with allies.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_gracious"> <input type="text" name="skillMod_gracious" value="+7" readonly> Gracious <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Navigates awkward social moments with tact.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_honest"> <input type="text" name="skillMod_honest" value="+7" readonly> Honest <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Maintains strict truthfulness and integrity.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_humorous"> <input type="text" name="skillMod_humorous" value="+7" readonly> Humorous <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Uses wit to distract foes or break tension.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_intruitive"> <input type="text" name="skillMod_intruitive" value="+7" readonly> Intuitive <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Trusts accurate gut instincts during uncertainty.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_joyful"> <input type="text" name="skillMod_joyful" value="+7" readonly> Joyful <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Radiates comforting, positive energy to others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_just"> <input type="text" name="skillMod_just" value="+7" readonly> Just <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Evaluates situations with strict fairness.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_kind"> <input type="text" name="skillMod_kind" value="+7" readonly> Kind <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Treats all creatures with gentle consideration.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_loyal"> <input type="text" name="skillMod_loyal" value="+7" readonly> Loyal <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Unwavering support for companions and causes.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_magnanimous"> <input type="text" name="skillMod_magnanimous" value="+7" readonly> Magnanimous <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows noble forgiveness toward vanquished foes.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_open-minded"> <input type="text" name="skillMod_open-minded" value="+7" readonly> Open-Minded <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Receptive to unconventional ideas and views.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_optimistic"> <input type="text" name="skillMod_optimistic" value="+7" readonly> Optimistic <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Always focuses on positive outcomes.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_passionate"> <input type="text" name="skillMod_passionate" value="+7" readonly> Passionate <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Pursues goals with infectious enthusiasm.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_philosophical"> <input type="text" name="skillMod_philosophical" value="+7" readonly> Philosophical <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Ponders deeper meanings behind complex events.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_sincere"> <input type="text" name="skillMod_sincere" value="+7" readonly> Sincere <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Acts with pure intent and no hidden motives.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_sociable"> <input type="text" name="skillMod_sociable" value="+7" readonly> Sociable <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Befriends and connects with strangers easily.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_thoughtful"> <input type="text" name="skillMod_thoughtful" value="+7" readonly> Thoughtful <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Weighs actions carefully before deciding.</span></li>
+              </ul>
+            </div>
 
-          <!-- Column 4: Saving Throws & Death Saves -->
-          <div class="column">
-            <div class="dnd-box">
-              <h2>Saving Throws</h2>
-              <ul class="checkbox-list">
-                <li><input type="checkbox" checked disabled name="saveProf_str"> Strength</li>
-                <li><input type="checkbox" checked disabled name="saveProf_dex"> Dexterity</li>
-                <li><input type="checkbox" disabled name="saveProf_con"> Constitution</li>
-                <li><input type="checkbox" disabled name="saveProf_int"> Intelligence</li>
-                <li><input type="checkbox" disabled name="saveProf_wis"> Wisdom</li>
-                <li><input type="checkbox" disabled name="saveProf_cha"> Charisma</li>
-              </ul>
-            </div>
+           
+              
+            <div class="dnd-box">
+              <h2>Proficiencies & Languages</h2>
+              <textarea name="proficiencies" rows="4" readonly></textarea>
+            </div>
+          </div>
 
-            <div class="dnd-box">
-              <h2>Death Saves</h2>
-              <div style="font-size: 13px;">
-                <p>Success: <span>♡ ♡ ♡</span></p>
-                <p>Fail: <span>♡ ♡ ♡</span></p>
-              </div>
-            </div>
-          </div>
 
-        </div>
+          <!-- Passive Perception Eye Box -->
+            <div class="dnd-box passive-perception-box">
+              <div class="eye-icon">
+                <div class="eye-pupil"></div>
+              </div>
+              <input type="text" name="passivePerception" value="12" readonly>
+              <label>PASSIVE WISDOM (PERCEPTION)</label>
+            </div>
 
-        <!-- Passive Perception Box running along the bottom -->
-        <div class="dnd-box passive-perception-box" style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
-          <div class="eye-icon" style="border: 1px solid #000; border-radius: 50%; width: 30px; height: 18px; display: flex; align-items: center; justify-content: center;">
-            <div class="eye-pupil" style="width: 8px; height: 8px; background: #000; border-radius: 50%;"></div>
-          </div>
-          <label style="font-weight: bold;">Passive Perception</label>
-        </div>
+          
+          <!-- Column 2: Combat & Gear -->
+          <div class="column">
+            <div class="dnd-box">
+              <div class="vital-row">
+                <div class="vital-cell"><label>ARMOR CLASS</label><input type="number" name="ac" readonly></div>
+                <div class="vital-cell"><label>INITIATIVE</label><input type="text" name="initiative" readonly></div>
+                <div class="vital-cell"><label>SPEED</label><input type="text" name="speed" value="30ft" readonly></div>
+              </div>
+            </div>
 
-      </div>
+            <div class="dnd-box hp-box-container">
+              <h2>Hit Points</h2>
+              <div class="hp-heart-wrapper">
+                <div class="hp-heart-shape">
+                  <div class="hp-content">
+                    <p><label>HP Max:</label> <input type="number" name="hpMax" class="hp-input" readonly></p>
+                    <p><label>Current HP:</label> <input type="number" name="hpCurrent" class="hp-input" readonly></p>
+                    <p><label>Temp HP:</label> <input type="number" name="hpTemp" class="hp-input" readonly></p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      <!-- PAGE 2: BACKSTORY -->
-      <div id="sheet-middle" class="sheet-page">
-        <div class="dnd-box">
-          <h2>Character Backstory</h2>
-          <textarea name="characterBackstory" rows="12" readonly></textarea>
-        </div>
-      </div>
+            <div class="dnd-box">
+              <h2>Attacks & Spellcasting</h2>
+              <table style="width:100%; font-size:11px; margin-bottom:8px;">
+                <thead>
+                  <tr><th>Name</th><th>Atk</th><th>Damage</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" name="atkName1" style="width:100%" readonly></td>
+                    <td><input type="text" name="atkBonus1" style="width:30px" readonly></td>
+                    <td><input type="text" name="atkDmg1" style="width:100%" readonly></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="atkName2" style="width:100%" readonly></td>
+                    <td><input type="text" name="atkBonus2" style="width:30px" readonly></td>
+                    <td><input type="text" name="atkDmg2" style="width:100%" readonly></td>
+                  </tr>
+                </tbody>
+              </table>
+              <textarea name="spellNotes" rows="4" placeholder="Spell/attack notes..." readonly></textarea>
+            </div>
 
-    </article>
-  </form>
+            <div class="dnd-box">
+              <h2>Equipment</h2>
+              <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:5px;">
+                <span>CP: <input type="number" name="cp" style="width:30px" readonly></span>
+                <span>SP: <input type="number" name="sp" style="width:30px" readonly></span>
+                <span>GP: <input type="number" name="gp" style="width:30px" readonly></span>
+                <span>PP: <input type="number" name="pp" style="width:30px" readonly></span>
+              </div>
+              <textarea name="inventory" rows="6" readonly></textarea>
+            </div>
+          </div>
+
+          <!-- Column 3: Roleplay & Traits -->
+          <div class="column">
+            <div class="dnd-box">
+              <h2>Personality Traits</h2>
+              <textarea name="traits" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Ideals</h2>
+              <textarea name="ideals" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Bonds</h2>
+              <textarea name="bonds" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Flaws</h2>
+              <textarea name="flaws" rows="3" readonly></textarea>
+            </div>
+            <div class="dnd-box">
+              <h2>Features & Traits</h2>
+              <textarea name="features" rows="8" readonly></textarea>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAGE 2: BACKSTORY -->
+      <div id="sheet-middle" class="sheet-page">
+        <div class="dnd-box">
+          <h2>Character Backstory</h2>
+          <textarea name="characterBackstory" rows="12" readonly></textarea>
+        </div>
+      </div>
+
+    </article>
+  </form>
 </div>
 
 <!-- Remaining Portfolio Sections -->
 <div id="travelContainer" class="main-page-content">
-    <h2 style="font-size:40px; color:black">Places or Countries I Have Travelled To</h2>
-    <p><img src="download.jpeg" alt="Travel Location"></p>
-    <p style="color:black"><b>Sylvan Lake</b></p>
-    <p>- I went to Sylvan lake with my grandma and my brother to have fun in the lake.</p>
+    <h2 style="font-size:40px; color:black">Places or Countries I Have Travelled To</h2>
+    <p><img src="download.jpeg" alt="Travel Location"></p>
+    <p style="color:black"><b>Sylvan Lake</b></p>
+    <p>- I went to Sylvan lake with my grandma and my brother to have fun in the lake.</p>
 </div>
 
 <div id="JournalEntry1Container" class="main-page-content">
-    <p style="color:black">Journal Entry 1 Content</p>
+    <p style="color:black">Journal Entry 1 Content</p>
 </div>
 
 <div id="JournalEntry2Container" class="main-page-content">
-    <p style="color:black">Journal Entry 2 Content</p>
+    <p style="color:black">Journal Entry 2 Content</p>
 </div>
 
 <div id="JournalEntry3Container" class="main-page-content">
-    <p style="color:black">Journal Entry 3 Content</p>
+    <p style="color:black">Journal Entry 3 Content</p>
 </div>
 
 <script>
-    /* Function to toggle skill note visible beside the skill button */
-    function toggleSkillNote(buttonElement) {
-        var note = buttonElement.nextElementSibling;
-        if (note.style.display === "none" || note.style.display === "") {
-            note.style.display = "inline-block";
-        } else {
-            note.style.display = "none";
-        }
-    }
+    /* Function to toggle skill note visible beside the skill button */
+    function toggleSkillNote(buttonElement) {
+        var note = buttonElement.nextElementSibling;
+        if (note.style.display === "none" || note.style.display === "") {
+            note.style.display = "inline-block";
+        } else {
+            note.style.display = "none";
+        }
+    }
 
-    function hideAllMainContent() {
-        var contents = document.getElementsByClassName("main-page-content");
-        for (var i = 0; i < contents.length; i++) {
-            contents[i].style.display = "none";
-        }
-    }
+    function hideAllMainContent() {
+        var contents = document.getElementsByClassName("main-page-content");
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].style.display = "none";
+        }
+    }
 
-    function showPanel(panelId) {
-        var targetPanel = document.getElementById(panelId);
-        if (!targetPanel) return;
-        
-        var isCurrentlyOpen = (targetPanel.style.display === "block");
+    function showPanel(panelId) {
+        var targetPanel = document.getElementById(panelId);
+        if (!targetPanel) return;
+        
+        var isCurrentlyOpen = (targetPanel.style.display === "block");
 
-        var panels = document.getElementsByClassName("panel");
-        for (var i = 0; i < panels.length; i++) {
-            panels[i].style.display = "none";
-        }
+        var panels = document.getElementsByClassName("panel");
+        for (var i = 0; i < panels.length; i++) {
+            panels[i].style.display = "none";
+        }
 
-        hideAllMainContent();
+        hideAllMainContent();
 
-        if (!isCurrentlyOpen) {
-            targetPanel.style.display = "block";
-        }
-    }
+        if (!isCurrentlyOpen) {
+            targetPanel.style.display = "block";
+        }
+    }
 
-    function toggleCharacter() {
-        document.getElementById('hero').style.display = "none";
-        hideAllMainContent();
-        document.getElementById("characterContainer").style.display = "block";
-    }
+    function toggleCharacter() {
+        document.getElementById('hero').style.display = "none";
+        hideAllMainContent();
+        document.getElementById("characterContainer").style.display = "block";
+    }
 
-    function toggleGlobalCitizen() {
-        document.getElementById('citizen').style.display = "none";
-        hideAllMainContent();
-        document.getElementById("travelContainer").style.display = "block";
-    }
+    function toggleGlobalCitizen() {
+        document.getElementById('citizen').style.display = "none";
+        hideAllMainContent();
+        document.getElementById("travelContainer").style.display = "block";
+    }
 
-    function toggleUnit1() {  
-        document.getElementById('Journal').style.display = "none";
-        hideAllMainContent();
-        document.getElementById("JournalEntry1Container").style.display = "block";
-    }
+    function toggleUnit1() {  
+        document.getElementById('Journal').style.display = "none";
+        hideAllMainContent();
+        document.getElementById("JournalEntry1Container").style.display = "block";
+    }
 
-    function toggleUnit2() {  
-        document.getElementById('Journal').style.display = "none";
-        hideAllMainContent();
-        document.getElementById("JournalEntry2Container").style.display = "block";
-    }
+    function toggleUnit2() {  
+        document.getElementById('Journal').style.display = "none";
+        hideAllMainContent();
+        document.getElementById("JournalEntry2Container").style.display = "block";
+    }
 
-    function toggleUnit3() {  
-        document.getElementById('Journal').style.display = "none";
-        hideAllMainContent();
-        document.getElementById("JournalEntry3Container").style.display = "block";
-    }
+    function toggleUnit3() {  
+        document.getElementById('Journal').style.display = "none";
+        hideAllMainContent();
+        document.getElementById("JournalEntry3Container").style.display = "block";
+    }
 
-    function showSheetPage(pageId) {
-        var pages = document.getElementsByClassName('sheet-page');
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].classList.remove('active');
-        }
-        document.getElementById(pageId).classList.add('active');
-    }
+    function showSheetPage(pageId) {
+        var pages = document.getElementsByClassName('sheet-page');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
+        }
+        document.getElementById(pageId).classList.add('active');
+    }
 
-    function toggleMiddle() { showSheetPage('sheet-middle'); }
-    function toggleBack() { showSheetPage('sheet-back'); }
+    function toggleMiddle() { showSheetPage('sheet-middle'); }
+    function toggleBack() { showSheetPage('sheet-back'); }
 </script>
 </body>
 </html>
