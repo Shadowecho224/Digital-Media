@@ -261,210 +261,210 @@ ul.nav-bar li a:hover {
 
 /* Hit Points Container Box Adjustments */
 .dnd-box.hp-box-container {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 /* Scaled Heart Wrapper */
 .hp-heart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   margin-top: 5px;
 }
 
 /* Full-Sized Heart Shape */
 .hp-heart-shape {
-  width: 100%;
-  max-width: 250px;
-  height: 210px;
-  background-color: #8b0000; /* Dark Red heart background */
-  clip-path: path("M 125,35 C 125,35 90,0 48,0 C 21,0 0,21 0,48 C 0,90 42,130 125,205 C 208,130 250,90 250,48 C 250,21 229,0 202,0 C 160,0 125,35 125,35 Z");
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 15px; /* Offset for top heart notch */
+   width: 100%;
+   max-width: 250px;
+   height: 210px;
+   background-color: #8b0000; /* Dark Red heart background */
+   clip-path: path("M 125,35 C 125,35 90,0 48,0 C 21,0 0,21 0,48 C 0,90 42,130 125,205 C 208,130 250,90 250,48 C 250,21 229,0 202,0 C 160,0 125,35 125,35 Z");
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 15px; /* Offset for top heart notch */
 }
 
 /* Text and Input Styling inside the Heart */
 .hp-content {
-  color: white;
-  text-align: center;
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+   color: white;
+   text-align: center;
+   font-size: 13px;
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
 }
 
 .hp-content p {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+   margin: 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 8px;
 }
 
 .hp-content label {
-  font-weight: bold;
-  font-size: 11px;
-  color: #ffffff;
-  font-family: 'Cinzel', serif;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+   font-weight: bold;
+   font-size: 11px;
+   color: #ffffff;
+   font-family: 'Cinzel', serif;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
 }
 
 .hp-input {
-  width: 50px !important;
-  height: 24px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid #000 !important;
-  border-radius: 4px;
-  color: #000;
-  font-weight: bold;
-  font-size: 14px;
+   width: 50px !important;
+   height: 24px;
+   text-align: center;
+   background: rgba(255, 255, 255, 0.95) !important;
+   border: 1px solid #000 !important;
+   border-radius: 4px;
+   color: #000;
+   font-weight: bold;
+   font-size: 14px;
 }
 
 /* Passive Perception Eye Styling */
 .passive-perception-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   padding: 8px 10px;
 }
 
 .passive-perception-box input[type="text"] {
-  width: 32px !important;
-  height: 28px;
-  border: 2px solid #000 !important;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  background: #fff;
+   width: 32px !important;
+   height: 28px;
+   border: 2px solid #000 !important;
+   border-radius: 5px;
+   text-align: center;
+   font-size: 16px;
+   font-weight: bold;
+   background: #fff;
 }
 
 .passive-perception-box label {
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  font-size: 9px;
-  letter-spacing: 0.5px;
+   font-family: 'Cinzel', serif;
+   font-weight: bold;
+   font-size: 9px;
+   letter-spacing: 0.5px;
 }
 
 /* CSS Drawn Eye Icon */
 .eye-icon {
-  width: 24px;
-  height: 14px;
-  border: 2px solid #000;
-  border-radius: 80% 0;
-  transform: rotate(45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-left: 2px;
+   width: 24px;
+   height: 14px;
+   border: 2px solid #000;
+   border-radius: 80% 0;
+   transform: rotate(45deg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   margin-left: 2px;
 }
 
 .eye-pupil {
-  width: 8px;
-  height: 8px;
-  background-color: #000;
-  border-radius: 50%;
+   width: 8px;
+   height: 8px;
+   background-color: #000;
+   border-radius: 50%;
 }
 
 /* Modal Popup Styles for Skill Notes */
 .skill-modal {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
+   display: none;
+   position: fixed;
+   z-index: 10000;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.6);
+   justify-content: center;
+   align-items: center;
 }
 
 .skill-modal-content {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 20px 25px;
-  border: 2px solid #5A5A5D;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 85%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  position: relative;
-  font-family: sans-serif;
+   background-color: #ffffff;
+   color: #333333;
+   padding: 20px 25px;
+   border: 2px solid #5A5A5D;
+   border-radius: 8px;
+   max-width: 400px;
+   width: 85%;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+   position: relative;
+   font-family: sans-serif;
 }
 
 .skill-modal-close {
-  position: absolute;
-  top: 8px;
-  right: 14px;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #888888;
+   position: absolute;
+   top: 8px;
+   right: 14px;
+   font-size: 22px;
+   font-weight: bold;
+   cursor: pointer;
+   color: #888888;
         }
 
 .skill-modal-close:hover {
-  color: #000000;
+   color: #000000;
 }
 
 /* Clickable Skill Name Button Style */
 .skill-btn {
-  background: none;
-  border: none;
-  color: #1a0dab;
-  font: inherit;
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-  text-decoration-style: dotted;
+   background: none;
+   border: none;
+   color: #1a0dab;
+   font: inherit;
+   cursor: pointer;
+   padding: 0;
+   text-decoration: underline;
+   text-decoration-style: dotted;
 }
 
 .skill-btn:hover {
-  color: #d9534f;
+   color: #d9534f;
 }
 
 /* Info Button Beside Skill Name */
 .info-btn {
-  background-color: #5A5A5D;
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  font-size: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-left: 4px;
-  padding: 0;
-  line-height: 16px;
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
+   background-color: #5A5A5D;
+   color: #ffffff;
+   border: none;
+   border-radius: 50%;
+   width: 16px;
+   height: 16px;
+   font-size: 10px;
+   font-weight: bold;
+   cursor: pointer;
+   margin-left: 4px;
+   padding: 0;
+   line-height: 16px;
+   text-align: center;
+   display: inline-block;
+   vertical-align: middle;
 }
 
 .info-btn:hover {
-  background-color: #333333;
+   background-color: #333333;
 }
 
 /* Note that appears beside skill name */
 .skill-note {
-  display: none; /* Hidden by default */
-  background-color: #fff8dc;
-  border: 1px solid #c8b273;
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 10px;
-  color: #333333;
-  margin-left: 6px;
-  vertical-align: middle;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+   display: none; /* Hidden by default */
+   background-color: #fff8dc;
+   border: 1px solid #c8b273;
+   border-radius: 4px;
+   padding: 2px 6px;
+   font-size: 10px;
+   color: #333333;
+   margin-left: 6px;
+   vertical-align: middle;
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
