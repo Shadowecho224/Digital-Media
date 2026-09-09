@@ -25,6 +25,25 @@
     <button onclick="toggleCharacter()" style="font-size: 16px; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#5A5A5D;color:#F8F8FF">Character Sheet</button>
 </div>
 
+    <div class="vine-card">
+  <h2>Forest Sanctum</h2>
+  <p>Your content goes here with a decorative vine border around it.</p>
+</div>
+
+<style>
+  .vine-card {
+    padding: 30px;
+    background-color: #f9f8f3;
+    color: #2d3b2d;
+    max-width: 400px;
+    text-align: center;
+    
+    /* Define the vine border */
+    border: 20px solid transparent;
+    border-image-source: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M0,30 Q15,10 30,30 T60,30" fill="none" stroke="%232e5a32" stroke-width="3"/><circle cx="15" cy="20" r="4" fill="%234a7c59"/><circle cx="45" cy="20" r="4" fill="%234a7c59"/></svg>');
+    border-image-slice: 20 repeat;
+  }
+</style>
     <div id="citizen" class="panel">
     <h2 style="color: white">Global Citizen</h2>
     <p>A famous individual who has significantly impacted globalization, sustainability, or global awareness.</p>
