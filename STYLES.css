@@ -1,550 +1,113 @@
-/* 1. Global Reset & Portfolio Styling */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: white;
-}
-
-#header-box {
-    background-color: lightblue;
-    width: 100%;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-h1.site-title {
-    font-size: 52px;
-    font-family: courier, monospace;
-    text-align: center;
-    color: black;
-    margin: 0;
-}
-
-ul.nav-bar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #333333;
-    display: flex;
-    justify-content: center;
-}
-
-ul.nav-bar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 18px 24px;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-ul.nav-bar li a:hover {
-    background-color: #111111;
-}
-
-.panel {
-    display: none;
-    padding: 40px;
-    text-align: center;
-    background-color: #333333; 
-    color: white;
-    border-bottom: 5px solid #a6d8a8;
-}
-
-.main-page-content {
-    display: none;
-    margin: 40px auto;
-    width: 95%;
-    max-width: 1200px;
-    color: black;
-}
-
-.sheet-page {
-    display: none;
-}
-.sheet-page.active {
-    display: block;
-}
-
-/* 2. D&D Character Sheet Specific Styling */
-#character-sheet {
-    background-color: #fdf8f0;
-    border: 2px solid #000;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: 'Signika', sans-serif;
-    color: #000;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
-}
-
-#character-sheet h1, 
-#character-sheet h2, 
-#character-sheet h3 {
-    font-family: 'Cinzel', serif;
-    color: #000;
-    text-transform: uppercase;
-    margin: 0 0 5px 0;
-}
-
-#character-sheet input[type="text"],
-#character-sheet input[type="number"],
-#character-sheet textarea {
-    border: none;
-    border-bottom: 1px solid #444;
-    background: transparent;
-    font-family: 'Signika', sans-serif;
-    font-size: 13px;
-    color: #000;
-    padding: 2px;
-}
-
-#character-sheet textarea {
-    border: 1px solid #777;
-    border-radius: 4px;
-    background-color: #fffefb;
-    resize: vertical;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Sheet Top Header Layout */
-.dnd-header {
-    display: flex;
-    border: 2px solid #000;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 20px;
-    background: #fff;
-    gap: 15px;
-}
-
-.dnd-logo-box {
-    flex: 1;
-    border-right: 2px solid #000;
-    padding-right: 15px;
-}
-
-.dnd-header-fields {
-    flex: 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.header-field {
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.header-field label {
-    font-size: 12px;
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-}
-
-/* Official Grid Layout: Left Column (Stats/Perception) + 3 Equal Columns */
-.dnd-main-grid {
-    display: grid;
-    grid-template-columns: 120px 1fr 1fr 1fr;
-    gap: 15px;
-    align-items: start;
-}
-
-/* Left Column Flex Wrapper (holds ability scores and passive perception at bottom) */
-.column-left {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* Vertical Ability Scores Column */
-.ability-scores-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.ability-box {
-    border: 2px solid #000;
-    border-radius: 10px;
-    background-color: #fff;
-    text-align: center;
-    padding: 6px 2px;
-    position: relative;
-}
-
-.ability-box label {
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    font-size: 10px;
-    display: block;
-}
-
-.ability-score input {
-    font-size: 18px;
-    font-weight: bold;
-    width: 100%;
-    text-align: center;
-    border: none !important;
-}
-
-.ability-mod input {
-    width: 32px !important;
-    height: 24px;
-    border: 1px solid #000 !important;
-    border-radius: 50%;
-    text-align: center;
-    margin: 2px auto 0;
-    display: block;
-    font-weight: bold;
-    background: #fff;
-}
-
-/* Card Sections */
-.dnd-box {
-    border: 2px solid #000;
-    border-radius: 8px;
-    padding: 10px;
-    background: #fff;
-    margin-bottom: 15px;
-}
-
-.dnd-box h2 {
-    font-size: 12px;
-    text-align: center;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-}
-
-.vital-row {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    align-items: center;
-    text-align: center;
-}
-
-.vital-cell {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    border: 2px solid #333;
-    border-radius: 6px;
-    background: #fff;
-    min-width: 65px;
-    text-align: center;
-    flex: 1;
-}
-
-.vital-cell label {
-    font-size: 9px;
-    font-family: 'Cinzel', serif;
-    display: block;
-}
-
-.vital-cell input {
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    border: none !important;
-}
-
-/* Shield shape styling using CSS clip-path */
-.vital-cell.ac-shield {
-    position: relative;
-    width: 75px;
-    height: 90px;
-    padding: 10px 4px 4px 4px;
-    border: none; /* Borders are disabled on clipped paths */
-    background: linear-gradient(180deg, #5A5A5D 0%, #2B2B2C 100%);
-    color: #ffffff;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 100%, 0% 60%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.ac-shield label {
-    font-size: 8px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    text-align: center;
-    margin-top: 6px;
-    margin-bottom: 4px;
-    color: #F8F8FF;
-    line-height: 1.1;
-    text-transform: uppercase;
-}
-
-.ac-shield input[name="ac"] {
-    width: 80%;
-    height: 38px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    background: #ffffff;
-    color: #111111;
-    border: 2px solid #333;
-    border-radius: 4px;
-    outline: none;
-}
-
-.checkbox-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 12px;
-}
-
-.checkbox-list li {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 3px;
-}
-
-.checkbox-list input[type="text"] {
-    width: 30px;
-    text-align: center;
-}
-
-/* Hit Points Container Box Adjustments */
-.hp-box-container-nobox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.dnd-box.hp-box-container {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Scaled Heart Wrapper */
+/* --- HEART HP CENTERING STYLES --- */
 .hp-heart-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
 }
 
-/* Full-Sized Heart Shape */
 .hp-heart-shape {
-    width: 110%;
-    max-width: 255px;
-    height: 215px;
-    background-color: #8b0000; /* Dark Red heart background */
-    clip-path: path("M 125,35 C 125,35 90,0 48,0 C 21,0 0,21 0,48 C 0,90 42,130 125,205 C 208,130 250,90 250,48 C 250,21 229,0 202,0 C 160,0 125,35 125,35 Z");
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 15px; /* Offset for top heart notch */
+  width: 140px;
+  height: 140px;
+  background-color: #d9534f;
+  position: relative;
+  transform: rotate(-45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
 
-/* Text and Input Styling inside the Heart */
+.hp-heart-shape::before,
+.hp-heart-shape::after {
+  content: "";
+  width: 140px;
+  height: 140px;
+  background-color: #d9534f;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.hp-heart-shape::before {
+  top: -70px;
+  left: 0;
+}
+
+.hp-heart-shape::after {
+  left: 70px;
+  top: 0;
+}
+
+/* Un-rotate inner content so text stays upright and centered in the heart */
 .hp-content {
-    color: white;
-    text-align: center;
-    font-size: 13px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  transform: rotate(45deg);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
 
 .hp-content p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px;
+  margin: 4px 0;
+  font-size: 11px;
 }
 
 .hp-content label {
-    font-weight: bold;
-    font-size: 11px;
-    color: #ffffff;
-    font-family: 'Cinzel', serif;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  color: white;
 }
 
 .hp-input {
-    width: 45px !important;
-    height: 24px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.95) !important;
-    border: 1px solid #000 !important;
-    border-radius: 4px;
-    color: #000;
-    font-weight: bold;
-    font-size: 14px;
+  width: 40px;
+  text-align: center;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-weight: bold;
 }
 
-/* Passive Perception Box Styling */
+/* --- PASSIVE PERCEPTION EYE STYLES --- */
 .passive-perception-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 8px 4px;
-    text-align: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.passive-perception-box input[type="text"] {
-    width: 20px !important;
-    height: 22px;
-    border: 2px solid #000 !important;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    background: #fff;
-}
-
-.passive-perception-box label {
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    font-size: 8px;
-    letter-spacing: 0.5px;
-}
-
-/* CSS Drawn Eye Icon */
 .eye-icon {
-    width: 24px;
-    height: 14px;
-    border: 2px solid #000;
-    border-radius: 80% 0;
-    transform: rotate(45deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin: 2px 0;
+  position: relative;
+  width: 90px;
+  height: 50px;
+  background-color: #ffffff;
+  border: 3px solid #333;
+  border-radius: 50px / 25px; /* Eye shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  overflow: hidden;
 }
 
 .eye-pupil {
-    width: 8px;
-    height: 8px;
-    background-color: #000;
-    border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background-color: #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Modal Popup Styles for Skill Notes */
-.skill-modal {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
+.eye-pupil input {
+  width: 26px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-.skill-modal-content {
-    background-color: #ffffff;
-    color: #333333;
-    padding: 20px 25px;
-    border: 2px solid #5A5A5D;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 85%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    position: relative;
-    font-family: sans-serif;
-}
-
-.skill-modal-close {
-    position: absolute;
-    top: 8px;
-    right: 14px;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #888888;
-}
-
-.skill-modal-close:hover {
-    color: #000000;
-}
-
-/* Clickable Skill Name Button Style */
-.skill-btn {
-    background: none;
-    border: none;
-    color: #1a0dab;
-    font: inherit;
-    cursor: pointer;
-    padding: 0;
-    text-decoration: underline;
-    text-decoration-style: dotted;
-}
-
-.skill-btn:hover {
-    color: #d9534f;
-}
-
-/* Info Button Beside Skill Name */
-.info-btn {
-    background-color: #5A5A5D;
-    color: #ffffff;
-    border: none;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    font-size: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 4px;
-    padding: 0;
-    line-height: 16px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.info-btn:hover {
-    background-color: #333333;
-}
-
-/* Note that appears beside skill name */
-.skill-note {
-    display: none; /* Hidden by default */
-    background-color: #fff8dc;
-    border: 1px solid #c8b273;
-    border-radius: 4px;
-    padding: 2px 6px;
-    font-size: 10px;
-    color: #333333;
-    margin-left: 6px;
-    vertical-align: middle;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-}
-
-/* 3. Typography & Image Sizing Additions */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cinzel', serif;
-    margin-top: 15px;
-}
-
-img {
-    max-width: 100%;
-    max-height: 400px;
-    height: auto;
-    width: auto;
+.eye-pupil input:focus {
+  outline: none;
 }
