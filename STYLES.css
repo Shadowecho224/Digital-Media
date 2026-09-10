@@ -342,7 +342,7 @@ ul.nav-bar li a:hover {
 
 /* Full-Sized Heart Shape */
 .hp-heart-shape {
-    width: 100%;
+    width: 110%;
     max-width: 255px;
     height: 215px;
     background-color: #8b0000; /* Dark Red heart background */
@@ -360,7 +360,7 @@ ul.nav-bar li a:hover {
     font-size: 13px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
 }
 
 .hp-content p {
@@ -368,7 +368,7 @@ ul.nav-bar li a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 4px;
 }
 
 .hp-content label {
@@ -381,7 +381,7 @@ ul.nav-bar li a:hover {
 }
 
 .hp-input {
-    width: 50px !important;
+    width: 45px !important;
     height: 24px;
     text-align: center;
     background: rgba(255, 255, 255, 0.95) !important;
