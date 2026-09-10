@@ -203,13 +203,14 @@
               <textarea name="spellNotes" rows="4" placeholder="Spell/attack notes..." readonly></textarea>
             </div>
 
-            <div class="dnd-box hp-box-container">
-              <h2>Hit Points</h2>
+            <!-- HP Section without outer card container -->
+            <div class="hp-box-container-nobox" style="background: none; border: none; box-shadow: none; padding: 0; margin-bottom: 15px;">
+              <h2 style="text-align: center;">Hit Points</h2>
               <div class="hp-heart-wrapper">
                 <div class="hp-heart-shape">
                   <div class="hp-content">
                     <p><label>HP Max:</label> <input type="number" name="hpMax" class="hp-input" value="98" readonly></p>
-                    <p><label>Current HP:</label> <input type="number" name="hpCurrent" class="hp-input" value="98"readonly></p>
+                    <p><label>Current HP:</label> <input type="number" name="hpCurrent" class="hp-input" value="98" readonly></p>
                     <p><label>Temp HP:</label> <input type="number" name="hpTemp" class="hp-input" readonly></p>
                   </div>
                 </div>
