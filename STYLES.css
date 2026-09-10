@@ -253,7 +253,7 @@ body {
   height: 32px;
   border: 2px solid #000;
   border-radius: 75% 0;
-  transform: rotate(-45deg);
+  transform: rotate(90deg);
   background-color: #fff;
   box-sizing: border-box;
 }
