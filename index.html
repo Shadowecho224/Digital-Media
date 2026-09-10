@@ -70,7 +70,7 @@
         <!-- Official Layout Grid matching sketch layout -->
         <div class="dnd-main-grid">
           
-          <!-- Far Left Column: Ability Scores & Passive Perception -->
+          <!-- Far Left Column: Ability Scores -->
           <div class="column-left">
             <div class="ability-scores-column">
               <div class="ability-box">
@@ -102,16 +102,6 @@
                 <label>CHARISMA</label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="chaScore" value="15" style="width:20px" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="chaMod" value="+2" readonly></div>
-              </div>
-            </div>
-
-            <!-- Passive Wisdom / Perception Horizontal Banner (Matches Sketch) -->
-            <div class="passive-perception-box">
-              <div class="eye-shape">
-                <input type="text" name="passivePerception" value="12" readonly class="eye-pupil-input">
-              </div>
-              <div class="passive-label-bar">
-                <span>PASSIVE PERCEPTION</span>
               </div>
             </div>
           </div>
@@ -162,7 +152,7 @@
             </div>
           </div>
 
-          <!-- Middle-Right Column: Combat Vitals, Attacks, and HP -->
+          <!-- Middle-Right Column: Combat Vitals, Attacks, HP, Equipment, and Passive Perception -->
           <div class="column">
             <div class="dnd-box">
               <div class="vital-row">
@@ -226,6 +216,16 @@
                 <span>PP: <input type="number" name="pp" style="width:30px" readonly></span>
               </div>
               <textarea name="inventory" rows="6" readonly></textarea>
+            </div>
+
+            <!-- Passive Perception Box placed under Equipment -->
+            <div class="passive-perception-box">
+              <div class="eye-shape">
+                <input type="text" name="passivePerception" value="12" readonly class="eye-pupil-input">
+              </div>
+              <div class="passive-label-bar">
+                <span>PASSIVE PERCEPTION</span>
+              </div>
             </div>
           </div>
 
@@ -316,7 +316,6 @@
 </div>
 
 <script>
-    /* Function to toggle skill note visible beside the skill button */
     function toggleSkillNote(buttonElement) {
         var note = buttonElement.nextElementSibling;
         if (note.style.display === "none" || note.style.display === "") {
