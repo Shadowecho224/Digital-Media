@@ -253,7 +253,7 @@ body {
   height: 32px;
   border: 2px solid #000;
   border-radius: 75% 0;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   background-color: #fff;
   box-sizing: border-box;
 }
@@ -332,72 +332,81 @@ body {
   background: #f0f0f0;
 }
 
-/* Heart-shaped HP container */
+/* ==========================================================================
+   HP HEART CONTAINER & SHAPE
+   ========================================================================== */
 .hp-heart-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  margin: 25px 0 15px 0;
 }
 
 .hp-heart-shape {
   position: relative;
-  width: 100px;
-  height: 90px;
-  background-color: #e74c3c;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
   transform: rotate(-45deg);
-  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Top two lobes of the heart */
 .hp-heart-shape::before,
 .hp-heart-shape::after {
   content: "";
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: #e74c3c;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
   border-radius: 50%;
 }
 
+/* Top left lobe */
 .hp-heart-shape::before {
-  top: -50px;
+  top: -35px;
   left: 0;
 }
 
+/* Top right lobe */
 .hp-heart-shape::after {
-  left: 50px;
+  left: 35px;
   top: 0;
 }
 
+/* Text Container un-rotated to stay level */
 .hp-content {
   position: absolute;
   transform: rotate(45deg);
-  z-index: 5;
+  z-index: 10;
   color: white;
   text-align: center;
   font-size: 10px;
   font-weight: bold;
-  width: 100px;
+  width: 90px;
+  /* Slight offset adjustment to dead-center text in the heart's visual center */
+  margin-top: -8px;
+  margin-left: -8px;
 }
 
 .hp-content p {
-  margin: 2px 0;
+  margin: 3px 0;
 }
 
 .hp-input {
-  width: 32px;
+  width: 30px;
   background: transparent;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   color: white;
   font-weight: bold;
   text-align: center;
   outline: none;
+  font-size: 11px;
 }
-
 
 /* ==========================================================================
    SKILLS & CHECKBOX LISTS
