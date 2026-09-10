@@ -360,7 +360,7 @@ body {
   height: 100px;
   background-color: #e74c3c;
   border-radius: 50%;
-}
+} 
 
 .hp-heart-shape::before {
   top: -50px;
