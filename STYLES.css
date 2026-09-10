@@ -21,6 +21,7 @@ body {
   font-size: 28px;
 }
 
+/* Navigation Bar */
 .nav-bar {
   list-style-type: none;
   margin: 0;
@@ -29,6 +30,10 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
+}
+
+.nav-bar li {
+  float: left;
 }
 
 .nav-bar li a {
@@ -45,6 +50,7 @@ body {
   background-color: #575757;
 }
 
+/* Page Panels */
 .panel {
   display: none;
   padding: 20px;
@@ -66,6 +72,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+
 /* ==========================================================================
    CHARACTER SHEET LAYOUT & HEADER
    ========================================================================== */
@@ -84,6 +91,7 @@ body {
   display: block;
 }
 
+/* D&D Header */
 .dnd-header {
   display: flex;
   justify-content: space-between;
@@ -124,6 +132,7 @@ body {
   margin-top: 2px;
 }
 
+
 /* ==========================================================================
    MAIN GRID COLUMNS
    ========================================================================== */
@@ -144,6 +153,7 @@ body {
   gap: 10px;
 }
 
+/* Generic D&D Outer Box */
 .dnd-box {
   border: 2px solid #000;
   border-radius: 6px;
@@ -171,8 +181,9 @@ body {
   box-sizing: border-box;
 }
 
+
 /* ==========================================================================
-   ABILITY SCORES
+   ABILITY SCORES (FAR LEFT COLUMN)
    ========================================================================== */
 .ability-scores-column {
   display: flex;
@@ -214,8 +225,9 @@ body {
   margin-top: 2px;
 }
 
+
 /* ==========================================================================
-   PASSIVE PERCEPTION (PLACED UNDER EQUIPMENT BOX IN 3RD COLUMN)
+   EVEN PASSIVE PERCEPTION (PLACED UNDER EQUIPMENT BOX IN 3RD COLUMN)
    ========================================================================== */
 .passive-perception-box {
   display: flex;
@@ -224,7 +236,6 @@ body {
   width: 100%;
 }
 
-/* Eye Container for perfectly centered absolute positioning */
 .eye-container {
   position: relative;
   width: 46px;
@@ -236,7 +247,6 @@ body {
   z-index: 2;
 }
 
-/* Even Almond Eye Shape */
 .eye-shape {
   position: absolute;
   width: 32px;
@@ -248,7 +258,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Inner pupil input - completely straight and even */
 .eye-pupil-input {
   position: relative;
   z-index: 3;
@@ -266,7 +275,6 @@ body {
   line-height: 18px;
 }
 
-/* Banner bar extending right from the eye */
 .passive-label-bar {
   flex-grow: 1;
   border: 2px solid #000;
@@ -286,26 +294,6 @@ body {
   color: #000;
 }
 
-/* Rectangle bar extending smoothly to the right */
-.passive-label-bar {
-  flex-grow: 1;
-  border: 2px solid #000;
-  border-left: none;
-  margin-left: -12px;
-  padding: 4px 6px 4px 14px;
-  background-color: #fff;
-  border-radius: 0 4px 4px 0;
-  display: flex;
-  align-items: center;
-  height: 20px;
-}
-
-.passive-label-bar span {
-  font-size: 9px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  color: #000;
-}
 
 /* ==========================================================================
    COMBAT VITALS & HP HEART
@@ -338,11 +326,13 @@ body {
   outline: none;
 }
 
+/* Shield-shaped AC Box */
 .vital-cell.ac-shield {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
   background: #f0f0f0;
 }
 
+/* Heart-shaped HP container */
 .hp-heart-wrapper {
   display: flex;
   justify-content: center;
@@ -407,6 +397,7 @@ body {
   text-align: center;
   outline: none;
 }
+
 
 /* ==========================================================================
    SKILLS & CHECKBOX LISTS
