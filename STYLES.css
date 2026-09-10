@@ -535,3 +535,16 @@ ul.nav-bar li a:hover {
     vertical-align: middle;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
+
+/* 3. Typography & Image Sizing Additions */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    margin-top: 15px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 400px;
+    height: auto;
+    width: auto;
+}
