@@ -67,10 +67,10 @@
           </div>
         </header>
 
-        <!-- Official Layout Grid -->
+        <!-- Main Layout Grid -->
         <div class="dnd-main-grid">
           
-          <!-- Far Left Column: Ability Scores -->
+          <!-- Column 1: Ability Scores -->
           <div class="column-left">
             <div class="ability-scores-column">
               <div class="ability-box">
@@ -106,7 +106,7 @@
             </div>
           </div>
           
-          <!-- Middle-Left Column: Skills -->
+          <!-- Column 2: Skills -->
           <div class="column">
             <div class="dnd-box">
               <h2>Skills</h2>
@@ -152,7 +152,7 @@
             </div>
           </div>
 
-          <!-- Middle-Right Column: Combat Vitals, Attacks, HP, Equipment, and Passive Perception -->
+          <!-- Column 3: Vitals, Attacks, HP, Equipment & Even Passive Perception -->
           <div class="column">
             <div class="dnd-box">
               <div class="vital-row">
@@ -190,10 +190,10 @@
                   </tr>
                 </tbody>
               </table>
-              <textarea name="attackNotes" rows="4" placeholder="Attack notes..." readonly></textarea>
+              <textarea name="spellNotes" rows="4" placeholder="Spell/attack notes..." readonly></textarea>
             </div>
 
-            <!-- HP Section centered -->
+            <!-- HP Section -->
             <div class="hp-box-container-nobox" style="background: none; border: none; box-shadow: none; padding: 0; margin-bottom: 12px;">
               <h2 style="text-align: center;">Hit Points</h2>
               <div class="hp-heart-wrapper">
@@ -206,6 +206,7 @@
               </div>
             </div>
 
+            <!-- Equipment Box -->
             <div class="dnd-box">
               <h2>Equipment</h2>
               <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:5px;">
@@ -217,18 +218,19 @@
               <textarea name="inventory" rows="6" readonly></textarea>
             </div>
 
-<!-- Passive Perception Box placed under Equipment -->
-<div class="passive-perception-box">
-  <div class="eye-container">
-    <div class="eye-shape"></div>
-    <input type="text" name="passivePerception" value="12" readonly class="eye-pupil-input">
-  </div>
-  <div class="passive-label-bar">
-    <span>PASSIVE PERCEPTION</span>
-  </div>
-</div>
+            <!-- Even Passive Perception Box -->
+            <div class="passive-perception-box">
+              <div class="eye-container">
+                <div class="eye-shape"></div>
+                <input type="text" name="passivePerception" value="12" readonly class="eye-pupil-input">
+              </div>
+              <div class="passive-label-bar">
+                <span>PASSIVE PERCEPTION</span>
+              </div>
+            </div>
+          </div>
 
-          <!-- Far Right Column: Saving Throws, Inspiration/Proficiency, Roleplay Traits -->
+          <!-- Column 4: Saving Throws, Inspiration, Traits -->
           <div class="column">
             <div class="dnd-box">
               <h2>Saving Throws</h2>
