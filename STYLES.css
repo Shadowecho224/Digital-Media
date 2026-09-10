@@ -404,8 +404,8 @@ ul.nav-bar li a:hover {
 }
 
 .passive-perception-box input[type="text"] {
-    width: 32px !important;
-    height: 28px;
+    width: 20px !important;
+    height: 22px;
     border: 2px solid #000 !important;
     border-radius: 5px;
     text-align: center;
