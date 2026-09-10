@@ -105,11 +105,11 @@
               </div>
             </div>
 
-            <!-- Passive Perception Box placed at the bottom left under stats -->
+            <!-- Passive Perception Box: Eye enlarged, input placed directly inside pupil -->
             <div class="dnd-box passive-perception-box">
               <div class="eye-icon">
                 <div class="eye-pupil">
-                  <input type="text" name="passivePerception" value="12" style="width: 100%; text-align: center; border: none; background: transparent;" readonly>
+                  <input type="text" name="passivePerception" value="12" readonly>
                 </div>
               </div>
               <label>PASSIVE WISDOM (PERCEPTION)</label>
@@ -204,14 +204,14 @@
               <textarea name="spellNotes" rows="4" placeholder="Spell/attack notes..." readonly></textarea>
             </div>
 
-            <!-- HP Section without outer card container -->
+            <!-- HP Heart Section -->
             <div class="hp-box-container-nobox" style="background: none; border: none; box-shadow: none; padding: 0; margin-bottom: 12px;">
               <h2 style="text-align: center;">Hit Points</h2>
               <div class="hp-heart-wrapper">
                 <div class="hp-heart-shape">
-                  <div class="hp-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%;">
-                    <p style="margin: 2px 0;"><label>HP Max:</label> <input type="number" name="hpMax" class="hp-input" value="98" readonly></p>
-                    <p style="margin: 2px 0;"><label>Current HP:</label> <input type="number" name="hpCurrent" class="hp-input" value="98" readonly></p>
+                  <div class="hp-content">
+                    <p><label>HP Max:</label> <input type="number" name="hpMax" class="hp-input" value="98" readonly></p>
+                    <p><label>Current HP:</label> <input type="number" name="hpCurrent" class="hp-input" value="98" readonly></p>
                   </div>
                 </div>
               </div>
