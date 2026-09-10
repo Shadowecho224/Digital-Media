@@ -215,43 +215,75 @@ body {
 }
 
 /* ==========================================================================
-   EVEN HORIZONTAL PASSIVE PERCEPTION
+   PASSIVE PERCEPTION (PLACED UNDER EQUIPMENT BOX IN 3RD COLUMN)
    ========================================================================== */
 .passive-perception-box {
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 100%;
 }
 
-/* Symmetrical horizontal eye shape */
-.eye-shape {
-  width: 50px;
+/* Eye Container for perfectly centered absolute positioning */
+.eye-container {
+  position: relative;
+  width: 46px;
   height: 28px;
-  border: 2px solid #000;
-  border-radius: 70% 0 70% 0; /* Creates sharp pointed ends on left and right evenly */
-  transform: rotate(45deg); /* Aligns the pointed corners perfectly on the horizontal axis */
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
   flex-shrink: 0;
   z-index: 2;
 }
 
-/* Circular pupil input */
+/* Even Almond Eye Shape */
+.eye-shape {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #000;
+  border-radius: 75% 0;
+  transform: rotate(-45deg);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Inner pupil input - completely straight and even */
 .eye-pupil-input {
-  width: 18px;
-  height: 18px;
+  position: relative;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 1px solid #000;
   background-color: #fff;
   text-align: center;
   font-weight: bold;
-  font-size: 10px;
-  transform: rotate(-45deg); /* Counter-rotates text so it is upright */
+  font-size: 11px;
   outline: none;
   padding: 0;
+  box-sizing: border-box;
+  line-height: 18px;
+}
+
+/* Banner bar extending right from the eye */
+.passive-label-bar {
+  flex-grow: 1;
+  border: 2px solid #000;
+  border-left: none;
+  margin-left: -12px;
+  padding: 5px 6px 5px 16px;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.passive-label-bar span {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #000;
 }
 
 /* Rectangle bar extending smoothly to the right */
