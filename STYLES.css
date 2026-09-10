@@ -214,43 +214,38 @@ textarea {
 }
 
 /* ==========================================
-   5. PASSIVE WISDOM (HORIZONTAL BANNER WITH EYE)
+   5. PASSIVE WISDOM (SKETCH EYE LAYOUT)
    ========================================== */
 .passive-perception-box {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
-/* Connected Eye Container */
-.eye-wrapper {
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
-}
-
+/* Eye Shape on Left */
 .eye-shape {
+  position: relative;
   width: 50px;
-  height: 32px;
+  height: 30px;
   border: 2px solid #000;
-  border-radius: 50% / 50%;
+  border-radius: 50% / 50%; /* Curved almond eye shape */
   background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2; /* Keeps eye in front of the bar connection */
 }
 
-/* Pupil Input inside Eye */
+/* Round Pupil / Score Input */
 .eye-pupil-input {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
+  border: 1.5px solid #000;
   background-color: #ffffff;
   color: #000000;
-  border: 1.5px solid #000;
   text-align: center;
   font-weight: bold;
   font-size: 11px;
@@ -258,25 +253,28 @@ textarea {
   padding: 0;
 }
 
-/* Horizontal Label Banner */
+/* Attached Label Bar Extending Right */
 .passive-label-bar {
+  flex-grow: 1;
+  height: 24px;
+  border: 2px solid #000;
+  border-left: none; /* Connects flush against right side of eye */
+  margin-left: -4px; /* Pulls bar slightly under the eye corner */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
-  border: 2px solid #000;
-  border-left: none;
-  background-color: #ffffff;
-  height: 28px;
-  padding: 0 8px 0 12px;
-  margin-left: -6px;
-  border-radius: 0 4px 4px 0;
-  flex-grow: 1;
+  padding-left: 8px;
+  padding-right: 6px;
 }
 
-.passive-label-bar label {
+.passive-label-bar span {
   font-size: 8px;
   font-weight: bold;
-  letter-spacing: 0.5px;
+  text-transform: uppercase;
   color: #000;
+  letter-spacing: 0.5px;
   white-space: nowrap;
 }
 
