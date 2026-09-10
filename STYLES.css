@@ -213,69 +213,62 @@ textarea {
   outline: none;
 }
 
-/* ==========================================
-   5. PASSIVE WISDOM (SKETCH EYE LAYOUT)
-   ========================================== */
+/* Container for the Eye + Label Banner */
 .passive-perception-box {
   display: flex;
   align-items: center;
+  margin-top: 10px;
   width: 100%;
-  margin-top: 8px;
 }
 
-/* Eye Shape on Left */
+/* Almond Eye shape created with border-radius curves */
 .eye-shape {
-  position: relative;
-  width: 50px;
-  height: 30px;
+  width: 55px;
+  height: 32px;
   border: 2px solid #000;
-  border-radius: 50% / 50%; /* Curved almond eye shape */
-  background-color: #ffffff;
+  border-radius: 80% 0px 80% 0px; /* Gives the pointed eye corners */
+  transform: rotate(-45deg);
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
   flex-shrink: 0;
-  z-index: 2; /* Keeps eye in front of the bar connection */
+  z-index: 2;
 }
 
-/* Round Pupil / Score Input */
+/* Circular Pupil Input in center of eye */
 .eye-pupil-input {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 1.5px solid #000;
-  background-color: #ffffff;
-  color: #000000;
+  border: 1px solid #000;
+  background-color: #fff;
   text-align: center;
   font-weight: bold;
   font-size: 11px;
+  transform: rotate(45deg); /* Counter-rotates text to sit upright */
   outline: none;
   padding: 0;
 }
 
-/* Attached Label Bar Extending Right */
+/* Rectangle bar attached directly behind the right point of the eye */
 .passive-label-bar {
   flex-grow: 1;
-  height: 24px;
   border: 2px solid #000;
-  border-left: none; /* Connects flush against right side of eye */
-  margin-left: -4px; /* Pulls bar slightly under the eye corner */
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-color: #ffffff;
+  border-left: none; /* Merges smoothly into the eye */
+  margin-left: -12px;
+  padding: 4px 6px 4px 16px;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
   display: flex;
   align-items: center;
-  padding-left: 8px;
-  padding-right: 6px;
 }
 
 .passive-label-bar span {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: bold;
-  text-transform: uppercase;
-  color: #000;
   letter-spacing: 0.5px;
-  white-space: nowrap;
+  color: #000;
 }
 
 /* ==========================================
