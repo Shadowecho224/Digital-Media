@@ -1,113 +1,405 @@
-/* --- HEART HP CENTERING STYLES --- */
-.hp-heart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
+/* ==========================================
+   1. BASE & PORTFOLIO LAYOUT
+   ========================================== */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2b2b2b;
+  color: #333333;
+  margin: 0;
+  padding: 20px;
 }
 
-.hp-heart-shape {
-  width: 140px;
-  height: 140px;
-  background-color: #d9534f;
-  position: relative;
-  transform: rotate(-45deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.hp-heart-shape::before,
-.hp-heart-shape::after {
-  content: "";
-  width: 140px;
-  height: 140px;
-  background-color: #d9534f;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.hp-heart-shape::before {
-  top: -70px;
-  left: 0;
-}
-
-.hp-heart-shape::after {
-  left: 70px;
-  top: 0;
-}
-
-/* Un-rotate inner content so text stays upright and centered in the heart */
-.hp-content {
-  transform: rotate(45deg);
-  z-index: 2;
+#header-box {
+  background-color: #1e1e1e;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
   text-align: center;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: flex;
+  background-color: #3a3a3d;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.nav-bar li {
+  flex: 1;
+}
+
+.nav-bar li a {
+  display: block;
   color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-bar li a:hover {
+  background-color: #5a5a5d;
+}
+
+/* Panels & Content Containers */
+.panel {
+  display: none;
+  background-color: #3a3a3d;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.main-page-content {
+  display: none;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.sheet-page {
+  display: none;
+}
+
+.sheet-page.active {
+  display: block;
+}
+
+/* ==========================================
+   2. D&D HEADER BANNER
+   ========================================== */
+.dnd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  background-color: #fcfcfc;
+}
+
+.dnd-logo-box h1 {
+  font-family: 'Times New Roman', serif;
+  font-size: 20px;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+}
+
+.dnd-header-fields {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header-field {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.header-field input {
+  border: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+  padding: 2px 4px;
+  outline: none;
   font-weight: bold;
 }
 
-.hp-content p {
-  margin: 4px 0;
+.header-field label {
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+}
+
+/* ==========================================
+   3. GRID & BOX STRUCTURE
+   ========================================== */
+.dnd-main-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.column, .column-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dnd-box {
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fff;
+  position: relative;
+}
+
+.dnd-box h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: 11px;
+  resize: vertical;
+}
+
+/* ==========================================
+   4. ABILITY SCORES (LEFT COLUMN)
+   ========================================== */
+.ability-scores-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ability-box {
+  border: 2px solid #000;
+  border-radius: 8px;
+  text-align: center;
+  padding: 6px 4px;
+  background-color: #fdfdfd;
+  position: relative;
+}
+
+.ability-box label {
+  font-size: 9px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ability-mod input {
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  text-align: center;
+  outline: none;
+}
+
+.ability-score input {
+  font-size: 11px;
+  border: 1px solid #777;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  background: #fff;
+  outline: none;
+}
+
+/* ==========================================
+   5. PASSIVE WISDOM (BIG EYE & PUPIL NUMBER)
+   ========================================== */
+.passive-perception-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 6px;
+}
+
+.passive-perception-box label {
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+
+/* Enlarged Almond/Eye Container */
+.eye-icon {
+  position: relative;
+  width: 90px;
+  height: 48px;
+  border: 3px solid #000;
+  border-radius: 50px / 25px; /* Creates smooth eye curvature */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.15);
+}
+
+/* Black Pupil centered inside the eye, housing the stat number */
+.eye-pupil-input {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+  padding: 0;
+  cursor: default;
+}
+
+/* ==========================================
+   6. SKILLS & CHECKBOX LISTS
+   ========================================== */
+.checkbox-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   font-size: 11px;
 }
 
-.hp-content label {
-  color: white;
+.checkbox-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
 }
 
-.hp-input {
-  width: 40px;
+.checkbox-list input[type="text"] {
+  width: 26px;
+  border: none;
+  border-bottom: 1px solid #999;
   text-align: center;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-weight: bold;
+  font-size: 10px;
+  background: transparent;
 }
 
-/* --- PASSIVE PERCEPTION EYE STYLES --- */
-.passive-perception-box {
+.info-btn {
+  background: #e0e0e0;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  font-size: 9px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-note {
+  display: none;
+  font-size: 10px;
+  color: #444;
+  background-color: #f0f4f8;
+  border-left: 2px solid #0056b3;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+/* ==========================================
+   7. COMBAT VITALS & HEART HP
+   ========================================== */
+.vital-row {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
+}
+
+.vital-cell {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.eye-icon {
-  position: relative;
-  width: 90px;
-  height: 50px;
-  background-color: #ffffff;
-  border: 3px solid #333;
-  border-radius: 50px / 25px; /* Eye shape */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px auto;
-  overflow: hidden;
+.vital-cell label {
+  font-size: 8px;
+  font-weight: bold;
 }
 
-.eye-pupil {
-  width: 36px;
-  height: 36px;
-  background-color: #333;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.eye-pupil input {
-  width: 26px;
-  height: 22px;
-  background: transparent;
-  border: none;
-  color: #fff;
+.vital-cell input {
+  width: 35px;
   text-align: center;
   font-weight: bold;
-  font-size: 14px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 3px;
 }
 
-.eye-pupil input:focus {
-  outline: none;
+/* Center Content inside Heart HP */
+.hp-heart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.hp-heart-shape {
+  position: relative;
+  width: 140px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff4d4d;
+  /* CSS Clip-Path Heart Outline */
+  clip-path: polygon(50% 15%, 80% 0%, 100% 25%, 100% 55%, 50% 100%, 0% 55%, 0% 25%, 20% 0%);
+}
+
+.hp-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  color: #ffffff;
+}
+
+.hp-content p {
+  margin: 2px 0;
+  font-weight: bold;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.hp-input {
+  width: 42px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #888;
+  border-radius: 3px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Responsive Grid adjustment for smaller screens */
+@media (max-width: 850px) {
+  .dnd-main-grid {
+    grid-template-columns: 1fr;
+  }
 }
