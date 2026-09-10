@@ -343,8 +343,8 @@ ul.nav-bar li a:hover {
 /* Full-Sized Heart Shape */
 .hp-heart-shape {
     width: 100%;
-    max-width: 251px;
-    height: 212px;
+    max-width: 255px;
+    height: 215px;
     background-color: #8b0000; /* Dark Red heart background */
     clip-path: path("M 125,35 C 125,35 90,0 48,0 C 21,0 0,21 0,48 C 0,90 42,130 125,205 C 208,130 250,90 250,48 C 250,21 229,0 202,0 C 160,0 125,35 125,35 Z");
     display: flex;
