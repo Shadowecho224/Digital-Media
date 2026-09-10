@@ -1,20 +1,19 @@
-/* ==========================================
-   1. BASE & PORTFOLIO LAYOUT
-   ========================================== */
+/* ==========================================================================
+   GLOBAL & PORTFOLIO STYLES
+   ========================================================================== */
 body {
   font-family: Arial, sans-serif;
-  background-color: #2b2b2b;
-  color: #333333;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #333;
 }
 
 #header-box {
-  background-color: #1e1e1e;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  background-color: #2b2b2b;
+  padding: 20px;
   text-align: center;
+  border-bottom: 2px solid #444;
 }
 
 .site-title {
@@ -25,49 +24,63 @@ body {
 /* Navigation Bar */
 .nav-bar {
   list-style-type: none;
-  margin: 0 0 20px 0;
+  margin: 0;
   padding: 0;
-  display: flex;
-  background-color: #3a3a3d;
-  border-radius: 6px;
+  background-color: #333;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-bar li {
-  flex: 1;
+  float: left;
 }
 
 .nav-bar li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 12px 16px;
+  padding: 14px 20px;
   text-decoration: none;
-  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-weight: bold;
 }
 
 .nav-bar li a:hover {
-  background-color: #5a5a5d;
+  background-color: #575757;
 }
 
-/* Panels & Content Containers */
+/* Page Panels */
 .panel {
   display: none;
-  background-color: #3a3a3d;
   padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  background-color: #2a2a2e;
   color: white;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .main-page-content {
   display: none;
   background-color: #ffffff;
   padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
+   CHARACTER SHEET LAYOUT & HEADER
+   ========================================================================== */
+#character-sheet {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #000;
+  color: #000;
 }
 
 .sheet-page {
@@ -78,99 +91,100 @@ body {
   display: block;
 }
 
-/* ==========================================
-   2. D&D HEADER BANNER
-   ========================================== */
+/* D&D Header */
 .dnd-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   border: 2px solid #000;
-  border-radius: 6px;
-  padding: 10px 15px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
   background-color: #fcfcfc;
 }
 
 .dnd-logo-box h1 {
-  font-family: 'Times New Roman', serif;
-  font-size: 20px;
   margin: 0 0 5px 0;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
 .dnd-header-fields {
   display: flex;
-  gap: 12px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .header-field {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .header-field input {
   border: none;
   border-bottom: 1px solid #000;
-  background: transparent;
-  padding: 2px 4px;
   outline: none;
-  font-weight: bold;
+  padding: 2px 0;
 }
 
 .header-field label {
   font-size: 9px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #555;
+  margin-top: 2px;
 }
 
-/* ==========================================
-   3. GRID & BOX STRUCTURE
-   ========================================== */
+
+/* ==========================================================================
+   MAIN GRID COLUMNS
+   ========================================================================== */
 .dnd-main-grid {
   display: grid;
-  grid-template-columns: 140px 1fr 1fr 1fr;
-  gap: 15px;
-}
-
-.column, .column-left {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 80px 1fr 1fr 1fr;
   gap: 12px;
 }
 
+.column-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Generic D&D Outer Box */
 .dnd-box {
   border: 2px solid #000;
   border-radius: 6px;
-  padding: 10px;
+  padding: 8px;
   background-color: #fff;
   position: relative;
 }
 
 .dnd-box h2 {
-  font-size: 13px;
-  text-transform: uppercase;
-  margin: 0 0 8px 0;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 4px;
-}
-
-textarea {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px;
-  font-family: inherit;
   font-size: 11px;
-  resize: vertical;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  text-align: center;
 }
 
-/* ==========================================
-   4. ABILITY SCORES (LEFT COLUMN)
-   ========================================== */
+.dnd-box textarea {
+  width: 100%;
+  border: none;
+  resize: vertical;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   ABILITY SCORES (FAR LEFT COLUMN)
+   ========================================================================== */
 .ability-scores-column {
   display: flex;
   flex-direction: column;
@@ -181,52 +195,53 @@ textarea {
   border: 2px solid #000;
   border-radius: 8px;
   text-align: center;
-  padding: 6px 4px;
-  background-color: #fdfdfd;
-  position: relative;
+  padding: 4px;
+  background-color: #fff;
 }
 
 .ability-box label {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: bold;
   display: block;
-  margin-bottom: 2px;
 }
 
 .ability-mod input {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  border: none;
-  background: transparent;
   text-align: center;
+  border: none;
+  width: 100%;
   outline: none;
 }
 
 .ability-score input {
-  font-size: 11px;
-  border: 1px solid #777;
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #000;
   border-radius: 50%;
   width: 22px;
   height: 22px;
-  text-align: center;
-  background: #fff;
   outline: none;
+  margin-top: 2px;
 }
 
-/* Container for the Eye + Label Banner */
+
+/* ==========================================================================
+   PASSIVE PERCEPTION (PLACED UNDER EQUIPMENT BOX IN 3RD COLUMN)
+   ========================================================================== */
 .passive-perception-box {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100%;
 }
 
-/* Almond Eye shape created with border-radius curves */
+/* Almond Eye shape */
 .eye-shape {
-  width: 55px;
-  height: 32px;
+  width: 48px;
+  height: 28px;
   border: 2px solid #000;
-  border-radius: 80% 0px 80% 0px; /* Gives the pointed eye corners */
+  border-radius: 80% 0px 80% 0px;
   transform: rotate(-45deg);
   display: flex;
   align-items: center;
@@ -236,28 +251,28 @@ textarea {
   z-index: 2;
 }
 
-/* Circular Pupil Input in center of eye */
+/* Inner pupil input */
 .eye-pupil-input {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: 1px solid #000;
   background-color: #fff;
   text-align: center;
   font-weight: bold;
-  font-size: 11px;
-  transform: rotate(45deg); /* Counter-rotates text to sit upright */
+  font-size: 10px;
+  transform: rotate(45deg); /* Counter-rotates text so numbers sit straight */
   outline: none;
   padding: 0;
 }
 
-/* Rectangle bar attached directly behind the right point of the eye */
+/* Banner bar extending right from the eye */
 .passive-label-bar {
   flex-grow: 1;
   border: 2px solid #000;
-  border-left: none; /* Merges smoothly into the eye */
-  margin-left: -12px;
-  padding: 4px 6px 4px 16px;
+  border-left: none;
+  margin-left: -10px;
+  padding: 4px 6px 4px 14px;
   background-color: #fff;
   border-radius: 0 4px 4px 0;
   display: flex;
@@ -271,9 +286,115 @@ textarea {
   color: #000;
 }
 
-/* ==========================================
-   6. SKILLS & CHECKBOX LISTS
-   ========================================== */
+
+/* ==========================================================================
+   COMBAT VITALS & HP HEART
+   ========================================================================== */
+.vital-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.vital-cell {
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px;
+  flex: 1;
+}
+
+.vital-cell label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.vital-cell input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+}
+
+/* Shield-shaped AC Box */
+.vital-cell.ac-shield {
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  background: #f0f0f0;
+}
+
+/* Heart-shaped HP container */
+.hp-heart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.hp-heart-shape {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  background-color: #e74c3c;
+  transform: rotate(-45deg);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp-heart-shape::before,
+.hp-heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+}
+
+.hp-heart-shape::before {
+  top: -50px;
+  left: 0;
+}
+
+.hp-heart-shape::after {
+  left: 50px;
+  top: 0;
+}
+
+/* Un-rotate text inside heart */
+.hp-content {
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: 5;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  width: 100px;
+}
+
+.hp-content p {
+  margin: 2px 0;
+}
+
+.hp-input {
+  width: 32px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+}
+
+
+/* ==========================================================================
+   SKILLS & CHECKBOX LISTS
+   ========================================================================== */
 .checkbox-list {
   list-style: none;
   padding: 0;
@@ -284,127 +405,36 @@ textarea {
 .checkbox-list li {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  gap: 3px;
 }
 
 .checkbox-list input[type="text"] {
-  width: 26px;
+  width: 25px;
   border: none;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #000;
   text-align: center;
+  outline: none;
   font-size: 10px;
-  background: transparent;
 }
 
 .info-btn {
-  background: #e0e0e0;
-  border: 1px solid #aaa;
+  background-color: #777;
+  color: white;
+  border: none;
   border-radius: 50%;
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   font-size: 9px;
-  line-height: 1;
-  cursor: pointer;
+  line-height: 14px;
   padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
 }
 
 .skill-note {
   display: none;
-  font-size: 10px;
-  color: #444;
-  background-color: #f0f4f8;
-  border-left: 2px solid #0056b3;
-  padding: 2px 5px;
-  border-radius: 2px;
-}
-
-/* ==========================================
-   7. COMBAT VITALS & HEART HP
-   ========================================== */
-.vital-row {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.vital-cell {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.vital-cell label {
-  font-size: 8px;
-  font-weight: bold;
-}
-
-.vital-cell input {
-  width: 35px;
-  text-align: center;
-  font-weight: bold;
-  border: 1px solid #000;
-  border-radius: 4px;
-  padding: 3px;
-}
-
-.hp-heart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 5px;
-}
-
-.hp-heart-shape {
-  position: relative;
-  width: 140px;
-  height: 130px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ff4d4d;
-  clip-path: polygon(50% 15%, 80% 0%, 100% 25%, 100% 55%, 50% 100%, 0% 55%, 0% 25%, 20% 0%);
-}
-
-.hp-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 2;
-  width: 100%;
-  color: #ffffff;
-}
-
-.hp-content p {
-  margin: 2px 0;
-  font-weight: bold;
-  font-size: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-}
-
-.hp-input {
-  width: 42px;
-  text-align: center;
-  font-weight: bold;
-  border: 1px solid #888;
-  border-radius: 3px;
-  background-color: #ffffff;
-  color: #000000;
-}
-
-@media (max-width: 850px) {
-  .dnd-main-grid {
-    grid-template-columns: 1fr;
-  }
+  font-size: 9px;
+  color: #555;
+  font-style: italic;
+  margin-left: 4px;
 }
