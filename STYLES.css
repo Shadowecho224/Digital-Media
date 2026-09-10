@@ -480,44 +480,66 @@ ul.nav-bar li a:hover {
     box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
- /* CSS Shield Styling for Armor Class Box */
-.ac-shield-box {
-    position: relative;
-    width: 70px;
-    height: 85px;
-    background-color: #ffffff;
-    border: 3px solid #000000;
-    border-radius: 4px 4px 50% 50% / 4px 4px 40% 40%;
+ /* CSS for the Shield Armor Class Box */
+.vital-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.vital-cell {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    box-shadow: inset 0 0 0 2px #d3d3d3;
-    box-sizing: border-box;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 6px;
+    background: #fff;
+    min-width: 65px;
+    text-align: center;
 }
 
-.ac-shield-box label {
+/* Shield shape styling using CSS clip-path */
+.vital-cell.ac-shield {
+    position: relative;
+    width: 75px;
+    height: 90px;
+    padding: 10px 4px 4px 4px;
+    border: none; /* Borders are disabled on clipped paths */
+    background: linear-gradient(180deg, #5A5A5D 0%, #2B2B2C 100%);
+    color: #ffffff;
+/* Creates a classic heraldic shield outline */
+     clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 100%, 0% 60%);
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: flex-start;
+}
+
+.ac-shield label {
     font-size: 8px;
     font-weight: bold;
+    letter-spacing: 0.5px;
     text-align: center;
-    text-transform: uppercase;
-    line-height: 0.9;
     margin-top: 6px;
-    margin-bottom: 2px;
-    color: #000000;
-    z-index: 2;
+    margin-bottom: 4px;
+    color: #F8F8FF;
+    line-height: 1.1;
+    text-transform: uppercase;
 }
 
-.ac-shield-box input[name="ac"] {
-    width: 100%;
-    border: none;
-    background: transparent;
-    text-align: center;
+.ac-shield input[name="ac"] {
+    width: 80%;
+    height: 38px;
     font-size: 20px;
     font-weight: bold;
-    color: #000000;
+    text-align: center;
+    background: #ffffff;
+    color: #111111;
+    border: 2px solid #333;
+    border-radius: 4px;
     outline: none;
-    margin-bottom: 8px;
-    z-index: 2;
 }
