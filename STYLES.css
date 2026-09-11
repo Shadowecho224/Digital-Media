@@ -254,7 +254,7 @@ body {
   height: 32px;
   border: 2px solid #000;
   border-radius: 75% 0;
-  transform: rotate(230deg);
+  transform: rotate(360deg);
   background-color: #fff;
   box-sizing: border-box;
 }
