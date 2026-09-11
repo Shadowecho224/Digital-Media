@@ -234,7 +234,7 @@ body {
   align-items: center;
   margin-top: 10px;
   width: 100%;
-  transfrom: rotate(360deg);
+  transfrom: rotate(400deg);
 }
 
 .eye-container {
@@ -254,7 +254,7 @@ body {
   height: 32px;
   border: 2px solid #000;
   border-radius: 75% 0;
-  transform: rotate(360deg);
+  transform: rotate(400deg);
   background-color: #fff;
   box-sizing: border-box;
 }
