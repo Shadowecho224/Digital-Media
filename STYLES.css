@@ -245,7 +245,7 @@ body {
   justify-content: center;
   flex-shrink: 0;
   z-index: 2;
- transfrom: rotate(210deg);
+ transfrom: rotate(230deg);
 }
 
 .eye-shape {
