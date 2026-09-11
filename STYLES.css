@@ -245,7 +245,7 @@ body {
   justify-content: center;
   flex-shrink: 0;
   z-index: 2;
- transfrom: rotate(-90deg)
+ transfrom: rotate(180deg)
 }
 
 .eye-shape {
@@ -254,7 +254,7 @@ body {
   height: 32px;
   border: 2px solid #000;
   border-radius: 75% 0;
-  transform: rotate(-90deg);
+  transform: rotate(180deg);
   background-color: #fff;
   box-sizing: border-box;
 }
