@@ -234,6 +234,7 @@ body {
   align-items: center;
   margin-top: 10px;
   width: 100%;
+  transfrom: rotate(360deg);
 }
 
 .eye-container {
@@ -245,7 +246,6 @@ body {
   justify-content: center;
   flex-shrink: 0;
   z-index: 2;
- transfrom: rotate(360deg);
 }
 
 .eye-shape {
