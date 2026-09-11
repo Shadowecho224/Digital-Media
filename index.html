@@ -1,3 +1,8 @@
+Here is your updated HTML code.
+
+Interactive roll buttons (🎲) have been added next to each **Ability Score**, **Skill**, and **Attack**. A floating modal display popup appears at the bottom-right corner of the screen when a button is clicked to show the roll result (d20 + modifier) or attack damage roll.
+
+```html
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -6,6 +11,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">    
     <title>Digital Media</title>  
     <link rel="stylesheet" href="STYLES.css">
+
 </head>
 
 <body>
@@ -74,32 +80,32 @@
           <div class="column-left">
             <div class="ability-scores-column">
               <div class="ability-box">
-                <label>STRENGTH</label>
+                <label>STRENGTH <button type="button" class="roll-btn" onclick="rollCheck('Strength Check', '+3')">🎲</button></label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="strScore" value="17" style="width:20px;" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="strMod" value="+3" readonly></div>
               </div>
               <div class="ability-box">
-                <label>DEXTERITY</label>
+                <label>DEXTERITY <button type="button" class="roll-btn" onclick="rollCheck('Dexterity Check', '+5')">🎲</button></label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="dexScore" value="20" style="width:20px" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="dexMod" value="+5" readonly></div>
               </div>
               <div class="ability-box">
-                <label>CONSTITUTION</label>
+                <label>CONSTITUTION <button type="button" class="roll-btn" onclick="rollCheck('Constitution Check', '+2')">🎲</button></label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="conScore" value="15" style="width:20px" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="conMod" value="+2" readonly></div>
               </div>
               <div class="ability-box">
-                <label>INTELLIGENCE</label>
+                <label>INTELLIGENCE <button type="button" class="roll-btn" onclick="rollCheck('Intelligence Check', '+2')">🎲</button></label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="intScore" value="14" style="width:20px" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="intMod" value="+2" readonly></div>
               </div>
               <div class="ability-box">
-                <label>WISDOM</label>
+                <label>WISDOM <button type="button" class="roll-btn" onclick="rollCheck('Wisdom Check', '+2')">🎲</button></label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="wisScore" value="14" style="width:20px" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="wisMod" value="+2" readonly></div>
               </div>
               <div class="ability-box">
-                <label>CHARISMA</label>
+                <label>CHARISMA <button type="button" class="roll-btn" onclick="rollCheck('Charisma Check', '+2')">🎲</button></label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="chaScore" value="15" style="width:20px" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="chaMod" value="+2" readonly></div>
               </div>
@@ -111,43 +117,43 @@
             <div class="dnd-box">
               <h2>Skills</h2>
               <ul class="checkbox-list">
-                <li><input type="checkbox" checked disabled name="skillProf_adaptable"> <input type="text" name="skillMod_adaptable" value="+10" readonly> Adaptable <span style="font-size:9px;">(Dex)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Adjusts quickly to new environments and challenges.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_affectionate"> <input type="text" name="skillMod_affectionate" value="+7" readonly> Affectionate <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Warm and expressive in building emotional bonds.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_agreeable"> <input type="text" name="skillMod_agreeable" value="+7" readonly> Agreeable <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Fosters harmony and diffuses social friction.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_attentive"> <input type="text" name="skillMod_attentive" value="+7" readonly> Attentive <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Notices subtle details and hidden clues easily.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_authentic"> <input type="text" name="skillMod_authentic" value="+7" readonly> Authentic <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stays genuine and true without pretense.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_calm"> <input type="text" name="skillMod_calm" value="+7" readonly> Calm <span style="font-size:9px;">(Con)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Maintains focus under intense pressure.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_candid"> <input type="text" name="skillMod_candid" value="+7" readonly> Candid <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Speaks directly and cuts through deception.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_caring"> <input type="text" name="skillMod_caring" value="+7" readonly> Caring <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows deep concern for the well-being of others.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_cheerful"> <input type="text" name="skillMod_cheerful" value="+7" readonly> Cheerful <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Lifts party morale in difficult situations.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_compassionate"> <input type="text" name="skillMod_compassionate" value="+7" readonly> Compassionate <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Acts with mercy and deep empathy toward others.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_courageous"> <input type="text" name="skillMod_courageous" value="+8" readonly> Courageous <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stands firm against overwhelming threats.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_creative"> <input type="text" name="skillMod_creative" value="+7" readonly> Creative <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Devises innovative and unexpected solutions.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_curious"> <input type="text" name="skillMod_curious" value="+7" readonly> Curious <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Driven to investigate and uncover mysteries.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_daring"> <input type="text" name="skillMod_daring" value="+8" readonly> Daring <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Executes bold, high-risk physical actions.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_earnest"> <input type="text" name="skillMod_earnest" value="+7" readonly> Earnest <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows sincere and dedicated commitment.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_easygoing"> <input type="text" name="skillMod_easygoing" value="+7" readonly> Easygoing <span style="font-size:9px;">(Con)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shrugs off fatigue and minor troubles effortlessly.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_empathetic"> <input type="text" name="skillMod_empathetic" value="+7" readonly> Empathetic <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Senses hidden feelings and intentions of others.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_energetic"> <input type="text" name="skillMod_energetic" value="+8" readonly> Energetic <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Possesses relentless stamina and vigor.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_faithful"> <input type="text" name="skillMod_faithful" value="+7" readonly> Faithful <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stays steadfast to personal beliefs and oaths.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_fearless"> <input type="text" name="skillMod_fearless" value="+8" readonly> Fearless <span style="font-size:9px;">(Str)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Resists physical intimidation with ease.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_generous"> <input type="text" name="skillMod_generous" value="+7" readonly> Generous <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Freely shares assistance and gear with allies.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_gracious"> <input type="text" name="skillMod_gracious" value="+7" readonly> Gracious <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Navigates awkward social moments with tact.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_honest"> <input type="text" name="skillMod_honest" value="+7" readonly> Honest <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Maintains strict truthfulness and integrity.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_humorous"> <input type="text" name="skillMod_humorous" value="+7" readonly> Humorous <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Uses wit to distract foes or break tension.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_intruitive"> <input type="text" name="skillMod_intruitive" value="+7" readonly> Intuitive <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Trusts accurate gut instincts during uncertainty.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_joyful"> <input type="text" name="skillMod_joyful" value="+7" readonly> Joyful <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Radiates comforting, positive energy to others.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_just"> <input type="text" name="skillMod_just" value="+7" readonly> Just <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Evaluates situations with strict fairness.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_kind"> <input type="text" name="skillMod_kind" value="+7" readonly> Kind <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Treats all creatures with gentle consideration.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_loyal"> <input type="text" name="skillMod_loyal" value="+7" readonly> Loyal <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Unwavering support for companions and causes.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_magnanimous"> <input type="text" name="skillMod_magnanimous" value="+7" readonly> Magnanimous <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows noble forgiveness toward vanquished foes.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_open-minded"> <input type="text" name="skillMod_open-minded" value="+7" readonly> Open-Minded <span style="font-size:9px;">(Int)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Receptive to unconventional ideas and views.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_optimistic"> <input type="text" name="skillMod_optimistic" value="+7" readonly> Optimistic <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Always focuses on positive outcomes.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_passionate"> <input type="text" name="skillMod_passionate" value="+7" readonly> Passionate <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Pursues goals with infectious enthusiasm.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_philosophical"> <input type="text" name="skillMod_philosophical" value="+7" readonly> Philosophical <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Ponders deeper meanings behind complex events.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_sincere"> <input type="text" name="skillMod_sincere" value="+7" readonly> Sincere <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Acts with pure intent and no hidden motives.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_sociable"> <input type="text" name="skillMod_sociable" value="+7" readonly> Sociable <span style="font-size:9px;">(Cha)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Befriends and connects with strangers easily.</span></li>
-                <li><input type="checkbox" checked disabled name="skillProf_thoughtful"> <input type="text" name="skillMod_thoughtful" value="+7" readonly> Thoughtful <span style="font-size:9px;">(Wis)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Weighs actions carefully before deciding.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_adaptable"> <input type="text" name="skillMod_adaptable" value="+10" readonly> Adaptable <span style="font-size:9px;">(Dex)</span> <button type="button" class="roll-btn" onclick="rollCheck('Adaptable', '+10')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Adjusts quickly to new environments and challenges.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_affectionate"> <input type="text" name="skillMod_affectionate" value="+7" readonly> Affectionate <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Affectionate', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Warm and expressive in building emotional bonds.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_agreeable"> <input type="text" name="skillMod_agreeable" value="+7" readonly> Agreeable <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Agreeable', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Fosters harmony and diffuses social friction.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_attentive"> <input type="text" name="skillMod_attentive" value="+7" readonly> Attentive <span style="font-size:9px;">(Int)</span> <button type="button" class="roll-btn" onclick="rollCheck('Attentive', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Notices subtle details and hidden clues easily.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_authentic"> <input type="text" name="skillMod_authentic" value="+7" readonly> Authentic <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Authentic', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stays genuine and true without pretense.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_calm"> <input type="text" name="skillMod_calm" value="+7" readonly> Calm <span style="font-size:9px;">(Con)</span> <button type="button" class="roll-btn" onclick="rollCheck('Calm', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Maintains focus under intense pressure.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_candid"> <input type="text" name="skillMod_candid" value="+7" readonly> Candid <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Candid', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Speaks directly and cuts through deception.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_caring"> <input type="text" name="skillMod_caring" value="+7" readonly> Caring <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Caring', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows deep concern for the well-being of others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_cheerful"> <input type="text" name="skillMod_cheerful" value="+7" readonly> Cheerful <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Cheerful', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Lifts party morale in difficult situations.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_compassionate"> <input type="text" name="skillMod_compassionate" value="+7" readonly> Compassionate <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Compassionate', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Acts with mercy and deep empathy toward others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_courageous"> <input type="text" name="skillMod_courageous" value="+8" readonly> Courageous <span style="font-size:9px;">(Str)</span> <button type="button" class="roll-btn" onclick="rollCheck('Courageous', '+8')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stands firm against overwhelming threats.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_creative"> <input type="text" name="skillMod_creative" value="+7" readonly> Creative <span style="font-size:9px;">(Int)</span> <button type="button" class="roll-btn" onclick="rollCheck('Creative', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Devises innovative and unexpected solutions.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_curious"> <input type="text" name="skillMod_curious" value="+7" readonly> Curious <span style="font-size:9px;">(Int)</span> <button type="button" class="roll-btn" onclick="rollCheck('Curious', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Driven to investigate and uncover mysteries.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_daring"> <input type="text" name="skillMod_daring" value="+8" readonly> Daring <span style="font-size:9px;">(Str)</span> <button type="button" class="roll-btn" onclick="rollCheck('Daring', '+8')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Executes bold, high-risk physical actions.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_earnest"> <input type="text" name="skillMod_earnest" value="+7" readonly> Earnest <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Earnest', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows sincere and dedicated commitment.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_easygoing"> <input type="text" name="skillMod_easygoing" value="+7" readonly> Easygoing <span style="font-size:9px;">(Con)</span> <button type="button" class="roll-btn" onclick="rollCheck('Easygoing', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shrugs off fatigue and minor troubles effortlessly.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_empathetic"> <input type="text" name="skillMod_empathetic" value="+7" readonly> Empathetic <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Empathetic', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Senses hidden feelings and intentions of others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_energetic"> <input type="text" name="skillMod_energetic" value="+8" readonly> Energetic <span style="font-size:9px;">(Str)</span> <button type="button" class="roll-btn" onclick="rollCheck('Energetic', '+8')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Possesses relentless stamina and vigor.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_faithful"> <input type="text" name="skillMod_faithful" value="+7" readonly> Faithful <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Faithful', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Stays steadfast to personal beliefs and oaths.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_fearless"> <input type="text" name="skillMod_fearless" value="+8" readonly> Fearless <span style="font-size:9px;">(Str)</span> <button type="button" class="roll-btn" onclick="rollCheck('Fearless', '+8')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Resists physical intimidation with ease.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_generous"> <input type="text" name="skillMod_generous" value="+7" readonly> Generous <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Generous', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Freely shares assistance and gear with allies.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_gracious"> <input type="text" name="skillMod_gracious" value="+7" readonly> Gracious <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Gracious', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Navigates awkward social moments with tact.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_honest"> <input type="text" name="skillMod_honest" value="+7" readonly> Honest <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Honest', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Maintains strict truthfulness and integrity.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_humorous"> <input type="text" name="skillMod_humorous" value="+7" readonly> Humorous <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Humorous', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Uses wit to distract foes or break tension.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_intruitive"> <input type="text" name="skillMod_intruitive" value="+7" readonly> Intuitive <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Intuitive', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Trusts accurate gut instincts during uncertainty.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_joyful"> <input type="text" name="skillMod_joyful" value="+7" readonly> Joyful <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Joyful', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Radiates comforting, positive energy to others.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_just"> <input type="text" name="skillMod_just" value="+7" readonly> Just <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Just', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Evaluates situations with strict fairness.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_kind"> <input type="text" name="skillMod_kind" value="+7" readonly> Kind <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Kind', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Treats all creatures with gentle consideration.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_loyal"> <input type="text" name="skillMod_loyal" value="+7" readonly> Loyal <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Loyal', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Unwavering support for companions and causes.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_magnanimous"> <input type="text" name="skillMod_magnanimous" value="+7" readonly> Magnanimous <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Magnanimous', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Shows noble forgiveness toward vanquished foes.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_open-minded"> <input type="text" name="skillMod_open-minded" value="+7" readonly> Open-Minded <span style="font-size:9px;">(Int)</span> <button type="button" class="roll-btn" onclick="rollCheck('Open-Minded', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Receptive to unconventional ideas and views.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_optimistic"> <input type="text" name="skillMod_optimistic" value="+7" readonly> Optimistic <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Optimistic', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Always focuses on positive outcomes.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_passionate"> <input type="text" name="skillMod_passionate" value="+7" readonly> Passionate <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Passionate', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Pursues goals with infectious enthusiasm.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_philosophical"> <input type="text" name="skillMod_philosophical" value="+7" readonly> Philosophical <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Philosophical', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Ponders deeper meanings behind complex events.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_sincere"> <input type="text" name="skillMod_sincere" value="+7" readonly> Sincere <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Sincere', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Acts with pure intent and no hidden motives.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_sociable"> <input type="text" name="skillMod_sociable" value="+7" readonly> Sociable <span style="font-size:9px;">(Cha)</span> <button type="button" class="roll-btn" onclick="rollCheck('Sociable', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Befriends and connects with strangers easily.</span></li>
+                <li><input type="checkbox" checked disabled name="skillProf_thoughtful"> <input type="text" name="skillMod_thoughtful" value="+7" readonly> Thoughtful <span style="font-size:9px;">(Wis)</span> <button type="button" class="roll-btn" onclick="rollCheck('Thoughtful', '+7')">🎲</button> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Weighs actions carefully before deciding.</span></li>
               </ul>
             </div>
           </div>
@@ -175,18 +181,20 @@
               <h2>Attacks</h2>
               <table style="width:105%; font-size:11px; margin-bottom:8px;">
                 <thead>
-                  <tr><th>Name</th><th>Atk</th><th>Damage</th></tr>
+                  <tr><th>Name</th><th>Atk</th><th>Damage</th><th>Roll</th></tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td><input type="text" name="atkName1" style="width:100%" value="Jab" readonly></td>
                     <td><input type="text" name="atkBonus1" style="width:30px" value="Punch" readonly></td>
                     <td><input type="text" name="atkDmg1" style="width:100%" value="1d6+18" readonly></td>
+                    <td><button type="button" class="roll-btn" onclick="rollAttack('Jab', '1d6+18')">🎲</button></td>
                   </tr>
                   <tr>
                     <td><input type="text" name="atkName2" style="width:100%" readonly></td>
                     <td><input type="text" name="atkBonus2" style="width:30px" readonly></td>
                     <td><input type="text" name="atkDmg2" style="width:100%" readonly></td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
@@ -235,12 +243,12 @@
             <div class="dnd-box">
               <h2>Saving Throws</h2>
               <ul class="checkbox-list">
-                <li><input type="checkbox" checked disabled name="saveProf_str"><input type="text" name="saveMod_str" value="+8" readonly> Strength</li>
-                <li><input type="checkbox" checked disabled name="saveProf_dex"><input type="text" name="saveMod_dex" value="+10" readonly> Dexterity</li>
-                <li><input type="checkbox" disabled name="saveProf_con"><input type="text" name="saveMod_con" value="+2" readonly> Constitution</li>
-                <li><input type="checkbox" disabled name="saveProf_int"><input type="text" name="saveMod_int" value="+2" readonly> Intelligence</li>
-                <li><input type="checkbox" disabled name="saveProf_wis"><input type="text" name="saveMod_wis" value="+2" readonly> Wisdom</li>
-                <li><input type="checkbox" disabled name="saveProf_cha"><input type="text" name="saveMod_cha" value="+2" readonly> Charisma</li>
+                <li><input type="checkbox" checked disabled name="saveProf_str"><input type="text" name="saveMod_str" value="+8" readonly> Strength <button type="button" class="roll-btn" onclick="rollCheck('Strength Save', '+8')">🎲</button></li>
+                <li><input type="checkbox" checked disabled name="saveProf_dex"><input type="text" name="saveMod_dex" value="+10" readonly> Dexterity <button type="button" class="roll-btn" onclick="rollCheck('Dexterity Save', '+10')">🎲</button></li>
+                <li><input type="checkbox" disabled name="saveProf_con"><input type="text" name="saveMod_con" value="+2" readonly> Constitution <button type="button" class="roll-btn" onclick="rollCheck('Constitution Save', '+2')">🎲</button></li>
+                <li><input type="checkbox" disabled name="saveProf_int"><input type="text" name="saveMod_int" value="+2" readonly> Intelligence <button type="button" class="roll-btn" onclick="rollCheck('Intelligence Save', '+2')">🎲</button></li>
+                <li><input type="checkbox" disabled name="saveProf_wis"><input type="text" name="saveMod_wis" value="+2" readonly> Wisdom <button type="button" class="roll-btn" onclick="rollCheck('Wisdom Save', '+2')">🎲</button></li>
+                <li><input type="checkbox" disabled name="saveProf_cha"><input type="text" name="saveMod_cha" value="+2" readonly> Charisma <button type="button" class="roll-btn" onclick="rollCheck('Charisma Save', '+2')">🎲</button></li>
               </ul>
             </div>
 
@@ -314,6 +322,14 @@
 
 <div id="JournalEntry3Container" class="main-page-content">
     <p style="color:black">Journal Entry 3 Content</p>
+</div>
+
+<!-- Floating Dice Roll Result Popup -->
+<div id="dice-result-box">
+    <span class="close-btn" onclick="closeDiceBox()">✕</span>
+    <h4 id="roll-title">Roll Result</h4>
+    <div id="roll-details" class="roll-details">d20 (15) + 3</div>
+    <div id="roll-total" class="roll-total">18</div>
 </div>
 
 <script>
@@ -391,6 +407,48 @@
 
     function toggleMiddle() { showSheetPage('sheet-middle'); }
     function toggleBack() { showSheetPage('sheet-back'); }
+
+    /* Dice Roller Logic */
+    function rollCheck(label, modString) {
+        var mod = parseInt(modString) || 0;
+        var d20 = Math.floor(Math.random() * 20) + 1;
+        var total = d20 + mod;
+        
+        var modDisplay = mod >= 0 ? "+" + mod : mod;
+        
+        document.getElementById('roll-title').innerText = label;
+        document.getElementById('roll-details').innerText = "d20 (" + d20 + ") " + modDisplay;
+        document.getElementById('roll-total').innerText = total;
+        document.getElementById('dice-result-box').style.display = "block";
+    }
+
+    function rollAttack(attackName, dmgFormula) {
+        var match = dmgFormula.match(/(\d+)d(\d+)\+(\d+)/);
+        if (match) {
+            var numDice = parseInt(match[1]);
+            var dieSides = parseInt(match[2]);
+            var mod = parseInt(match[3]);
+
+            var total = mod;
+            var rolls = [];
+            for (var i = 0; i < numDice; i++) {
+                var roll = Math.floor(Math.random() * dieSides) + 1;
+                rolls.push(roll);
+                total += roll;
+            }
+
+            document.getElementById('roll-title').innerText = attackName + " Damage";
+            document.getElementById('roll-details').innerText = numDice + "d" + dieSides + " (" + rolls.join(", ") + ") +" + mod;
+            document.getElementById('roll-total').innerText = total;
+            document.getElementById('dice-result-box').style.display = "block";
+        }
+    }
+
+    function closeDiceBox() {
+        document.getElementById('dice-result-box').style.display = "none";
+    }
 </script>
 </body>
 </html>
+
+```
