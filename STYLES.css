@@ -239,8 +239,8 @@ body {
 
 .eye-container {
   position: relative;
-  width: 50px;
-  height: 30px;
+  width: 55px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -250,8 +250,8 @@ body {
 
 .eye-shape {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   border: 2px solid #000;
   border-radius: 75% 0;
   transform: rotate(400deg);
