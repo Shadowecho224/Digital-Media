@@ -74,7 +74,7 @@
           <div class="column-left">
             <div class="ability-scores-column">
               <div class="ability-box">
-                <label onclick="rollCheck('Strength Check', '+3')" class="rollable-label">STRENGTH <button type="button" class="roll-btn" onclick="event.stopPropagation(); rollCheck('Strength Check','+3')"></button></label>
+                <label onclick="rollCheck('Strength Check', '+3')" class="rollable-label">STRENGTH <button type="button" class="roll-btn" onclick="event.stopPropagation(); rollCheck('Strength Check', '+3')">🎲</button></label>
                 <div class="ability-mod"><input type="text" class="ability-score" name="strScore" value="17" style="width:20px;" readonly></div>
                 <div class="ability-score"><input type="text" class="ability-mod" name="strMod" value="+3" readonly></div>
               </div>
@@ -171,92 +171,89 @@
               </div>
             </div>
 
-            <!-- Attacks Box -->
+            <!-- Attacks Section (Muay Thai Techniques Included) -->
             <div class="dnd-box">
-              <h2>Attacks</h2>
-              <table style="width:105%; font-size:11px; margin-bottom:8px;">
-                <thead>
-                  <tr><th>Name</th><th>Atk</th><th>Damage</th><th>Roll</th></tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="text" class="rollable-input" name="atkName1" style="width:100%" value="Jab" readonly onclick="rollAttack('Jab', '1d6+18')"></td>
-                    <td><input type="text" name="atkBonus1" style="width:30px" value="Punch" readonly></td>
-                    <td><input type="text" name="atkDmg1" style="width:100%" value="1d6+18" readonly></td>
-                    <td><button type="button" class="roll-btn" onclick="rollAttack('Jab', '1d6+18')">🎲</button></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="atkName2" style="width:100%" readonly></td>
-                    <td><input type="text" name="atkBonus2" style="width:30px" readonly></td>
-                    <td><input type="text" name="atkDmg2" style="width:100%" readonly></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <h2>Attacks & Combat Techniques</h2>
+              
+              <!-- Punches (Chok) -->
+              <h3 class="attack-category-title">Punches (Chok)</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollAttack('Jab', '1d6+18')">Jab</span> <span class="attack-type">(Punch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Mat Nueng]: A quick, straight lead-hand strike used to gauge distance, disrupt an opponent's rhythm, and set up heavier combinations.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Cross', '1d8+18')">Cross</span> <span class="attack-type">(Punch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Mat Chong]: A powerful straight punch thrown with the rear hand, driving rotation from the hips and back foot for maximum impact.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Hook', '1d6+18')">Hook</span> <span class="attack-type">(Punch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Mat Weng Kap]: A circular punch targeting the side of the opponent's jaw, cheek, or body, executed with a bent elbow.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Uppercut', '1d6+18')">Uppercut</span> <span class="attack-type">(Punch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Mat Soei]: An upward-striking punch aimed under the chin or into the solar plexus, usually thrown from a lower, loaded stance.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Overhand', '1d8+18')">Overhand</span> <span class="attack-type">(Punch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Mat Khwang]: A looping, downward-arc punch thrown over an opponent’s guard, leveraging heavy body weight shift.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Spinning Back Fist', '1d10+18')">Spinning Back Fist</span> <span class="attack-type">(Punch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Mat Klab Thang]: A rotational surprise attack where the fighter spins 360 degrees to strike with the back of the fist or knuckle line.</span></li>
+              </ul>
 
-              <!-- Scrollable Muay Thai Technique Reference -->
-              <div class="attacks-list-container">
-                <table class="attacks-table">
-                  <thead>
-                    <tr>
-                      <th>Attack Name</th>
-                      <th>Thai Name</th>
-                      <th>Attack Type</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- Punches -->
-                    <tr><td>Jab</td><td>Mat Nueng</td><td>Punch (Chok)</td><td>A quick, straight lead-hand strike used to gauge distance, disrupt rhythm, and set up combinations.</td></tr>
-                    <tr><td>Cross</td><td>Mat Chong</td><td>Punch (Chok)</td><td>A powerful straight punch thrown with the rear hand, driving rotation from hips and back foot.</td></tr>
-                    <tr><td>Hook</td><td>Mat Weng Kap</td><td>Punch (Chok)</td><td>A circular punch targeting the side of the jaw, cheek, or body with a bent elbow.</td></tr>
-                    <tr><td>Uppercut</td><td>Mat Soei</td><td>Punch (Chok)</td><td>An upward-striking punch aimed under the chin or solar plexus from a low stance.</td></tr>
-                    <tr><td>Overhand</td><td>Mat Khwang</td><td>Punch (Chok)</td><td>A looping, downward-arc punch thrown over an opponent’s guard.</td></tr>
-                    <tr><td>Spinning Back Fist</td><td>Mat Klab Thang</td><td>Punch (Chok)</td><td>A rotational 360-degree surprise strike with the back of the fist or knuckle line.</td></tr>
-                    <!-- Kicks -->
-                    <tr><td>Roundhouse Kick</td><td>Te Thad</td><td>Kick (Te)</td><td>A heavy extended-leg kick driving full shinbone contact via maximum hip rotation.</td></tr>
-                    <tr><td>Low Kick</td><td>Te Khaa</td><td>Kick (Te)</td><td>A roundhouse kick aimed at the thighs to damage tissue and compromise movement.</td></tr>
-                    <tr><td>Middle Kick</td><td>Te Lam Tor</td><td>Kick (Te)</td><td>A mid-level roundhouse targeting the ribs, liver, and arms to weaken the guard.</td></tr>
-                    <tr><td>High Kick</td><td>Te Kien</td><td>Kick (Te)</td><td>A high-level roundhouse aimed at the neck or head for immediate knockouts.</td></tr>
-                    <tr><td>Axe Kick</td><td>Te Khao</td><td>Kick (Te)</td><td>A vertical downward heel strike brought high and dropped straight into the collarbone/face.</td></tr>
-                    <tr><td>Spinning Hook Kick</td><td>Te Klab Thang</td><td>Kick (Te)</td><td>A rotational wheel kick whipping around to hit the head or body with the heel or sole.</td></tr>
-                    <!-- Push Kicks / Teeps -->
-                    <tr><td>Straight Teep</td><td>Thap Chong</td><td>Push Kick (Thap)</td><td>A front-pushing foot jab used to control distance, disrupt attacks, or break balance.</td></tr>
-                    <tr><td>Side Teep</td><td>Thap Khang</td><td>Push Kick (Thap)</td><td>A turned-hip push kick driving the sole/heel into the midsection for maximum distance.</td></tr>
-                    <tr><td>Jumping Teep</td><td>Thap Loin</td><td>Push Kick (Thap)</td><td>A leaping front push kick designed for sudden reach against a retreating foe.</td></tr>
-                    <!-- Elbows -->
-                    <tr><td>Horizontal Elbow</td><td>Sok Cut</td><td>Elbow Strike (Sok)</td><td>A parallel slashing elbow across the face or jawline causing cuts or knockouts.</td></tr>
-                    <tr><td>Slashing Elbow</td><td>Sok Kheng</td><td>Elbow Strike (Sok)</td><td>A diagonal downward or upward slice cutting through the opponent's guard.</td></tr>
-                    <tr><td>Uppercut Elbow</td><td>Sok Ngad</td><td>Elbow Strike (Sok)</td><td>An upward elbow strike driven straight up through the guard toward the chin.</td></tr>
-                    <tr><td>Downward Elbow</td><td>Sok Saab</td><td>Elbow Strike (Sok)</td><td>A high-to-low vertical chopping strike targeting forehead, nose, or crown.</td></tr>
-                    <tr><td>Spinning Back Elbow</td><td>Sok Klab</td><td>Elbow Strike (Sok)</td><td>A rotational blind-spot strike delivered with the point of the elbow.</td></tr>
-                    <tr><td>Jumping Elbow</td><td>Sok Loin</td><td>Elbow Strike (Sok)</td><td>A leaping airborne downward crushing elbow strike.</td></tr>
-                    <!-- Knees -->
-                    <tr><td>Straight Knee</td><td>Khao Chong</td><td>Knee Strike (Khao)</td><td>Driven forward directly into the abdomen or solar plexus via hip drive.</td></tr>
-                    <tr><td>Diagonal Knee</td><td>Khao Chiang</td><td>Knee Strike (Khao)</td><td>An angled knee brought around front guard to bypass defense and hit ribs/liver.</td></tr>
-                    <tr><td>Curving Knee</td><td>Khao Khong</td><td>Knee Strike (Khao)</td><td>Swung horizontally around the torso to strike floating ribs inside the clinch.</td></tr>
-                    <tr><td>Jumping Knee</td><td>Khao Loin</td><td>Knee Strike (Khao)</td><td>A high-flying airborne knee launched straight toward the chest or chin.</td></tr>
-                    <tr><td>Slapping Knee</td><td>Khao Noi</td><td>Knee Strike (Khao)</td><td>Inside-clinch strike to inner or outer thighs to break opponent rhythm and legs.</td></tr>
-                    <!-- Clinch Work -->
-                    <tr><td>Full Plum Clinch</td><td>Plum Chap Kor</td><td>Clinch Work (Pam)</td><td>Two-hand head control lock behind upper back to break posture and knee.</td></tr>
-                    <tr><td>Double Underhooks</td><td>-</td><td>Clinch Work (Pam)</td><td>Under-arm body lock to control center of gravity and deliver trips or body knees.</td></tr>
-                    <tr><td>Single Collar Tie</td><td>Half Plum</td><td>Clinch Work (Pam)</td><td>One hand on neck, one controlling an arm/wrist for strikes and off-balancing.</td></tr>
-                    <tr><td>Pummeling</td><td>-</td><td>Clinch Work (Pam)</td><td>Fluid hand-swapping inside the clinch to secure dominant positions.</td></tr>
-                    <!-- Sweeps & Throws -->
-                    <tr><td>Catch and Sweep</td><td>-</td><td>Sweep / Unbalancing</td><td>Trapping an incoming roundhouse kick and sweeping the standing base leg.</td></tr>
-                    <tr><td>Clinch Throw (Dump)</td><td>-</td><td>Throw / Unbalancing</td><td>Torso rotation and step-around inside the clinch to dump opponents to canvas.</td></tr>
-                    <tr><td>Foot Sweep</td><td>-</td><td>Sweep / Unbalancing</td><td>Kicking or tipping the bottom ankle when opponent weight shifts.</td></tr>
-                    <!-- Defensive Tactics -->
-                    <tr><td>Shin Block (Check)</td><td>Bong Te</td><td>Defensive Tactic (Pram)</td><td>45-degree upper-shin raise to absorb and block low/middle roundhouse kicks.</td></tr>
-                    <tr><td>Lean Back (Evasion)</td><td>Lop</td><td>Defensive Tactic (Pram)</td><td>Waist-bend backward evasion allowing high strikes to pass harmlessly overhead.</td></tr>
-                    <tr><td>Parrying</td><td>-</td><td>Defensive Tactic (Pram)</td><td>Forearm/hand redirection to slip incoming straight punches off line.</td></tr>
-                    <tr><td>Catching Kicks</td><td>-</td><td>Defensive Tactic (Pram)</td><td>Trapping body kicks between arm and torso to set up instant sweeps or counters.</td></tr>
-                    <tr><td>Footwork and Pivot</td><td>Yung Wa</td><td>Defensive Tactic (Pram)</td><td>Angle shifts, circling out, and rhythm disruption to slip aggressive pressure.</td></tr>
-                  </tbody>
-                </table>
-              </div>
+              <!-- Kicks (Te) -->
+              <h3 class="attack-category-title">Kicks (Te)</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollAttack('Roundhouse Kick', '1d10+18')">Roundhouse Kick</span> <span class="attack-type">(Kick)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Te Thad]: The quintessential Muay Thai kick, thrown with a fully extended leg using the shinbone (not the foot) as the striking surface, powered by full hip rotation.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Low Kick', '1d8+18')">Low Kick</span> <span class="attack-type">(Kick)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Te Khaa]: A roundhouse kick directed at the opponent's thighs (outer or inner lead leg) designed to damage muscle tissue, compromise movement, and weaken power generation.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Middle Kick', '1d10+18')">Middle Kick</span> <span class="attack-type">(Kick)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Te Lam Tor]: A mid-level roundhouse targeting the ribs, liver, and arms, frequently used to score points or weaken an opponent's guard.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('High Kick', '1d12+18')">High Kick</span> <span class="attack-type">(Kick)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Te Kien]: A high-level roundhouse aimed at the neck or head, capable of delivering immediate knockouts.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Axe Kick', '1d10+18')">Axe Kick</span> <span class="attack-type">(Kick)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Te Khao]: A vertical downward heel strike aimed at the face or collarbone, brought up high and dropped straight down.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Spinning Hook Kick / Wheel Kick', '1d12+18')">Spinning Hook Kick / Wheel Kick</span> <span class="attack-type">(Kick)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Te Klab Thang]: A rotational kick that whipped around to hit the head or body with the heel or sole of the foot.</span></li>
+              </ul>
 
-              <textarea name="AttackNotes" rows="3" placeholder="Attack notes..." readonly></textarea>
+              <!-- Push Kicks / Teeps (Thap) -->
+              <h3 class="attack-category-title">Push Kicks / Teeps (Thap)</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollAttack('Straight Teep', '1d6+18')">Straight Teep</span> <span class="attack-type">(Teep)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Thap Chong]: A front-pushing foot jab used to maintain distance, stop an incoming attack, or push an opponent off balance.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Side Teep', '1d6+18')">Side Teep</span> <span class="attack-type">(Teep)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Thap Khang]: Executed by turning the hip sideways to drive the sole or heel of the foot into the midsection or thigh for extra distance creation.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Jumping Teep', '1d8+18')">Jumping Teep</span> <span class="attack-type">(Teep)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Thap Loin]: A leaping front push kick designed to gain sudden reach and power against a retreating opponent.</span></li>
+              </ul>
+
+              <!-- Elbow Strikes (Sok) -->
+              <h3 class="attack-category-title">Elbow Strikes (Sok)</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollAttack('Horizontal Elbow', '1d8+18')">Horizontal Elbow</span> <span class="attack-type">(Elbow)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Sok Cut]: A parallel slashing motion across the face or jawline, commonly causing cuts or knockouts.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Slashing / Diagonal Elbow', '1d8+18')">Slashing / Diagonal Elbow</span> <span class="attack-type">(Elbow)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Sok Kheng]: A diagonal downward or upward slice across the opponent's guard.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Uppercut Elbow', '1d8+18')">Uppercut Elbow</span> <span class="attack-type">(Elbow)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Sok Ngad]: An upward-striking elbow driven directly through the center of an opponent's guard toward the chin.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Downward / Chop Elbow', '1d10+18')">Downward / Chop Elbow</span> <span class="attack-type">(Elbow)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Sok Saab]: A high-to-low vertical chopping motion targeting the top of the forehead, nose, or crown.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Spinning Back Elbow', '1d10+18')">Spinning Back Elbow</span> <span class="attack-type">(Elbow)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Sok Klab]: A blind-spot rotational attack executed after turning the torso to strike with the point of the elbow.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Jumping Elbow', '1d12+18')">Jumping Elbow</span> <span class="attack-type">(Elbow)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Sok Loin]: A leap into the air delivering a crushing downward elbow strike.</span></li>
+              </ul>
+
+              <!-- Knee Strikes (Khao) -->
+              <h3 class="attack-category-title">Knee Strikes (Khao)</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollAttack('Straight Knee', '1d8+18')">Straight Knee</span> <span class="attack-type">(Knee)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Khao Chong]: Driven forward into the abdomen or solar plexus, powered by driving the hips straight ahead.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Diagonal Knee', '1d8+18')">Diagonal Knee</span> <span class="attack-type">(Knee)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Khao Chiang]: A curved knee strike brought up at an angle to bypass a front guard and target the ribs or liver.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Curving / Side Knee', '1d8+18')">Curving / Side Knee</span> <span class="attack-type">(Knee)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Khao Khong]: Swung horizontally around the opponent's body to target the floating ribs or side of the torso during a clinch.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Jumping Knee', '1d12+18')">Jumping Knee</span> <span class="attack-type">(Knee)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Khao Loin]: A high-flying knee strike launched straight toward the chest or chin of an opponent.</span></li>
+                <li><span class="rollable-text" onclick="rollAttack('Slapping Knee', '1d6+18')">Slapping Knee</span> <span class="attack-type">(Knee)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Khao Noi]: Used inside the clinch to hit the inner or outer thigh to wear down legs and break rhythm.</span></li>
+              </ul>
+
+              <!-- Clinch Work & Grappling (Pam) -->
+              <h3 class="attack-category-title">Clinch Work & Grappling (Pam)</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollCheck('Full Plum Clinch Check', '+8')">Full Plum / Main Clinch</span> <span class="attack-type">(Clinch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Plum Chap Kor]: Control established by locking both hands behind the upper back of the opponent's head, pulling down to control their posture and deliver knees.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Double Underhooks Check', '+8')">Double Underhooks / Body Lock</span> <span class="attack-type">(Clinch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Gripping under both of the opponent's arms to control their center of gravity and execute trips or knees to the body.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Single Collar Tie Check', '+8')">Single Collar Tie / Half Plum</span> <span class="attack-type">(Clinch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">One hand behind the neck with the other hand controlling an arm, shoulder, or wrist for mixed striking and breaking balance.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Pummeling Check', '+8')">Pummeling</span> <span class="attack-type">(Clinch)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">The fluid hand-fighting process inside the clinch to transition between positions and secure dominant control.</span></li>
+              </ul>
+
+              <!-- Sweeps, Throws, and Off-Balancing -->
+              <h3 class="attack-category-title">Sweeps & Throws</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollCheck('Catch and Sweep Check', '+8')">Catch and Sweep</span> <span class="attack-type">(Sweep)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Catching an opponent's incoming roundhouse kick and sweeping their standing support leg to send them to the canvas.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Clinch Throw Check', '+8')">Clinch Throws / Off-Balancing</span> <span class="attack-type">(Sweep)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Dump]: Turning an opponent's shoulders inside the clinch while stepping around their hips to throw them off balance or toss them to the floor.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Foot Sweep Check', '+8')">Foot Sweeps</span> <span class="attack-type">(Sweep)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Tipping or kicking the bottom ankle/foot of an opponent when their weight is transitioning.</span></li>
+              </ul>
+
+              <!-- Defensive Tactics (Pram) -->
+              <h3 class="attack-category-title">Defensive Tactics (Pram)</h3>
+              <ul class="attack-list">
+                <li><span class="rollable-text" onclick="rollCheck('Shin Block Check', '+10')">Shin Block / Check</span> <span class="attack-type">(Defense)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Bong Te]: Raising the shin to a 45-degree angle to absorb and block middle or low roundhouse kicks with the dense upper shinbone.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Lean Back Evasion', '+10')">Lean Back / Evasion</span> <span class="attack-type">(Defense)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[หลบ - Lop]: Bending the upper torso backward at the waist to let high kicks or head strikes pass harmlessly overhead without moving foot position.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Parry Check', '+10')">Parrying</span> <span class="attack-type">(Defense)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Using the hands or forearms to redirect punches (like jabs and crosses) off line.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Catching Kick Check', '+10')">Catching Kicks</span> <span class="attack-type">(Defense)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">Trapping incoming body kicks between the arm and torso to set up immediate counter-strikes, sweeps, or takedowns.</span></li>
+                <li><span class="rollable-text" onclick="rollCheck('Footwork and Pivot Check', '+10')">Footwork and Pivot</span> <span class="attack-type">(Defense)</span> <button type="button" class="info-btn" onclick="toggleSkillNote(this)">?</button> <span class="skill-note">[Yung Wa]: Circling out, stepping off angles, and utilizing rhythm disruptions to slip away from aggressive pressure.</span></li>
+              </ul>
+
+              <textarea name="AttackNotes" rows="4" placeholder="Attack notes..." readonly style="margin-top:8px;"></textarea>
             </div>
 
             <!-- HP Section -->
@@ -394,7 +391,7 @@
     function toggleSkillNote(buttonElement) {
         var note = buttonElement.nextElementSibling;
         if (note.style.display === "none" || note.style.display === "") {
-            note.style.display = "inline-block";
+            note.style.display = "block";
         } else {
             note.style.display = "none";
         }
