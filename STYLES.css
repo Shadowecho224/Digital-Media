@@ -250,10 +250,10 @@ body {
 
 .eye-shape {
   position: absolute;
-  width: 45px;
+  width: 50px;
   height: 45px;
   border: 2px solid #000;
-  border-radius: 100% 0;
+  border-radius: 105% 0;
   transform: rotate(400deg);
   background-color: #fff;
   box-sizing: border-box;
