@@ -171,6 +171,7 @@
               </div>
             </div>
 
+            <!-- Attacks Box -->
             <div class="dnd-box">
               <h2>Attacks</h2>
               <table style="width:105%; font-size:11px; margin-bottom:8px;">
@@ -192,7 +193,70 @@
                   </tr>
                 </tbody>
               </table>
-              <textarea name="AttackNotes" rows="4" placeholder="Attack notes..." readonly></textarea>
+
+              <!-- Scrollable Muay Thai Technique Reference -->
+              <div class="attacks-list-container">
+                <table class="attacks-table">
+                  <thead>
+                    <tr>
+                      <th>Attack Name</th>
+                      <th>Thai Name</th>
+                      <th>Attack Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Punches -->
+                    <tr><td>Jab</td><td>Mat Nueng</td><td>Punch (Chok)</td><td>A quick, straight lead-hand strike used to gauge distance, disrupt rhythm, and set up combinations.</td></tr>
+                    <tr><td>Cross</td><td>Mat Chong</td><td>Punch (Chok)</td><td>A powerful straight punch thrown with the rear hand, driving rotation from hips and back foot.</td></tr>
+                    <tr><td>Hook</td><td>Mat Weng Kap</td><td>Punch (Chok)</td><td>A circular punch targeting the side of the jaw, cheek, or body with a bent elbow.</td></tr>
+                    <tr><td>Uppercut</td><td>Mat Soei</td><td>Punch (Chok)</td><td>An upward-striking punch aimed under the chin or solar plexus from a low stance.</td></tr>
+                    <tr><td>Overhand</td><td>Mat Khwang</td><td>Punch (Chok)</td><td>A looping, downward-arc punch thrown over an opponent’s guard.</td></tr>
+                    <tr><td>Spinning Back Fist</td><td>Mat Klab Thang</td><td>Punch (Chok)</td><td>A rotational 360-degree surprise strike with the back of the fist or knuckle line.</td></tr>
+                    <!-- Kicks -->
+                    <tr><td>Roundhouse Kick</td><td>Te Thad</td><td>Kick (Te)</td><td>A heavy extended-leg kick driving full shinbone contact via maximum hip rotation.</td></tr>
+                    <tr><td>Low Kick</td><td>Te Khaa</td><td>Kick (Te)</td><td>A roundhouse kick aimed at the thighs to damage tissue and compromise movement.</td></tr>
+                    <tr><td>Middle Kick</td><td>Te Lam Tor</td><td>Kick (Te)</td><td>A mid-level roundhouse targeting the ribs, liver, and arms to weaken the guard.</td></tr>
+                    <tr><td>High Kick</td><td>Te Kien</td><td>Kick (Te)</td><td>A high-level roundhouse aimed at the neck or head for immediate knockouts.</td></tr>
+                    <tr><td>Axe Kick</td><td>Te Khao</td><td>Kick (Te)</td><td>A vertical downward heel strike brought high and dropped straight into the collarbone/face.</td></tr>
+                    <tr><td>Spinning Hook Kick</td><td>Te Klab Thang</td><td>Kick (Te)</td><td>A rotational wheel kick whipping around to hit the head or body with the heel or sole.</td></tr>
+                    <!-- Push Kicks / Teeps -->
+                    <tr><td>Straight Teep</td><td>Thap Chong</td><td>Push Kick (Thap)</td><td>A front-pushing foot jab used to control distance, disrupt attacks, or break balance.</td></tr>
+                    <tr><td>Side Teep</td><td>Thap Khang</td><td>Push Kick (Thap)</td><td>A turned-hip push kick driving the sole/heel into the midsection for maximum distance.</td></tr>
+                    <tr><td>Jumping Teep</td><td>Thap Loin</td><td>Push Kick (Thap)</td><td>A leaping front push kick designed for sudden reach against a retreating foe.</td></tr>
+                    <!-- Elbows -->
+                    <tr><td>Horizontal Elbow</td><td>Sok Cut</td><td>Elbow Strike (Sok)</td><td>A parallel slashing elbow across the face or jawline causing cuts or knockouts.</td></tr>
+                    <tr><td>Slashing Elbow</td><td>Sok Kheng</td><td>Elbow Strike (Sok)</td><td>A diagonal downward or upward slice cutting through the opponent's guard.</td></tr>
+                    <tr><td>Uppercut Elbow</td><td>Sok Ngad</td><td>Elbow Strike (Sok)</td><td>An upward elbow strike driven straight up through the guard toward the chin.</td></tr>
+                    <tr><td>Downward Elbow</td><td>Sok Saab</td><td>Elbow Strike (Sok)</td><td>A high-to-low vertical chopping strike targeting forehead, nose, or crown.</td></tr>
+                    <tr><td>Spinning Back Elbow</td><td>Sok Klab</td><td>Elbow Strike (Sok)</td><td>A rotational blind-spot strike delivered with the point of the elbow.</td></tr>
+                    <tr><td>Jumping Elbow</td><td>Sok Loin</td><td>Elbow Strike (Sok)</td><td>A leaping airborne downward crushing elbow strike.</td></tr>
+                    <!-- Knees -->
+                    <tr><td>Straight Knee</td><td>Khao Chong</td><td>Knee Strike (Khao)</td><td>Driven forward directly into the abdomen or solar plexus via hip drive.</td></tr>
+                    <tr><td>Diagonal Knee</td><td>Khao Chiang</td><td>Knee Strike (Khao)</td><td>An angled knee brought around front guard to bypass defense and hit ribs/liver.</td></tr>
+                    <tr><td>Curving Knee</td><td>Khao Khong</td><td>Knee Strike (Khao)</td><td>Swung horizontally around the torso to strike floating ribs inside the clinch.</td></tr>
+                    <tr><td>Jumping Knee</td><td>Khao Loin</td><td>Knee Strike (Khao)</td><td>A high-flying airborne knee launched straight toward the chest or chin.</td></tr>
+                    <tr><td>Slapping Knee</td><td>Khao Noi</td><td>Knee Strike (Khao)</td><td>Inside-clinch strike to inner or outer thighs to break opponent rhythm and legs.</td></tr>
+                    <!-- Clinch Work -->
+                    <tr><td>Full Plum Clinch</td><td>Plum Chap Kor</td><td>Clinch Work (Pam)</td><td>Two-hand head control lock behind upper back to break posture and knee.</td></tr>
+                    <tr><td>Double Underhooks</td><td>-</td><td>Clinch Work (Pam)</td><td>Under-arm body lock to control center of gravity and deliver trips or body knees.</td></tr>
+                    <tr><td>Single Collar Tie</td><td>Half Plum</td><td>Clinch Work (Pam)</td><td>One hand on neck, one controlling an arm/wrist for strikes and off-balancing.</td></tr>
+                    <tr><td>Pummeling</td><td>-</td><td>Clinch Work (Pam)</td><td>Fluid hand-swapping inside the clinch to secure dominant positions.</td></tr>
+                    <!-- Sweeps & Throws -->
+                    <tr><td>Catch and Sweep</td><td>-</td><td>Sweep / Unbalancing</td><td>Trapping an incoming roundhouse kick and sweeping the standing base leg.</td></tr>
+                    <tr><td>Clinch Throw (Dump)</td><td>-</td><td>Throw / Unbalancing</td><td>Torso rotation and step-around inside the clinch to dump opponents to canvas.</td></tr>
+                    <tr><td>Foot Sweep</td><td>-</td><td>Sweep / Unbalancing</td><td>Kicking or tipping the bottom ankle when opponent weight shifts.</td></tr>
+                    <!-- Defensive Tactics -->
+                    <tr><td>Shin Block (Check)</td><td>Bong Te</td><td>Defensive Tactic (Pram)</td><td>45-degree upper-shin raise to absorb and block low/middle roundhouse kicks.</td></tr>
+                    <tr><td>Lean Back (Evasion)</td><td>Lop</td><td>Defensive Tactic (Pram)</td><td>Waist-bend backward evasion allowing high strikes to pass harmlessly overhead.</td></tr>
+                    <tr><td>Parrying</td><td>-</td><td>Defensive Tactic (Pram)</td><td>Forearm/hand redirection to slip incoming straight punches off line.</td></tr>
+                    <tr><td>Catching Kicks</td><td>-</td><td>Defensive Tactic (Pram)</td><td>Trapping body kicks between arm and torso to set up instant sweeps or counters.</td></tr>
+                    <tr><td>Footwork and Pivot</td><td>Yung Wa</td><td>Defensive Tactic (Pram)</td><td>Angle shifts, circling out, and rhythm disruption to slip aggressive pressure.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <textarea name="AttackNotes" rows="3" placeholder="Attack notes..." readonly></textarea>
             </div>
 
             <!-- HP Section -->
