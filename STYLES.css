@@ -251,7 +251,7 @@ body {
   position: absolute;
   width: 50px;
   height: 45px;
-  border: 1px solid #000;
+  border: 2px solid #000;
   border-radius: 105% 0;
   transform: rotate(400deg);
   background-color: #fff;
@@ -270,7 +270,7 @@ body {
   font-weight: bold;
   font-size: 11px;
   outline: none;
-  padding: 0;
+  padding: 1;
   box-sizing: border-box;
   line-height: 18px;
 }
