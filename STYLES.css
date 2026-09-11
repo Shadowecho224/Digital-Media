@@ -484,32 +484,32 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     z-index: 1000;
     display: none;
-            min-width: 180px;
-            text-align: center;
-            font-family: sans-serif;
+    min-width: 180px;
+    text-align: center;
+    font-family: sans-serif;
 }
-        #dice-result-box h4 {
-            margin: 0 0 5px 0;
-            color: #d9534f;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-        #dice-result-box .roll-details {
-            font-size: 12px;
-            color: #ccc;
-        }
-        #dice-result-box .roll-total {
-            font-size: 22px;
-            font-weight: bold;
-            color: #fff;
-            margin-top: 5px;
+#dice-result-box h4 {
+   margin: 0 0 5px 0;
+   color: #d9534f;
+   font-size: 14px;
+   text-transform: uppercase;
+}
+#dice-result-box .roll-details {
+   font-size: 12px;
+   color: #ccc;
+}
+#dice-result-box .roll-total {
+   font-size: 22px;
+   font-weight: bold;
+   color: #fff;
+   margin-top: 5px;
 }
 #dice-result-box .close-btn {
- position: absolute;
-            top: 3px;
-            right: 6px;
-            color: #aaa;
-            cursor: pointer;
+   position: absolute;
+   top: 3px;
+   right: 6px;
+   color: #aaa;
+   cursor: pointer;
             font-weight: bold;
             font-size: 12px;
 }
