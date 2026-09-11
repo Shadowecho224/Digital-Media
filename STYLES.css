@@ -409,19 +409,22 @@ body {
 }
 
 /* ==========================================================================
-   SKILLS & CHECKBOX LISTS
+   SKILLS, ATTACKS & CHECKBOX LISTS
    ========================================================================== */
-.checkbox-list {
+.checkbox-list,
+.attack-list {
   list-style: none;
   padding: 0;
   margin: 0;
   font-size: 11px;
 }
 
-.checkbox-list li {
+.checkbox-list li,
+.attack-list li {
   display: flex;
   align-items: center;
-  margin-bottom: 3px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
   gap: 3px;
 }
 
@@ -432,6 +435,20 @@ body {
   text-align: center;
   outline: none;
   font-size: 10px;
+}
+
+.attack-category-title {
+  font-size: 10px;
+  font-weight: bold;
+  margin: 8px 0 4px 0;
+  border-bottom: 1px dashed #777;
+  color: #333;
+}
+
+.attack-type {
+  font-size: 9px;
+  color: #666;
+  font-style: italic;
 }
 
 .info-btn {
@@ -450,46 +467,14 @@ body {
 .skill-note {
   display: none;
   font-size: 9px;
-  color: #555;
+  color: #444;
   font-style: italic;
   margin-left: 4px;
-}
-
-
-/* ==========================================================================
-   ATTACKS LIST TABLE STYLING
-   ========================================================================== */
-.attacks-list-container {
-  max-height: 180px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  margin-bottom: 8px;
-  border-radius: 4px;
-}
-
-.attacks-table {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 10px;
-  text-align: left;
-}
-
-.attacks-table th,
-.attacks-table td {
-  padding: 4px 6px;
-  border-bottom: 1px solid #eee;
-}
-
-.attacks-table th {
-  background-color: #f2f2f2;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  font-weight: bold;
-}
-
-.attacks-table tr:hover {
-  background-color: #f9f9f9;
+  background: #f9f9f9;
+  padding: 3px;
+  border-left: 2px solid #d9534f;
+  margin-top: 2px;
 }
 
 
