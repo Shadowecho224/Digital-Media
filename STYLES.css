@@ -50,7 +50,18 @@ body {
   background-color: #575757;
 }
 
-/* Main Page Container */
+/* Dynamic Panels & Main Page Container */
+.panel {
+  display: none;
+  padding: 20px;
+  background-color: #28282c;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
 .main-page-content {
   display: none;
   background-color: #ffffff;
