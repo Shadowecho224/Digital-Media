@@ -1,64 +1,65 @@
 /* ==========================================================================
-   1. Core Website Layout Styles
+   GLOBAL & PORTFOLIO STYLES
    ========================================================================== */
-        /* 1. Reset Body Spacing */
-      body {
-         margin: 0;
-         padding: 0;
-         font-family: Arial, sans-serif;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #333;
+} 
+
+#header-box {
+  background-color: #2b2b2b;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #444;
 }
 
-        /* 2. Header Box (Full Width) */
-      #header-box {
-         background-color: lightblue;
-         width: 100%;
-         height: 250px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
+.site-title {
+  margin: 0;
+  font-size: 28px;
 }
 
-      h1 {
-         font-size: 52px;
-         font-family: courier, monospace;
-         text-align: center;
-         color: black;
-         margin: 0;
+/* Navigation Bar */
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
-        /* 3. Navigation Bar */
-      ul.nav-bar {
-         list-style-type: none;
-         margin: 0;
-         padding: 0;
-         background-color: #333333;
-         display: flex;
-         justify-content: center;
+.nav-bar li {
+  float: left;
 }
 
-      ul.nav-bar li a {
-         display: block;
-         color: white;
-         text-align: center;
-         padding: 18px 24px;
-         text-decoration: none;
-         cursor: pointer;
-         font-size: 20px;
-         font-weight: bold;
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-      ul.nav-bar li a:hover {
-         background-color: #111111;
- }
+.nav-bar li a:hover {
+  background-color: #575757;
+}
 
-        /* 4. Panel Styles (Hidden by default) */
-      .panel {
-          display: none; /* Hide all panels initially */
-          padding: 40px;
-          text-align: center;
-          background-color: #333333; 
-          color: white;
-          border-bottom: 5px solid #a6d8a8;
+/* Dynamic Panels & Main Page Container */
+.panel {
+  display: none;
+  padding: 20px;
+  background-color: #28282c;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .main-page-content {
@@ -145,7 +146,7 @@
 
 
 /* ==========================================================================
-   MAIN GRIDS & LAYOUTS
+   MAIN GRIDS & REORDERED LAYOUTS
    ========================================================================== */
 /* Standard 4-Column Grid */
 .dnd-main-grid {
@@ -173,6 +174,22 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+/* Attacks Section Underneath Skills Box */
+.attacks-under-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* HP, AC, Initiative & Speed Underneath Passive Perception */
+.vitals-under-passive {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
 }
 
 /* Generic D&D Outer Box */
@@ -205,7 +222,7 @@
 
 .attack-sketch-box, 
 .skills-sketch-box {
-  min-height: 480px;
+  min-height: 240px;
 }
 
 
@@ -285,12 +302,13 @@
 
 
 /* ==========================================================================
-   PASSIVE PERCEPTION
+   PASSIVE PERCEPTION & HP / VITALS STACK
    ========================================================================== */
 .passive-perception-box {
   display: flex;
   align-items: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
@@ -394,7 +412,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px 0 15px 0;
+  margin: 20px 0 10px 0;
 }
 
 .hp-heart-shape {
@@ -486,7 +504,7 @@
 }
 
 .attack-list-container {
-  max-height: 500px;
+  max-height: 250px;
   overflow-y: auto;
 }
 
