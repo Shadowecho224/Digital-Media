@@ -372,7 +372,7 @@ body {
 
 
 /* ==========================================================================
-   COMBAT VITALS & HP HEART
+   COMBAT VITALS & HP BOX
    ========================================================================== */
 .vital-row {
   display: flex;
@@ -407,75 +407,62 @@ body {
   background: #f0f0f0;
 }
 
-/* HP Heart Container */
-.hp-heart-wrapper {
+/* Standard Rectangular HP Box */
+.hp-box-wrapper {
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.hp-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: 20px 0 10px 0;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
 }
 
-.hp-heart-shape {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  background-color: #d9534f;
-  transform: rotate(-45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.hp-heart-shape::before,
-.hp-heart-shape::after {
-  content: "";
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  background-color: #d9534f;
-  border-radius: 50%;
-}
-
-.hp-heart-shape::before {
-  top: -35px;
-  left: 0;
-}
-
-.hp-heart-shape::after {
-  left: 35px;
-  top: 0;
-}
-
-.hp-content {
-  position: absolute;
-  transform: rotate(45deg);
-  z-index: 10;
-  color: white;
-  text-align: center;
+.hp-header label {
   font-size: 10px;
   font-weight: bold;
-  width: 90px;
-  margin-top: -8px;
-  margin-left: -8px;
+  text-transform: uppercase;
 }
 
-.hp-content p {
-  margin: 3px 0;
+.hp-header-input {
+  width: 40px;
+  border: none;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  font-size: 11px;
+  outline: none;
+}
+
+.hp-current-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.hp-current-container label {
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .hp-input {
-  width: 30px;
-  background: transparent;
+  width: 100%;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-  color: white;
-  font-weight: bold;
   text-align: center;
+  font-size: 20px;
+  font-weight: bold;
   outline: none;
-  font-size: 11px;
+  color: #000;
+  background: transparent;
 }
-
 
 /* ==========================================================================
    SKILLS, ATTACKS & CHECKBOX LISTS
