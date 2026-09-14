@@ -408,7 +408,7 @@ body {
 }
 
 /* ==========================================================================
-   SKILLS & CHECKBOX LISTS
+   SKILLS & ATTACKS LISTS
    ========================================================================== */
 .checkbox-list {
   list-style: none;
@@ -433,6 +433,38 @@ body {
   font-size: 10px;
 }
 
+/* Attacks Section Styling */
+.attack-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.attack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.attack-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+  gap: 4px;
+}
+
+.atk-dmg {
+  font-weight: bold;
+  color: #333;
+  margin-left: auto;
+  font-size: 9px;
+}
+
 .info-btn {
   background-color: #777;
   color: white;
@@ -444,16 +476,21 @@ body {
   line-height: 14px;
   padding: 0;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .skill-note {
   display: none;
+  width: 100%;
   font-size: 9px;
-  color: #555;
+  color: #444;
   font-style: italic;
-  margin-left: 4px;
+  margin-top: 3px;
+  background: #f9f9f9;
+  padding: 4px 6px;
+  border-left: 2px solid #d9534f;
+  box-sizing: border-box;
 }
-
 
 /* ==========================================================================
    ROLLABLE ELEMENTS & DICE ROLLER MODAL
