@@ -208,72 +208,6 @@ body {
   min-height: 480px;
 }
 
-/* ==========================================================================
-   HP HEART SHAPE
-   ========================================================================== */
-.hp-heart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px 0;
-}
-
-.hp-heart-shape {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  background-color: #d9534f;
-  transform: rotate(-45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hp-heart-shape::before,
-.hp-heart-shape::after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: #d9534f;
-  border-radius: 50%;
-}
-
-.hp-heart-shape::before {
-  top: -25px;
-  left: 0;
-}
-
-.hp-heart-shape::after {
-  left: 25px;
-  top: 0;
-}
-
-.hp-content {
-  position: absolute;
-  transform: rotate(45deg);
-  z-index: 10;
-  color: white;
-  text-align: center;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-.hp-content p {
-  margin: 0;
-}
-
-.hp-input {
-  width: 25px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  outline: none;
-  font-size: 10px;
-}
 
 /* ==========================================================================
    LISTS, ATTACKS & NOTES
@@ -404,5 +338,72 @@ body {
   cursor: pointer;
   font-weight: bold;
   font-size: 12px;
+}
+
+/* ==========================================================================
+   HP HEART SHAPE
+   ========================================================================== */
+.hp-heart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.hp-heart-shape {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #d9534f;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp-heart-shape::before,
+.hp-heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #d9534f;
+  border-radius: 50%;
+}
+
+.hp-heart-shape::before {
+  top: -25px;
+  left: 0;
+}
+
+.hp-heart-shape::after {
+  left: 25px;
+  top: 0;
+}
+
+.hp-content {
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: 10;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.hp-content p {
+  margin: 0;
+}
+
+.hp-input {
+  width: 25px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  font-size: 10px;
 }
 
