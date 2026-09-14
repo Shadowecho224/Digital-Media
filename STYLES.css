@@ -573,4 +573,1729 @@ body {
   cursor: pointer;
   font-weight: bold;
   font-size: 12px;
+}/* ==========================================================================
+   GLOBAL & PORTFOLIO STYLES
+   ========================================================================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #333;
+} 
+
+#header-box {
+  background-color: #2b2b2b;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #444;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar li {
+  float: left;
+}
+
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-bar li a:hover {
+  background-color: #575757;
+}
+
+/* Page Panels */
+.panel {
+  display: none;
+  padding: 20px;
+  background-color: #2a2a2e;
+  color: white;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.main-page-content {
+  display: none;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
+   CHARACTER SHEET LAYOUT & HEADER
+   ========================================================================== */
+#character-sheet {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.sheet-page {
+  display: none;
+}
+
+.sheet-page.active {
+  display: block;
+}
+
+/* D&D Header */
+.dnd-header {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #000;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fcfcfc;
+}
+
+.dnd-logo-box h1 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.dnd-header-fields {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.header-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-field input {
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  padding: 2px 0;
+}
+
+.header-field label {
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   MAIN GRID COLUMNS
+   ========================================================================== */
+.dnd-main-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Generic D&D Outer Box */
+.dnd-box {
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+.dnd-box h2 {
+  font-size: 11px;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  text-align: center;
+}
+
+.dnd-box textarea {
+  width: 100%;
+  border: none;
+  resize: vertical;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   ABILITY SCORES (FAR LEFT COLUMN)
+   ========================================================================== */
+.ability-scores-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ability-box {
+  border: 2px solid #000;
+  border-radius: 8px;
+  text-align: center;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.ability-box label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.ability-mod input {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+.ability-score input {
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  outline: none;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   EVEN PASSIVE PERCEPTION (PLACED UNDER EQUIPMENT BOX IN 3RD COLUMN)
+   ========================================================================== */
+.passive-perception-box {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.eye-container {
+  position: relative;
+  width: 55px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.eye-shape {
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  border: 1px solid #000;
+  border-radius: 105% 0;
+  transform: rotate(400deg);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.eye-pupil-input {
+  position: relative;
+  z-index: 3;
+  width: 25px;
+  height: 25px;
+  border-radius: 65%;
+  border: 2px solid #000;
+  background-color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 18px;
+}
+
+.passive-label-bar {
+  flex-grow: 1;
+  border: 2px solid #000;
+  border-left: none;
+  margin-left: -11px;
+  padding: 5px 6px 5px 16px;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.passive-label-bar span {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #000;
+}
+
+
+/* ==========================================================================
+   COMBAT VITALS & HP HEART
+   ========================================================================== */
+.vital-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.vital-cell {
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px;
+  flex: 1;
+}
+
+.vital-cell label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.vital-cell input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+}
+
+/* Shield-shaped AC Box */
+.vital-cell.ac-shield {
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  background: #f0f0f0;
+}
+
+/* ==========================================================================
+   HP HEART CONTAINER & SHAPE
+   ========================================================================== */
+.hp-heart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0 15px 0;
+}
+
+.hp-heart-shape {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Top two lobes of the heart */
+.hp-heart-shape::before,
+.hp-heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
+  border-radius: 50%;
+}
+
+/* Top left lobe */
+.hp-heart-shape::before {
+  top: -35px;
+  left: 0;
+}
+
+/* Top right lobe */
+.hp-heart-shape::after {
+  left: 35px;
+  top: 0;
+}
+
+/* Text Container un-rotated to stay level */
+.hp-content {
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: 10;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  width: 90px;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+
+.hp-content p {
+  margin: 3px 0;
+}
+
+.hp-input {
+  width: 30px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   SKILLS & ATTACKS LISTS
+   ========================================================================== */
+.checkbox-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
+}
+
+.checkbox-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+  gap: 3px;
+}
+
+.checkbox-list input[type="text"] {
+  width: 25px;
+  border: none;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  outline: none;
+  font-size: 10px;
+}
+
+/* Attacks Section Styling */
+.attack-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.attack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.attack-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+  gap: 4px;
+}
+
+.atk-dmg {
+  font-weight: bold;
+  color: #333;
+  margin-left: auto;
+  font-size: 9px;
+}
+
+.info-btn {
+  background-color: #777;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  font-size: 9px;
+  line-height: 14px;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.skill-note {
+  display: none;
+  width: 100%;
+  font-size: 9px;
+  color: #444;
+  font-style: italic;
+  margin-top: 3px;
+  background: #f9f9f9;
+  padding: 4px 6px;
+  border-left: 2px solid #d9534f;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ROLLABLE ELEMENTS & DICE ROLLER MODAL
+   ========================================================================== */
+.rollable-label,
+.rollable-text,
+.rollable-input {
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+.rollable-label:hover,
+.rollable-text:hover {
+  color: #d9534f;
+  text-decoration: underline;
+}
+
+.rollable-input:hover {
+  color: #d9534f;
+}
+
+/* Roll Button Styling */
+.roll-btn {
+  background: #5A5A5D;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 4px;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.roll-btn:hover {
+  background: #d9534f;
+}
+
+/* Floating Dice Roll Display Box */
+#dice-result-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #d9534f;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: none;
+  min-width: 180px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#dice-result-box h4 {
+  margin: 0 0 5px 0;
+  color: #d9534f;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#dice-result-box .roll-details {
+  font-size: 12px;
+  color: #ccc;
+}
+
+#dice-result-box .roll-total {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 5px;
+}
+
+#dice-result-box .close-btn {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  color: #aaa;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+}/* ==========================================================================
+   GLOBAL & PORTFOLIO STYLES
+   ========================================================================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #333;
+} 
+
+#header-box {
+  background-color: #2b2b2b;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #444;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar li {
+  float: left;
+}
+
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-bar li a:hover {
+  background-color: #575757;
+}
+
+/* Page Panels */
+.panel {
+  display: none;
+  padding: 20px;
+  background-color: #2a2a2e;
+  color: white;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.main-page-content {
+  display: none;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
+   CHARACTER SHEET LAYOUT & HEADER
+   ========================================================================== */
+#character-sheet {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.sheet-page {
+  display: none;
+}
+
+.sheet-page.active {
+  display: block;
+}
+
+/* D&D Header */
+.dnd-header {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #000;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fcfcfc;
+}
+
+.dnd-logo-box h1 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.dnd-header-fields {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.header-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-field input {
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  padding: 2px 0;
+}
+
+.header-field label {
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   MAIN GRID COLUMNS
+   ========================================================================== */
+.dnd-main-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Generic D&D Outer Box */
+.dnd-box {
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+.dnd-box h2 {
+  font-size: 11px;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  text-align: center;
+}
+
+.dnd-box textarea {
+  width: 100%;
+  border: none;
+  resize: vertical;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   ABILITY SCORES (FAR LEFT COLUMN)
+   ========================================================================== */
+.ability-scores-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ability-box {
+  border: 2px solid #000;
+  border-radius: 8px;
+  text-align: center;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.ability-box label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.ability-mod input {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+.ability-score input {
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  outline: none;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   EVEN PASSIVE PERCEPTION (PLACED UNDER EQUIPMENT BOX IN 3RD COLUMN)
+   ========================================================================== */
+.passive-perception-box {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.eye-container {
+  position: relative;
+  width: 55px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.eye-shape {
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  border: 1px solid #000;
+  border-radius: 105% 0;
+  transform: rotate(400deg);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.eye-pupil-input {
+  position: relative;
+  z-index: 3;
+  width: 25px;
+  height: 25px;
+  border-radius: 65%;
+  border: 2px solid #000;
+  background-color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 18px;
+}
+
+.passive-label-bar {
+  flex-grow: 1;
+  border: 2px solid #000;
+  border-left: none;
+  margin-left: -11px;
+  padding: 5px 6px 5px 16px;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.passive-label-bar span {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #000;
+}
+
+
+/* ==========================================================================
+   COMBAT VITALS & HP HEART
+   ========================================================================== */
+.vital-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.vital-cell {
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px;
+  flex: 1;
+}
+
+.vital-cell label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.vital-cell input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+}
+
+/* Shield-shaped AC Box */
+.vital-cell.ac-shield {
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  background: #f0f0f0;
+}
+
+/* ==========================================================================
+   HP HEART CONTAINER & SHAPE
+   ========================================================================== */
+.hp-heart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0 15px 0;
+}
+
+.hp-heart-shape {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Top two lobes of the heart */
+.hp-heart-shape::before,
+.hp-heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
+  border-radius: 50%;
+}
+
+/* Top left lobe */
+.hp-heart-shape::before {
+  top: -35px;
+  left: 0;
+}
+
+/* Top right lobe */
+.hp-heart-shape::after {
+  left: 35px;
+  top: 0;
+}
+
+/* Text Container un-rotated to stay level */
+.hp-content {
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: 10;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  width: 90px;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+
+.hp-content p {
+  margin: 3px 0;
+}
+
+.hp-input {
+  width: 30px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   SKILLS & ATTACKS LISTS
+   ========================================================================== */
+.checkbox-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
+}
+
+.checkbox-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+  gap: 3px;
+}
+
+.checkbox-list input[type="text"] {
+  width: 25px;
+  border: none;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  outline: none;
+  font-size: 10px;
+}
+
+/* Attacks Section Styling */
+.attack-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.attack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.attack-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+  gap: 4px;
+}
+
+.atk-dmg {
+  font-weight: bold;
+  color: #333;
+  margin-left: auto;
+  font-size: 9px;
+}
+
+.info-btn {
+  background-color: #777;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  font-size: 9px;
+  line-height: 14px;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.skill-note {
+  display: none;
+  width: 100%;
+  font-size: 9px;
+  color: #444;
+  font-style: italic;
+  margin-top: 3px;
+  background: #f9f9f9;
+  padding: 4px 6px;
+  border-left: 2px solid #d9534f;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ROLLABLE ELEMENTS & DICE ROLLER MODAL
+   ========================================================================== */
+.rollable-label,
+.rollable-text,
+.rollable-input {
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+.rollable-label:hover,
+.rollable-text:hover {
+  color: #d9534f;
+  text-decoration: underline;
+}
+
+.rollable-input:hover {
+  color: #d9534f;
+}
+
+/* Roll Button Styling */
+.roll-btn {
+  background: #5A5A5D;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 4px;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.roll-btn:hover {
+  background: #d9534f;
+}
+
+/* Floating Dice Roll Display Box */
+#dice-result-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #d9534f;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: none;
+  min-width: 180px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#dice-result-box h4 {
+  margin: 0 0 5px 0;
+  color: #d9534f;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#dice-result-box .roll-details {
+  font-size: 12px;
+  color: #ccc;
+}
+
+#dice-result-box .roll-total {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 5px;
+}
+
+#dice-result-box .close-btn {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  color: #aaa;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+}/* ==========================================================================
+   GLOBAL & PORTFOLIO STYLES
+   ========================================================================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #333;
+} 
+
+#header-box {
+  background-color: #2b2b2b;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #444;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar li {
+  float: left;
+}
+
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-bar li a:hover {
+  background-color: #575757;
+}
+
+/* Page Panels */
+.panel {
+  display: none;
+  padding: 20px;
+  background-color: #2a2a2e;
+  color: white;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.main-page-content {
+  display: none;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
+   CHARACTER SHEET LAYOUT & HEADER
+   ========================================================================== */
+#character-sheet {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.sheet-page {
+  display: none;
+}
+
+.sheet-page.active {
+  display: block;
+}
+
+/* D&D Header */
+.dnd-header {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #000;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fcfcfc;
+}
+
+.dnd-logo-box h1 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.dnd-header-fields {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.header-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-field input {
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  padding: 2px 0;
+}
+
+.header-field label {
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   MAIN GRID COLUMNS
+   ========================================================================== */
+.dnd-main-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Generic D&D Outer Box */
+.dnd-box {
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+.dnd-box h2 {
+  font-size: 11px;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  text-align: center;
+}
+
+.dnd-box textarea {
+  width: 100%;
+  border: none;
+  resize: vertical;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   ABILITY SCORES (FAR LEFT COLUMN)
+   ========================================================================== */
+.ability-scores-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ability-box {
+  border: 2px solid #000;
+  border-radius: 8px;
+  text-align: center;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.ability-box label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.ability-mod input {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+.ability-score input {
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  outline: none;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   EVEN PASSIVE PERCEPTION (PLACED UNDER EQUIPMENT BOX IN 3RD COLUMN)
+   ========================================================================== */
+.passive-perception-box {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.eye-container {
+  position: relative;
+  width: 55px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.eye-shape {
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  border: 1px solid #000;
+  border-radius: 105% 0;
+  transform: rotate(400deg);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.eye-pupil-input {
+  position: relative;
+  z-index: 3;
+  width: 25px;
+  height: 25px;
+  border-radius: 65%;
+  border: 2px solid #000;
+  background-color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 18px;
+}
+
+.passive-label-bar {
+  flex-grow: 1;
+  border: 2px solid #000;
+  border-left: none;
+  margin-left: -11px;
+  padding: 5px 6px 5px 16px;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.passive-label-bar span {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #000;
+}
+
+
+/* ==========================================================================
+   COMBAT VITALS & HP HEART
+   ========================================================================== */
+.vital-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.vital-cell {
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px;
+  flex: 1;
+}
+
+.vital-cell label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.vital-cell input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+}
+
+/* Shield-shaped AC Box */
+.vital-cell.ac-shield {
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  background: #f0f0f0;
+}
+
+/* ==========================================================================
+   HP HEART CONTAINER & SHAPE
+   ========================================================================== */
+.hp-heart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0 15px 0;
+}
+
+.hp-heart-shape {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Top two lobes of the heart */
+.hp-heart-shape::before,
+.hp-heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #d9534f;
+  border-radius: 50%;
+}
+
+/* Top left lobe */
+.hp-heart-shape::before {
+  top: -35px;
+  left: 0;
+}
+
+/* Top right lobe */
+.hp-heart-shape::after {
+  left: 35px;
+  top: 0;
+}
+
+/* Text Container un-rotated to stay level */
+.hp-content {
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: 10;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  width: 90px;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+
+.hp-content p {
+  margin: 3px 0;
+}
+
+.hp-input {
+  width: 30px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   SKILLS & ATTACKS LISTS
+   ========================================================================== */
+.checkbox-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
+}
+
+.checkbox-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+  gap: 3px;
+}
+
+.checkbox-list input[type="text"] {
+  width: 25px;
+  border: none;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  outline: none;
+  font-size: 10px;
+}
+
+/* Attacks Section Styling */
+.attack-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.attack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.attack-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+  gap: 4px;
+}
+
+.atk-dmg {
+  font-weight: bold;
+  color: #333;
+  margin-left: auto;
+  font-size: 9px;
+}
+
+.info-btn {
+  background-color: #777;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  font-size: 9px;
+  line-height: 14px;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.skill-note {
+  display: none;
+  width: 100%;
+  font-size: 9px;
+  color: #444;
+  font-style: italic;
+  margin-top: 3px;
+  background: #f9f9f9;
+  padding: 4px 6px;
+  border-left: 2px solid #d9534f;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ROLLABLE ELEMENTS & DICE ROLLER MODAL
+   ========================================================================== */
+.rollable-label,
+.rollable-text,
+.rollable-input {
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+.rollable-label:hover,
+.rollable-text:hover {
+  color: #d9534f;
+  text-decoration: underline;
+}
+
+.rollable-input:hover {
+  color: #d9534f;
+}
+
+/* Roll Button Styling */
+.roll-btn {
+  background: #5A5A5D;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 4px;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.roll-btn:hover {
+  background: #d9534f;
+}
+
+/* Floating Dice Roll Display Box */
+#dice-result-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #d9534f;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: none;
+  min-width: 180px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#dice-result-box h4 {
+  margin: 0 0 5px 0;
+  color: #d9534f;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#dice-result-box .roll-details {
+  font-size: 12px;
+  color: #ccc;
+}
+
+#dice-result-box .roll-total {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 5px;
+}
+
+#dice-result-box .close-btn {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  color: #aaa;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
 }
