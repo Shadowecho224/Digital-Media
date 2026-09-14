@@ -467,6 +467,9 @@ body {
 /* ==========================================================================
    SKILLS, ATTACKS & CHECKBOX LISTS
    ========================================================================== */
+/* ==========================================================================
+   SKILLS, ATTACKS & CHECKBOX LISTS
+   ========================================================================== */
 .checkbox-list {
   list-style: none;
   padding: 0;
@@ -490,26 +493,46 @@ body {
   font-size: 10px;
 }
 
+/* Expanded & Text-Wrapping Attacks Container */
+.attacks-under-skills .dnd-box,
+.attack-sketch-box {
+  min-height: 380px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
 .attack-list-container {
-  max-height: 250px;
+  max-height: 340px;
   overflow-y: auto;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+  padding-right: 4px; /* Space for the scrollbar */
 }
 
 .attack-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .attack-item {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 4px 0;
+  flex-wrap: wrap; /* Allows overflowing text elements to drop to the next line */
+  align-items: flex-start; /* Keeps icons aligned to top when text wraps */
+  padding: 8px 4px;
   border-bottom: 1px solid #eee;
-  gap: 4px;
+  gap: 8px;
   justify-content: space-between;
+  word-break: break-word; /* Ensures long words wrap inside the container */
+  white-space: normal; /* Allows standard multiline wrapping */
+}
+
+.attack-item span,
+.attack-item p,
+.attack-item label {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%; /* Keeps text constrained to box width */
 }
 
 .info-btn {
@@ -517,28 +540,30 @@ body {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 14px;
-  height: 14px;
-  font-size: 9px;
-  line-height: 14px;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  line-height: 16px;
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .skill-note {
   display: none;
   width: 100%;
-  font-size: 9px;
+  font-size: 10px;
   color: #444;
   font-style: italic;
-  margin-top: 3px;
+  margin-top: 4px;
   background: #f9f9f9;
-  padding: 4px 6px;
-  border-left: 2px solid #d9534f;
+  padding: 6px 8px;
+  border-left: 3px solid #d9534f;
   box-sizing: border-box;
+  white-space: normal;
+  word-break: break-word;
 }
-
 
 /* ==========================================================================
    ROLLABLE ELEMENTS & DICE ROLLER MODAL
