@@ -14,12 +14,12 @@ body {
   padding: 20px;
   text-align: center;
   border-bottom: 2px solid #444;
-  color: white;
 }
 
 .site-title {
   margin: 0;
   font-size: 28px;
+  color: white;
 }
 
 /* Navigation Bar */
@@ -71,51 +71,6 @@ body {
   max-width: 1100px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.dark-text {
-  color: #1a1a1a;
-}
-
-/* Button & Controls Styles */
-.btn-primary {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 5px;
-  transition: background-color 0.2s ease;
-}
-
-.btn-primary:hover {
-  background-color: #c9302c;
-}
-
-.sheet-controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.sheet-controls button {
-  background-color: #e7e7e7;
-  color: #333;
-  border: 1px solid #ccc;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 12px;
-}
-
-.sheet-controls button:hover {
-  background-color: #d5d5d5;
 }
 
 
@@ -254,7 +209,6 @@ body {
   min-height: 480px;
 }
 
-
 /* ==========================================================================
    HP HEART SHAPE
    ========================================================================== */
@@ -321,7 +275,6 @@ body {
   outline: none;
   font-size: 10px;
 }
-
 
 /* ==========================================================================
    LISTS, ATTACKS & NOTES
@@ -422,19 +375,6 @@ body {
   text-decoration: underline;
 }
 
-/* Travel Container / Media Styles */
-#travelContainer img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.travel-location {
-  font-size: 18px;
-  margin-top: 8px;
-}
-
 /* Floating Dice Roll Display Box */
 #dice-result-box {
   position: fixed;
@@ -475,27 +415,61 @@ body {
   position: absolute;
   top: 3px;
   right: 6px;
-  color: #aaa;
-  background: none;
+  background: transparent;
   border: none;
+  color: #aaa;
   cursor: pointer;
   font-weight: bold;
   font-size: 12px;
 }
 
+#dice-result-box .close-btn:hover {
+  color: #fff;
+}
+
 /* ==========================================================================
-   RESPONSIVE DESIGN BREAKPOINTS
+   BUTTONS, NAVIGATION CONTROLS & CONTENT
    ========================================================================== */
-@media (max-width: 900px) {
-  .sketch-main-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .dnd-sketch-header {
-    flex-wrap: wrap;
-  }
-  
-  .header-field {
-    min-width: 45%;
-  }
+.btn-primary {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #c9302c;
+}
+
+.sheet-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sheet-controls button {
+  background-color: #efefef;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sheet-controls button:hover {
+  background-color: #ddd;
+}
+
+.travel-location {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.dark-text {
+  color: #333;
+  font-size: 14px;
 }
