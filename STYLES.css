@@ -411,7 +411,7 @@ body {
 .hp-box-wrapper {
   border: 2px solid #000;
   border-radius: 6px;
-  padding: 8px;
+  padding: 4px;
   background-color: #fff;
   margin: 10px 0;
 }
@@ -432,7 +432,7 @@ body {
 }
 
 .hp-header-input {
-  width: 40px;
+  width: 15px;
   border: none;
   border-bottom: 1px solid #000;
   text-align: center;
