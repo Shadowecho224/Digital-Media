@@ -83,15 +83,6 @@ body {
   color: #000;
 }
 
-.sheet-page {
-  display: none;
-}
-
-.sheet-page.active {
-  display: block;
-}
-
-/* Standard Header */
 .dnd-header {
   display: flex;
   justify-content: space-between;
@@ -111,16 +102,6 @@ body {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
-}
-
-/* Sketch Header */
-.dnd-sketch-header {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid #000;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  gap: 10px;
 }
 
 .header-field {
@@ -148,11 +129,10 @@ body {
 /* ==========================================================================
    MAIN GRIDS & REORDERED LAYOUTS
    ========================================================================== */
-/* Standard 4-Column Grid */
 .dnd-main-grid {
   display: grid;
-  grid-template-columns: 80px 1fr 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: 80px 1fr 2fr;
+  gap: 15px;
 }
 
 .column {
@@ -161,42 +141,23 @@ body {
   gap: 10px;
 }
 
-/* Handwritten Sketch 3-Column Grid */
-.sketch-main-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr 1fr;
-  gap: 15px;
-}
-
-.sketch-col-1,
-.sketch-col-2,
-.sketch-col-3 {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Attacks Section Underneath Skills Box */
-.attacks-under-skills {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* HP, AC, Initiative & Speed Underneath Passive Perception */
 .vitals-under-passive {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
 }
 
-/* Generic D&D Outer Box */
+.attacks-under-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Generic Outer Box */
 .dnd-box {
   border: 2px solid #000;
   border-radius: 6px;
-  padding: 8px;
+  padding: 10px;
   background-color: #fff;
   position: relative;
 }
@@ -210,24 +171,9 @@ body {
   text-align: center;
 }
 
-.dnd-box textarea {
-  width: 100%;
-  border: none;
-  resize: vertical;
-  outline: none;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  box-sizing: border-box;
-}
-
-.attack-sketch-box, 
-.skills-sketch-box {
-  min-height: 240px;
-}
-
 
 /* ==========================================================================
-   ABILITY SCORES & COMBAT VITALS
+   ABILITY SCORES
    ========================================================================== */
 .ability-scores-column {
   display: flex;
@@ -269,46 +215,13 @@ body {
   margin-top: 2px;
 }
 
-/* Sketch 3x3 Grid */
-.ability-vitals-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-}
-
-.ability-vitals-grid .ability-box {
-  border: 1px solid #000;
-  border-radius: 4px;
-  text-align: center;
-  padding: 4px 2px;
-}
-
-.ability-vitals-grid .ability-score input {
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  border: none;
-  width: 100%;
-}
-
-.ability-vitals-grid .ability-mod input {
-  font-size: 10px;
-  border: 1px solid #000;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  margin: 0 auto;
-}
-
 
 /* ==========================================================================
-   PASSIVE PERCEPTION & HP / VITALS STACK
+   PASSIVE PERCEPTION & HP / COMBAT VITALS
    ========================================================================== */
 .passive-perception-box {
   display: flex;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
   width: 100%;
 }
 
@@ -364,16 +277,12 @@ body {
 }
 
 .passive-label-bar span {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: bold;
   letter-spacing: 0.5px;
   color: #000;
 }
 
-
-/* ==========================================================================
-   COMBAT VITALS & HP BOX
-   ========================================================================== */
 .vital-row {
   display: flex;
   justify-content: space-between;
@@ -411,9 +320,8 @@ body {
 .hp-box-wrapper {
   border: 2px solid #000;
   border-radius: 6px;
-  padding: 4px;
+  padding: 8px;
   background-color: #fff;
-  margin: 10px 0;
 }
 
 .hp-header {
@@ -432,7 +340,7 @@ body {
 }
 
 .hp-header-input {
-  width: 15px;
+  width: 40px;
   border: none;
   border-bottom: 1px solid #000;
   text-align: center;
@@ -444,7 +352,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 6px;
 }
 
 .hp-current-container label {
@@ -464,8 +371,9 @@ body {
   background: transparent;
 }
 
+
 /* ==========================================================================
-   SKILLS, ATTACKS & CHECKBOX LISTS
+   SKILLS & UNRESTRICTED ATTACK LIST
    ========================================================================== */
 .checkbox-list {
   list-style: none;
@@ -490,17 +398,16 @@ body {
   font-size: 10px;
 }
 
-/* Expanded Attacks Container (Fully Visible Content) */
-.attacks-under-skills .dnd-box,
+/* Auto-expanding Attacks Container */
 .attack-sketch-box {
-  min-height: auto; /* Lets the box grow naturally with its content */
+  min-height: auto;
   height: auto;
   padding: 12px;
-  overflow: visible; /* Prevents text clipping */
+  overflow: visible;
 }
 
 .attack-list-container {
-  max-height: none; /* Disables scrollbar so all attacks show at once */
+  max-height: none;
   overflow: visible;
   width: 100%;
 }
@@ -515,20 +422,13 @@ body {
 
 .attack-item {
   display: flex;
-  flex-wrap: wrap; /* Allows text and inputs to wrap neatly on smaller widths */
+  flex-wrap: wrap;
   align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid #eee;
   gap: 8px;
   justify-content: space-between;
-  word-break: break-word; /* Prevents long weapon/spell titles from overflowing */
-}
-
-/* Form controls inside attack items adjust responsively */
-.attack-item input[type="text"] {
-  font-size: 11px;
-  padding: 2px 4px;
-  box-sizing: border-box;
+  word-break: break-word;
 }
 
 .info-btn {
@@ -556,11 +456,12 @@ body {
   padding: 6px 8px;
   border-left: 3px solid #d9534f;
   box-sizing: border-box;
-  white-space: normal; /* Ensures long rule notes wrap completely */
+  white-space: normal;
 }
 
+
 /* ==========================================================================
-   ROLLABLE ELEMENTS & DICE ROLLER MODAL
+   DICE ROLLER INTERACTION
    ========================================================================== */
 .rollable-label,
 .rollable-text,
@@ -573,20 +474,6 @@ body {
 .rollable-text:hover,
 .rollable-input:hover {
   color: #d9534f;
-}
-
-.roll-btn {
-  background: #5A5A5D;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  padding: 3px 8px;
-  font-size: 10px;
-}
-
-.roll-btn:hover {
-  background: #d9534f;
 }
 
 #dice-result-box {
