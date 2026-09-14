@@ -1,4 +1,79 @@
 /* ==========================================================================
+   GLOBAL & PORTFOLIO STYLES
+   ========================================================================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #333;
+} 
+
+#header-box {
+  background-color: #2b2b2b;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #444;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar li {
+  float: left;
+}
+
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-bar li a:hover {
+  background-color: #575757;
+}
+
+/* Page Panels */
+.panel {
+  display: none;
+  padding: 20px;
+  background-color: #2a2a2e;
+  color: white;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.main-page-content {
+  display: none;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
    CHARACTER SHEET LAYOUT & HEADER (SKULL & BONE THEME)
    ========================================================================== */
 #character-sheet {
