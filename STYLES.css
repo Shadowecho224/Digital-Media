@@ -1,65 +1,67 @@
 /* ==========================================================================
    GLOBAL & PORTFOLIO STYLES
    ========================================================================== */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #1a1a1a;
-  color: #333;
-} 
-
-#header-box {
-  background-color: #2b2b2b;
-  padding: 20px;
-  text-align: center;
-  border-bottom: 2px solid #444;
+/* ==========================================================================
+   1. Core Website Layout Styles
+   ========================================================================== */
+        /* 1. Reset Body Spacing */
+      body {
+         margin: 0;
+         padding: 0;
+         font-family: Arial, sans-serif;
 }
 
-.site-title {
-  margin: 0;
-  font-size: 28px;
+        /* 2. Header Box (Full Width) */
+      #header-box {
+         background-color: lightblue;
+         width: 100%;
+         height: 250px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
 }
 
-/* Navigation Bar */
-.nav-bar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #333;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
+      h1 {
+         font-size: 52px;
+         font-family: courier, monospace;
+         text-align: center;
+         color: black;
+         margin: 0;
 }
 
-.nav-bar li {
-  float: left;
+        /* 3. Navigation Bar */
+      ul.nav-bar {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         background-color: #333333;
+         display: flex;
+         justify-content: center;
 }
 
-.nav-bar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-  cursor: pointer;
-  font-weight: bold;
+      ul.nav-bar li a {
+         display: block;
+         color: white;
+         text-align: center;
+         padding: 18px 24px;
+         text-decoration: none;
+         cursor: pointer;
+         font-size: 20px;
+         font-weight: bold;
 }
 
-.nav-bar li a:hover {
-  background-color: #575757;
-}
+      ul.nav-bar li a:hover {
+         background-color: #111111;
+ }
 
-/* Dynamic Panels & Main Page Container */
-.panel {
-  display: none;
-  padding: 20px;
-  background-color: #28282c;
-  margin: 15px auto;
-  width: 90%;
-  max-width: 1000px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        /* 4. Panel Styles (Hidden by default) */
+      .panel {
+          display: none; /* Hide all panels initially */
+          padding: 40px;
+          text-align: center;
+          background-color: #333333; 
+          color: white;
+          border-bottom: 5px solid #a6d8a8;
 }
 
 .main-page-content {
