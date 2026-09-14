@@ -50,18 +50,7 @@ body {
   background-color: #575757;
 }
 
-/* Page Panels */
-.panel {
-  display: none;
-  padding: 20px;
-  background-color: #2a2a2e;
-  color: white;
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 8px;
-  text-align: center;
-}
-
+/* Main Page Container */
 .main-page-content {
   display: none;
   background-color: #ffffff;
@@ -91,7 +80,7 @@ body {
   display: block;
 }
 
-/* D&D Header (Standard) */
+/* Standard Header */
 .dnd-header {
   display: flex;
   justify-content: space-between;
@@ -113,7 +102,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* Handwritten Sketch Header Bar */
+/* Sketch Header */
 .dnd-sketch-header {
   display: flex;
   justify-content: space-between;
@@ -148,16 +137,11 @@ body {
 /* ==========================================================================
    MAIN GRIDS & LAYOUTS
    ========================================================================== */
-/* Standard 4-Column D&D Grid */
+/* Standard 4-Column Grid */
 .dnd-main-grid {
   display: grid;
   grid-template-columns: 80px 1fr 1fr 1fr;
   gap: 12px;
-}
-
-.column-left {
-  display: flex;
-  flex-direction: column;
 }
 
 .column {
@@ -218,7 +202,6 @@ body {
 /* ==========================================================================
    ABILITY SCORES & COMBAT VITALS
    ========================================================================== */
-/* Far-Left Column Vertical Ability Scores */
 .ability-scores-column {
   display: flex;
   flex-direction: column;
@@ -259,53 +242,35 @@ body {
   margin-top: 2px;
 }
 
-/* Sketch 3x3 Grid (Ability Scores & Vitals) */
+/* Sketch 3x3 Grid */
 .ability-vitals-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
 
-.ability-vitals-grid .ability-box, 
-.ability-vitals-grid .vital-box {
+.ability-vitals-grid .ability-box {
   border: 1px solid #000;
   border-radius: 4px;
   text-align: center;
   padding: 4px 2px;
-  background: #fff;
 }
 
-.ability-vitals-grid .ability-box label, 
-.ability-vitals-grid .vital-box label {
-  font-size: 8px;
-  font-weight: bold;
-  display: block;
-}
-
-.ability-vitals-grid .ability-score input, 
-.ability-vitals-grid .vital-box input {
+.ability-vitals-grid .ability-score input {
   font-size: 14px;
   font-weight: bold;
   text-align: center;
   border: none;
   width: 100%;
-  outline: none;
 }
 
 .ability-vitals-grid .ability-mod input {
   font-size: 10px;
-  text-align: center;
   border: 1px solid #000;
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  outline: none;
   margin: 0 auto;
-  display: block;
-}
-
-.saving-throws-sketch-box {
-  margin-top: 5px;
 }
 
 
@@ -409,13 +374,12 @@ body {
   outline: none;
 }
 
-/* Shield-shaped AC Box */
 .vital-cell.ac-shield {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
   background: #f0f0f0;
 }
 
-/* HP Heart Container & Shape */
+/* HP Heart Container */
 .hp-heart-wrapper {
   display: flex;
   justify-content: center;
@@ -435,7 +399,6 @@ body {
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Top two lobes of the heart */
 .hp-heart-shape::before,
 .hp-heart-shape::after {
   content: "";
@@ -446,19 +409,16 @@ body {
   border-radius: 50%;
 }
 
-/* Top left lobe */
 .hp-heart-shape::before {
   top: -35px;
   left: 0;
 }
 
-/* Top right lobe */
 .hp-heart-shape::after {
   left: 35px;
   top: 0;
 }
 
-/* Text Container un-rotated to stay level */
 .hp-content {
   position: absolute;
   transform: rotate(45deg);
@@ -576,32 +536,25 @@ body {
 }
 
 .rollable-label:hover,
-.rollable-text:hover {
-  color: #d9534f;
-  text-decoration: underline;
-}
-
+.rollable-text:hover,
 .rollable-input:hover {
   color: #d9534f;
 }
 
-/* Roll Button Styling */
 .roll-btn {
   background: #5A5A5D;
   color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  padding: 1px 4px;
+  padding: 3px 8px;
   font-size: 10px;
-  margin-left: 2px;
 }
 
 .roll-btn:hover {
   background: #d9534f;
 }
 
-/* Floating Dice Roll Display Box */
 #dice-result-box {
   position: fixed;
   bottom: 20px;
@@ -616,7 +569,6 @@ body {
   display: none;
   min-width: 180px;
   text-align: center;
-  font-family: sans-serif;
 }
 
 #dice-result-box h4 {
