@@ -467,9 +467,6 @@ body {
 /* ==========================================================================
    SKILLS, ATTACKS & CHECKBOX LISTS
    ========================================================================== */
-/* ==========================================================================
-   SKILLS, ATTACKS & CHECKBOX LISTS
-   ========================================================================== */
 .checkbox-list {
   list-style: none;
   padding: 0;
@@ -493,19 +490,19 @@ body {
   font-size: 10px;
 }
 
-/* Expanded & Text-Wrapping Attacks Container */
+/* Expanded Attacks Container (Fully Visible Content) */
 .attacks-under-skills .dnd-box,
 .attack-sketch-box {
-  min-height: 380px;
+  min-height: auto; /* Lets the box grow naturally with its content */
+  height: auto;
   padding: 12px;
-  box-sizing: border-box;
+  overflow: visible; /* Prevents text clipping */
 }
 
 .attack-list-container {
-  max-height: 340px;
-  overflow-y: auto;
-  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
-  padding-right: 4px; /* Space for the scrollbar */
+  max-height: none; /* Disables scrollbar so all attacks show at once */
+  overflow: visible;
+  width: 100%;
 }
 
 .attack-list {
@@ -513,26 +510,25 @@ body {
   padding: 0;
   margin: 0;
   font-size: 12px;
+  width: 100%;
 }
 
 .attack-item {
   display: flex;
-  flex-wrap: wrap; /* Allows overflowing text elements to drop to the next line */
-  align-items: flex-start; /* Keeps icons aligned to top when text wraps */
-  padding: 8px 4px;
+  flex-wrap: wrap; /* Allows text and inputs to wrap neatly on smaller widths */
+  align-items: center;
+  padding: 8px 0;
   border-bottom: 1px solid #eee;
   gap: 8px;
   justify-content: space-between;
-  word-break: break-word; /* Ensures long words wrap inside the container */
-  white-space: normal; /* Allows standard multiline wrapping */
+  word-break: break-word; /* Prevents long weapon/spell titles from overflowing */
 }
 
-.attack-item span,
-.attack-item p,
-.attack-item label {
-  white-space: normal;
-  word-wrap: break-word;
-  max-width: 100%; /* Keeps text constrained to box width */
+/* Form controls inside attack items adjust responsively */
+.attack-item input[type="text"] {
+  font-size: 11px;
+  padding: 2px 4px;
+  box-sizing: border-box;
 }
 
 .info-btn {
@@ -547,13 +543,12 @@ body {
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
 .skill-note {
   display: none;
   width: 100%;
-  font-size: 10px;
+  font-size: 11px;
   color: #444;
   font-style: italic;
   margin-top: 4px;
@@ -561,8 +556,7 @@ body {
   padding: 6px 8px;
   border-left: 3px solid #d9534f;
   box-sizing: border-box;
-  white-space: normal;
-  word-break: break-word;
+  white-space: normal; /* Ensures long rule notes wrap completely */
 }
 
 /* ==========================================================================
