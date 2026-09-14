@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. FONTS & GLOBAL STYLES
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Kalam:wght@400;700&family=Orbitron:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -10,137 +10,130 @@
 }
 
 body {
-  font-family: 'Kalam', cursive, sans-serif;
-  background-color: #05050b;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #05070f;
+  /* Deep cosmic nebula background */
   background-image: 
-    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 40px 70px, #7b2cbf, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 90px 40px, #3a86ff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0));
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  color: #e0e6ed;
+    radial-gradient(circle at 15% 20%, rgba(112, 0, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(5, 7, 15, 0.8) 0%, #030408 100%);
+  background-attachment: fixed;
+  color: #c8d6e5;
   line-height: 1.4;
 }
 
-/* Custom Cosmic Scrollbars */
+/* Sci-Fi Glow Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0c10;
+  background: #080c19;
 }
 ::-webkit-scrollbar-thumb {
-  background: #00f5d4;
-  border-radius: 4px;
-  box-shadow: 0 0 8px #00f5d4;
+  background: #00d4ff;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #00d4ff;
 }
 
 /* ==========================================================================
    2. SITE HEADER & NAVIGATION
    ========================================================================== */
 #header-box {
-  background: #0a0a12;
+  background: rgba(10, 15, 30, 0.8);
+  backdrop-filter: blur(10px);
   padding: 20px;
   text-align: center;
-  border-bottom: 2px solid #00f5d4;
-  box-shadow: 0 0 15px rgba(0, 245, 212, 0.4);
+  border-bottom: 2px solid #00d4ff;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
 }
 
 .site-title {
   font-family: 'Orbitron', sans-serif;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: #00f5d4 !important;
-  text-shadow: 0 0 10px #00f5d4, 0 0 20px #7b2cbf;
+  color: #00d4ff !important;
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.8), 0 0 20px rgba(112, 0, 255, 0.5);
 }
 
 .nav-bar {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: #12131c;
-  border-bottom: 1px solid #7b2cbf;
+  background-color: rgba(6, 10, 20, 0.9);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
 }
 
 .nav-bar li a {
   display: block;
   padding: 12px 24px;
-  color: #a0aab5;
+  color: #8a99ad;
   font-family: 'Orbitron', sans-serif;
   font-size: 0.85rem;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .nav-bar li a:hover {
-  background-color: rgba(123, 44, 191, 0.3);
-  color: #00f5d4;
-  text-shadow: 0 0 8px #00f5d4;
+  background: rgba(0, 212, 255, 0.15);
+  color: #00d4ff;
+  text-shadow: 0 0 8px #00d4ff;
 }
 
 .panel {
   display: none;
   padding: 20px;
-  background-color: #0a0a12;
+  background-color: rgba(10, 15, 30, 0.9);
   text-align: center;
-  border-bottom: 1px solid #7b2cbf;
+  border-bottom: 1px solid #00d4ff;
 }
 
 /* ==========================================================================
-   3. SPACE CONTAINER & SHEET CONTROLS
+   3. SPACESHIP CONSOLE CONTAINER & SHEET CONTROLS
    ========================================================================== */
 .main-page-content {
   display: none;
-  max-width: 1250px;
+  max-width: 1300px;
   margin: 25px auto;
-  padding: 30px;
-  border-radius: 12px;
+  padding: 25px;
 }
 
 #characterContainer {
-  /* Cosmic Nebula Background */
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(123, 44, 191, 0.25) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0, 245, 212, 0.15) 0%, transparent 40%),
-    linear-gradient(135deg, #0a0a14 0%, #121324 100%);
-  
-  /* Space-themed Neon Border Frame */
-  border: 3px solid #7b2cbf;
-  outline: 2px solid #00f5d4;
-  outline-offset: -8px;
-  border-radius: 16px;
+  /* Glassmorphism holographic panel look */
+  background: rgba(12, 18, 38, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
   box-shadow: 
-    0 0 20px rgba(123, 44, 191, 0.5),
-    inset 0 0 30px rgba(0, 245, 212, 0.15);
+    0 0 30px rgba(0, 0, 0, 0.8),
+    inset 0 0 20px rgba(0, 212, 255, 0.1);
 }
 
 .sheet-controls {
-  background: rgba(18, 19, 36, 0.6) !important;
-  border: 1px solid #7b2cbf;
+  background: rgba(0, 212, 255, 0.05) !important;
+  border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 8px;
 }
 
 .sheet-controls button {
   font-family: 'Orbitron', sans-serif;
-  background: #121324;
-  color: #00f5d4;
-  border: 1px solid #00f5d4;
-  padding: 8px 18px;
-  font-size: 0.8rem;
+  background: linear-gradient(135deg, #7000ff, #00d4ff);
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  font-size: 0.85rem;
   font-weight: bold;
-  cursor: pointer;
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 245, 212, 0.2);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(112, 0, 255, 0.5);
   transition: all 0.2s ease-in-out;
 }
 
 .sheet-controls button:hover {
-  background: #00f5d4;
-  color: #05050b;
-  box-shadow: 0 0 15px rgba(0, 245, 212, 0.8);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+  transform: translateY(-2px);
 }
 
 .sheet-page {
@@ -152,19 +145,18 @@ body {
 }
 
 /* ==========================================================================
-   4. SPACE COMMAND CHARACTER HEADER
+   4. STARSHIP HUD CHARACTER HEADER
    ========================================================================== */
 .dnd-sketch-header {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  background: rgba(18, 19, 36, 0.75);
-  padding: 15px 20px;
-  border: 1.5px solid #00f5d4;
-  border-radius: 10px;
+  background: rgba(6, 10, 24, 0.7);
+  padding: 18px 22px;
+  border: 1px solid rgba(112, 0, 255, 0.5);
+  border-left: 4px solid #00d4ff;
+  border-radius: 6px;
   margin-bottom: 25px;
-  box-shadow: 0 0 12px rgba(0, 245, 212, 0.25);
-  backdrop-filter: blur(4px);
 }
 
 .header-field {
@@ -176,27 +168,28 @@ body {
 
 .header-field label {
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #7b2cbf;
+  color: #7000ff;
   letter-spacing: 1.5px;
 }
 
 .header-field input {
   border: none;
-  border-bottom: 2px solid #00f5d4;
+  border-bottom: 2px solid #00d4ff;
   background: transparent;
-  font-family: 'Kalam', cursive;
+  font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: 1.25rem;
-  color: #f0f5fa;
-  padding: 2px 4px;
+  font-size: 1.3rem;
+  color: #ffffff;
+  padding: 4px;
   outline: none;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
 }
 
 /* ==========================================================================
-   5. THREE-COLUMN GRID & COSMIC BOXES
+   5. THREE-COLUMN GRID & SCI-FI MODULES
    ========================================================================== */
 .sketch-main-grid {
   display: grid;
@@ -210,96 +203,108 @@ body {
   }
 }
 
-/* Sci-Fi / Space Card Panels */
+/* Modular HUD Box */
 .dnd-box {
-  background: rgba(15, 16, 28, 0.75);
-  border: 1px solid rgba(123, 44, 191, 0.6);
-  border-top: 3px solid #00f5d4;
-  border-bottom: 3px solid #7b2cbf;
+  background: rgba(8, 14, 28, 0.65);
+  border: 1px solid rgba(0, 212, 255, 0.25);
   border-radius: 8px;
-  padding: 15px;
+  padding: 16px;
   margin-bottom: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+}
+
+.dnd-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
 }
 
 .dnd-box h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.95rem;
-  color: #00f5d4;
-  border-bottom: 1px solid rgba(0, 245, 212, 0.3);
+  color: #00d4ff;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
   padding-bottom: 6px;
   margin-bottom: 14px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 0 0 6px rgba(0, 245, 212, 0.4);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
 }
 
 /* ==========================================================================
-   6. COLUMN 1: ABILITIES, VITALS & SAVES
+   6. COLUMN 1: SYSTEM STATS, VITALS & SAVES
    ========================================================================== */
 .ability-vitals-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 .ability-box, .vital-box {
-  background: rgba(25, 27, 46, 0.8);
-  border: 1px solid #7b2cbf;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(112, 0, 255, 0.4);
   border-radius: 6px;
   text-align: center;
-  padding: 6px 2px;
+  padding: 8px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: inset 0 0 8px rgba(123, 44, 191, 0.3);
+  transition: border-color 0.2s;
+}
+
+.ability-box:hover, .vital-box:hover {
+  border-color: #00d4ff;
 }
 
 .ability-box label, .vital-box label {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.6rem;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #a0aab5;
+  color: #8a99ad;
 }
 
 .rollable-label {
   cursor: pointer;
-  color: #00f5d4 !important;
+  color: #00d4ff !important;
   transition: all 0.2s;
 }
 
 .rollable-label:hover {
-  text-shadow: 0 0 8px #00f5d4;
-  transform: scale(1.05);
+  color: #ffffff !important;
+  text-shadow: 0 0 8px #00d4ff;
 }
 
 .ability-score input, .vital-box input {
   width: 100%;
   text-align: center;
   border: none;
-  font-family: 'Kalam', cursive;
-  font-size: 1.35rem;
-  font-weight: bold;
-  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
   background: transparent;
 }
 
 .ability-mod input {
-  width: 42px;
-  height: 28px;
-  border: 1px solid #00f5d4;
-  border-radius: 14px;
+  width: 38px;
+  height: 24px;
+  border: 1px solid #7000ff;
+  border-radius: 4px;
   text-align: center;
-  font-family: 'Kalam', cursive;
-  font-weight: bold;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
   font-size: 1.1rem;
-  background: #0a0a14;
-  color: #00f5d4;
-  box-shadow: 0 0 6px rgba(0, 245, 212, 0.3);
+  background: rgba(112, 0, 255, 0.2);
+  color: #00d4ff;
 }
 
 .checkbox-list {
@@ -309,14 +314,14 @@ body {
 .checkbox-list li {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-  font-size: 1rem;
-  color: #d1d5db;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  color: #c8d6e5;
 }
 
 .checkbox-list input[type="checkbox"] {
-  accent-color: #00f5d4;
+  accent-color: #00d4ff;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -325,17 +330,17 @@ body {
 .checkbox-list input[type="text"] {
   width: 32px;
   border: none;
-  border-bottom: 1.5px solid #7b2cbf;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.5);
   text-align: center;
   background: transparent;
-  font-family: 'Kalam', cursive;
-  font-weight: bold;
-  font-size: 1.05rem;
-  color: #00f5d4;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #00d4ff;
 }
 
 /* ==========================================================================
-   7. COLUMN 2: HP & EXPANDED ATTACKS RECTANGLE
+   7. COLUMN 2: ENERGY MATRIX (HP) & WEAPONS/TACTICAL ACTIONS
    ========================================================================== */
 .hp-heart-wrapper {
   display: flex;
@@ -343,70 +348,58 @@ body {
   margin-bottom: 20px;
 }
 
+/* Sci-Fi Energy Core replacing heart */
 .hp-heart-shape {
   width: 90px;
-  height: 80px;
-  background: #7b2cbf;
+  height: 90px;
+  background: radial-gradient(circle, rgba(0,212,255,0.4) 0%, rgba(112,0,255,0.8) 100%);
   position: relative;
-  transform: rotate(-45deg);
-  margin-top: 25px;
-  border-radius: 4px;
-  box-shadow: 0 0 15px rgba(123, 44, 191, 0.8);
+  transform: rotate(45deg);
+  margin-top: 15px;
+  border: 2px solid #00d4ff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
 }
 
 .hp-heart-shape::before,
 .hp-heart-shape::after {
-  content: "";
-  width: 90px;
-  height: 80px;
-  background: #7b2cbf;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.hp-heart-shape::before {
-  top: -40px;
-  left: 0;
-}
-
-.hp-heart-shape::after {
-  left: 40px;
-  top: 0;
+  display: none; /* Removed classic heart circles for geometric core */
 }
 
 .hp-content {
   position: absolute;
   width: 100%;
   height: 100%;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 2;
   color: #ffffff;
   font-family: 'Orbitron', sans-serif;
-  font-weight: bold;
 }
 
 .hp-content label {
-  font-size: 0.8rem;
-  margin-right: 4px;
-  color: #00f5d4;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #00d4ff;
 }
 
 .hp-input {
-  width: 55px;
+  width: 50px;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #00f5d4;
+  border-bottom: 2px solid #00d4ff;
   color: #fff;
-  font-family: 'Kalam', cursive;
-  font-size: 1.4rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
+  text-shadow: 0 0 8px #00d4ff;
 }
 
-/* Attack List Section */
+/* Tactical Action List */
 .attack-list-container {
   max-height: 580px;
   overflow-y: auto;
@@ -414,115 +407,114 @@ body {
 }
 
 .attack-item {
-  background: rgba(25, 27, 46, 0.7);
-  border: 1px solid rgba(0, 245, 212, 0.3);
-  border-left: 4px solid #00f5d4;
+  background: rgba(12, 20, 38, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-left: 4px solid #7000ff;
   border-radius: 4px;
   margin-bottom: 10px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   font-size: 1.05rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  color: #e0e6ed;
+  gap: 10px;
 }
 
 .attack-item span:first-child {
-  font-weight: bold;
+  font-weight: 700;
   color: #ffffff;
 }
 
 .attack-type {
   font-size: 0.85rem;
-  color: #9d4edd;
+  color: #8a99ad;
   font-style: italic;
 }
 
 .rollable-text {
   cursor: pointer;
-  color: #00f5d4;
-  font-weight: bold;
-  text-decoration: underline dotted;
+  color: #00d4ff;
+  font-weight: 700;
 }
 
 .rollable-text:hover {
-  color: #70e0d6;
-  text-shadow: 0 0 6px #00f5d4;
+  color: #ffffff;
+  text-shadow: 0 0 8px #00d4ff;
 }
 
 .info-btn {
-  background: #7b2cbf;
-  color: #00f5d4;
-  border: 1px solid #00f5d4;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  background: rgba(112, 0, 255, 0.4);
+  color: #00d4ff;
+  border: 1px solid #00d4ff;
+  border-radius: 4px;
+  width: 22px;
+  height: 22px;
   font-family: 'Orbitron', sans-serif;
   font-size: 0.7rem;
   font-weight: bold;
   cursor: pointer;
-  line-height: 18px;
+  line-height: 20px;
   text-align: center;
   padding: 0;
-  box-shadow: 0 0 6px rgba(0, 245, 212, 0.4);
+  transition: all 0.2s;
 }
 
 .info-btn:hover {
-  background: #00f5d4;
-  color: #05050b;
+  background: #00d4ff;
+  color: #05070f;
+  box-shadow: 0 0 8px #00d4ff;
 }
 
 .skill-note {
   display: none;
   width: 100%;
-  margin-top: 6px;
+  margin-top: 8px;
   padding: 8px 12px;
-  background: rgba(10, 10, 20, 0.9);
-  border-left: 3px solid #7b2cbf;
+  background: rgba(5, 10, 20, 0.9);
+  border-left: 2px solid #00d4ff;
   border-radius: 4px;
   font-size: 0.9rem;
-  color: #c7d2fe;
+  color: #a4b0be;
 }
 
 /* ==========================================================================
-   8. BACKSTORY PAGE
+   8. LOGS & BIOGRAPHY
    ========================================================================== */
 textarea[name="characterBackstory"] {
   width: 100%;
   padding: 15px;
-  border: 1.5px solid #7b2cbf;
-  background: rgba(10, 10, 20, 0.8);
-  font-family: 'Kalam', cursive;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(5, 8, 18, 0.8);
+  font-family: 'Rajdhani', sans-serif;
   font-size: 1.15rem;
-  color: #f0f5fa;
+  color: #c8d6e5;
   line-height: 1.6;
   resize: vertical;
-  border-radius: 8px;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  outline: none;
 }
 
 textarea[name="characterBackstory"]:focus {
-  outline: none;
-  border-color: #00f5d4;
-  box-shadow: 0 0 8px rgba(0, 245, 212, 0.4);
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 /* ==========================================================================
-   9. SPACE THEMED DICE POPUP
+   9. HOLOGRAPHIC DICE ROLL OVERLAY
    ========================================================================== */
 #dice-result-box {
   display: none;
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 240px;
-  background: #0a0a14;
-  color: #e0e6ed;
-  border: 2px solid #00f5d4;
-  border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
+  width: 250px;
+  background: rgba(8, 12, 24, 0.95);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 1px solid #00d4ff;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
   z-index: 1000;
   text-align: center;
 }
@@ -532,36 +524,37 @@ textarea[name="characterBackstory"]:focus {
   top: 6px;
   right: 12px;
   cursor: pointer;
-  color: #7b2cbf;
+  color: #8a99ad;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
 #dice-result-box .close-btn:hover {
-  color: #00f5d4;
+  color: #00d4ff;
 }
 
 #roll-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
-  color: #00f5d4;
+  font-size: 0.85rem;
+  color: #00d4ff;
   margin-bottom: 6px;
   text-transform: uppercase;
-  border-bottom: 1px dashed #7b2cbf;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
   padding-bottom: 4px;
 }
 
 .roll-details {
-  font-family: 'Kalam', cursive;
-  font-size: 1rem;
-  color: #a0aab5;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  color: #a4b0be;
   margin-bottom: 6px;
 }
 
 .roll-total {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #00f5d4;
-  text-shadow: 0 0 12px rgba(0, 245, 212, 0.8);
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 15px #00d4ff, 0 0 30px #7000ff;
 }
