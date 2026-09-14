@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. FONTS & GLOBAL STYLES
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Kalam:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Kalam:wght@400;700&family=Orbitron:wght@600;800&display=swap');
 
 * {
   box-sizing: border-box;
@@ -10,118 +10,137 @@
 }
 
 body {
-  font-family: 'Kalam', cursive, sans-serif; /* Hand-written style text */
-  background-color: #121214;
-  color: #1f1913;
+  font-family: 'Kalam', cursive, sans-serif;
+  background-color: #05050b;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 40px 70px, #7b2cbf, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #3a86ff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  color: #e0e6ed;
   line-height: 1.4;
 }
 
-/* Base Scrollbars for D&D feel */
+/* Custom Cosmic Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #2b2b36;
+  background: #0b0c10;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8b0000;
+  background: #00f5d4;
   border-radius: 4px;
+  box-shadow: 0 0 8px #00f5d4;
 }
 
 /* ==========================================================================
    2. SITE HEADER & NAVIGATION
    ========================================================================== */
 #header-box {
-  background: #1c1a17;
+  background: #0a0a12;
   padding: 20px;
   text-align: center;
-  border-bottom: 3px solid #8b0000;
+  border-bottom: 2px solid #00f5d4;
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.4);
 }
 
 .site-title {
-  font-family: 'Cinzel', serif;
-  letter-spacing: 2px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: #e2b078 !important;
-  text-shadow: 2px 2px 4px #000;
+  color: #00f5d4 !important;
+  text-shadow: 0 0 10px #00f5d4, 0 0 20px #7b2cbf;
 }
 
 .nav-bar {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: #26231f;
-  border-bottom: 3px solid #8b0000;
+  background-color: #12131c;
+  border-bottom: 1px solid #7b2cbf;
 }
 
 .nav-bar li a {
   display: block;
   padding: 12px 24px;
-  color: #d4c3a3;
-  font-family: 'Cinzel', serif;
+  color: #a0aab5;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .nav-bar li a:hover {
-  background-color: #8b0000;
-  color: #fff;
+  background-color: rgba(123, 44, 191, 0.3);
+  color: #00f5d4;
+  text-shadow: 0 0 8px #00f5d4;
 }
 
 .panel {
   display: none;
   padding: 20px;
-  background-color: #1c1a17;
+  background-color: #0a0a12;
   text-align: center;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #7b2cbf;
 }
 
 /* ==========================================================================
-   3. PARCHMENT CONTAINER & SHEET CONTROLS
+   3. SPACE CONTAINER & SHEET CONTROLS
    ========================================================================== */
 .main-page-content {
   display: none;
   max-width: 1250px;
   margin: 25px auto;
   padding: 30px;
-  border-radius: 4px;
+  border-radius: 12px;
 }
 
 #characterContainer {
-  /* Parchment textured look */
-  background-color: #f2e5c8;
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.05) 100%),
-    linear-gradient(to right, rgba(139, 90, 43, 0.15), transparent 5%, transparent 95%, rgba(139, 90, 43, 0.15));
-  border: 12px solid #3c2a1e;
-  border-image: linear-gradient(to bottom right, #5c3a21, #2b1a0e) 1;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), inset 0 0 60px rgba(115, 77, 38, 0.3);
+  /* Cosmic Nebula Background */
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(123, 44, 191, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 245, 212, 0.15) 0%, transparent 40%),
+    linear-gradient(135deg, #0a0a14 0%, #121324 100%);
+  
+  /* Space-themed Neon Border Frame */
+  border: 3px solid #7b2cbf;
+  outline: 2px solid #00f5d4;
+  outline-offset: -8px;
+  border-radius: 16px;
+  box-shadow: 
+    0 0 20px rgba(123, 44, 191, 0.5),
+    inset 0 0 30px rgba(0, 245, 212, 0.15);
 }
 
 .sheet-controls {
-  background: rgba(60, 42, 30, 0.1) !important;
-  border: 2px dashed #5c3a21;
+  background: rgba(18, 19, 36, 0.6) !important;
+  border: 1px solid #7b2cbf;
+  border-radius: 8px;
 }
 
 .sheet-controls button {
-  font-family: 'Cinzel', serif;
-  background: #8b0000;
-  color: #f2e5c8;
-  border: 2px solid #3c2a1e;
+  font-family: 'Orbitron', sans-serif;
+  background: #121324;
+  color: #00f5d4;
+  border: 1px solid #00f5d4;
   padding: 8px 18px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 2px 2px 0px #000;
-  transition: all 0.15s ease-in-out;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.2);
+  transition: all 0.2s ease-in-out;
 }
 
 .sheet-controls button:hover {
-  background: #a30000;
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px #000;
+  background: #00f5d4;
+  color: #05050b;
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.8);
 }
 
 .sheet-page {
@@ -133,18 +152,19 @@ body {
 }
 
 /* ==========================================================================
-   4. HAND-DRAWN CHARACTER HEADER
+   4. SPACE COMMAND CHARACTER HEADER
    ========================================================================== */
 .dnd-sketch-header {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(18, 19, 36, 0.75);
   padding: 15px 20px;
-  border: 3px solid #1f1913;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* Organic hand-drawn border effect */
+  border: 1.5px solid #00f5d4;
+  border-radius: 10px;
   margin-bottom: 25px;
-  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+  box-shadow: 0 0 12px rgba(0, 245, 212, 0.25);
+  backdrop-filter: blur(4px);
 }
 
 .header-field {
@@ -155,28 +175,28 @@ body {
 }
 
 .header-field label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #5c2020;
-  letter-spacing: 1px;
+  color: #7b2cbf;
+  letter-spacing: 1.5px;
 }
 
 .header-field input {
   border: none;
-  border-bottom: 2px solid #1f1913;
+  border-bottom: 2px solid #00f5d4;
   background: transparent;
   font-family: 'Kalam', cursive;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #111;
+  color: #f0f5fa;
   padding: 2px 4px;
   outline: none;
 }
 
 /* ==========================================================================
-   5. THREE-COLUMN GRID & D&D BOXES
+   5. THREE-COLUMN GRID & COSMIC BOXES
    ========================================================================== */
 .sketch-main-grid {
   display: grid;
@@ -190,27 +210,30 @@ body {
   }
 }
 
-/* Classic D&D Inset Box */
+/* Sci-Fi / Space Card Panels */
 .dnd-box {
-  background: rgba(255, 253, 245, 0.6);
-  border: 3px solid #1f1913;
-  /* Sketchy uneven border corners */
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background: rgba(15, 16, 28, 0.75);
+  border: 1px solid rgba(123, 44, 191, 0.6);
+  border-top: 3px solid #00f5d4;
+  border-bottom: 3px solid #7b2cbf;
+  border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
-  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
 }
 
 .dnd-box h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
-  color: #8b0000;
-  border-bottom: 2px solid #8b0000;
-  padding-bottom: 4px;
-  margin-bottom: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  color: #00f5d4;
+  border-bottom: 1px solid rgba(0, 245, 212, 0.3);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px rgba(0, 245, 212, 0.4);
 }
 
 /* ==========================================================================
@@ -224,33 +247,33 @@ body {
 }
 
 .ability-box, .vital-box {
-  background: #fdfbf7;
-  border: 2px solid #1f1913;
-  border-radius: 12px 4px 14px 5px;
+  background: rgba(25, 27, 46, 0.8);
+  border: 1px solid #7b2cbf;
+  border-radius: 6px;
   text-align: center;
   padding: 6px 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 8px rgba(123, 44, 191, 0.3);
 }
 
 .ability-box label, .vital-box label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #3c2a1e;
+  color: #a0aab5;
 }
 
 .rollable-label {
   cursor: pointer;
-  color: #8b0000 !important;
+  color: #00f5d4 !important;
   transition: all 0.2s;
 }
 
 .rollable-label:hover {
-  text-shadow: 0 0 2px rgba(139, 0, 0, 0.4);
+  text-shadow: 0 0 8px #00f5d4;
   transform: scale(1.05);
 }
 
@@ -261,21 +284,22 @@ body {
   font-family: 'Kalam', cursive;
   font-size: 1.35rem;
   font-weight: bold;
-  color: #111;
+  color: #ffffff;
   background: transparent;
 }
 
 .ability-mod input {
   width: 42px;
   height: 28px;
-  border: 2px solid #1f1913;
-  border-radius: 50%;
+  border: 1px solid #00f5d4;
+  border-radius: 14px;
   text-align: center;
   font-family: 'Kalam', cursive;
   font-weight: bold;
   font-size: 1.1rem;
-  background: #f2e5c8;
-  color: #8b0000;
+  background: #0a0a14;
+  color: #00f5d4;
+  box-shadow: 0 0 6px rgba(0, 245, 212, 0.3);
 }
 
 .checkbox-list {
@@ -288,10 +312,11 @@ body {
   gap: 8px;
   margin-bottom: 6px;
   font-size: 1rem;
+  color: #d1d5db;
 }
 
 .checkbox-list input[type="checkbox"] {
-  accent-color: #8b0000;
+  accent-color: #00f5d4;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -300,12 +325,13 @@ body {
 .checkbox-list input[type="text"] {
   width: 32px;
   border: none;
-  border-bottom: 2px solid #1f1913;
+  border-bottom: 1.5px solid #7b2cbf;
   text-align: center;
   background: transparent;
   font-family: 'Kalam', cursive;
   font-weight: bold;
   font-size: 1.05rem;
+  color: #00f5d4;
 }
 
 /* ==========================================================================
@@ -320,12 +346,12 @@ body {
 .hp-heart-shape {
   width: 90px;
   height: 80px;
-  background: #8b0000;
+  background: #7b2cbf;
   position: relative;
   transform: rotate(-45deg);
   margin-top: 25px;
   border-radius: 4px;
-  box-shadow: -3px 3px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(123, 44, 191, 0.8);
 }
 
 .hp-heart-shape::before,
@@ -333,7 +359,7 @@ body {
   content: "";
   width: 90px;
   height: 80px;
-  background: #8b0000;
+  background: #7b2cbf;
   border-radius: 50%;
   position: absolute;
 }
@@ -357,21 +383,22 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 2;
-  color: #f2e5c8;
-  font-family: 'Cinzel', serif;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
   font-weight: bold;
 }
 
 .hp-content label {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-right: 4px;
+  color: #00f5d4;
 }
 
 .hp-input {
   width: 55px;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #f2e5c8;
+  border-bottom: 2px solid #00f5d4;
   color: #fff;
   font-family: 'Kalam', cursive;
   font-size: 1.4rem;
@@ -387,9 +414,9 @@ body {
 }
 
 .attack-item {
-  background: rgba(255, 255, 255, 0.7);
-  border: 2px solid #1f1913;
-  border-left: 6px solid #8b0000;
+  background: rgba(25, 27, 46, 0.7);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+  border-left: 4px solid #00f5d4;
   border-radius: 4px;
   margin-bottom: 10px;
   padding: 8px 12px;
@@ -398,50 +425,52 @@ body {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  box-shadow: 2px 2px 0px rgba(0,0,0,0.08);
+  color: #e0e6ed;
 }
 
 .attack-item span:first-child {
   font-weight: bold;
+  color: #ffffff;
 }
 
 .attack-type {
   font-size: 0.85rem;
-  color: #5c3a21;
+  color: #9d4edd;
   font-style: italic;
 }
 
 .rollable-text {
   cursor: pointer;
-  color: #8b0000;
+  color: #00f5d4;
   font-weight: bold;
   text-decoration: underline dotted;
 }
 
 .rollable-text:hover {
-  color: #e60000;
-  text-decoration: underline;
+  color: #70e0d6;
+  text-shadow: 0 0 6px #00f5d4;
 }
 
 .info-btn {
-  background: #3c2a1e;
-  color: #f2e5c8;
-  border: none;
+  background: #7b2cbf;
+  color: #00f5d4;
+  border: 1px solid #00f5d4;
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
   font-weight: bold;
   cursor: pointer;
-  line-height: 20px;
+  line-height: 18px;
   text-align: center;
   padding: 0;
-  box-shadow: 1px 1px 0px #000;
+  box-shadow: 0 0 6px rgba(0, 245, 212, 0.4);
 }
 
 .info-btn:hover {
-  background: #8b0000;
+  background: #00f5d4;
+  color: #05050b;
 }
 
 .skill-note {
@@ -449,11 +478,11 @@ body {
   width: 100%;
   margin-top: 6px;
   padding: 8px 12px;
-  background: #e8dbbe;
-  border-left: 3px solid #3c2a1e;
+  background: rgba(10, 10, 20, 0.9);
+  border-left: 3px solid #7b2cbf;
   border-radius: 4px;
   font-size: 0.9rem;
-  color: #2b1a0e;
+  color: #c7d2fe;
 }
 
 /* ==========================================================================
@@ -462,18 +491,25 @@ body {
 textarea[name="characterBackstory"] {
   width: 100%;
   padding: 15px;
-  border: 2px solid #1f1913;
-  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid #7b2cbf;
+  background: rgba(10, 10, 20, 0.8);
   font-family: 'Kalam', cursive;
   font-size: 1.15rem;
-  color: #1a1a1a;
+  color: #f0f5fa;
   line-height: 1.6;
   resize: vertical;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+textarea[name="characterBackstory"]:focus {
+  outline: none;
+  border-color: #00f5d4;
+  box-shadow: 0 0 8px rgba(0, 245, 212, 0.4);
 }
 
 /* ==========================================================================
-   9. D&D STYLED FLOATING DICE POPUP
+   9. SPACE THEMED DICE POPUP
    ========================================================================== */
 #dice-result-box {
   display: none;
@@ -481,12 +517,12 @@ textarea[name="characterBackstory"] {
   bottom: 30px;
   right: 30px;
   width: 240px;
-  background: #1c1a17;
-  color: #f2e5c8;
-  border: 3px solid #8b0000;
-  border-radius: 8px;
+  background: #0a0a14;
+  color: #e0e6ed;
+  border: 2px solid #00f5d4;
+  border-radius: 10px;
   padding: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
   z-index: 1000;
   text-align: center;
 }
@@ -496,36 +532,36 @@ textarea[name="characterBackstory"] {
   top: 6px;
   right: 12px;
   cursor: pointer;
-  color: #8b5a2b;
+  color: #7b2cbf;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
 #dice-result-box .close-btn:hover {
-  color: #8b0000;
+  color: #00f5d4;
 }
 
 #roll-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  color: #e2b078;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  color: #00f5d4;
   margin-bottom: 6px;
   text-transform: uppercase;
-  border-bottom: 1px dashed #5c3a21;
+  border-bottom: 1px dashed #7b2cbf;
   padding-bottom: 4px;
 }
 
 .roll-details {
   font-family: 'Kalam', cursive;
   font-size: 1rem;
-  color: #d4c3a3;
+  color: #a0aab5;
   margin-bottom: 6px;
 }
 
 .roll-total {
-  font-family: 'Cinzel', serif;
-  font-size: 2.4rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
   font-weight: bold;
-  color: #f5cf6d;
-  text-shadow: 0 0 8px rgba(245, 207, 109, 0.3);
+  color: #00f5d4;
+  text-shadow: 0 0 12px rgba(0, 245, 212, 0.8);
 }
