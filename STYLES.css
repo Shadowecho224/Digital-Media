@@ -19,7 +19,6 @@ body {
 .site-title {
   margin: 0;
   font-size: 28px;
-  color: white;
 }
 
 /* Navigation Bar */
@@ -68,14 +67,14 @@ body {
   background-color: #ffffff;
   padding: 20px;
   margin: 20px auto;
-  max-width: 1100px;
+  max-width: 1000px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 
 /* ==========================================================================
-   HANDWRITTEN SKETCH LAYOUT STYLES
+   CHARACTER SHEET LAYOUT & HEADERS
    ========================================================================== */
 #character-sheet {
   background: #fff;
@@ -92,7 +91,29 @@ body {
   display: block;
 }
 
-/* Sketch Top Header Bar */
+/* D&D Header (Standard) */
+.dnd-header {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #000;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fcfcfc;
+}
+
+.dnd-logo-box h1 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.dnd-header-fields {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Handwritten Sketch Header Bar */
 .dnd-sketch-header {
   display: flex;
   justify-content: space-between;
@@ -108,20 +129,44 @@ body {
   flex: 1;
 }
 
-.header-field label {
-  font-size: 9px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 .header-field input {
   border: none;
   border-bottom: 1px solid #000;
   outline: none;
+  padding: 2px 0;
   font-size: 11px;
 }
 
-/* Sketch 3-Column Main Grid */
+.header-field label {
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   MAIN GRIDS & LAYOUTS
+   ========================================================================== */
+/* Standard 4-Column D&D Grid */
+.dnd-main-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Handwritten Sketch 3-Column Grid */
 .sketch-main-grid {
   display: grid;
   grid-template-columns: 280px 1fr 1fr;
@@ -136,54 +181,13 @@ body {
   gap: 10px;
 }
 
-/* Ability + Vitals 3x3 Grid */
-.ability-vitals-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-}
-
-.ability-box, .vital-box {
-  border: 1px solid #000;
-  border-radius: 4px;
-  text-align: center;
-  padding: 4px 2px;
-  background: #fff;
-}
-
-.ability-box label, .vital-box label {
-  font-size: 8px;
-  font-weight: bold;
-  display: block;
-}
-
-.ability-score input, .vital-box input {
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  border: none;
-  width: 100%;
-  outline: none;
-}
-
-.ability-mod input {
-  font-size: 10px;
-  text-align: center;
-  border: 1px solid #000;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  outline: none;
-  margin: 0 auto;
-  display: block;
-}
-
-/* Generic D&D Box */
+/* Generic D&D Outer Box */
 .dnd-box {
   border: 2px solid #000;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 8px;
   background-color: #fff;
+  position: relative;
 }
 
 .dnd-box h2 {
@@ -202,54 +206,259 @@ body {
   outline: none;
   font-family: Arial, sans-serif;
   font-size: 11px;
+  box-sizing: border-box;
 }
 
-/* Tall Sketch Box Extensions */
-.attack-sketch-box, .skills-sketch-box {
+.attack-sketch-box, 
+.skills-sketch-box {
   min-height: 480px;
 }
 
+
 /* ==========================================================================
-   HP HEART SHAPE
+   ABILITY SCORES & COMBAT VITALS
    ========================================================================== */
+/* Far-Left Column Vertical Ability Scores */
+.ability-scores-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ability-box {
+  border: 2px solid #000;
+  border-radius: 8px;
+  text-align: center;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.ability-box label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.ability-mod input {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+.ability-score input {
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  outline: none;
+  margin-top: 2px;
+}
+
+/* Sketch 3x3 Grid (Ability Scores & Vitals) */
+.ability-vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.ability-vitals-grid .ability-box, 
+.ability-vitals-grid .vital-box {
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px 2px;
+  background: #fff;
+}
+
+.ability-vitals-grid .ability-box label, 
+.ability-vitals-grid .vital-box label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.ability-vitals-grid .ability-score input, 
+.ability-vitals-grid .vital-box input {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+.ability-vitals-grid .ability-mod input {
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  margin: 0 auto;
+  display: block;
+}
+
+.saving-throws-sketch-box {
+  margin-top: 5px;
+}
+
+
+/* ==========================================================================
+   PASSIVE PERCEPTION
+   ========================================================================== */
+.passive-perception-box {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.eye-container {
+  position: relative;
+  width: 55px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.eye-shape {
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  border: 1px solid #000;
+  border-radius: 105% 0;
+  transform: rotate(400deg);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.eye-pupil-input {
+  position: relative;
+  z-index: 3;
+  width: 25px;
+  height: 25px;
+  border-radius: 65%;
+  border: 2px solid #000;
+  background-color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 18px;
+}
+
+.passive-label-bar {
+  flex-grow: 1;
+  border: 2px solid #000;
+  border-left: none;
+  margin-left: -11px;
+  padding: 5px 6px 5px 16px;
+  background-color: #fff;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.passive-label-bar span {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #000;
+}
+
+
+/* ==========================================================================
+   COMBAT VITALS & HP HEART
+   ========================================================================== */
+.vital-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.vital-cell {
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px;
+  flex: 1;
+}
+
+.vital-cell label {
+  font-size: 8px;
+  font-weight: bold;
+  display: block;
+}
+
+.vital-cell input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+}
+
+/* Shield-shaped AC Box */
+.vital-cell.ac-shield {
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  background: #f0f0f0;
+}
+
+/* HP Heart Container & Shape */
 .hp-heart-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px 0;
+  margin: 25px 0 15px 0;
 }
 
 .hp-heart-shape {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   background-color: #d9534f;
   transform: rotate(-45deg);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Top two lobes of the heart */
 .hp-heart-shape::before,
 .hp-heart-shape::after {
   content: "";
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   background-color: #d9534f;
   border-radius: 50%;
 }
 
+/* Top left lobe */
 .hp-heart-shape::before {
-  top: -25px;
+  top: -35px;
   left: 0;
 }
 
+/* Top right lobe */
 .hp-heart-shape::after {
-  left: 25px;
+  left: 35px;
   top: 0;
 }
 
+/* Text Container un-rotated to stay level */
 .hp-content {
   position: absolute;
   transform: rotate(45deg);
@@ -258,14 +467,17 @@ body {
   text-align: center;
   font-size: 10px;
   font-weight: bold;
+  width: 90px;
+  margin-top: -8px;
+  margin-left: -8px;
 }
 
 .hp-content p {
-  margin: 0;
+  margin: 3px 0;
 }
 
 .hp-input {
-  width: 25px;
+  width: 30px;
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
@@ -273,17 +485,18 @@ body {
   font-weight: bold;
   text-align: center;
   outline: none;
-  font-size: 10px;
+  font-size: 11px;
 }
 
+
 /* ==========================================================================
-   LISTS, ATTACKS & NOTES
+   SKILLS, ATTACKS & CHECKBOX LISTS
    ========================================================================== */
 .checkbox-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .checkbox-list li {
@@ -299,7 +512,7 @@ body {
   border-bottom: 1px solid #000;
   text-align: center;
   outline: none;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .attack-list-container {
@@ -322,20 +535,6 @@ body {
   border-bottom: 1px solid #eee;
   gap: 4px;
   justify-content: space-between;
-}
-
-.rollable-attack {
-  cursor: pointer;
-}
-
-.rollable-attack:hover {
-  color: #d9534f;
-  text-decoration: underline;
-}
-
-.attack-type {
-  font-style: italic;
-  color: #666;
 }
 
 .info-btn {
@@ -365,14 +564,41 @@ body {
   box-sizing: border-box;
 }
 
-/* Rollable text hover */
-.rollable-label, .rollable-text {
+
+/* ==========================================================================
+   ROLLABLE ELEMENTS & DICE ROLLER MODAL
+   ========================================================================== */
+.rollable-label,
+.rollable-text,
+.rollable-input {
   cursor: pointer;
+  transition: color 0.15s ease-in-out;
 }
 
-.rollable-label:hover, .rollable-text:hover {
+.rollable-label:hover,
+.rollable-text:hover {
   color: #d9534f;
   text-decoration: underline;
+}
+
+.rollable-input:hover {
+  color: #d9534f;
+}
+
+/* Roll Button Styling */
+.roll-btn {
+  background: #5A5A5D;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 4px;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.roll-btn:hover {
+  background: #d9534f;
 }
 
 /* Floating Dice Roll Display Box */
@@ -390,9 +616,10 @@ body {
   display: none;
   min-width: 180px;
   text-align: center;
+  font-family: sans-serif;
 }
 
-#dice-result-box h3 {
+#dice-result-box h4 {
   margin: 0 0 5px 0;
   color: #d9534f;
   font-size: 14px;
@@ -415,61 +642,8 @@ body {
   position: absolute;
   top: 3px;
   right: 6px;
-  background: transparent;
-  border: none;
   color: #aaa;
   cursor: pointer;
   font-weight: bold;
   font-size: 12px;
-}
-
-#dice-result-box .close-btn:hover {
-  color: #fff;
-}
-
-/* ==========================================================================
-   BUTTONS, NAVIGATION CONTROLS & CONTENT
-   ========================================================================== */
-.btn-primary {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  margin: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.btn-primary:hover {
-  background-color: #c9302c;
-}
-
-.sheet-controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.sheet-controls button {
-  background-color: #efefef;
-  border: 1px solid #ccc;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.sheet-controls button:hover {
-  background-color: #ddd;
-}
-
-.travel-location {
-  font-size: 16px;
-  margin-top: 8px;
-}
-
-.dark-text {
-  color: #333;
-  font-size: 14px;
 }
