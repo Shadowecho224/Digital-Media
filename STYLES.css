@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. FONTS & GLOBAL STYLES (GALAXY THEME)
+   1. FONTS, GLOBAL STYLES & ORBITING SYSTEM
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap');
 
@@ -12,8 +12,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* Stack header/nav at top and content below */
+  display: block; /* Restores traditional top-to-bottom page layout */
   font-family: 'Rajdhani', sans-serif;
   background-color: #0c0c14;
   
@@ -56,8 +55,18 @@ body {
   animation: galaxyPulse 10s ease-in-out infinite alternate;
 }
 
+/* Cosmic breathing effect */
+@keyframes galaxyPulse {
+  0% {
+    filter: brightness(0.95) contrast(100%);
+  }
+  100% {
+    filter: brightness(1.1) contrast(105%);
+  }
+}
+
 /* ==========================================================================
-   2. SITE HEADER & NAVIGATION (TOP OF PAGE)
+   2. SITE HEADER & NAVIGATION (TOP FIXED POSITIONING)
    ========================================================================== */
 #header-box {
   width: 100%;
@@ -110,23 +119,69 @@ body {
   text-shadow: 0 0 10px #00f0ff;
 }
 
-/* Optional wrapper if you are placing the orbit animation in the center of the page body */
-.universe {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  margin: auto; /* Centers the orbit in the remaining vertical space */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .panel {
   display: none;
   padding: 20px;
   background-color: rgba(10, 5, 24, 0.95);
   text-align: center;
   border-bottom: 1px solid #9d4edd;
+}
+
+/* ==========================================================================
+   UNIVERSE & ORBITING ANIMATION CONTAINER
+   ========================================================================== */
+.universe {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 40px auto; /* Centers the universe block below the navigation */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The circular path the planet travels on */
+.earth-orbit {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: spinOrbit 10s linear infinite;
+}
+
+/* The actual planet */
+.earth {
+  position: absolute;
+  top: calc(50% - 15px);
+  left: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 70% 50%, #2b82c9 0%, #0d2342 80%);
+  box-shadow: inset -4px 0 8px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes spinOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cosmic Violet Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020208;
+}
+::-webkit-scrollbar-thumb {
+  background: #9d4edd;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #ff77e9;
 }
 
 /* ==========================================================================
