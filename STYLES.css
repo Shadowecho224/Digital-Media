@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. FONTS & GLOBAL STYLES (SPACE THEME WITH CELESTIAL OBJECTS)
+   1. FONTS & GLOBAL STYLES (GALAXY THEME WITH PLANETS)
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap');
 
@@ -12,85 +12,54 @@
 body {
   font-family: 'Rajdhani', sans-serif;
   background-color: #020208;
-  
-  /* Space Layers: Ringed Planets, Moons, Cross Stars, Starfields, & Nebulae */
+  /* Multi-layered Planet Images + Pinpoint Stars + Cosmic Nebula Clouds */
   background-image: 
-    /* Primary Ringed Gas Giant (Top Left) */
-    radial-gradient(circle at 15% 22%, #9d4edd 0%, #3a0ca3 16%, #0f051d 32%, transparent 36%),
-    radial-gradient(ellipse at 15% 22%, rgba(200, 182, 255, 0.5) 0%, rgba(200, 182, 255, 0.2) 60%, transparent 75%),
-
-    /* Cratered Crimson Planet (Mid-Right) */
-    radial-gradient(circle at 88% 62%, #ff0055 0%, #800020 18%, #200008 32%, transparent 36%),
-
-    /* Glowing Golden Moon (Top Right) */
-    radial-gradient(circle at 78% 15%, #ffe600 0%, #ffaa00 8%, #4a3b00 18%, transparent 22%),
-
-    /* Distant Ice Planet (Bottom Left) */
-    radial-gradient(circle at 10% 80%, #00f0ff 0%, #005f73 14%, #0a0518 28%, transparent 32%),
-
-    /* Bright Accent Stars (Glow Cross Effects) */
-    radial-gradient(3px 3px at 120px 80px, #ffffff, rgba(255,255,255,0.2), transparent),
-    radial-gradient(3px 3px at 850px 180px, #00f0ff, rgba(0,240,255,0.2), transparent),
-    radial-gradient(4px 4px at 450px 600px, #ff77e9, rgba(255,119,233,0.2), transparent),
-    radial-gradient(3px 3px at 980px 750px, #ffe600, rgba(255,230,0,0.2), transparent),
-
-    /* Dense Multi-Layered Starfield */
-    radial-gradient(1px 1px at 25px 40px, #ffffff, transparent),
-    radial-gradient(1.5px 1.5px at 140px 190px, #e0aaff, transparent),
-    radial-gradient(1px 1px at 240px 80px, #ffffff, transparent),
-    radial-gradient(2px 2px at 380px 310px, #00f0ff, transparent),
-    radial-gradient(1px 1px at 490px 150px, #ffffff, transparent),
-    radial-gradient(1.5px 1.5px at 650px 340px, #ff77e9, transparent),
-    radial-gradient(1px 1px at 780px 90px, #ffffff, transparent),
-    radial-gradient(2px 2px at 910px 220px, #9d4edd, transparent),
-    radial-gradient(1px 1px at 100px 450px, #ffffff, transparent),
-    radial-gradient(1.5px 1.5px at 300px 520px, #00f0ff, transparent),
-    radial-gradient(1px 1px at 700px 480px, #e0aaff, transparent),
+    /* Planetary Bodies */
+    radial-gradient(circle at 12% 25%, #ff0055 0%, #300018 35%, transparent 45%), /* Glowing Red Outer Planet */
+    radial-gradient(circle at 88% 70%, #00f0ff 0%, #002b47 30%, transparent 42%), /* Blue Gas Giant */
+    radial-gradient(circle at 75% 18%, #ffe600 0%, #5e4300 20%, transparent 28%), /* Distant Gold Planet */
     
-    /* Cosmic Nebula Clouds */
-    radial-gradient(circle at 18% 25%, rgba(157, 78, 221, 0.3) 0%, transparent 45%),
-    radial-gradient(circle at 85% 65%, rgba(255, 0, 85, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 50% 35%, rgba(0, 240, 255, 0.15) 0%, transparent 55%),
+    /* Starfield Pinpoints */
+    radial-gradient(1px 1px at 25px 40px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 120px 190px, #e0aaff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 240px 80px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 380px 310px, #00f0ff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 490px 150px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 650px 340px, #ff77e9, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 780px 90px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 910px 220px, #9d4edd, rgba(0,0,0,0)),
     
-    /* Deep Space Base Gradient */
+    /* Cosmic Nebula Dust Swirls */
+    radial-gradient(circle at 15% 20%, rgba(157, 78, 221, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(255, 119, 233, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.12) 0%, transparent 55%),
+    
+    /* Deep Galactic Core Gradient */
     radial-gradient(circle at 50% 50%, #0a0518 0%, #020208 100%);
 
   background-repeat: 
-    no-repeat, no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat, no-repeat, no-repeat, no-repeat,
-    repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat,
     no-repeat, no-repeat, no-repeat,
-    no-repeat;
+    repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, 
+    no-repeat, no-repeat, no-repeat, no-repeat;
     
   background-size: 
-    100% 100%, 100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%, 100% 100%, 100% 100%, 100% 100%,
-    450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px,
     100% 100%, 100% 100%, 100% 100%,
-    100% 100%;
+    500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 
+    100% 100%, 100% 100%, 100% 100%, 100% 100%;
     
   background-attachment: fixed;
   color: #e2e8f0;
   line-height: 1.4;
-  animation: starlightPulse 8s ease-in-out infinite alternate;
+  animation: galaxyPulse 10s ease-in-out infinite alternate;
 }
 
-/* Star Twinkle & Cosmic Glow Animation */
-@keyframes starlightPulse {
+/* Subtle cosmic breathing effect */
+@keyframes galaxyPulse {
   0% {
-    filter: brightness(0.9) contrast(100%);
-  }
-  50% {
-    filter: brightness(1.15) contrast(105%);
+    filter: brightness(0.95) contrast(100%);
   }
   100% {
-    filter: brightness(0.95) contrast(102%);
+    filter: brightness(1.1) contrast(105%);
   }
 }
 
@@ -105,137 +74,6 @@ body {
   background: #9d4edd;
   border-radius: 3px;
   box-shadow: 0 0 10px #ff77e9;
-}
-
-/* ==========================================================================
-   2. SPACE THEME SITE HEADER & NAVIGATION
-   ========================================================================== */
-#header-box {
-  background: rgba(10, 5, 24, 0.75);
-  backdrop-filter: blur(14px);
-  padding: 26px 20px;
-  text-align: center;
-  border-bottom: 2px solid #ff77e9;
-  box-shadow: 
-    0 4px 25px rgba(157, 78, 221, 0.4),
-    0 0 50px rgba(0, 240, 255, 0.2),
-    inset 0 -1px 10px rgba(255, 119, 233, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Cosmic accent line above header */
-#header-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #9d4edd, #00f0ff, #ff77e9, #ffe600, #9d4edd);
-}
-
-.site-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 900;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  color: #ffffff !important;
-  text-shadow: 
-    0 0 12px #ff77e9,
-    0 0 24px #9d4edd,
-    0 0 40px #00f0ff;
-  animation: titleGlow 4s ease-in-out infinite alternate;
-}
-
-@keyframes titleGlow {
-  0% {
-    text-shadow: 0 0 12px #ff77e9, 0 0 24px #9d4edd, 0 0 40px #00f0ff;
-  }
-  100% {
-    text-shadow: 0 0 18px #00f0ff, 0 0 30px #ff77e9, 0 0 50px #9d4edd;
-  }
-}
-
-.nav-bar {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: rgba(4, 2, 10, 0.9);
-  border-bottom: 1px solid rgba(255, 119, 233, 0.3);
-  backdrop-filter: blur(8px);
-}
-
-.nav-bar li a {
-  display: block;
-  padding: 12px 26px;
-  color: #c8b6ff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.85rem;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.nav-bar li a:hover,
-.nav-bar li a.active {
-  background: rgba(157, 78, 221, 0.25);
-  color: #00f0ff;
-  text-shadow: 0 0 10px #00f0ff;
-  box-shadow: inset 0 -2px 0 #00f0ff;
-}
-
-/* Sub-Header Panels Dropdowns */
-.panel {
-  display: none;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px 30px;
-  background: rgba(10, 5, 24, 0.92);
-  backdrop-filter: blur(12px);
-  border: 1px solid #9d4edd;
-  border-top: none;
-  border-bottom: 2px solid #00f0ff;
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.8),
-    0 0 20px rgba(157, 78, 221, 0.4);
-  text-align: center;
-  color: #e2e8f0;
-  animation: panelSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.panel.active {
-  display: block;
-}
-
-.panel h2, .panel h3 {
-  font-family: 'Orbitron', sans-serif;
-  color: #ff77e9;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(255, 119, 233, 0.6);
-}
-
-.panel p {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.05rem;
-  color: #c8b6ff;
-  line-height: 1.5;
-}
-
-@keyframes panelSlideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ==========================================================================
