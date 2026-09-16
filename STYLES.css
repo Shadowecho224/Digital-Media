@@ -39,7 +39,7 @@ body {
    2. SITE HEADER & NAVIGATION
    ========================================================================== */
 #header-box {
-  background: rgba(10, 15, 30, 0.8);
+  background: #000000; /* Made header box black */
   backdrop-filter: blur(10px);
   padding: 20px;
   text-align: center;
@@ -51,15 +51,15 @@ body {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #ffffff  !important;
-  text-shadow: 0 0 12px rgba(0, 212, 255, 0.8), 0 0 20px rgba(112, 0, 255, 0.5);
+  color: #000000 !important; /* Made site title black */
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); /* Glowing outline to keep black text visible */
 }
 
 .nav-bar {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: rgba(6, 10, 20, 0.9);
+  background-color: #000000; /* Made navigation bar black */
   border-bottom: 1px solid rgba(0, 212, 255, 0.3);
 }
 
@@ -67,7 +67,7 @@ body {
   display: block;
   padding: 12px 24px;
   color: #8a99ad;
-  font-family: 'Rajdhani;', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-size: 0.85rem;
   text-decoration: none;
   font-weight: 700;
