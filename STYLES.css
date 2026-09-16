@@ -123,16 +123,18 @@ body {
 /* ==========================================================================
    5. THREE-COLUMN GRID & MODULES
    ========================================================================== */
+/* ==========================================================================
+   5. THREE-COLUMN GRID & MODULES
+   ========================================================================== */
 .sketch-main-grid {
-  display: grid;
+  display: none; /* Hidden on initial page load */
   grid-template-columns: 290px 1fr 310px;
   gap: 20px;
 }
 
-@media (max-width: 1100px) {
-  .sketch-main-grid {
-    grid-template-columns: 1fr;
-  }
+/* Class added via JavaScript when the sheet is opened/toggled */
+.sketch-main-grid.active {
+  display: grid;
 }
 
 .dnd-box {
