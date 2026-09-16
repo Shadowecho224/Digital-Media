@@ -24,7 +24,7 @@ body {
     radial-gradient(1px 1px at 810px 150px, #ffffff, rgba(0,0,0,0)),
     radial-gradient(2px 2px at 950px 420px, #c77dff, rgba(0,0,0,0)),
     /* Cosmic Dust & Spiral Galaxy Nebula Arms */
-    radial-gradient(ellipse at 15% 25%, rgba(157, 78, 221, 0.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 25%, rgba(157, 78, 221, 0.28) 0%, transparent 50%),
     radial-gradient(ellipse at 85% 75%, rgba(255, 0, 110, 0.22) 0%, transparent 55%),
     radial-gradient(ellipse at 50% 40%, rgba(0, 180, 216, 0.18) 0%, transparent 60%),
     radial-gradient(circle at 50% 50%, rgba(10, 5, 20, 0.6) 0%, #030208 100%);
