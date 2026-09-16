@@ -11,67 +11,68 @@
 
 body {
   font-family: 'Rajdhani', sans-serif;
-  background-color: #030208;
-  /* Multi-layered Swirling Galaxy Atmosphere + Starfield */
+  background-color: #020208;
+  /* Deep Galactic Core + Swirling Nebula Clouds + Starfield */
   background-image: 
-    /* Sparkling Galaxy Stars */
+    /* Starfield Pinpoints */
     radial-gradient(1px 1px at 25px 40px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 120px 80px, #e0aaff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 220px 190px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 360px 290px, #00f0ff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 450px 110px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 680px 340px, #ff70a6, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 810px 150px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 950px 420px, #c77dff, rgba(0,0,0,0)),
-    /* Cosmic Dust & Spiral Galaxy Nebula Arms */
-    radial-gradient(ellipse at 15% 25%, rgba(157, 78, 221, 0.28) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 75%, rgba(255, 0, 110, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 40%, rgba(0, 180, 216, 0.18) 0%, transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(10, 5, 20, 0.6) 0%, #030208 100%);
-  
-  background-repeat: repeat;
-  background-size: 600px 600px, 600px 600px, 600px 600px, 600px 600px, 600px 600px, 600px 600px, 600px 600px, 600px 600px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    radial-gradient(1.5px 1.5px at 120px 190px, #e0aaff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 240px 80px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 380px 310px, #00f0ff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 490px 150px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 650px 340px, #ff77e9, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 780px 90px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 910px 220px, #9d4edd, rgba(0,0,0,0)),
+    /* Cosmic Nebula Dust Swirls */
+    radial-gradient(circle at 15% 20%, rgba(157, 78, 221, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(255, 119, 233, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.15) 0%, transparent 55%),
+    /* Deep Galactic Core Gradient */
+    radial-gradient(circle at 50% 50%, #0a0518 0%, #020208 100%);
+
+  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
   color: #e2e8f0;
   line-height: 1.4;
-  animation: galaxyPulse 12s ease-in-out infinite alternate;
+  animation: galaxyPulse 10s ease-in-out infinite alternate;
 }
 
-/* Pulsing Cosmic Energy Animation */
+/* Subtle cosmic breathing effect */
 @keyframes galaxyPulse {
   0% {
-    filter: hue-rotate(0deg) brightness(0.95);
+    filter: brightness(0.95) contract(100%);
   }
   100% {
-    filter: hue-rotate(15deg) brightness(1.1);
+    filter: brightness(1.1) contract(105%);
   }
 }
 
-/* Cosmic Scrollbar */
+/* Cosmic Violet Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #030208;
+  background: #020208;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #9d4edd, #ff007f);
+  background: #9d4edd;
   border-radius: 3px;
-  box-shadow: 0 0 10px #ff007f;
+  box-shadow: 0 0 10px #ff77e9;
 }
 
 /* ==========================================================================
    2. SITE HEADER & NAVIGATION (GALAXY THEME)
    ========================================================================== */
 #header-box {
-  background: rgba(12, 6, 26, 0.85);
+  background: rgba(10, 5, 24, 0.85);
   backdrop-filter: blur(12px);
   padding: 22px;
   text-align: center;
-  border-bottom: 2px solid #c77dff;
+  border-bottom: 2px solid #ff77e9;
   box-shadow: 
-    0 4px 25px rgba(157, 78, 221, 0.35),
-    inset 0 -1px 10px rgba(0, 240, 255, 0.2);
+    0 4px 20px rgba(157, 78, 221, 0.3),
+    0 0 40px rgba(0, 240, 255, 0.15);
 }
 
 .site-title {
@@ -80,22 +81,22 @@ body {
   text-transform: uppercase;
   color: #ffffff !important;
   text-shadow: 
-    0 0 10px #c77dff, 
-    0 0 22px #ff007f, 
-    0 0 35px rgba(0, 240, 255, 0.8);
+    0 0 10px #ff77e9,
+    0 0 20px #9d4edd,
+    0 0 35px #00f0ff;
 }
 
 .nav-bar {
   list-style: none;
   display: flex;
   justify-content: center;
-  background-color: rgba(6, 3, 14, 0.95);
-  border-bottom: 1px solid rgba(199, 125, 255, 0.3);
+  background-color: rgba(4, 2, 10, 0.95);
+  border-bottom: 1px solid rgba(255, 119, 233, 0.3);
 }
 
 .nav-bar li a {
   display: block;
-  padding: 12px 24px;
+  padding: 12px 26px;
   color: #c8b6ff;
   font-family: 'Orbitron', sans-serif;
   font-size: 0.85rem;
@@ -107,17 +108,17 @@ body {
 }
 
 .nav-bar li a:hover {
-  background: rgba(157, 78, 221, 0.25);
-  color: #ffffff;
-  text-shadow: 0 0 10px #e0aaff, 0 0 18px #ff007f;
+  background: rgba(157, 78, 221, 0.2);
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff;
 }
 
 .panel {
   display: none;
   padding: 20px;
-  background-color: rgba(12, 6, 26, 0.95);
+  background-color: rgba(10, 5, 24, 0.95);
   text-align: center;
-  border-bottom: 1px solid #c77dff;
+  border-bottom: 1px solid #9d4edd;
 }
 
 /* ==========================================================================
