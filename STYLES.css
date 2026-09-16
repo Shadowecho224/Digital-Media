@@ -12,13 +12,15 @@
 body {
   font-family: 'Rajdhani', sans-serif;
   background-color: #020208;
-  /* Multi-layered Planet Images + Pinpoint Stars + Cosmic Nebula Clouds */
+  /* Planetary Bodies + Starfield Pinpoints + Cosmic Nebula Dust */
   background-image: 
-    /* Planetary Bodies */
-    radial-gradient(circle at 12% 25%, #ff0055 0%, #300018 35%, transparent 45%), /* Glowing Red Outer Planet */
-    radial-gradient(circle at 88% 70%, #00f0ff 0%, #002b47 30%, transparent 42%), /* Blue Gas Giant */
-    radial-gradient(circle at 75% 18%, #ffe600 0%, #5e4300 20%, transparent 28%), /* Distant Gold Planet */
-    
+    /* Primary Planet - Glowing Gas Giant (Top Left) */
+    radial-gradient(circle at 12% 22%, #9d4edd 0%, #3a0ca3 25%, #0f051d 45%, transparent 50%),
+    /* Secondary Planet - Crimson Orb (Bottom Right) */
+    radial-gradient(circle at 88% 75%, #ff0055 0%, #500018 20%, transparent 38%),
+    /* Tertiary Planet - Distant Ring/Gold Body (Top Right) */
+    radial-gradient(circle at 80% 18%, #ffe600 0%, #4a3b00 15%, transparent 25%),
+
     /* Starfield Pinpoints */
     radial-gradient(1px 1px at 25px 40px, #ffffff, rgba(0,0,0,0)),
     radial-gradient(1.5px 1.5px at 120px 190px, #e0aaff, rgba(0,0,0,0)),
@@ -53,7 +55,7 @@ body {
   animation: galaxyPulse 10s ease-in-out infinite alternate;
 }
 
-/* Subtle cosmic breathing effect */
+/* Cosmic breathing effect */
 @keyframes galaxyPulse {
   0% {
     filter: brightness(0.95) contrast(100%);
@@ -74,71 +76,6 @@ body {
   background: #9d4edd;
   border-radius: 3px;
   box-shadow: 0 0 10px #ff77e9;
-}
-
-/* ==========================================================================
-   3. CHARACTER SHEET CONTAINER (CYBERPUNK THEME)
-   ========================================================================== */
-.main-page-content {
-  display: none;
-  max-width: 1300px;
-  margin: 25px auto;
-  padding: 25px;
-}
-
-#characterContainer {
-  background: #0a0a0f;
-  border: 2px solid #ffe600; /* Cyberpunk Yellow Border */
-  border-radius: 2px;
-  box-shadow: 
-    0 0 20px rgba(255, 230, 0, 0.2),
-    0 0 35px rgba(255, 0, 85, 0.15),
-    inset 0 0 15px rgba(0, 0, 0, 0.9);
-  position: relative;
-  /* Angular Cyberpunk Corner Cut */
-  clip-path: polygon(
-    0 0, 
-    calc(100% - 20px) 0, 
-    100% 20px, 
-    100% 100%, 
-    20px 100%, 
-    0 calc(100% - 20px)
-  );
-}
-
-.sheet-controls {
-  background: rgba(255, 230, 0, 0.05) !important;
-  border: 1px solid #ffe600;
-  border-radius: 0px;
-}
-
-.sheet-controls button {
-  font-family: 'Share Tech Mono', monospace;
-  background: #ff0055; /* Neon Pink/Red Button */
-  color: #ffe600;
-  border: 1px solid #ffe600;
-  padding: 8px 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 3px 3px 0px #00f0ff;
-  transition: all 0.15s ease-in-out;
-}
-
-.sheet-controls button:hover {
-  background: #00f0ff;
-  color: #000000;
-  box-shadow: 3px 3px 0px #ff0055;
-  transform: translate(-1px, -1px);
-}
-
-.sheet-page {
-  display: none;
-}
-
-.sheet-page.active {
-  display: block;
 }
 
 /* ==========================================================================
