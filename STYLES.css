@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. FONTS & GLOBAL STYLES (GALAXY THEME WITH PLANETS)
+   1. FONTS & GLOBAL STYLES (GALAXY THEME WITH FIXED PLANETS)
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap');
 
@@ -12,16 +12,19 @@
 body {
   font-family: 'Rajdhani', sans-serif;
   background-color: #020208;
-  /* Planetary Bodies + Starfield Pinpoints + Cosmic Nebula Dust */
+  
+  /* Planet Layering + Stars + Galactic Core */
   background-image: 
-    /* Primary Planet - Glowing Gas Giant (Top Left) */
-    radial-gradient(circle at 12% 22%, #9d4edd 0%, #3a0ca3 25%, #0f051d 45%, transparent 50%),
-    /* Secondary Planet - Crimson Orb (Bottom Right) */
-    radial-gradient(circle at 88% 75%, #ff0055 0%, #500018 20%, transparent 38%),
-    /* Tertiary Planet - Distant Ring/Gold Body (Top Right) */
-    radial-gradient(circle at 80% 18%, #ffe600 0%, #4a3b00 15%, transparent 25%),
+    /* Purple Gas Giant (Top Left - position offset so it doesn't overlap header) */
+    radial-gradient(circle at 10% 28%, #9d4edd 0%, #3a0ca3 22%, #0f051d 40%, transparent 45%),
+    
+    /* Crimson Planet (Mid-Right) */
+    radial-gradient(circle at 90% 65%, #ff0055 0%, #500018 18%, transparent 35%),
+    
+    /* Small Golden Moon (Far Top Right) */
+    radial-gradient(circle at 82% 20%, #ffe600 0%, #4a3b00 12%, transparent 20%),
 
-    /* Starfield Pinpoints */
+    /* Starfield Layers */
     radial-gradient(1px 1px at 25px 40px, #ffffff, rgba(0,0,0,0)),
     radial-gradient(1.5px 1.5px at 120px 190px, #e0aaff, rgba(0,0,0,0)),
     radial-gradient(1px 1px at 240px 80px, #ffffff, rgba(0,0,0,0)),
@@ -31,12 +34,12 @@ body {
     radial-gradient(1px 1px at 780px 90px, #ffffff, rgba(0,0,0,0)),
     radial-gradient(2px 2px at 910px 220px, #9d4edd, rgba(0,0,0,0)),
     
-    /* Cosmic Nebula Dust Swirls */
+    /* Cosmic Nebula Clouds */
     radial-gradient(circle at 15% 20%, rgba(157, 78, 221, 0.22) 0%, transparent 45%),
     radial-gradient(circle at 85% 75%, rgba(255, 119, 233, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.12) 0%, transparent 55%),
     
-    /* Deep Galactic Core Gradient */
+    /* Deep Space Base Gradient */
     radial-gradient(circle at 50% 50%, #0a0518 0%, #020208 100%);
 
   background-repeat: 
@@ -55,7 +58,7 @@ body {
   animation: galaxyPulse 10s ease-in-out infinite alternate;
 }
 
-/* Cosmic breathing effect */
+/* Subtle cosmic pulse animation */
 @keyframes galaxyPulse {
   0% {
     filter: brightness(0.95) contrast(100%);
@@ -76,6 +79,110 @@ body {
   background: #9d4edd;
   border-radius: 3px;
   box-shadow: 0 0 10px #ff77e9;
+}
+
+/* ==========================================================================
+   2. SITE HEADER & NAVIGATION (GALAXY THEME & PANELS)
+   ========================================================================== */
+#header-box {
+  background: rgba(10, 5, 24, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 22px;
+  text-align: center;
+  border-bottom: 2px solid #ff77e9;
+  box-shadow: 
+    0 4px 20px rgba(157, 78, 221, 0.3),
+    0 0 40px rgba(0, 240, 255, 0.15);
+}
+
+.site-title {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  text-shadow: 
+    0 0 10px #ff77e9,
+    0 0 20px #9d4edd,
+    0 0 35px #00f0ff;
+}
+
+.nav-bar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(4, 2, 10, 0.95);
+  border-bottom: 1px solid rgba(255, 119, 233, 0.3);
+}
+
+.nav-bar li a {
+  display: block;
+  padding: 12px 26px;
+  color: #c8b6ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-bar li a:hover,
+.nav-bar li a.active {
+  background: rgba(157, 78, 221, 0.2);
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff;
+}
+
+/* Sub-Header Panels Dropdowns */
+.panel {
+  display: none;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  background: rgba(10, 5, 24, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid #9d4edd;
+  border-top: none;
+  border-bottom: 2px solid #00f0ff;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(157, 78, 221, 0.4);
+  text-align: center;
+  color: #e2e8f0;
+  animation: panelSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel h2, .panel h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff77e9;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 119, 233, 0.6);
+}
+
+.panel p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  color: #c8b6ff;
+  line-height: 1.5;
+}
+
+/* Panel Entrance Animation */
+@keyframes panelSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
