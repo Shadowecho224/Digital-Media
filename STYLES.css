@@ -1,70 +1,82 @@
 /* ==========================================================================
-   1. FONTS & GLOBAL STYLES (GALAXY THEME WITH FIXED PLANETS)
+   SPACE THEME BACKGROUND (WITH PLANETS & ENHANCED STARFIELD)
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: 'Rajdhani', sans-serif;
   background-color: #020208;
   
-  /* Planet Layering + Stars + Galactic Core */
+  /* Space Layers: Planets + Celestial Objects + Dense Starfield + Nebulae */
   background-image: 
-    /* Purple Gas Giant (Top Left - position offset so it doesn't overlap header) */
-    radial-gradient(circle at 10% 28%, #9d4edd 0%, #3a0ca3 22%, #0f051d 40%, transparent 45%),
+    /* Ringed Gas Giant (Top Left) */
+    radial-gradient(circle at 15% 25%, #9d4edd 0%, #3a0ca3 15%, #0f051d 30%, transparent 35%),
+    ellipse at 15% 25% (180px 20px), rgba(200, 182, 255, 0.4) 0%, transparent 80%,
     
-    /* Crimson Planet (Mid-Right) */
-    radial-gradient(circle at 90% 65%, #ff0055 0%, #500018 18%, transparent 35%),
+    /* Cratered Crimson Planet (Mid-Right) */
+    radial-gradient(circle at 88% 62%, #ff0055 0%, #800020 18%, #200008 32%, transparent 36%),
     
-    /* Small Golden Moon (Far Top Right) */
-    radial-gradient(circle at 82% 20%, #ffe600 0%, #4a3b00 12%, transparent 20%),
+    /* Glowing Golden Moon (Top Right) */
+    radial-gradient(circle at 75% 15%, #ffe600 0%, #ffaa00 8%, #4a3b00 18%, transparent 22%),
 
-    /* Starfield Layers */
-    radial-gradient(1px 1px at 25px 40px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 120px 190px, #e0aaff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 240px 80px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 380px 310px, #00f0ff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 490px 150px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 650px 340px, #ff77e9, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 780px 90px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 910px 220px, #9d4edd, rgba(0,0,0,0)),
+    /* Bright Accent Stars (Cross/Glow Effects) */
+    radial-gradient(3px 3px at 120px 80px, #ffffff, rgba(255,255,255,0.2), transparent),
+    radial-gradient(3px 3px at 850px 180px, #00f0ff, rgba(0,240,255,0.2), transparent),
+    radial-gradient(4px 4px at 450px 600px, #ff77e9, rgba(255,119,233,0.2), transparent),
+
+    /* Dense Layered Starfield */
+    radial-gradient(1px 1px at 25px 40px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 140px 190px, #e0aaff, transparent),
+    radial-gradient(1px 1px at 240px 80px, #ffffff, transparent),
+    radial-gradient(2px 2px at 380px 310px, #00f0ff, transparent),
+    radial-gradient(1px 1px at 490px 150px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 650px 340px, #ff77e9, transparent),
+    radial-gradient(1px 1px at 780px 90px, #ffffff, transparent),
+    radial-gradient(2px 2px at 910px 220px, #9d4edd, transparent),
+    radial-gradient(1px 1px at 100px 450px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 300px 520px, #00f0ff, transparent),
+    radial-gradient(1px 1px at 700px 480px, #e0aaff, transparent),
     
     /* Cosmic Nebula Clouds */
-    radial-gradient(circle at 15% 20%, rgba(157, 78, 221, 0.22) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(255, 119, 233, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 18% 25%, rgba(157, 78, 221, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(255, 0, 85, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 35%, rgba(0, 240, 255, 0.15) 0%, transparent 55%),
     
     /* Deep Space Base Gradient */
     radial-gradient(circle at 50% 50%, #0a0518 0%, #020208 100%);
 
   background-repeat: 
+    no-repeat, no-repeat,
+    no-repeat,
+    no-repeat,
     no-repeat, no-repeat, no-repeat,
-    repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, 
-    no-repeat, no-repeat, no-repeat, no-repeat;
+    repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat,
+    no-repeat, no-repeat, no-repeat,
+    no-repeat;
     
   background-size: 
+    100% 100%, 100% 100%,
+    100% 100%,
+    100% 100%,
     100% 100%, 100% 100%, 100% 100%,
-    500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 
-    100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px, 450px 450px,
+    100% 100%, 100% 100%, 100% 100%,
+    100% 100%;
     
   background-attachment: fixed;
   color: #e2e8f0;
   line-height: 1.4;
-  animation: galaxyPulse 10s ease-in-out infinite alternate;
+  animation: starlightPulse 8s ease-in-out infinite alternate;
 }
 
-/* Subtle cosmic pulse animation */
-@keyframes galaxyPulse {
+/* Star Twinkle & Nebula Glow Animation */
+@keyframes starlightPulse {
   0% {
-    filter: brightness(0.95) contrast(100%);
+    filter: brightness(0.9) contrast(100%);
+  }
+  50% {
+    filter: brightness(1.15) contrast(105%);
   }
   100% {
-    filter: brightness(1.1) contrast(105%);
+    filter: brightness(0.95) contrast(102%);
   }
 }
 
