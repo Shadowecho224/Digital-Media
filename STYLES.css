@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. FONTS, GLOBAL STYLES & ORBITING SYSTEM
+   1. FONTS & GLOBAL STYLES (GALAXY THEME WITH PLANETS)
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap');
 
@@ -10,20 +10,15 @@
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: block; /* Restores traditional top-to-bottom page layout */
   font-family: 'Rajdhani', sans-serif;
-  background-color: #0c0c14;
-  
-  /* Deep Space Nebula, Planets & Starfield Overlay */
+  background-color: #020208;
+  /* Multi-layered Planet Images + Pinpoint Stars + Cosmic Nebula Clouds */
   background-image: 
-    /* Planet 1: Ringed Gas Giant (Top Right) */
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><defs><radialGradient id="p1" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="%23ff77e9"/><stop offset="50%" stop-color="%237000ff"/><stop offset="100%" stop-color="%230a0518"/></radialGradient></defs><ellipse cx="150" cy="150" rx="130" ry="25" fill="none" stroke="%2300f0ff" stroke-width="4" opacity="0.6" transform="rotate(-20 150 150)"/><circle cx="150" cy="150" r="50" fill="url(%23p1)"/><path d="M 30 140 A 130 25 0 0 0 270 160" fill="none" stroke="%2300f0ff" stroke-width="4" opacity="0.8" transform="rotate(-20 150 150)"/></svg>'),
-    /* Planet 2: Ice Giant (Bottom Left) */
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><radialGradient id="p2" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="%2300f0ff"/><stop offset="60%" stop-color="%230d4b75"/><stop offset="100%" stop-color="%23020813"/></radialGradient></defs><circle cx="100" cy="100" r="45" fill="url(%23p2)" opacity="0.85"/></svg>'),
-    /* Planet 3: Small Terrestrial Moon (Mid Right) */
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><radialGradient id="p3" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="%23ffe600"/><stop offset="70%" stop-color="%23ff0055"/><stop offset="100%" stop-color="%231a000a"/></radialGradient></defs><circle cx="50" cy="50" r="18" fill="url(%23p3)" opacity="0.75"/></svg>'),
+    /* Planetary Bodies */
+    radial-gradient(circle at 12% 25%, #ff0055 0%, #300018 35%, transparent 45%), /* Glowing Red Outer Planet */
+    radial-gradient(circle at 88% 70%, #00f0ff 0%, #002b47 30%, transparent 42%), /* Blue Gas Giant */
+    radial-gradient(circle at 75% 18%, #ffe600 0%, #5e4300 20%, transparent 28%), /* Distant Gold Planet */
+    
     /* Starfield Pinpoints */
     radial-gradient(1px 1px at 25px 40px, #ffffff, rgba(0,0,0,0)),
     radial-gradient(1.5px 1.5px at 120px 190px, #e0aaff, rgba(0,0,0,0)),
@@ -33,141 +28,38 @@ body {
     radial-gradient(1.5px 1.5px at 650px 340px, #ff77e9, rgba(0,0,0,0)),
     radial-gradient(1px 1px at 780px 90px, #ffffff, rgba(0,0,0,0)),
     radial-gradient(2px 2px at 910px 220px, #9d4edd, rgba(0,0,0,0)),
+    
     /* Cosmic Nebula Dust Swirls */
-    radial-gradient(circle at 15% 20%, rgba(157, 78, 221, 0.25) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(255, 119, 233, 0.18) 0%, transparent 50%),
-    radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 15% 20%, rgba(157, 78, 221, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(255, 119, 233, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.12) 0%, transparent 55%),
+    
     /* Deep Galactic Core Gradient */
-    radial-gradient(circle at 50% 50%, #0a0518 0%, #0c0c14 100%);
+    radial-gradient(circle at 50% 50%, #0a0518 0%, #020208 100%);
 
-  background-position: 
-    right 8% top 12%,      /* Ringed Planet position */
-    left 5% bottom 15%,    /* Ice Giant position */
-    right 15% bottom 30%,  /* Small Moon position */
-    0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0,
-    0 0, 0 0, 0 0, 0 0;
-
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 260px 260px, 180px 180px, 90px 90px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: 
+    no-repeat, no-repeat, no-repeat,
+    repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, 
+    no-repeat, no-repeat, no-repeat, no-repeat;
+    
+  background-size: 
+    100% 100%, 100% 100%, 100% 100%,
+    500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 
+    100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    
   background-attachment: fixed;
   color: #e2e8f0;
   line-height: 1.4;
   animation: galaxyPulse 10s ease-in-out infinite alternate;
 }
 
-/* Cosmic breathing effect */
+/* Subtle cosmic breathing effect */
 @keyframes galaxyPulse {
   0% {
     filter: brightness(0.95) contrast(100%);
   }
   100% {
     filter: brightness(1.1) contrast(105%);
-  }
-}
-
-/* ==========================================================================
-   2. SITE HEADER & NAVIGATION (TOP FIXED POSITIONING)
-   ========================================================================== */
-#header-box {
-  width: 100%;
-  background: rgba(10, 5, 24, 0.85);
-  backdrop-filter: blur(12px);
-  padding: 22px;
-  text-align: center;
-  border-bottom: 2px solid #ff77e9;
-  box-shadow: 
-    0 4px 20px rgba(157, 78, 221, 0.3),
-    0 0 40px rgba(0, 240, 255, 0.15);
-}
-
-.site-title {
-  font-family: 'Orbitron', sans-serif;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: #ffffff !important;
-  text-shadow: 
-    0 0 10px #ff77e9,
-    0 0 20px #9d4edd,
-    0 0 35px #00f0ff;
-}
-
-.nav-bar {
-  width: 100%;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: rgba(4, 2, 10, 0.95);
-  border-bottom: 1px solid rgba(255, 119, 233, 0.3);
-}
-
-.nav-bar li a {
-  display: block;
-  padding: 12px 26px;
-  color: #c8b6ff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.85rem;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.nav-bar li a:hover {
-  background: rgba(157, 78, 221, 0.2);
-  color: #00f0ff;
-  text-shadow: 0 0 10px #00f0ff;
-}
-
-.panel {
-  display: none;
-  padding: 20px;
-  background-color: rgba(10, 5, 24, 0.95);
-  text-align: center;
-  border-bottom: 1px solid #9d4edd;
-}
-
-/* ==========================================================================
-   UNIVERSE & ORBITING ANIMATION CONTAINER
-   ========================================================================== */
-.universe {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  margin: 40px auto; /* Centers the universe block below the navigation */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* The circular path the planet travels on */
-.earth-orbit {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border: 1px dashed rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  animation: spinOrbit 10s linear infinite;
-}
-
-/* The actual planet */
-.earth {
-  position: absolute;
-  top: calc(50% - 15px);
-  left: -15px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 70% 50%, #2b82c9 0%, #0d2342 80%);
-  box-shadow: inset -4px 0 8px rgba(0, 0, 0, 0.7);
-}
-
-@keyframes spinOrbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 
