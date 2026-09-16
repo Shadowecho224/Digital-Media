@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. FONTS & GLOBAL STYLES (GALAXY THEME)
+   1. FONTS & GLOBAL STYLES (GALAXY THEME WITH ORBITING PLANET)
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap');
 
@@ -10,10 +10,21 @@
 }
 
 body {
+  margin: 0;
+  height: 100vh;
+  background-color: #0c0c14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   font-family: 'Rajdhani', sans-serif;
-  background-color: #020208;
-  /* Deep Galactic Core + Swirling Nebula Clouds + Starfield */
+  
+  /* Dynamic Background: Planets + Starfield + Cosmic Nebulae */
   background-image: 
+    /* Planet 1: Ringed Gas Giant (Top Right) */
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><defs><radialGradient id="p1" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="%23ff77e9"/><stop offset="50%" stop-color="%237000ff"/><stop offset="100%" stop-color="%230a0518"/></radialGradient></defs><ellipse cx="150" cy="150" rx="130" ry="25" fill="none" stroke="%2300f0ff" stroke-width="4" opacity="0.6" transform="rotate(-20 150 150)"/><circle cx="150" cy="150" r="50" fill="url(%23p1)"/><path d="M 30 140 A 130 25 0 0 0 270 160" fill="none" stroke="%2300f0ff" stroke-width="4" opacity="0.8" transform="rotate(-20 150 150)"/></svg>'),
+    /* Planet 2: Ice Giant (Bottom Left) */
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><radialGradient id="p2" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="%2300f0ff"/><stop offset="60%" stop-color="%230d4b75"/><stop offset="100%" stop-color="%23020813"/></radialGradient></defs><circle cx="100" cy="100" r="45" fill="url(%23p2)" opacity="0.85"/></svg>'),
     /* Starfield Pinpoints */
     radial-gradient(1px 1px at 25px 40px, #ffffff, rgba(0,0,0,0)),
     radial-gradient(1.5px 1.5px at 120px 190px, #e0aaff, rgba(0,0,0,0)),
@@ -30,25 +41,75 @@ body {
     /* Deep Galactic Core Gradient */
     radial-gradient(circle at 50% 50%, #0a0518 0%, #020208 100%);
 
-  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 
+    right 8% top 12%,      /* Ringed Planet */
+    left 5% bottom 15%,    /* Ice Giant */
+    0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0,
+    0 0, 0 0, 0 0, 0 0;
+
+  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 260px 260px, 180px 180px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 500px 500px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
   color: #e2e8f0;
   line-height: 1.4;
   animation: galaxyPulse 10s ease-in-out infinite alternate;
 }
 
-/* Subtle cosmic breathing effect */
-@keyframes galaxyPulse {
-  0% {
-    filter: brightness(0.95) contract(100%);
+/* ==========================================================================
+   UNIVERSE & ORBIT ANIMATION
+   ========================================================================== */
+.universe {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Circular path the planet travels on */
+.earth-orbit {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: spinOrbit 10s linear infinite;
+}
+
+/* The actual planet */
+.earth {
+  position: absolute;
+  top: calc(50% - 15px); /* Centers vertically on line */
+  left: -15px;           /* Positions directly on left edge */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 70% 50%, #2b82c9 0%, #0d2342 80%);
+  box-shadow: inset -4px 0 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Orbit Rotation Keyframes */
+@keyframes spinOrbit {
+  from {
+    transform: rotate(0deg);
   }
-  100% {
-    filter: brightness(1.1) contract(105%);
+  to {
+    transform: rotate(360deg);
   }
 }
 
-/* Cosmic Violet Scrollbar */
+/* Cosmic Breathing Effect */
+@keyframes galaxyPulse {
+  0% {
+    filter: brightness(0.95) contrast(100%);
+  }
+  100% {
+    filter: brightness(1.1) contrast(105%);
+  }
+}
+
+/* Cosmic Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
