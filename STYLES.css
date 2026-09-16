@@ -16,7 +16,7 @@ body {
   background-image: 
     radial-gradient(circle at 15% 20%, rgba(112, 0, 255, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 85% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(5, 7, 15, 0.8) 0%,  #39FF14 100%);
+    radial-gradient(circle at 50% 50%, rgba(5, 7, 15, 0.8) 0%, #030408 100%);
   background-attachment: fixed;
   color: #c8d6e5;
   line-height: 1.4;
