@@ -1,73 +1,45 @@
+// Function exposed globally to work directly with onclick="showPanel('...')" in HTML
+function showPanel(panelId) {
+    // List of all main top-level panels
+    const mainPanels = ['hero', 'citizen', 'Journal'];
+
+    // Hide all main panels and lower active navigation state
+    mainPanels.forEach(id => {
+        const panel = document.getElementById(id);
+        if (panel) {
+            panel.classList.remove('active-section');
+        }
+    });
+
+    // Show the selected panel
+    const targetPanel = document.getElementById(panelId);
+    if (targetPanel) {
+        targetPanel.classList.add('active-section');
+    }
+
+    // Highlight the active link in the nav bar
+    const navLinks = document.querySelectorAll('.nav-bar a');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(panelId)) {
+            link.classList.add('active');
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Nav Elements
-    const navHero = document.getElementById("nav-hero");
-    const navCitizen = document.getElementById("nav-citizen");
-    const navJournal = document.getElementById("nav-journal");
+    // Set default visible panel on page load
+    showPanel('hero');
 
-    // Main Section Elements
-    const heroPanel = document.getElementById("hero");
-    const citizenPanel = document.getElementById("citizen");
-    const journalPanel = document.getElementById("Journal");
-
-    // Dynamic Container Panels
+    // ==========================================
+    // TOGGLE CONTENT BUTTONS (Inner Sections)
+    // ==========================================
     const characterContainer = document.getElementById("characterContainer");
     const travelContainer = document.getElementById("travelContainer");
     const journal1 = document.getElementById("JournalEntry1Container");
     const journal2 = document.getElementById("JournalEntry2Container");
     const journal3 = document.getElementById("JournalEntry3Container");
 
-    const navLinks = [navHero, navCitizen, navJournal];
-
-    function clearActiveNav() {
-        navLinks.forEach(link => {
-            if (link) link.classList.remove("active");
-        });
-    }
-
-    function hideAllSections() {
-        const sections = [
-            heroPanel, citizenPanel, journalPanel,
-            characterContainer, travelContainer,
-            journal1, journal2, journal3
-        ];
-        sections.forEach(sec => {
-            if (sec) sec.classList.remove("active-section");
-        });
-    }
-
-    // Default Initialization
-    hideAllSections();
-    if (heroPanel) heroPanel.classList.add("active-section");
-
-    // Navigation Click Handlers
-    if (navHero) {
-        navHero.addEventListener("click", () => {
-            hideAllSections();
-            clearActiveNav();
-            navHero.classList.add("active");
-            heroPanel.classList.add("active-section");
-        });
-    }
-
-    if (navCitizen) {
-        navCitizen.addEventListener("click", () => {
-            hideAllSections();
-            clearActiveNav();
-            navCitizen.classList.add("active");
-            citizenPanel.classList.add("active-section");
-        });
-    }
-
-    if (navJournal) {
-        navJournal.addEventListener("click", () => {
-            hideAllSections();
-            clearActiveNav();
-            navJournal.classList.add("active");
-            journalPanel.classList.add("active-section");
-        });
-    }
-
-    // Toggle Content Buttons
     const btnToggleCharacter = document.getElementById("btn-toggle-character");
     if (btnToggleCharacter && characterContainer) {
         btnToggleCharacter.addEventListener("click", () => {
@@ -103,7 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Character Sheet Page Switching
+    // ==========================================
+    // CHARACTER SHEET TAB SWITCHING
+    // ==========================================
     const btnSheetMain = document.getElementById("btn-sheet-main");
     const btnSheetMiddle = document.getElementById("btn-sheet-middle");
     const sheetMain = document.getElementById("sheet-main");
@@ -121,7 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Info Question Mark Buttons
+    // ==========================================
+    // INFO QUESTION MARK BUTTONS
+    // ==========================================
     const infoButtons = document.querySelectorAll(".info-btn");
     infoButtons.forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -133,7 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Dice Roller Logic
+    // ==========================================
+    // DICE ROLLER LOGIC
+    // ==========================================
     const diceBox = document.getElementById("dice-result-box");
     const closeDiceBtn = document.getElementById("close-dice-btn");
     const rollTitle = document.getElementById("roll-title");
