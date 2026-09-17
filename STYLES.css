@@ -14,33 +14,26 @@ body {
     color: #e0e6ed;
     min-height: 100vh;
     overflow-x: hidden;
-    position: relative;
-    /* Deep space radial gradient with star noise effect */
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Twinkling CSS Stars */
+/* Twinkling CSS Stars Background */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat;
     z-index: -2;
     opacity: 0.6;
 }
 
-/* Second Layer of Twinkling Stars */
 body::after {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat;
     z-index: -1;
     animation: move-twink-back 200s linear infinite;
@@ -57,10 +50,10 @@ body::after {
    ========================================== */
 #header-box {
     text-align: center;
-    padding: 30px 15px 15px;
-    background: rgba(5, 7, 15, 0.7);
+    padding: 30px 20px 15px;
+    background: rgba(5, 7, 15, 0.8);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
 }
 
 .site-title {
@@ -76,18 +69,18 @@ body::after {
     display: flex;
     justify-content: center;
     list-style: none;
-    background: rgba(10, 14, 26, 0.85);
+    background: rgba(10, 14, 26, 0.9);
     backdrop-filter: blur(10px);
     padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .nav-bar li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 .nav-bar a {
@@ -96,17 +89,17 @@ body::after {
     font-weight: 600;
     color: #a0aec0;
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 8px 18px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.nav-bar a:hover {
+.nav-bar a:hover, .nav-bar a.active {
     color: #00d4ff;
-    background: rgba(0, 212, 255, 0.1);
+    background: rgba(0, 212, 255, 0.15);
     text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
     border-bottom: 2px solid #00d4ff;
 }
@@ -116,20 +109,20 @@ body::after {
    ========================================== */
 .universe {
     position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 30px auto;
+    width: 220px;
+    height: 220px;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .sun {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: radial-gradient(circle, #ffea00, #ff7b00);
     border-radius: 50%;
-    box-shadow: 0 0 30px #ff9d00, 0 0 60px #ff6a00;
+    box-shadow: 0 0 25px #ff9d00, 0 0 50px #ff6a00;
 }
 
 .orbit {
@@ -139,8 +132,8 @@ body::after {
 }
 
 .earth-orbit {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     animation: spin 15s linear infinite;
 }
 
@@ -149,8 +142,8 @@ body::after {
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     background: radial-gradient(circle, #00d4ff, #0044ff);
     border-radius: 50%;
     box-shadow: 0 0 10px #00d4ff;
@@ -162,26 +155,44 @@ body::after {
 }
 
 /* ==========================================
-   4. LAYOUT PANELS & CONTAINERS
+   4. LAYOUT PANELS & CONTENT SECTIONS
    ========================================== */
 .panel, .main-page-content {
-    max-width: 1000px;
+    max-width: 1100px;
+    width: 90%;
     margin: 20px auto;
-    background: rgba(15, 23, 42, 0.75);
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.25);
     border-radius: 12px;
-    padding: 25px;
+    padding: 30px;
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     color: #e0e6ed;
+}
+
+/* Visibility Control for JavaScript */
+.panel, .main-page-content, .sheet-page {
+    display: none; /* Controlled by index.js */
+}
+
+.panel.active-section, 
+.main-page-content.active-section,
+.sheet-page.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .panel h2, .main-page-content h2 {
     font-family: 'Rajdhani', sans-serif;
     color: #ffffff !important;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
     padding-bottom: 8px;
 }
 
@@ -193,19 +204,25 @@ body::after {
 
 .main-page-content img {
     max-width: 100%;
-    height: auto;
+    max-height: 400px;
+    object-fit: cover;
     border-radius: 8px;
     border: 2px solid rgba(0, 212, 255, 0.4);
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
 }
 
-/* Buttons */
+/* General Buttons */
 button {
     font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.5px;
+    padding: 10px 20px;
     border: 1px solid #00d4ff !important;
     border-radius: 6px;
+    background: rgba(5, 7, 15, 0.8);
+    color: #00d4ff;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
 }
@@ -218,11 +235,16 @@ button:hover {
 }
 
 /* ==========================================
-   5. CHARACTER SHEET STYLING (D&D PANEL)
+   5. D&D CHARACTER SHEET
    ========================================== */
 .sheet-controls {
     background: rgba(30, 41, 59, 0.8) !important;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
 }
 
 .dnd-sketch-header {
@@ -233,14 +255,11 @@ button:hover {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
-}
-
-.header-field {
-    display: flex;
-    flex-direction: column;
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .header-field label {
+    display: block;
     font-size: 0.8rem;
     text-transform: uppercase;
     color: #00d4ff;
@@ -248,22 +267,22 @@ button:hover {
 }
 
 .header-field input {
-    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(0, 212, 255, 0.3);
     color: #ffffff;
-    padding: 6px 10px;
+    padding: 8px 10px;
     border-radius: 4px;
     font-size: 1rem;
 }
 
-/* Grid Layout for Character Stats */
 .sketch-main-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-columns: 1fr 1.2fr 1fr;
     gap: 20px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .sketch-main-grid {
         grid-template-columns: 1fr;
     }
@@ -280,7 +299,7 @@ button:hover {
     background: rgba(30, 41, 59, 0.6);
     border: 1px solid rgba(0, 212, 255, 0.3);
     border-radius: 6px;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -297,12 +316,12 @@ button:hover {
     background: transparent;
     border: none;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
 .ability-mod input {
-    width: 60%;
+    width: 70%;
     text-align: center;
     background: rgba(0, 212, 255, 0.1);
     border: 1px solid rgba(0, 212, 255, 0.4);
@@ -311,7 +330,6 @@ button:hover {
     font-weight: bold;
 }
 
-/* Skill & Attack Lists */
 .dnd-box {
     background: rgba(15, 23, 42, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -322,7 +340,7 @@ button:hover {
 
 .checkbox-list, .attack-list {
     list-style: none;
-    max-height: 400px;
+    max-height: 420px;
     overflow-y: auto;
     padding-right: 5px;
 }
@@ -331,7 +349,7 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 0;
+    padding: 8px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     font-size: 0.9rem;
 }
@@ -357,32 +375,31 @@ button:hover {
 }
 
 .skill-note {
-    font-size: 0.75rem;
-    color: #64748b;
+    display: none;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 4px;
 }
 
-/* Custom Scrollbar for inner lists */
-::-webkit-scrollbar {
-    width: 6px;
+.skill-note.show {
+    display: block;
 }
 
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 212, 255, 0.3);
-    border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 212, 255, 0.6);
+textarea[name="characterBackstory"] {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #e0e6ed;
+    padding: 12px;
+    border-radius: 6px;
+    resize: vertical;
 }
 
 /* ==========================================
    6. DICE POPUP MODAL
    ========================================== */
 #dice-result-box {
+    display: none;
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -390,10 +407,15 @@ button:hover {
     border: 2px solid #00d4ff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
     z-index: 1000;
-    min-width: 200px;
+    min-width: 220px;
     backdrop-filter: blur(8px);
+}
+
+#dice-result-box.active {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
 }
 
 #dice-result-box .close-btn {
