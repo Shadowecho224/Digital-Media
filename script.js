@@ -1,149 +1,189 @@
-// Function exposed globally to work directly with onclick="showPanel('...')" in HTML
+/* ==========================================
+   1. MAIN PANEL NAVIGATION
+   ========================================== */
 function showPanel(panelId) {
-    // List of all main top-level panels
-    const mainPanels = ['hero', 'citizen', 'Journal'];
+    var targetPanel = document.getElementById(panelId);
+    if (!targetPanel) return;
 
-    // Hide all main panels and lower active navigation state
-    mainPanels.forEach(id => {
-        const panel = document.getElementById(id);
-        if (panel) {
-            panel.classList.remove('active-section');
+    // Helper function to safely hide elements if they exist
+    function hideIfExists(id) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = "none";
+    }
+    function showPanel(panelId) {
+        var targetPanel = document.getElementById(panelId);
+        if (!targetPanel) return;
+        
+        if (targetPanel.style.display === "block") {
+            targetPanel.style.display = "none";
+            
+            if (panelId === 'passport') {
+                document.getElementById("characterContainer").style.display = "none";
+                document.getElementById("travelContainer").style.display = "none";
+                document.getElementById("musicContainer").style.display = "none";
+                document.getElementById("printContainer").style.display = "none";
+                document.getElementById("globalContainer").style.display = "none";
+                document.getElementById("charityContainer").style.display = "none";
+            }
+             if (panelId !== 'Journal') {
+                document.getElementById("Unit1Container").style.display = "none";
+                document.getElementById("Unit2Container").style.display = "none";
+                document.getElementById("Unit3Container").style.display = "none";
+            }
+            if (panelId === 'citizen') {
+                document.getElementById("GlobalcitizenContainer").style.display = "none";
+            }
+            return; 
         }
-    });
 
-    // Show the selected panel
-    const targetPanel = document.getElementById(panelId);
-    if (targetPanel) {
-        targetPanel.classList.add('active-section');
+        var panels = document.getElementsByClassName("panel");
+        for (var i = 0; i < panels.length; i++) {
+            panels[i].style.display = "none";
+        }
+        
+        targetPanel.style.display = "block";
+        
+        if (panelId !== 'passport') {
+            document.getElementById("characterContainer").style.display = "none";
+            document.getElementById("travelContainer").style.display = "none";
+            document.getElementById("musicContainer").style.display = "none";
+            document.getElementById("printContainer").style.display = "none";
+            document.getElementById("globalContainer").style.display = "none";
+            document.getElementById("charityContainer").style.display = "none";
+        }
+        if (panelId !== 'Journal') {
+            document.getElementById("Unit1Container").style.display = "none";
+            document.getElementById("Unit2Container").style.display = "none";
+            document.getElementById("Unit3Container").style.display = "none";
+        }
     }
 
-    // Highlight the active link in the nav bar
-    const navLinks = document.querySelectorAll('.nav-bar a');
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(panelId)) {
+
+    function toggleCharacter() {
+        var characterContainer = document.getElementById("characterContainer");
+        if (characterContainer.style.display === "none" || characterContainer.style.display === "") {
+            characterContainer.style.display = "block";
+        } else {
+            characterContainer.style.display = "none";
+        }
+    }
+
+    function toggleTravel() {
+        var travelBox = document.getElementById("travelContainer");
+        if (travelBox.style.display === "none" || travelBox.style.display === "") {
+            travelBox.style.display = "block";
+        } else {
+            travelBox.style.display = "none";
+        }
+    }
+
+    function toggleMusic() {
+        var musicBox = document.getElementById("musicContainer");
+        if (musicBox.style.display === "none" || musicBox.style.display === "") {
+            musicBox.style.display = "block";
+        } else {
+            musicBox.style.display = "none";
+        }
+    }
+
+    function togglePrint(){  
+        var printBox = document.getElementById("printContainer");
+        if (printBox.style.display === "none" || printBox.style.display === "") {
+            printBox.style.display = "block";
+        } else {
+           printBox.style.display = "none";
+        }
+    }
+
+    function toggleGlobal(){  
+        var globalBox = document.getElementById("globalContainer");
+        if (globalBox.style.display === "none" || globalBox.style.display === "") {
+            globalBox.style.display = "block";
+        } else {
+           globalBox.style.display = "none";
+        }
+    }
+    // Optional: Update active navigation highlight if nav bar links exist
+    var navLinks = document.querySelectorAll('.nav-bar a');
+    navLinks.forEach(function(link) {
+        var onClickAttr = link.getAttribute('onclick');
+        if (onClickAttr && onClickAttr.includes(`'${panelId}'`)) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Set default visible panel on page load
-    showPanel('hero');
 
-    // ==========================================
-    // TOGGLE CONTENT BUTTONS (Inner Sections)
-    // ==========================================
-    const characterContainer = document.getElementById("characterContainer");
-    const travelContainer = document.getElementById("travelContainer");
-    const journal1 = document.getElementById("JournalEntry1Container");
-    const journal2 = document.getElementById("JournalEntry2Container");
-    const journal3 = document.getElementById("JournalEntry3Container");
+/* ==========================================
+   3. DOM INTERACTIVITIES (D&D / Dice Roller)
+   ========================================== */
+document.addEventListener("DOMContentLoaded", function () {
 
-    const btnToggleCharacter = document.getElementById("btn-toggle-character");
-    if (btnToggleCharacter && characterContainer) {
-        btnToggleCharacter.addEventListener("click", () => {
-            characterContainer.classList.toggle("active-section");
-        });
-    }
-
-    const btnToggleCitizen = document.getElementById("btn-toggle-citizen");
-    if (btnToggleCitizen && travelContainer) {
-        btnToggleCitizen.addEventListener("click", () => {
-            travelContainer.classList.toggle("active-section");
-        });
-    }
-
-    const btnToggleUnit1 = document.getElementById("btn-toggle-unit1");
-    if (btnToggleUnit1 && journal1) {
-        btnToggleUnit1.addEventListener("click", () => {
-            journal1.classList.toggle("active-section");
-        });
-    }
-
-    const btnToggleUnit2 = document.getElementById("btn-toggle-unit2");
-    if (btnToggleUnit2 && journal2) {
-        btnToggleUnit2.addEventListener("click", () => {
-            journal2.classList.toggle("active-section");
-        });
-    }
-
-    const btnToggleUnit3 = document.getElementById("btn-toggle-unit3");
-    if (btnToggleUnit3 && journal3) {
-        btnToggleUnit3.addEventListener("click", () => {
-            journal3.classList.toggle("active-section");
-        });
-    }
-
-    // ==========================================
-    // CHARACTER SHEET TAB SWITCHING
-    // ==========================================
-    const btnSheetMain = document.getElementById("btn-sheet-main");
-    const btnSheetMiddle = document.getElementById("btn-sheet-middle");
-    const sheetMain = document.getElementById("sheet-main");
-    const sheetMiddle = document.getElementById("sheet-middle");
+    // --- CHARACTER SHEET PAGE SWITCHING ---
+    var btnSheetMain = document.getElementById("btn-sheet-main");
+    var btnSheetMiddle = document.getElementById("btn-sheet-middle");
+    var sheetMain = document.getElementById("sheet-main");
+    var sheetMiddle = document.getElementById("sheet-middle");
 
     if (btnSheetMain && btnSheetMiddle && sheetMain && sheetMiddle) {
-        btnSheetMain.addEventListener("click", () => {
+        btnSheetMain.addEventListener("click", function () {
             sheetMain.classList.add("active");
             sheetMiddle.classList.remove("active");
         });
 
-        btnSheetMiddle.addEventListener("click", () => {
+        btnSheetMiddle.addEventListener("click", function () {
             sheetMiddle.classList.add("active");
             sheetMain.classList.remove("active");
         });
     }
 
-    // ==========================================
-    // INFO QUESTION MARK BUTTONS
-    // ==========================================
-    const infoButtons = document.querySelectorAll(".info-btn");
-    infoButtons.forEach(btn => {
-        btn.addEventListener("click", (e) => {
+    // --- TOOLTIP INFO (?) BUTTONS ---
+    var infoButtons = document.querySelectorAll(".info-btn");
+    infoButtons.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
             e.preventDefault();
-            const note = btn.nextElementSibling;
+            var note = btn.nextElementSibling;
             if (note && note.classList.contains("skill-note")) {
                 note.classList.toggle("show");
             }
         });
     });
 
-    // ==========================================
-    // DICE ROLLER LOGIC
-    // ==========================================
-    const diceBox = document.getElementById("dice-result-box");
-    const closeDiceBtn = document.getElementById("close-dice-btn");
-    const rollTitle = document.getElementById("roll-title");
-    const rollDetails = document.getElementById("roll-details");
-    const rollTotal = document.getElementById("roll-total");
+    // --- DICE ROLLER SYSTEM ---
+    var diceBox = document.getElementById("dice-result-box");
+    var closeDiceBtn = document.getElementById("close-dice-btn");
+    var rollTitle = document.getElementById("roll-title");
+    var rollDetails = document.getElementById("roll-details");
+    var rollTotal = document.getElementById("roll-total");
 
-    if (closeDiceBtn) {
-        closeDiceBtn.addEventListener("click", () => {
+    if (closeDiceBtn && diceBox) {
+        closeDiceBtn.addEventListener("click", function () {
             diceBox.classList.remove("active");
         });
     }
 
-    const rollables = document.querySelectorAll(".rollable-label, .rollable-text");
-    rollables.forEach(item => {
-        item.addEventListener("click", () => {
-            const label = item.getAttribute("data-label") || item.getAttribute("data-name") || "Roll";
-            const modStr = item.getAttribute("data-mod") || "+0";
-            const formula = item.getAttribute("data-formula");
+    var rollables = document.querySelectorAll(".rollable-label, .rollable-text");
+    rollables.forEach(function (item) {
+        item.addEventListener("click", function () {
+            var label = item.getAttribute("data-label") || item.getAttribute("data-name") || "Roll";
+            var modStr = item.getAttribute("data-mod") || "+0";
+            var formula = item.getAttribute("data-formula");
 
-            let d20 = Math.floor(Math.random() * 20) + 1;
-            let modVal = parseInt(modStr, 10) || 0;
-            let total = d20 + modVal;
+            var d20 = Math.floor(Math.random() * 20) + 1;
+            var modVal = parseInt(modStr, 10) || 0;
+            var total = d20 + modVal;
 
             if (rollTitle) rollTitle.textContent = label;
 
             if (formula) {
-                let d6 = Math.floor(Math.random() * 6) + 1;
-                rollDetails.textContent = `Formula: ${formula} (Rolled ${d6} + 18)`;
-                rollTotal.textContent = d6 + 18;
+                var d6 = Math.floor(Math.random() * 6) + 1;
+                if (rollDetails) rollDetails.textContent = "Formula: " + formula + " (Rolled " + d6 + " + 18)";
+                if (rollTotal) rollTotal.textContent = d6 + 18;
             } else {
-                rollDetails.textContent = `d20 (${d20}) ${modVal >= 0 ? '+' : ''}${modVal}`;
-                rollTotal.textContent = total;
+                if (rollDetails) rollDetails.textContent = "d20 (" + d20 + ") " + (modVal >= 0 ? '+' : '') + modVal;
+                if (rollTotal) rollTotal.textContent = total;
             }
 
             if (diceBox) diceBox.classList.add("active");
