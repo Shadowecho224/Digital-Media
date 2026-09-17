@@ -172,7 +172,7 @@ body::after {
 
 /* Visibility Control for JavaScript */
 .panel, .main-page-content, .sheet-page {
-    display: none; /* Controlled by index.js */
+    display: none;
 }
 
 .panel.active-section, 
@@ -202,16 +202,7 @@ body::after {
     margin-bottom: 15px;
 }
 
-.main-page-content img {
-    max-width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid rgba(0, 212, 255, 0.4);
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-}
-
-/* General Buttons */
+/* Buttons */
 button {
     font-family: 'Rajdhani', sans-serif !important;
     font-size: 1rem;
@@ -234,8 +225,15 @@ button:hover {
     transform: translateY(-2px);
 }
 
+/* Info Icon Button */
+.info-btn {
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    border-radius: 50%;
+}
+
 /* ==========================================
-   5. D&D CHARACTER SHEET
+   5. CHARACTER SHEET
    ========================================== */
 .sheet-controls {
     background: rgba(30, 41, 59, 0.8) !important;
@@ -295,7 +293,7 @@ button:hover {
     margin-bottom: 20px;
 }
 
-.ability-box, .vital-box {
+.ability-box {
     background: rgba(30, 41, 59, 0.6);
     border: 1px solid rgba(0, 212, 255, 0.3);
     border-radius: 6px;
@@ -303,14 +301,14 @@ button:hover {
     text-align: center;
 }
 
-.ability-box label, .vital-box label {
+.ability-box label {
     display: block;
     font-size: 0.75rem;
     color: #94a3b8;
     text-transform: uppercase;
 }
 
-.ability-score input, .vital-box input {
+.ability-score input {
     width: 100%;
     text-align: center;
     background: transparent;
