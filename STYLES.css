@@ -104,6 +104,36 @@ body::after {
     border-bottom: 2px solid #00d4ff;
 }
 
+.panel.active {
+  display: block;
+}
+
+.panel h2, .panel h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff77e9;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 119, 233, 0.6);
+}
+
+.panel p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  color: #c8b6ff;
+  line-height: 1.5;
+}
+
+@keyframes panelSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* ==========================================
    3. UNIVERSE / PLANET ANIMATION
    ========================================== */
