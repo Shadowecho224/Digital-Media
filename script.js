@@ -17,7 +17,7 @@ function showPanel(panelId) {
         if (targetPanel.style.display === "block") {
             targetPanel.style.display = "none";
             
-            if (panelId === 'passport') {
+            if (panelId === 'hero') {
                 document.getElementById("characterContainer").style.display = "none";
                 document.getElementById("travelContainer").style.display = "none";
                 document.getElementById("musicContainer").style.display = "none";
@@ -43,7 +43,7 @@ function showPanel(panelId) {
         
         targetPanel.style.display = "block";
         
-        if (panelId !== 'passport') {
+        if (panelId !== 'hero') {
             document.getElementById("characterContainer").style.display = "none";
             document.getElementById("travelContainer").style.display = "none";
             document.getElementById("musicContainer").style.display = "none";
