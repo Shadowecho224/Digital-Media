@@ -1,113 +1,85 @@
 /* ==========================================
    1. MAIN PANEL NAVIGATION
    ========================================== */
+
+// Helper function to safely hide elements if they exist
+function hideIfExists(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = "none";
+}
+
+// Helper function to toggle element display
+function toggleDisplay(id) {
+    var el = document.getElementById(id);
+    if (el) {
+        if (el.style.display === "none" || el.style.display === "") {
+            el.style.display = "block";
+        } else {
+            el.style.display = "none";
+        }
+    }
+}
+
 function showPanel(panelId) {
     var targetPanel = document.getElementById(panelId);
     if (!targetPanel) return;
 
-    // Helper function to safely hide elements if they exist
-    function hideIfExists(id) {
-        var el = document.getElementById(id);
-        if (el) el.style.display = "none";
-    }
-    function showPanel(panelId) {
-        var targetPanel = document.getElementById(panelId);
-        if (!targetPanel) return;
-        
-        if (targetPanel.style.display === "block") {
-            targetPanel.style.display = "none";
-            
-            if (panelId === 'hero') {
-                document.getElementById("characterContainer").style.display = "none";
-                document.getElementById("travelContainer").style.display = "none";
-                document.getElementById("musicContainer").style.display = "none";
-                document.getElementById("printContainer").style.display = "none";
-                document.getElementById("globalContainer").style.display = "none";
-                document.getElementById("charityContainer").style.display = "none";
-            }
-             if (panelId !== 'Journal') {
-                document.getElementById("Unit1Container").style.display = "none";
-                document.getElementById("Unit2Container").style.display = "none";
-                document.getElementById("Unit3Container").style.display = "none";
-            }
-            if (panelId === 'citizen') {
-                document.getElementById("GlobalcitizenContainer").style.display = "none";
-            }
-            return; 
-        }
+    // Helper lists for batch hiding
+    var heroSubContainers = [
+        "characterContainer", 
+        "travelContainer", 
+        "musicContainer", 
+        "printContainer", 
+        "globalContainer", 
+        "charityContainer"
+    ];
+    var journalSubContainers = [
+        "Unit1Container", 
+        "Unit2Container", 
+        "Unit3Container"
+    ];
 
-        var panels = document.getElementsByClassName("panel");
-        for (var i = 0; i < panels.length; i++) {
-            panels[i].style.display = "none";
+    // If the clicked panel is already visible, hide it and its contents
+    if (targetPanel.style.display === "block") {
+        targetPanel.style.display = "none";
+
+        if (panelId === 'hero') {
+            heroSubContainers.forEach(hideIfExists);
         }
-        
-        targetPanel.style.display = "block";
-        
-        if (panelId !== 'hero') {
-            document.getElementById("characterContainer").style.display = "none";
-            document.getElementById("travelContainer").style.display = "none";
-            document.getElementById("musicContainer").style.display = "none";
-            document.getElementById("printContainer").style.display = "none";
-            document.getElementById("globalContainer").style.display = "none";
-            document.getElementById("charityContainer").style.display = "none";
+        if (panelId === 'Journal') {
+            journalSubContainers.forEach(hideIfExists);
         }
-        if (panelId !== 'Journal') {
-            document.getElementById("Unit1Container").style.display = "none";
-            document.getElementById("Unit2Container").style.display = "none";
-            document.getElementById("Unit3Container").style.display = "none";
+        if (panelId === 'citizen') {
+            hideIfExists("GlobalcitizenContainer");
         }
+        return; 
     }
 
-
-    function toggleCharacter() {
-        var characterContainer = document.getElementById("characterContainer");
-        if (characterContainer.style.display === "none" || characterContainer.style.display === "") {
-            characterContainer.style.display = "block";
-        } else {
-            characterContainer.style.display = "none";
-        }
+    // Hide all panels to prepare for tab swap
+    var panels = document.getElementsByClassName("panel");
+    for (var i = 0; i < panels.length; i++) {
+        panels[i].style.display = "none";
     }
 
-    function toggleTravel() {
-        var travelBox = document.getElementById("travelContainer");
-        if (travelBox.style.display === "none" || travelBox.style.display === "") {
-            travelBox.style.display = "block";
-        } else {
-            travelBox.style.display = "none";
-        }
+    // Show targeted panel
+    targetPanel.style.display = "block";
+
+    // Hide unrelated sub-containers when switching tabs
+    if (panelId !== 'hero') {
+        heroSubContainers.forEach(hideIfExists);
+    }
+    if (panelId !== 'Journal') {
+        journalSubContainers.forEach(hideIfExists);
+    }
+    if (panelId !== 'citizen') {
+        hideIfExists("GlobalcitizenContainer");
     }
 
-    function toggleMusic() {
-        var musicBox = document.getElementById("musicContainer");
-        if (musicBox.style.display === "none" || musicBox.style.display === "") {
-            musicBox.style.display = "block";
-        } else {
-            musicBox.style.display = "none";
-        }
-    }
-
-    function togglePrint(){  
-        var printBox = document.getElementById("printContainer");
-        if (printBox.style.display === "none" || printBox.style.display === "") {
-            printBox.style.display = "block";
-        } else {
-           printBox.style.display = "none";
-        }
-    }
-
-    function toggleGlobal(){  
-        var globalBox = document.getElementById("globalContainer");
-        if (globalBox.style.display === "none" || globalBox.style.display === "") {
-            globalBox.style.display = "block";
-        } else {
-           globalBox.style.display = "none";
-        }
-    }
-    // Optional: Update active navigation highlight if nav bar links exist
+    // Update active navigation link styles
     var navLinks = document.querySelectorAll('.nav-bar a');
     navLinks.forEach(function(link) {
         var onClickAttr = link.getAttribute('onclick');
-        if (onClickAttr && onClickAttr.includes(`'${panelId}'`)) {
+        if (onClickAttr && onClickAttr.includes("'" + panelId + "'")) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -115,6 +87,19 @@ function showPanel(panelId) {
     });
 }
 
+/* ==========================================
+   2. CONTENT TOGGLE FUNCTIONS
+   ========================================== */
+function toggleCharacter() { toggleDisplay("characterContainer"); }
+function toggleTravel()    { toggleDisplay("travelContainer"); }
+function toggleMusic()     { toggleDisplay("musicContainer"); }
+function togglePrint()     { toggleDisplay("printContainer"); }
+function toggleGlobal()    { toggleDisplay("globalContainer"); }
+function toggleCharity()   { toggleDisplay("charityContainer"); }
+
+function toggleUnit1()     { toggleDisplay("Unit1Container"); }
+function toggleUnit2()     { toggleDisplay("Unit2Container"); }
+function toggleUnit3()     { toggleDisplay("Unit3Container"); }
 
 /* ==========================================
    3. DOM INTERACTIVITIES (D&D / Dice Roller)
