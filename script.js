@@ -2,82 +2,72 @@
    1. MAIN PANEL NAVIGATION
    ========================================== */
 
-// Helper function to safely hide elements if they exist
+// Helper function to safely hide elements if they exist in DOM
 function hideIfExists(id) {
     var el = document.getElementById(id);
     if (el) el.style.display = "none";
-}
-
-// Helper function to toggle element display
-function toggleDisplay(id) {
-    var el = document.getElementById(id);
-    if (el) {
-        if (el.style.display === "none" || el.style.display === "") {
-            el.style.display = "block";
-        } else {
-            el.style.display = "none";
-        }
-    }
 }
 
 function showPanel(panelId) {
     var targetPanel = document.getElementById(panelId);
     if (!targetPanel) return;
 
-    // Helper lists for batch hiding
-    var heroSubContainers = [
-        "characterContainer", 
-        "travelContainer", 
-        "musicContainer", 
-        "printContainer", 
-        "globalContainer", 
+    // List of sub-containers associated with hero
+    var heroContainers = [
+        "characterContainer",
+        "travelContainer",
+        "musicContainer",
+        "printContainer",
+        "globalContainer",
         "charityContainer"
     ];
-    var journalSubContainers = [
-        "Unit1Container", 
-        "Unit2Container", 
+
+    // List of sub-containers associated with Journal
+    var journalContainers = [
+        "Unit1Container",
+        "Unit2Container",
         "Unit3Container"
     ];
 
-    // If the clicked panel is already visible, hide it and its contents
+    // If clicked panel is already open, collapse it and its child containers
     if (targetPanel.style.display === "block") {
         targetPanel.style.display = "none";
 
         if (panelId === 'hero') {
-            heroSubContainers.forEach(hideIfExists);
+            heroContainers.forEach(hideIfExists);
         }
         if (panelId === 'Journal') {
-            journalSubContainers.forEach(hideIfExists);
+            journalContainers.forEach(hideIfExists);
         }
         if (panelId === 'citizen') {
             hideIfExists("GlobalcitizenContainer");
         }
-        return; 
+        return; // Stop execution early
     }
 
-    // Hide all panels to prepare for tab swap
+    // Hide all main section panels
     var panels = document.getElementsByClassName("panel");
     for (var i = 0; i < panels.length; i++) {
         panels[i].style.display = "none";
     }
 
-    // Show targeted panel
+    // Show the targeted panel
     targetPanel.style.display = "block";
 
-    // Hide unrelated sub-containers when switching tabs
+    // Hide child elements when switching away from parent tabs
     if (panelId !== 'hero') {
-        heroSubContainers.forEach(hideIfExists);
+        heroContainers.forEach(hideIfExists);
     }
     if (panelId !== 'Journal') {
-        journalSubContainers.forEach(hideIfExists);
+        journalContainers.forEach(hideIfExists);
     }
     if (panelId !== 'citizen') {
         hideIfExists("GlobalcitizenContainer");
     }
 
-    // Update active navigation link styles
+    // Update active state styling on navbar links
     var navLinks = document.querySelectorAll('.nav-bar a');
-    navLinks.forEach(function(link) {
+    navLinks.forEach(function (link) {
         var onClickAttr = link.getAttribute('onclick');
         if (onClickAttr && onClickAttr.includes("'" + panelId + "'")) {
             link.classList.add('active');
@@ -90,16 +80,31 @@ function showPanel(panelId) {
 /* ==========================================
    2. CONTENT TOGGLE FUNCTIONS
    ========================================== */
-function toggleCharacter() { toggleDisplay("characterContainer"); }
-function toggleTravel()    { toggleDisplay("travelContainer"); }
-function toggleMusic()     { toggleDisplay("musicContainer"); }
-function togglePrint()     { toggleDisplay("printContainer"); }
-function toggleGlobal()    { toggleDisplay("globalContainer"); }
-function toggleCharity()   { toggleDisplay("charityContainer"); }
 
-function toggleUnit1()     { toggleDisplay("Unit1Container"); }
-function toggleUnit2()     { toggleDisplay("Unit2Container"); }
-function toggleUnit3()     { toggleDisplay("Unit3Container"); }
+function toggleCharacter() {
+    var box = document.getElementById("characterContainer");
+    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+}
+
+function toggleTravel() {
+    var box = document.getElementById("travelContainer");
+    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+}
+
+function toggleMusic() {
+    var box = document.getElementById("musicContainer");
+    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+}
+
+function togglePrint() {
+    var box = document.getElementById("printContainer");
+    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+}
+
+function toggleGlobal() {
+    var box = document.getElementById("globalContainer");
+    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+}
 
 /* ==========================================
    3. DOM INTERACTIVITIES (D&D / Dice Roller)
