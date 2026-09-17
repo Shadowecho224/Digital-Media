@@ -1,205 +1,174 @@
-/* ==========================================================================
-   NAVIGATION & UI CONTROLLER
-   ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  const charSheetLink = document.getElementById('nav-char-sheet');
-  const charSheetContainer = document.getElementById('character-sheet-container');
-  const panelBtns = document.querySelectorAll('.nav-panel-btn');
-  const panels = document.querySelectorAll('.panel');
-  const diceBox = document.getElementById('dice-result-box');
-  const closeDiceBtn = document.getElementById('close-dice-btn');
+document.addEventListener("DOMContentLoaded", () => {
+    // Nav Elements
+    const navHero = document.getElementById("nav-hero");
+    const navCitizen = document.getElementById("nav-citizen");
+    const navJournal = document.getElementById("nav-journal");
 
-  // Toggle Character Sheet Visibility from Header Nav
-  if (charSheetLink && charSheetContainer) {
-    charSheetLink.addEventListener('click', (e) => {
-      e.preventDefault();
+    // Main Section Elements
+    const heroPanel = document.getElementById("hero");
+    const citizenPanel = document.getElementById("citizen");
+    const journalPanel = document.getElementById("Journal");
 
-      // Close open navigation panels first
-      panels.forEach(panel => panel.classList.remove('active'));
-      panelBtns.forEach(btn => btn.classList.remove('active'));
+    // Dynamic Container Panels
+    const characterContainer = document.getElementById("characterContainer");
+    const travelContainer = document.getElementById("travelContainer");
+    const journal1 = document.getElementById("JournalEntry1Container");
+    const journal2 = document.getElementById("JournalEntry2Container");
+    const journal3 = document.getElementById("JournalEntry3Container");
 
-      // Toggle character sheet display and active class
-      if (charSheetContainer.style.display === 'none' || charSheetContainer.style.display === '') {
-        charSheetContainer.style.display = 'block';
-        charSheetLink.classList.add('active');
-      } else {
-        charSheetContainer.style.display = 'none';
-        charSheetLink.classList.remove('active');
-      }
-    });
-  }
+    const navLinks = [navHero, navCitizen, navJournal];
 
-  // Handle Sub-Header Panel Dropdowns
-  panelBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = btn.getAttribute('data-target');
-      const targetPanel = document.getElementById(targetId);
-
-      // Hide character sheet when opening lore/rules panels
-      if (charSheetContainer) {
-        charSheetContainer.style.display = 'none';
-      }
-      if (charSheetLink) {
-        charSheetLink.classList.remove('active');
-      }
-
-      // Close other active panels
-      panels.forEach(p => {
-        if (p !== targetPanel) p.classList.remove('active');
-      });
-
-      // Toggle current panel and active link status
-      if (targetPanel) {
-        targetPanel.classList.toggle('active');
-      }
-      btn.classList.toggle('active');
-    });
-  });
-
-  // Close Dice Overlay Event Handler
-  if (closeDiceBtn) {
-    closeDiceBtn.addEventListener('click', closeDiceBox);
-  }
-});
-
-/* ==========================================================================
-   PAGE & CONTENT TOGGLE FUNCTIONS
-   ========================================================================== */
-function toggleSkillNote(buttonElement) {
-  var note = buttonElement.nextElementSibling;
-  if (!note) return;
-  if (note.style.display === "none" || note.style.display === "") {
-    note.style.display = "block";
-  } else {
-    note.style.display = "none";
-  }
-}
-
-function hideAllMainContent() {
-  var contents = document.getElementsByClassName("main-page-content");
-  for (var i = 0; i < contents.length; i++) {
-    contents[i].style.display = "none";
-  }
-}
-
-function showPanel(panelId) {
-  var targetPanel = document.getElementById(panelId);
-  if (!targetPanel) return;
-  
-  var isCurrentlyOpen = (targetPanel.style.display === "block");
-  var panels = document.getElementsByClassName("panel");
-  for (var i = 0; i < panels.length; i++) {
-    panels[i].style.display = "none";
-  }
-  hideAllMainContent();
-  if (!isCurrentlyOpen) {
-    targetPanel.style.display = "block";
-  }
-}
-
-function toggleCharacter() {
-  var hero = document.getElementById('hero');
-  if (hero) hero.style.display = "none";
-  hideAllMainContent();
-  var container = document.getElementById("characterContainer");
-  if (container) container.style.display = "block";
-}
-
-function toggleGlobalCitizen() {
-  var citizen = document.getElementById('citizen');
-  if (citizen) citizen.style.display = "none";
-  hideAllMainContent();
-  var container = document.getElementById("travelContainer");
-  if (container) container.style.display = "block";
-}
-
-function toggleUnit1() {  
-  var journal = document.getElementById('Journal');
-  if (journal) journal.style.display = "none";
-  hideAllMainContent();
-  var container = document.getElementById("JournalEntry1Container");
-  if (container) container.style.display = "block";
-}
-
-function toggleUnit2() {  
-  var journal = document.getElementById('Journal');
-  if (journal) journal.style.display = "none";
-  hideAllMainContent();
-  var container = document.getElementById("JournalEntry2Container");
-  if (container) container.style.display = "block";
-}
-
-function toggleUnit3() {  
-  var journal = document.getElementById('Journal');
-  if (journal) journal.style.display = "none";
-  hideAllMainContent();
-  var container = document.getElementById("JournalEntry3Container");
-  if (container) container.style.display = "block";
-}
-
-function showSheetPage(pageId) {
-  var pages = document.getElementsByClassName('sheet-page');
-  for (var i = 0; i < pages.length; i++) {
-    pages[i].classList.remove('active');
-  }
-  var targetPage = document.getElementById(pageId);
-  if (targetPage) targetPage.classList.add('active');
-}
-
-function toggleMiddle() { 
-  showSheetPage('sheet-middle'); 
-}
-
-/* ==========================================================================
-   DICE ROLLER LOGIC
-   ========================================================================== */
-function rollCheck(label, modString) {
-  var mod = parseInt(modString) || 0;
-  var d20 = Math.floor(Math.random() * 20) + 1;
-  var total = d20 + mod;
-  
-  var modDisplay = mod >= 0 ? "+" + mod : mod;
-  
-  var titleEl = document.getElementById('roll-title');
-  var detailsEl = document.getElementById('roll-details');
-  var totalEl = document.getElementById('roll-total');
-  var boxEl = document.getElementById('dice-result-box');
-
-  if (titleEl) titleEl.innerText = label;
-  if (detailsEl) detailsEl.innerText = "d20 (" + d20 + ") " + modDisplay;
-  if (totalEl) totalEl.innerText = total;
-  if (boxEl) boxEl.style.display = "block";
-}
-
-function rollAttack(attackName, dmgFormula) {
-  var match = dmgFormula.match(/(\d+)d(\d+)\+(\d+)/);
-  if (match) {
-    var numDice = parseInt(match[1]);
-    var dieSides = parseInt(match[2]);
-    var mod = parseInt(match[3]);
-    var total = mod;
-    var rolls = [];
-    
-    for (var i = 0; i < numDice; i++) {
-      var roll = Math.floor(Math.random() * dieSides) + 1;
-      rolls.push(roll);
-      total += roll;
+    function clearActiveNav() {
+        navLinks.forEach(link => {
+            if (link) link.classList.remove("active");
+        });
     }
 
-    var titleEl = document.getElementById('roll-title');
-    var detailsEl = document.getElementById('roll-details');
-    var totalEl = document.getElementById('roll-total');
-    var boxEl = document.getElementById('dice-result-box');
+    function hideAllSections() {
+        const sections = [
+            heroPanel, citizenPanel, journalPanel,
+            characterContainer, travelContainer,
+            journal1, journal2, journal3
+        ];
+        sections.forEach(sec => {
+            if (sec) sec.classList.remove("active-section");
+        });
+    }
 
-    if (titleEl) titleEl.innerText = attackName + " Damage";
-    if (detailsEl) detailsEl.innerText = numDice + "d" + dieSides + " (" + rolls.join(", ") + ") +" + mod;
-    if (totalEl) totalEl.innerText = total;
-    if (boxEl) boxEl.style.display = "block";
-  }
-}
+    // Default Initialization
+    hideAllSections();
+    if (heroPanel) heroPanel.classList.add("active-section");
 
-function closeDiceBox() {
-  var boxEl = document.getElementById('dice-result-box');
-  if (boxEl) boxEl.style.display = "none";
-}
+    // Navigation Click Handlers
+    if (navHero) {
+        navHero.addEventListener("click", () => {
+            hideAllSections();
+            clearActiveNav();
+            navHero.classList.add("active");
+            heroPanel.classList.add("active-section");
+        });
+    }
+
+    if (navCitizen) {
+        navCitizen.addEventListener("click", () => {
+            hideAllSections();
+            clearActiveNav();
+            navCitizen.classList.add("active");
+            citizenPanel.classList.add("active-section");
+        });
+    }
+
+    if (navJournal) {
+        navJournal.addEventListener("click", () => {
+            hideAllSections();
+            clearActiveNav();
+            navJournal.classList.add("active");
+            journalPanel.classList.add("active-section");
+        });
+    }
+
+    // Toggle Content Buttons
+    const btnToggleCharacter = document.getElementById("btn-toggle-character");
+    if (btnToggleCharacter && characterContainer) {
+        btnToggleCharacter.addEventListener("click", () => {
+            characterContainer.classList.toggle("active-section");
+        });
+    }
+
+    const btnToggleCitizen = document.getElementById("btn-toggle-citizen");
+    if (btnToggleCitizen && travelContainer) {
+        btnToggleCitizen.addEventListener("click", () => {
+            travelContainer.classList.toggle("active-section");
+        });
+    }
+
+    const btnToggleUnit1 = document.getElementById("btn-toggle-unit1");
+    if (btnToggleUnit1 && journal1) {
+        btnToggleUnit1.addEventListener("click", () => {
+            journal1.classList.toggle("active-section");
+        });
+    }
+
+    const btnToggleUnit2 = document.getElementById("btn-toggle-unit2");
+    if (btnToggleUnit2 && journal2) {
+        btnToggleUnit2.addEventListener("click", () => {
+            journal2.classList.toggle("active-section");
+        });
+    }
+
+    const btnToggleUnit3 = document.getElementById("btn-toggle-unit3");
+    if (btnToggleUnit3 && journal3) {
+        btnToggleUnit3.addEventListener("click", () => {
+            journal3.classList.toggle("active-section");
+        });
+    }
+
+    // Character Sheet Page Switching
+    const btnSheetMain = document.getElementById("btn-sheet-main");
+    const btnSheetMiddle = document.getElementById("btn-sheet-middle");
+    const sheetMain = document.getElementById("sheet-main");
+    const sheetMiddle = document.getElementById("sheet-middle");
+
+    if (btnSheetMain && btnSheetMiddle && sheetMain && sheetMiddle) {
+        btnSheetMain.addEventListener("click", () => {
+            sheetMain.classList.add("active");
+            sheetMiddle.classList.remove("active");
+        });
+
+        btnSheetMiddle.addEventListener("click", () => {
+            sheetMiddle.classList.add("active");
+            sheetMain.classList.remove("active");
+        });
+    }
+
+    // Info Question Mark Buttons
+    const infoButtons = document.querySelectorAll(".info-btn");
+    infoButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const note = btn.nextElementSibling;
+            if (note && note.classList.contains("skill-note")) {
+                note.classList.toggle("show");
+            }
+        });
+    });
+
+    // Dice Roller Logic
+    const diceBox = document.getElementById("dice-result-box");
+    const closeDiceBtn = document.getElementById("close-dice-btn");
+    const rollTitle = document.getElementById("roll-title");
+    const rollDetails = document.getElementById("roll-details");
+    const rollTotal = document.getElementById("roll-total");
+
+    if (closeDiceBtn) {
+        closeDiceBtn.addEventListener("click", () => {
+            diceBox.classList.remove("active");
+        });
+    }
+
+    const rollables = document.querySelectorAll(".rollable-label, .rollable-text");
+    rollables.forEach(item => {
+        item.addEventListener("click", () => {
+            const label = item.getAttribute("data-label") || item.getAttribute("data-name") || "Roll";
+            const modStr = item.getAttribute("data-mod") || "+0";
+            const formula = item.getAttribute("data-formula");
+
+            let d20 = Math.floor(Math.random() * 20) + 1;
+            let modVal = parseInt(modStr, 10) || 0;
+            let total = d20 + modVal;
+
+            if (rollTitle) rollTitle.textContent = label;
+
+            if (formula) {
+                let d6 = Math.floor(Math.random() * 6) + 1;
+                rollDetails.textContent = `Formula: ${formula} (Rolled ${d6} + 18)`;
+                rollTotal.textContent = d6 + 18;
+            } else {
+                rollDetails.textContent = `d20 (${d20}) ${modVal >= 0 ? '+' : ''}${modVal}`;
+                rollTotal.textContent = total;
+            }
+
+            if (diceBox) diceBox.classList.add("active");
+        });
+    });
+});
