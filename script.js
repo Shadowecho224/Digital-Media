@@ -1,60 +1,47 @@
 /* ==========================================
    1. MAIN PANEL NAVIGATION
    ========================================== */
+function showPanel(panelId) {
+    var targetPanel = document.getElementById(panelId);
+    if (!targetPanel) return;
 
-// Helper function to safely hide elements if they exist in DOM
-function hideIfExists(id) {
-    var el = document.getElementById(id);
-    if (el) el.style.display = "none";
-}
-
-function toggleDropdown(dropdownId) {
-    var dropdown = document.getElementById(dropdownId);
-    
-    // Close any other open dropdowns first
-    var allDropdowns = document.querySelectorAll('.dropdown');
-    allDropdowns.forEach(function(d) {
-        if (d !== dropdown) d.classList.remove('show');
-    });
-
-    if (dropdown) {
-        dropdown.classList.toggle('show');
+    // Helper function to safely hide elements if they exist
+    function hideIfExists(id) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = "none";
     }
-}
-    // List of sub-containers associated with hero
-    var heroContainers = [
-        "characterContainer",
-        "travelContainer",
-        "musicContainer",
-        "printContainer",
-        "globalContainer",
-        "charityContainer"
-    ];
 
-    // List of sub-containers associated with Journal
-    var journalContainers = [
-        "Unit1Container",
-        "Unit2Container",
-        "Unit3Container"
-    ];
+    // Helper functions for hiding grouped containers
+    function hideHeroContainers() {
+        hideIfExists("characterContainer");
+        hideIfExists("travelContainer");
+        hideIfExists("musicContainer");
+        hideIfExists("printContainer");
+        hideIfExists("globalContainer");
+        hideIfExists("charityContainer");
+    }
 
-    // If clicked panel is already open, collapse it and its child containers
+    function hideJournalContainers() {
+        hideIfExists("Unit1Container");
+        hideIfExists("Unit2Container");
+        hideIfExists("Unit3Container");
+    }
+
+    function hideCitizenContainers() {
+        hideIfExists("GlobalcitizenContainer");
+    }
+
+    // If the clicked panel is already visible, toggle it off and hide its sub-containers
     if (targetPanel.style.display === "block") {
         targetPanel.style.display = "none";
 
-        if (panelId === 'hero') {
-            heroContainers.forEach(hideIfExists);
-        }
-        if (panelId === 'Journal') {
-            journalContainers.forEach(hideIfExists);
-        }
-        if (panelId === 'citizen') {
-            hideIfExists("GlobalcitizenContainer");
-        }
-        return; // Stop execution early
+        if (panelId === 'hero') hideHeroContainers();
+        if (panelId === 'Journal') hideJournalContainers();
+        if (panelId === 'citizen') hideCitizenContainers();
+        return;
     }
 
-    // Hide all main section panels
+    // Hide all main panels first
     var panels = document.getElementsByClassName("panel");
     for (var i = 0; i < panels.length; i++) {
         panels[i].style.display = "none";
@@ -63,18 +50,12 @@ function toggleDropdown(dropdownId) {
     // Show the targeted panel
     targetPanel.style.display = "block";
 
-    // Hide child elements when switching away from parent tabs
-    if (panelId !== 'hero') {
-        heroContainers.forEach(hideIfExists);
-    }
-    if (panelId !== 'Journal') {
-        journalContainers.forEach(hideIfExists);
-    }
-    if (panelId !== 'citizen') {
-        hideIfExists("GlobalcitizenContainer");
-    }
+    // Clean up sub-containers belonging to other main tabs
+    if (panelId !== 'hero') hideHeroContainers();
+    if (panelId !== 'Journal') hideJournalContainers();
+    if (panelId !== 'citizen') hideCitizenContainers();
 
-    // Update active state styling on navbar links
+    // Highlight active link in the navigation bar
     var navLinks = document.querySelectorAll('.nav-bar a');
     navLinks.forEach(function (link) {
         var onClickAttr = link.getAttribute('onclick');
@@ -87,38 +68,40 @@ function toggleDropdown(dropdownId) {
 }
 
 /* ==========================================
-   2. CONTENT TOGGLE FUNCTIONS
+   2. GLOBAL TOGGLE FUNCTIONS
    ========================================== */
-
 function toggleCharacter() {
-    var box = document.getElementById("characterContainer");
-    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+    var el = document.getElementById("characterContainer");
+    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
 }
 
 function toggleTravel() {
-    var box = document.getElementById("travelContainer");
-    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+    var el = document.getElementById("travelContainer");
+    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
 }
 
 function toggleMusic() {
-    var box = document.getElementById("musicContainer");
-    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+    var el = document.getElementById("musicContainer");
+    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
 }
 
 function togglePrint() {
-    var box = document.getElementById("printContainer");
-    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+    var el = document.getElementById("printContainer");
+    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
 }
 
 function toggleGlobal() {
-    var box = document.getElementById("globalContainer");
-    if (box) box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+    var el = document.getElementById("globalContainer");
+    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
 }
 
 /* ==========================================
-   3. DOM INTERACTIVITIES (D&D / Dice Roller)
+   3. DOM INTERACTIVITIES
    ========================================== */
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Set default active panel on page load
+    showPanel('hero');
 
     // --- CHARACTER SHEET PAGE SWITCHING ---
     var btnSheetMain = document.getElementById("btn-sheet-main");
