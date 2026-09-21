@@ -20,7 +20,7 @@ body {
     flex-direction: column;
 }
 
-/* Twinkling CSS Stars Background */
+/* Twinkling Background Stars */
 body::before {
     content: "";
     position: fixed;
@@ -46,7 +46,7 @@ body::after {
 }
 
 /* ==========================================
-   2. HEADER & NAVIGATION BAR
+   2. HEADER & DROPDOWN NAVIGATION BAR
    ========================================== */
 #header-box {
     text-align: center;
@@ -65,106 +65,82 @@ body::after {
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.7), 0 0 20px rgba(0, 212, 255, 0.4);
 }
 
-/* Navigation Bar Styling */
 .nav-bar {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  background-color: #222;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .nav-item {
-  position: relative; /* Essential for positioning the dropdown */
+    position: relative;
 }
 
 .nav-bar a {
-  display: block;
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #a0aec0;
+    text-decoration: none;
+    padding: 14px 22px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.nav-bar a:hover {
-  background-color: #444;
+.nav-bar a:hover, .nav-bar a.active {
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.15);
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
 }
 
-/* Hidden Dropdown Menu */
+/* Dropdown Menu Styling */
 .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #333;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 180px;
-  display: none;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(10, 14, 26, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-top: none;
+    list-style: none;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 8px 8px;
 }
 
 .dropdown li a {
-  padding: 10px 15px;
-  font-size: 0.9em;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    text-transform: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Reveal Dropdown on Hover */
+.dropdown li a:hover {
+    background: rgba(0, 212, 255, 0.2);
+    color: #ffffff;
+}
+
 .nav-item:hover .dropdown {
-  display: block;
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
 }
 
-.panel.active {
-  display: block;
-}
-
-.panel h2, .panel h3 {
-  font-family: 'Orbitron', sans-serif;
-  color: #ff77e9;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(255, 119, 233, 0.6);
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #333;
-  z-index: 100;
-}
-
-.dropdown.show {
-  display: block;
-}
-
-.panel p {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.05rem;
-  color: #c8b6ff;
-  line-height: 1.5;
-}
-
-@keyframes panelSlideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 /* ==========================================
    3. UNIVERSE / PLANET ANIMATION
    ========================================== */
 .universe {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     margin: 20px auto;
     display: flex;
     justify-content: center;
@@ -172,11 +148,11 @@ body::after {
 }
 
 .sun {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: radial-gradient(circle, #ffea00, #ff7b00);
     border-radius: 50%;
-    box-shadow: 0 0 25px #ff9d00, 0 0 50px #ff6a00;
+    box-shadow: 0 0 20px #ff9d00, 0 0 40px #ff6a00;
 }
 
 .orbit {
@@ -186,8 +162,8 @@ body::after {
 }
 
 .earth-orbit {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     animation: spin 15s linear infinite;
 }
 
@@ -196,8 +172,8 @@ body::after {
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     background: radial-gradient(circle, #00d4ff, #0044ff);
     border-radius: 50%;
     box-shadow: 0 0 10px #00d4ff;
@@ -209,41 +185,31 @@ body::after {
 }
 
 /* ==========================================
-   4. LAYOUT PANELS & CONTENT SECTIONS
+   4. PANELS & CONTAINERS
    ========================================== */
 .panel, .main-page-content {
+    display: none; /* Controlled by JavaScript */
     max-width: 1100px;
     width: 90%;
     margin: 20px auto;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     border: 1px solid rgba(0, 212, 255, 0.25);
     border-radius: 12px;
     padding: 30px;
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     color: #e0e6ed;
-}
-
-/* Visibility Control for JavaScript */
-.panel, .main-page-content, .sheet-page {
-    display: none;
-}
-
-.panel.active-section, 
-.main-page-content.active-section,
-.sheet-page.active {
-    display: block;
-    animation: fadeIn 0.4s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .panel h2, .main-page-content h2 {
     font-family: 'Rajdhani', sans-serif;
-    color: #ffffff !important;
+    color: #ffffff;
     font-size: 2.2rem;
     margin-bottom: 15px;
     border-bottom: 2px solid rgba(0, 212, 255, 0.3);
@@ -251,19 +217,24 @@ body::after {
 }
 
 .panel p, .main-page-content p {
-    color: #cbd5e1 !important;
+    color: #cbd5e1;
     line-height: 1.6;
     margin-bottom: 15px;
 }
 
-/* Buttons */
+.panel-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
 button {
-    font-family: 'Rajdhani', sans-serif !important;
+    font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 10px 20px;
-    border: 1px solid #00d4ff !important;
+    padding: 10px 18px;
+    border: 1px solid #00d4ff;
     border-radius: 6px;
     background: rgba(5, 7, 15, 0.8);
     color: #00d4ff;
@@ -273,24 +244,25 @@ button {
 }
 
 button:hover {
-    background-color: #00d4ff !important;
-    color: #05070f !important;
+    background-color: #00d4ff;
+    color: #05070f;
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
     transform: translateY(-2px);
 }
 
-/* Info Icon Button */
-.info-btn {
-    padding: 2px 8px;
-    font-size: 0.75rem;
-    border-radius: 50%;
+/* ==========================================
+   5. CHARACTER SHEET COMPONENTS
+   ========================================== */
+.sheet-page {
+    display: none;
 }
 
-/* ==========================================
-   5. CHARACTER SHEET
-   ========================================== */
+.sheet-page.active {
+    display: block;
+}
+
 .sheet-controls {
-    background: rgba(30, 41, 59, 0.8) !important;
+    background: rgba(30, 41, 59, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 12px;
     border-radius: 8px;
@@ -325,7 +297,6 @@ button:hover {
     color: #ffffff;
     padding: 8px 10px;
     border-radius: 4px;
-    font-size: 1rem;
 }
 
 .sketch-main-grid {
@@ -344,7 +315,6 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 20px;
 }
 
 .ability-box {
@@ -387,14 +357,10 @@ button:hover {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 15px;
-    margin-bottom: 20px;
 }
 
 .checkbox-list, .attack-list {
     list-style: none;
-    max-height: 420px;
-    overflow-y: auto;
-    padding-right: 5px;
 }
 
 .checkbox-list li, .attack-item {
@@ -403,7 +369,6 @@ button:hover {
     gap: 8px;
     padding: 8px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.9rem;
 }
 
 .checkbox-list input[type="text"] {
@@ -418,7 +383,6 @@ button:hover {
 .rollable-label, .rollable-text {
     color: #38bdf8;
     cursor: pointer;
-    transition: color 0.2s;
 }
 
 .rollable-label:hover, .rollable-text:hover {
@@ -426,11 +390,16 @@ button:hover {
     text-decoration: underline;
 }
 
+.info-btn {
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    border-radius: 50%;
+}
+
 .skill-note {
     display: none;
     font-size: 0.8rem;
     color: #94a3b8;
-    margin-top: 4px;
 }
 
 .skill-note.show {
@@ -460,7 +429,7 @@ textarea[name="characterBackstory"] {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
-    z-index: 1000;
+    z-index: 2000;
     min-width: 220px;
     backdrop-filter: blur(8px);
 }
@@ -476,6 +445,7 @@ textarea[name="characterBackstory"] {
     right: 12px;
     color: #94a3b8;
     cursor: pointer;
+    font-size: 1.2rem;
 }
 
 #dice-result-box .close-btn:hover {
