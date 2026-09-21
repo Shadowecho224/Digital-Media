@@ -65,43 +65,54 @@ body::after {
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.7), 0 0 20px rgba(0, 212, 255, 0.4);
 }
 
+/* Navigation Bar Styling */
 .nav-bar {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    background: rgba(10, 14, 26, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 12px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: #222;
 }
 
-.nav-bar li {
-    margin: 0 10px;
+.nav-item {
+  position: relative; /* Essential for positioning the dropdown */
 }
 
 .nav-bar a {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #a0aec0;
-    text-decoration: none;
-    padding: 8px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  display: block;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.nav-bar a:hover, .nav-bar a.active {
-    color: #00d4ff;
-    background: rgba(0, 212, 255, 0.15);
-    text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
-    border-bottom: 2px solid #00d4ff;
+.nav-bar a:hover {
+  background-color: #444;
+}
+
+/* Hidden Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 180px;
+  display: none;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.dropdown li a {
+  padding: 10px 15px;
+  font-size: 0.9em;
+}
+
+/* Reveal Dropdown on Hover */
+.nav-item:hover .dropdown {
+  display: block;
 }
 
 .panel.active {
