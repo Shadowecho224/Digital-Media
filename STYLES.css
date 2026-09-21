@@ -81,7 +81,7 @@ body {
     display: block;
 }
 
-/* Panels & Hiding System */
+/* Panels (Hidden by default until toggled) */
 .panel {
     background-color: #1e1e1e;
     padding: 20px;
@@ -90,15 +90,11 @@ body {
     border: 1px solid #2a2a2a;
 }
 
+#characterContainer,
 .sub-panel {
-    display: none;
+    display: none; /* Opens only via JS button trigger */
     background-color: #242424;
     border-left: 4px solid #7289da;
-}
-
-/* Hides sheet container until toggle button or link is clicked */
-.hidden-sheet {
-    display: none !important;
 }
 
 /* Buttons */
@@ -168,7 +164,7 @@ button:hover {
 /* 3-Column Grid Layout */
 .sketch-main-grid {
     display: grid;
-    grid-template-columns: 140px 1fr 1fr;
+    grid-template-columns: 110px 1fr 1fr;
     gap: 15px;
 }
 
@@ -178,34 +174,24 @@ button:hover {
     }
 }
 
-/* ==========================================
-   COMPACT ABILITY SCORES (STR, DEX, CON, INT, WIS, CHA)
-   ========================================== */
-/* Ensure sub-panels like characterContainer are hidden by default */
-#characterContainer,
-.sub-panel {
-    display: none;
-}
-
-/* Ability Grid - arranged tightly in a vertical column or 2 columns */
+/* Compact Ability Scores Column */
 .ability-vitals-grid {
     display: flex;
     flex-direction: column;
-    gap: 6px; /* Reduced spacing */
-    width: 110px; /* Reduced overall width */
+    gap: 6px;
+    width: 110px;
 }
 
-/* Compact Ability Box */
 .ability-box {
     background: #181818;
     border: 1px solid #333;
     border-radius: 4px;
-    padding: 4px 6px; /* Smaller inner padding */
+    padding: 4px 6px;
     text-align: center;
 }
 
 .ability-box label {
-    font-size: 0.75rem; /* Smaller font for ability names */
+    font-size: 0.75rem;
     font-weight: bold;
     color: #7289da;
     display: block;
@@ -213,7 +199,6 @@ button:hover {
     letter-spacing: 0.5px;
 }
 
-/* Side-by-side row for Score and Modifier to save vertical space */
 .ability-score-row {
     display: flex;
     align-items: center;
@@ -242,32 +227,7 @@ button:hover {
     padding: 1px 0;
 }
 
-.ability-score input {
-    width: 100%;
-    text-align: center;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 0.95rem;
-    font-weight: bold;
-}
-
-.ability-mod {
-    margin-top: 2px;
-    border-top: 1px solid #2a2a2a;
-    padding-top: 2px;
-}
-
-.ability-mod input {
-    width: 100%;
-    text-align: center;
-    background: transparent;
-    border: none;
-    color: #aaa;
-    font-size: 0.8rem;
-}
-
-/* Boxes for Attacks and Skills */
+/* General Content Boxes */
 .dnd-box {
     background: #181818;
     border: 1px solid #333;
@@ -278,8 +238,8 @@ button:hover {
 }
 
 .dnd-box h2 {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
     border-bottom: 2px solid #333;
     padding-bottom: 5px;
     color: #fff;
@@ -313,22 +273,22 @@ button:hover {
 .attack-item {
     background-color: #222;
     margin-bottom: 10px;
-    padding: 8px;
+    padding: 10px;
     border-radius: 4px;
     border-left: 3px solid #7289da;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 .attack-item > span:first-child {
     font-weight: bold;
     color: #fff;
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 8px;
 }
 
 .attack-type {
     color: #888;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-style: italic;
 }
 
@@ -336,7 +296,7 @@ button:hover {
     color: #4e9a06;
     cursor: pointer;
     background: rgba(78, 154, 6, 0.15);
-    padding: 2px 5px;
+    padding: 2px 6px;
     border-radius: 3px;
     font-weight: 600;
 }
@@ -350,12 +310,12 @@ button:hover {
     background: #333;
     color: #aaa;
     border-radius: 50%;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     padding: 0;
-    font-size: 0.7rem;
-    line-height: 16px;
-    margin-left: 4px;
+    font-size: 0.75rem;
+    line-height: 18px;
+    margin-left: 5px;
 }
 
 .info-btn:hover {
@@ -365,9 +325,9 @@ button:hover {
 
 .skill-note {
     display: block;
-    margin-top: 4px;
+    margin-top: 5px;
     color: #aaa;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     line-height: 1.3;
 }
 
@@ -384,9 +344,9 @@ button:hover {
 .checkbox-list li {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     margin-bottom: 8px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 .checkbox-list input[type="checkbox"] {
@@ -394,18 +354,14 @@ button:hover {
 }
 
 .checkbox-list input[type="text"] {
-    width: 32px;
+    width: 35px;
     background: #2b2b2b;
     border: 1px solid #444;
     color: #7289da;
     text-align: center;
     border-radius: 3px;
     font-weight: bold;
-    font-size: 0.8rem;
-}
-
-.checkbox-list .skill-note {
-    display: none;
+    font-size: 0.85rem;
 }
 
 /* Backstory Input */
