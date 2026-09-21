@@ -20,7 +20,7 @@ body {
     flex-direction: column;
 }
 
-/* Twinkling Background Stars */
+/* Star background */
 body::before {
     content: "";
     position: fixed;
@@ -51,7 +51,7 @@ body::after {
 #header-box {
     text-align: center;
     padding: 30px 20px 15px;
-    background: rgba(5, 7, 15, 0.8);
+    background: rgba(5, 7, 15, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 212, 255, 0.3);
 }
@@ -61,8 +61,7 @@ body::after {
     font-size: 2.8rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.7), 0 0 20px rgba(0, 212, 255, 0.4);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
 }
 
 .nav-bar {
@@ -84,11 +83,11 @@ body::after {
 
 .nav-bar a {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #a0aec0;
     text-decoration: none;
-    padding: 14px 22px;
+    padding: 14px 24px;
     display: block;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -104,7 +103,6 @@ body::after {
 
 /* Dropdown Menu Styling */
 .dropdown {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -113,14 +111,14 @@ body::after {
     border-top: none;
     list-style: none;
     min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    border-radius: 0 0 8px 8px;
+    display: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
 }
 
 .dropdown li a {
     padding: 10px 18px;
-    font-size: 0.95rem;
-    text-transform: none;
+    font-size: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -135,13 +133,13 @@ body::after {
 }
 
 /* ==========================================
-   3. UNIVERSE / PLANET ANIMATION
+   3. UNIVERSE / ANIMATION
    ========================================== */
 .universe {
     position: relative;
     width: 180px;
     height: 180px;
-    margin: 20px auto;
+    margin: 20px auto 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,7 +150,7 @@ body::after {
     height: 40px;
     background: radial-gradient(circle, #ffea00, #ff7b00);
     border-radius: 50%;
-    box-shadow: 0 0 20px #ff9d00, 0 0 40px #ff6a00;
+    box-shadow: 0 0 25px #ff9d00, 0 0 50px #ff6a00;
 }
 
 .orbit {
@@ -185,10 +183,10 @@ body::after {
 }
 
 /* ==========================================
-   4. PANELS & CONTAINERS
+   4. PANELS & CONTENT SECTIONS
    ========================================== */
-.panel, .main-page-content {
-    display: none; /* Controlled by JavaScript */
+.panel {
+    display: none; /* Controlled via JS */
     max-width: 1100px;
     width: 90%;
     margin: 20px auto;
@@ -198,16 +196,19 @@ body::after {
     padding: 30px;
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-    color: #e0e6ed;
-    animation: fadeIn 0.3s ease-in-out;
+}
+
+.sub-panel {
+    border-left: 4px solid #00d4ff;
+    background: rgba(20, 30, 55, 0.85);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.panel h2, .main-page-content h2 {
+.panel h2 {
     font-family: 'Rajdhani', sans-serif;
     color: #ffffff;
     font-size: 2.2rem;
@@ -216,59 +217,50 @@ body::after {
     padding-bottom: 8px;
 }
 
-.panel p, .main-page-content p {
+.panel p {
     color: #cbd5e1;
     line-height: 1.6;
     margin-bottom: 15px;
-}
-
-.panel-button-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
 }
 
 button {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    padding: 10px 18px;
+    padding: 10px 20px;
     border: 1px solid #00d4ff;
     border-radius: 6px;
     background: rgba(5, 7, 15, 0.8);
     color: #00d4ff;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+    margin-right: 8px;
+    margin-bottom: 8px;
 }
 
 button:hover {
     background-color: #00d4ff;
     color: #05070f;
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
-    transform: translateY(-2px);
 }
 
 /* ==========================================
-   5. CHARACTER SHEET COMPONENTS
+   5. D&D CHARACTER SHEET
    ========================================== */
-.sheet-page {
-    display: none;
-}
-
-.sheet-page.active {
-    display: block;
-}
-
 .sheet-controls {
     background: rgba(30, 41, 59, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 20px;
-    display: flex;
-    gap: 12px;
+}
+
+.sheet-page {
+    display: none;
+}
+
+.sheet-page.active {
+    display: block;
 }
 
 .dnd-sketch-header {
@@ -295,7 +287,7 @@ button:hover {
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(0, 212, 255, 0.3);
     color: #ffffff;
-    padding: 8px 10px;
+    padding: 8px;
     border-radius: 4px;
 }
 
@@ -306,15 +298,14 @@ button:hover {
 }
 
 @media (max-width: 900px) {
-    .sketch-main-grid {
-        grid-template-columns: 1fr;
-    }
+    .sketch-main-grid { grid-template-columns: 1fr; }
 }
 
 .ability-vitals-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .ability-box {
@@ -329,7 +320,6 @@ button:hover {
     display: block;
     font-size: 0.75rem;
     color: #94a3b8;
-    text-transform: uppercase;
 }
 
 .ability-score input {
@@ -349,7 +339,6 @@ button:hover {
     border: 1px solid rgba(0, 212, 255, 0.4);
     color: #00d4ff;
     border-radius: 12px;
-    font-weight: bold;
 }
 
 .dnd-box {
@@ -394,12 +383,14 @@ button:hover {
     padding: 2px 8px;
     font-size: 0.75rem;
     border-radius: 50%;
+    margin-left: auto;
 }
 
 .skill-note {
     display: none;
     font-size: 0.8rem;
     color: #94a3b8;
+    margin-top: 4px;
 }
 
 .skill-note.show {
@@ -413,7 +404,6 @@ textarea[name="characterBackstory"] {
     color: #e0e6ed;
     padding: 12px;
     border-radius: 6px;
-    resize: vertical;
 }
 
 /* ==========================================
@@ -431,7 +421,6 @@ textarea[name="characterBackstory"] {
     box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
     z-index: 2000;
     min-width: 220px;
-    backdrop-filter: blur(8px);
 }
 
 #dice-result-box.active {
@@ -445,7 +434,6 @@ textarea[name="characterBackstory"] {
     right: 12px;
     color: #94a3b8;
     cursor: pointer;
-    font-size: 1.2rem;
 }
 
 #dice-result-box .close-btn:hover {
@@ -454,7 +442,6 @@ textarea[name="characterBackstory"] {
 
 #roll-title {
     color: #00d4ff;
-    margin-bottom: 5px;
     font-family: 'Rajdhani', sans-serif;
 }
 
@@ -467,7 +454,5 @@ textarea[name="characterBackstory"] {
     font-size: 2.2rem;
     font-weight: bold;
     color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
     text-align: center;
-    margin-top: 5px;
 }
