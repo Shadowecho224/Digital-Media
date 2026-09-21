@@ -5,13 +5,12 @@ function showPanel(panelId) {
     var targetPanel = document.getElementById(panelId);
     if (!targetPanel) return;
 
-    // Helper function to safely hide elements if they exist
+    // Safe helper to hide element by ID
     function hideIfExists(id) {
         var el = document.getElementById(id);
         if (el) el.style.display = "none";
     }
 
-    // Helper functions for hiding grouped containers
     function hideHeroContainers() {
         hideIfExists("characterContainer");
         hideIfExists("travelContainer");
@@ -31,7 +30,7 @@ function showPanel(panelId) {
         hideIfExists("GlobalcitizenContainer");
     }
 
-    // If the clicked panel is already visible, toggle it off and hide its sub-containers
+    // Toggle off if clicking an already active panel
     if (targetPanel.style.display === "block") {
         targetPanel.style.display = "none";
 
@@ -41,22 +40,22 @@ function showPanel(panelId) {
         return;
     }
 
-    // Hide all main panels first
+    // Hide all panels
     var panels = document.getElementsByClassName("panel");
     for (var i = 0; i < panels.length; i++) {
         panels[i].style.display = "none";
     }
 
-    // Show the targeted panel
+    // Show targeted main panel
     targetPanel.style.display = "block";
 
-    // Clean up sub-containers belonging to other main tabs
+    // Clean up unrelated sub-containers
     if (panelId !== 'hero') hideHeroContainers();
     if (panelId !== 'Journal') hideJournalContainers();
     if (panelId !== 'citizen') hideCitizenContainers();
 
-    // Highlight active link in the navigation bar
-    var navLinks = document.querySelectorAll('.nav-bar a');
+    // Update nav link active state
+    var navLinks = document.querySelectorAll('.nav-bar > .nav-item > a');
     navLinks.forEach(function (link) {
         var onClickAttr = link.getAttribute('onclick');
         if (onClickAttr && onClickAttr.includes("'" + panelId + "'")) {
@@ -70,40 +69,31 @@ function showPanel(panelId) {
 /* ==========================================
    2. GLOBAL TOGGLE FUNCTIONS
    ========================================== */
-function toggleCharacter() {
-    var el = document.getElementById("characterContainer");
-    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+function toggleContainer(id) {
+    var el = document.getElementById(id);
+    if (el) {
+        el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+    }
 }
 
-function toggleTravel() {
-    var el = document.getElementById("travelContainer");
-    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
-}
-
-function toggleMusic() {
-    var el = document.getElementById("musicContainer");
-    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
-}
-
-function togglePrint() {
-    var el = document.getElementById("printContainer");
-    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
-}
-
-function toggleGlobal() {
-    var el = document.getElementById("globalContainer");
-    if (el) el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
-}
+function toggleCharacter() { toggleContainer("characterContainer"); }
+function toggleTravel() { toggleContainer("travelContainer"); }
+function toggleMusic() { toggleContainer("musicContainer"); }
+function togglePrint() { toggleContainer("printContainer"); }
+function toggleGlobal() { toggleContainer("globalContainer"); }
+function toggleUnit1() { toggleContainer("Unit1Container"); }
+function toggleUnit2() { toggleContainer("Unit2Container"); }
+function toggleUnit3() { toggleContainer("Unit3Container"); }
 
 /* ==========================================
    3. DOM INTERACTIVITIES
    ========================================== */
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Set default active panel on page load
+    // Open default home tab on load
     showPanel('hero');
 
-    // --- CHARACTER SHEET PAGE SWITCHING ---
+    // --- CHARACTER SHEET TAB SWITCHING ---
     var btnSheetMain = document.getElementById("btn-sheet-main");
     var btnSheetMiddle = document.getElementById("btn-sheet-middle");
     var sheetMain = document.getElementById("sheet-main");
@@ -121,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- TOOLTIP INFO (?) BUTTONS ---
+    // --- TOOLTIP INFO BUTTONS ---
     var infoButtons = document.querySelectorAll(".info-btn");
     infoButtons.forEach(function (btn) {
         btn.addEventListener("click", function (e) {
