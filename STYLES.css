@@ -128,6 +128,19 @@ body::after {
   text-shadow: 0 0 8px rgba(255, 119, 233, 0.6);
 }
 
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #333;
+  z-index: 100;
+}
+
+.dropdown.show {
+  display: block;
+}
+
 .panel p {
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.05rem;
