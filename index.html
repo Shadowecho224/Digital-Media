@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Media Portfolio</title>
-    <link rel="stylesheet" href="STYLES.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -58,13 +58,13 @@
         <button onclick="toggleCharacter()">Toggle Character Sheet</button>
     </main>
 
-    <!-- Hero Child Containers -->
-    <section id="characterContainer" class="panel sub-panel">
+    <!-- Hero Child Containers (Hidden by default via 'hidden-sheet' class) -->
+    <section id="characterContainer" class="panel sub-panel hidden-sheet">
         <h2>Character Sheet</h2>
         
         <div class="sheet-controls">
-            <button id="btn-sheet-main">Overview</button>
-            <button id="btn-sheet-middle">Backstory</button>
+            <button id="btn-sheet-main" onclick="switchSheetTab('sheet-main')">Overview</button>
+            <button id="btn-sheet-middle" onclick="switchSheetTab('sheet-middle')">Backstory</button>
         </div>
 
         <!-- Main Stats Sub-page -->
@@ -85,37 +85,37 @@
             </div>
 
             <div class="sketch-main-grid">
-                <!-- Ability Scores -->
+                <!-- COLUMN 1: COMPACT ABILITY SCORES (STR, DEX, CON, INT, WIS, CHA) -->
                 <div class="ability-vitals-grid">
                     <div class="ability-box">
-                        <label>Strength (STR)</label>
+                        <label>STR</label>
                         <div class="ability-score"><input type="text" value="10"></div>
                         <div class="ability-mod"><input type="text" value="+0"></div>
                     </div>
                     <div class="ability-box">
-                        <label>Dexterity (DEX)</label>
-                        <div class="ability-score"><input type="text" value="20"></div>
-                        <div class="ability-mod"><input type="text" value="+5"></div>
+                        <label>DEX</label>
+                        <div class="ability-score"><input type="text" value="14"></div>
+                        <div class="ability-mod"><input type="text" value="+2"></div>
                     </div>
                     <div class="ability-box">
-                        <label>Constitution (Con)</label>
+                        <label>CON</label>
+                        <div class="ability-score"><input type="text" value="12"></div>
+                        <div class="ability-mod"><input type="text" value="+1"></div>
+                    </div>
+                    <div class="ability-box">
+                        <label>INT</label>
                         <div class="ability-score"><input type="text" value="16"></div>
                         <div class="ability-mod"><input type="text" value="+3"></div>
                     </div>
                     <div class="ability-box">
-                        <label>Intelligence (INT)</label>
-                        <div class="ability-score"><input type="text" value="16"></div>
-                        <div class="ability-mod"><input type="text" value="+3"></div>
+                        <label>WIS</label>
+                        <div class="ability-score"><input type="text" value="10"></div>
+                        <div class="ability-mod"><input type="text" value="+0"></div>
                     </div>
                     <div class="ability-box">
-                        <label>Wisdom (WIS)</label>
-                        <div class="ability-score"><input type="text" value="16"></div>
-                        <div class="ability-mod"><input type="text" value="+3"></div>
-                    </div>
-                    <div class="ability-box">
-                        <label>Charisma (CHA)</label>
-                        <div class="ability-score"><input type="text" value="16"></div>
-                        <div class="ability-mod"><input type="text" value="+3"></div>
+                        <label>CHA</label>
+                        <div class="ability-score"><input type="text" value="8"></div>
+                        <div class="ability-mod"><input type="text" value="-1"></div>
                     </div>
                 </div>
 
@@ -296,11 +296,6 @@
     <section id="globalContainer" class="panel sub-panel">
         <h2>Global Media</h2>
         <p>Cross-media distribution networks and external research links.</p>
-    </section>
-
-    <section id="charityContainer" class="panel sub-panel">
-        <h2>Charity Initiatives</h2>
-        <p>Community outreach project documentation.</p>
     </section>
 
     <!-- MAIN PANEL 2: GLOBAL CITIZEN -->
