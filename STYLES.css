@@ -181,27 +181,65 @@ button:hover {
 /* ==========================================
    COMPACT ABILITY SCORES (STR, DEX, CON, INT, WIS, CHA)
    ========================================== */
-.ability-vitals-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    align-content: start;
+/* Ensure sub-panels like characterContainer are hidden by default */
+#characterContainer,
+.sub-panel {
+    display: none;
 }
 
+/* Ability Grid - arranged tightly in a vertical column or 2 columns */
+.ability-vitals-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Reduced spacing */
+    width: 110px; /* Reduced overall width */
+}
+
+/* Compact Ability Box */
 .ability-box {
     background: #181818;
     border: 1px solid #333;
-    border-radius: 5px;
+    border-radius: 4px;
+    padding: 4px 6px; /* Smaller inner padding */
     text-align: center;
-    padding: 6px 4px;
 }
 
 .ability-box label {
+    font-size: 0.75rem; /* Smaller font for ability names */
     font-weight: bold;
     color: #7289da;
     display: block;
-    font-size: 0.75rem;
     margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+
+/* Side-by-side row for Score and Modifier to save vertical space */
+.ability-score-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.ability-box input.score-input {
+    width: 28px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fff;
+    background: transparent;
+    border: none;
+    text-align: center;
+}
+
+.ability-box input.mod-input {
+    width: 28px;
+    font-size: 0.85rem;
+    color: #7289da;
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 3px;
+    text-align: center;
+    padding: 1px 0;
 }
 
 .ability-score input {
