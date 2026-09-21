@@ -8,10 +8,19 @@ function hideIfExists(id) {
     if (el) el.style.display = "none";
 }
 
-function showPanel(panelId) {
-    var targetPanel = document.getElementById(panelId);
-    if (!targetPanel) return;
+function toggleDropdown(dropdownId) {
+    var dropdown = document.getElementById(dropdownId);
+    
+    // Close any other open dropdowns first
+    var allDropdowns = document.querySelectorAll('.dropdown');
+    allDropdowns.forEach(function(d) {
+        if (d !== dropdown) d.classList.remove('show');
+    });
 
+    if (dropdown) {
+        dropdown.classList.toggle('show');
+    }
+}
     // List of sub-containers associated with hero
     var heroContainers = [
         "characterContainer",
