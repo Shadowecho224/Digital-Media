@@ -1,33 +1,79 @@
-<div id="header-box">
-    <h1 class="site-title" style="color: white;">Digital Media Portfolio</h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Media Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<ul class="nav-bar">
-    <li class="nav-item">
-        <a onclick="showPanel('hero')">Hero Card</a>
-        <ul class="dropdown">
-            <li><a onclick="toggleCharacter()">Character Sheet</a></li>
-            <li><a onclick="toggleTravel()">Travel Logs</a></li>
-            <li><a onclick="toggleMusic()">Music Portfolio</a></li>
-        </ul>
-    </li>
+    <!-- Header Section -->
+    <div id="header-box">
+        <h1 class="site-title">Digital Media Portfolio</h1>
+    </div>
 
-    <li class="nav-item">
-        <a onclick="showPanel('hero')">Global Citizen</a>
-        <ul class="dropdown">
-            <li><button onclick="toggleCharacter()" style="font-size: 16px; font-family: 'Rajdhani', sans-serif; padding: 10px 20px; cursor: pointer; margin-right: 10px; background-color:#05070f; color:#00d4ff;">Character Sheet</button></li>
-        </ul>
-    </li>
+    <!-- Navigation Bar with Hover Dropdowns -->
+    <ul class="nav-bar">
+        <li class="nav-item">
+            <a onclick="showPanel('hero')">Hero Card</a>
+            <ul class="dropdown">
+                <li><a onclick="toggleCharacter()">Character Sheet</a></li>
+                <li><a onclick="toggleTravel()">Travel Logs</a></li>
+                <li><a onclick="toggleMusic()">Music Portfolio</a></li>
+                <li><a onclick="togglePrint()">3D Print Lab</a></li>
+                <li><a onclick="toggleGlobal()">Global Overview</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a onclick="showPanel('citizen')">Global Citizen</a>
+            <ul class="dropdown">
+                <li><a onclick="toggleGlobal()">Territory Data</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a onclick="showPanel('Journal')">Journal Entries</a>
+            <ul class="dropdown">
+                <li><a onclick="showPanel('Journal')">All Entries</a></li>
+            </ul>
+        </li>
+    </ul>
 
-    <li class="nav-item">
-        <a onclick="showPanel('Journal')">Journal Entries</a>
-        <ul class="dropdown">
-            <li><a onclick="showPanel('Unit1Container')">Unit 1</a></li>
-            <li><a onclick="showPanel('Unit2Container')">Unit 2</a></li>
-            <li><a onclick="showPanel('Unit3Container')">Unit 3</a></li>
-        </ul>
-    </li>
-</ul>
+    <!-- Orbit Animation -->
+    <div class="universe">
+        <div class="sun"></div>
+        <div class="orbit earth-orbit">
+            <div class="planet earth"></div>
+        </div>
+    </div>
+
+    <!-- MAIN PANELS -->
+
+    <!-- Hero Panel -->
+    <main id="hero" class="panel">
+        <h2>Hero Dashboard</h2>
+        <p>Welcome to the main hub. Use the navigation options or buttons below to expand modules.</p>
+        <div class="panel-button-group">
+            <button onclick="toggleCharacter()">Toggle Character Sheet</button>
+        </div>
+    </main>
+
+    <!-- Global Citizen Panel -->
+    <section id="citizen" class="panel">
+        <h2>Global Citizen</h2>
+        <p>Explore environmental telemetry and orbital project data across rim territories.</p>
+    </section>
+
+    <!-- Journal Entries Panel -->
+    <section id="Journal" class="panel">
+        <h2>Journal Entries</h2>
+        <p>Select an entry to review field notes.</p>
+        <div class="sheet-controls">
+            <button onclick="var e=document.getElementById('Unit1Container'); if(e) e.style.display=(e.style.display==='none'||e.style.display==='')?'block':'none';">Unit 1 Entry</button>
+            <button onclick="var e=document.getElementById('Unit2Container'); if(e) e.style.display=(e.style.display==='none'||e.style.display==='')?'block':'none';">Unit 2 Entry</button>
+            <button onclick="var e=document.getElementById('Unit3Container'); if(e) e.style.display=(e.style.display==='none'||e.style.display==='')?'block':'none';">Unit 3 Entry</button>
+        </div>
+    </section>
 
     <div class="universe">
         <!-- The Sun -->
