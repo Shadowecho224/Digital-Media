@@ -37,7 +37,7 @@ body {
 
 /* Header Logo Image */
 .header-logo {
-    max-height: 80px; /* Slightly smaller height to fit neatly inline */
+    max-height: 100px; /* Slightly smaller height to fit neatly inline */
     width: auto;
     filter: drop-shadow(0 0 10px #ff00ff);
     transition: transform 0.3s ease, filter 0.3s ease;
