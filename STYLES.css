@@ -23,25 +23,24 @@ body {
 /* Header */
 #header-box {
     background: #000000; /* Pure black background */
-    padding: 20px;
-    text-align: center;
+    padding: 15px 25px;
     border-radius: 4px;
     margin-bottom: 20px;
     border: 2px solid #ff00ff;
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.4), inset 0 0 15px rgba(255, 215, 0, 0.15);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+    flex-direction: row; /* Places items side-by-side */
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers the whole group horizontally */
+    gap: 20px; /* Space between logo and title */
 }
 
 /* Header Logo Image */
 .header-logo {
-    max-height: 120px; /* Adjust size as needed */
+    max-height: 80px; /* Slightly smaller height to fit neatly inline */
     width: auto;
     filter: drop-shadow(0 0 10px #ff00ff);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .header-logo:hover {
@@ -55,6 +54,16 @@ body {
     text-shadow: 0 0 8px #ff00ff, 0 0 20px #ff00ff, 0 0 2px #ffd700;
     letter-spacing: 3px;
     text-transform: uppercase;
+    margin: 0;
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 600px) {
+    #header-box {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 }
 
 /* Navigation Bar & Dropdowns */
