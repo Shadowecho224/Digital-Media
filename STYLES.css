@@ -223,7 +223,7 @@ button:hover {
 .header-field input {
     background: #16082d;
     border: 1px solid #ff00ff;
-    color: #FFFFFF;
+    color: #000000;
     padding: 6px 10px;
     border-radius: 2px;
     outline: none;
