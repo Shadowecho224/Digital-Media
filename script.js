@@ -198,3 +198,14 @@ function initSkillNoteToggles() {
         });
     });
 }
+function toggleWard() {
+    const wardContainer = document.getElementById('wardContainer');
+    if (wardContainer) {
+        wardContainer.classList.toggle('hidden-sheet');
+        if (!wardContainer.classList.contains('hidden-sheet')) {
+            wardContainer.style.display = 'block';
+        } else {
+            wardContainer.style.display = 'none';
+        }
+    }
+}
