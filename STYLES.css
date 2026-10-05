@@ -1,0 +1,553 @@
+/* ==========================================
+   1. GLOBAL STYLES & HYBRID BASE (CYBER-FANTASY)
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Consolas', 'Cinzel', 'Courier New', Georgia, monospace;
+    background-color: #07030d;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(216, 0, 255, 0.08) 0%, transparent 80%),
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+    color: #ffffff; /* Fixed hex code & set default body text to white */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header */
+#header-box {
+    background: #000000; /* Pure black background */
+    padding: 15px 25px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4), inset 0 0 15px rgba(255, 215, 0, 0.15);
+    display: flex;
+    flex-direction: row; /* Places items side-by-side */
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers the whole group horizontally */
+    gap: 20px; /* Space between logo and title */
+}
+
+/* Header Logo Image */
+.header-logo {
+    max-height: 120px; /* Slightly smaller height to fit neatly inline */
+    width: auto;
+    filter: drop-shadow(0 0 10px #ff00ff);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 18px #00ffff);
+}
+
+#header-box h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    text-shadow: 0 0 8px #ff00ff, 0 0 20px #ff00ff, 0 0 2px #ffd700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 600px) {
+    #header-box {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Navigation Bar & Dropdowns */
+.nav-bar {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centers items in the nav bar */
+    background-color: #0f041b;
+    border: 1px solid #ffd700;
+    border-radius: 2px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2), inset 0 0 8px rgba(0, 255, 255, 0.1);
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item > a {
+    display: block;
+    padding: 12px 20px;
+    color: #00ffff;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.25s ease;
+}
+
+.nav-item > a:hover {
+    background-color: #ff00ff;
+    color: #07030d;
+    box-shadow: 0 0 12px #ff00ff, inset 0 0 4px #ffd700;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the dropdown menu under the item */
+    background-color: #0f041b;
+    min-width: 190px;
+    list-style: none;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 0, 255, 0.4);
+    border: 1px solid #ff00ff;
+    border-top: 2px solid #ffd700;
+    border-radius: 0 0 4px 4px;
+    z-index: 100;
+}
+
+.dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    color: #e0d8ef;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dropdown li a:hover {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+/* Panels */
+.panel {
+    background: radial-gradient(circle at top left, #1a0833 0%, #0e041a 100%);
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #ff00ff;
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.25), inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+#characterContainer,
+.sub-panel {
+    display: none;
+    background-color: #140728;
+    border-left: 4px solid #00ffff;
+    border-right: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(180deg, #18062e 0%, #0a0214 100%);
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    padding: 8px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.25);
+}
+
+button:hover {
+    background: #ff00ff;
+    color: #000;
+    border-color: #ff00ff;
+    box-shadow: 0 0 14px #ff00ff, 0 0 4px #ffd700;
+}
+
+/* ==========================================
+   2. CHARACTER SHEET (HERO CARD)
+   ========================================== */
+.sheet-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sheet-page {
+    display: none;
+}
+
+.sheet-page.active {
+    display: block;
+}
+
+/* Header Fields */
+.dnd-sketch-header {
+    display: flex;
+    gap: 20px;
+    background-color: #0a0314;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.header-field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.header-field label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #ffffff; /* Updated to white */
+    letter-spacing: 1.2px;
+    margin-bottom: 4px;
+    text-shadow: 0 0 4px rgba(255, 215, 0, 0.3);
+}
+
+.header-field input {
+    background: #16082d;
+    border: 1px solid #ff00ff;
+    color: #ffffff; /* Updated to white */
+    padding: 6px 10px;
+    border-radius: 2px;
+    outline: none;
+    font-family: inherit;
+}
+
+.header-field input:focus {
+    box-shadow: 0 0 10px #ff00ff, inset 0 0 4px #00ffff;
+}
+
+/* 3-Column Grid Layout */
+.sketch-main-grid {
+    display: grid;
+    grid-template-columns: 110px 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 900px) {
+    .sketch-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Compact Ability Scores Column */
+.ability-vitals-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 110px;
+}
+
+.ability-box {
+    background: #090212;
+    border: 1px solid #ff00ff;
+    border-top: 2px solid #ffd700;
+    border-radius: 4px;
+    padding: 6px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.2);
+}
+
+.ability-box label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #ff00ff;
+    display: block;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.ability-box label.rollable-text {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 2px;
+}
+
+.ability-box label.rollable-text:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 2px;
+    color: #00ffff;
+}
+
+.ability-score-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.ability-box input.score-input {
+    width: 28px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fff;
+    background: transparent;
+    border: none;
+    text-align: center;
+}
+
+.ability-box input.mod-input {
+    width: 28px;
+    font-size: 0.85rem;
+    color: #00ffff;
+    background: #16082d;
+    border: 1px solid #00ffff;
+    border-radius: 2px;
+    text-align: center;
+    padding: 1px 0;
+}
+
+/* General Content Boxes */
+.dnd-box {
+    background: #090212;
+    border: 1px solid #00ffff;
+    border-radius: 4px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.15), inset 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.dnd-box h2 {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ff00ff;
+    padding-bottom: 5px;
+    color: #ffd700;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.4), 0 0 10px #ff00ff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* ==========================================
+   3. ATTACKS & COMBAT ACTIONS
+   ========================================== */
+.attack-list-container {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.attack-list-container::-webkit-scrollbar,
+.checkbox-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.attack-list-container::-webkit-scrollbar-thumb,
+.checkbox-list::-webkit-scrollbar-thumb {
+    background: #ff00ff;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #ff00ff;
+}
+
+.attack-list {
+    list-style: none;
+}
+
+.attack-item {
+    background-color: #140728;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    border-left: 3px solid #ff00ff;
+    border-right: 1px solid rgba(255, 215, 0, 0.2);
+    font-size: 0.9rem;
+}
+
+.attack-item > span:first-child {
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.attack-type {
+    color: #9a88b3;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.rollable-text {
+    color: #00ffff;
+    cursor: pointer;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.35);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.rollable-text:hover {
+    background: #00ffff;
+    color: #07030d;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.info-btn {
+    background: #0f041b;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    font-size: 0.75rem;
+    line-height: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.info-btn:hover,
+.info-btn.active {
+    background: #ff00ff;
+    color: #000;
+    border-color: #ff00ff;
+    box-shadow: 0 0 8px #ff00ff;
+}
+
+/* Skill & Attack Notes */
+.skill-note {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: #0d031a;
+    border-left: 2px solid #00ffff;
+    border-right: 1px solid rgba(255, 0, 255, 0.2);
+    border-radius: 2px;
+    color: #c7b8de;
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+.skill-note.show {
+    display: block;
+}
+
+/* ==========================================
+   4. SKILLS SECTION
+   ========================================== */
+.checkbox-list {
+    list-style: none;
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.checkbox-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.checkbox-list input[type="checkbox"] {
+    accent-color: #ff00ff;
+}
+
+.checkbox-list input[type="text"] {
+    width: 35px;
+    background: #140728;
+    border: 1px solid #00ffff;
+    color: #00ffff;
+    text-align: center;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.checkbox-list .skill-note {
+    width: 100%;
+}
+
+/* Backstory Input */
+#sheet-middle textarea {
+    width: 100%;
+    background: #090212;
+    border: 1px solid #ff00ff;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    resize: vertical;
+    outline: none;
+    font-family: inherit;
+}
+
+#sheet-middle textarea:focus {
+    box-shadow: 0 0 12px #ff00ff;
+}
+
+/* ==========================================
+   5. MODAL / DICE RESULT POPUP
+   ========================================== */
+#dice-result-box {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: radial-gradient(circle, #1a0833 0%, #090212 100%);
+    border: 2px solid #ff00ff;
+    border-top: 2px solid #ffd700;
+    border-radius: 4px;
+    padding: 15px 20px;
+    box-shadow: 0 0 25px #ff00ff, inset 0 0 10px rgba(255, 215, 0, 0.2);
+    z-index: 1000;
+    min-width: 220px;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #ffd700;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+#roll-title {
+    color: #00ffff;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.roll-details {
+    font-size: 0.85rem;
+    color: #b8a6d1;
+}
+
+.roll-total {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 0 0 12px #ff00ff, 0 0 20px #ff00ff;
+    margin-top: 5px;
+}
