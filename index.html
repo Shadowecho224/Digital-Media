@@ -26,10 +26,10 @@
 
 
         <li class="nav-item">
-            <a onclick="showPanel('Journal')">Journal Entries</a>
+            <a onclick="showPanel('Forgery')">Forgery</a>
             <ul class="dropdown">
-                <li><a onclick="showPanel('Ward'); toggleUnit1();">Ward's Forgery Photo</a></li>
-                <li><a onclick="showPanel('Me'); toggleUnit2();">My Forgery Attempt</a></li>
+                <li><a onclick="showPanel('Ward'); toggleWard();">Ward's Forgery Photo</a></li>
+                <li><a onclick="showPanel('Me'); toggleMe();">My Forgery Attempt</a></li>
             </ul>
         </li>
     </ul>
@@ -274,6 +274,9 @@
         <div class="roll-total">0</div>
     </div>
 
+    <section id="wardContainer" class="panel sub-panel hidden-sheet">
+        <h2><img src="forgery.jpg"></h2>
+        
     <script src="script.js"></script>
 </body>
 </html>
