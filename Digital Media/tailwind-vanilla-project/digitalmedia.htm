@@ -1,0 +1,1267 @@
+<!DOCTYPE html> <!-- Declares the document type as HTML5 to ensure proper rendering across modern browsers -->
+
+<html lang="en"> <!-- Root element specifying English as the primary natural language for the document -->
+
+<head> <!-- Container element holding document metadata, title, stylesheet links, and external scripts -->
+
+    <!-- #region 1. DOCUMENT METADATA & EXTERNAL RESOURCES -->
+
+    <meta charset="UTF-8"> <!-- Specifies UTF-8 character encoding to support all standard text characters and symbols -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configures responsive viewport scaling for proper rendering on mobile and desktop devices -->
+
+    <title>Digital Media Portfolio - Cybernetic D20 System</title> <!-- Defines the title displayed on the browser tab and search engine results -->
+
+    <link rel="stylesheet" href="style.css"> <!-- Links the main external CSS stylesheet file for custom interface styling -->
+
+    <script src="script.js" defer></script> <!-- Loads the primary external JavaScript application logic file, deferring execution until DOM parsing completes -->
+
+    <!-- Tailwind CSS CDN --> <!-- Section header comment indicating the inclusion of the Tailwind CSS framework CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Loads the Tailwind CSS library dynamically via Content Delivery Network -->
+
+    <!-- Three.js CDN --> <!-- Section header comment indicating the inclusion of the Three.js 3D rendering engine CDN -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> <!-- Loads Three.js release 128 library for WebGL 3D dice rendering capabilities -->
+
+    <!-- Google Fonts Inter, Orbitron & Share Tech Mono --> <!-- Section header comment indicating Google Fonts imports -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Imports Orbitron, Share Tech Mono, and Inter font families from Google Fonts CDN -->
+
+    <!-- #endregion -->
+
+</head> <!-- Closes the head metadata section -->
+
+
+<body> <!-- Main body element containing all visible user interface content and structural layout -->
+
+    <!-- #region 2. MAIN HEADER & NAVIGATION SECTION -->
+
+    <!-- Main Header Section --> <!-- Section header comment indicating the main portfolio branding header -->
+
+    <header id="header-box" class="bg-black p-[18px_30px] rounded-[4px] mb-[25px] border-2 border-[#ff00ff] shadow-[0_0_20px_rgba(138,43,226,0.6)] flex flex-row items-center justify-center gap-[25px] relative overflow-hidden"> <!-- Header container styled with black background, magenta border, purple neon shadow glow, and centered flex alignment -->
+
+        <img src="cb564b72-73f3-486a-b173-0a9b89054877.png" alt="Digital Media Portfolio Logo" class="header-logo max-h-[120px] w-auto"> <!-- Displays the digital media portfolio logo image with alt text and maximum height styling -->
+
+        <h1 class="site-title text-white text-[2.4rem] tracking-[3.5px] uppercase m-0">Cyber Expansion</h1> <!-- Primary site heading displaying uppercase title text in crisp white font -->
+
+    </header> <!-- Closes the primary header container element -->
+
+
+    <!-- Primary Navigation Bar with Dropdown Sub-menus --> <!-- Section header comment for the main navigation structure -->
+
+    <nav aria-label="Main Site Navigation"> <!-- Navigation landmarks element providing accessible label for screen readers -->
+
+        <ul class="nav-bar list-none flex justify-center bg-[#0f041b] border border-[#ffd700] rounded-[2px] px-[10px] mb-[25px]"> <!-- Unordered navigation list styled as a dark flexbar with gold accent borders -->
+
+            <li class="nav-item relative"> <!-- First navigation list item container positioned relatively for positioning child dropdown menus -->
+
+                <a onclick="showPanel('hero', this)" class="block px-[24px] py-[14px] text-[#00ffff] font-bold uppercase tracking-[1.5px] cursor-pointer">Hero Card</a> <!-- Primary link for Hero Card panel triggering showPanel JavaScript helper on click -->
+
+                <ul class="dropdown hidden absolute top-full left-1/2 -translate-x-1/2 bg-[#0f041b] min-w-[200px] list-none border border-[#ff00ff] border-t-2 border-t-[#ffd700] rounded-b-[4px] z-50"> <!-- Absolute-positioned dropdown sub-menu container hidden by default -->
+
+                    <li><a onclick="toggleCharacter()" class="block px-[16px] py-[12px] text-[#e0d8ef] text-center cursor-pointer">Character Sheet Terminal</a></li> <!-- Dropdown menu item link that triggers the toggleCharacter function on click -->
+
+                </ul> <!-- Closes Hero Card dropdown sub-menu list -->
+
+            </li> <!-- Closes Hero Card primary navigation item container -->
+
+
+            <li class="nav-item relative"> <!-- Second navigation list item container for Book Jacket options -->
+
+                <a onclick="showPanel('Bookjacket', this)" class="block px-[24px] py-[14px] text-[#00ffff] font-bold uppercase tracking-[1.5px] cursor-pointer">Book Jacket</a> <!-- Primary link for Book Jacket panel triggering showPanel JavaScript helper on click -->
+
+                <ul class="dropdown hidden absolute top-full left-1/2 -translate-x-1/2 bg-[#0f041b] min-w-[200px] list-none border border-[#ff00ff] border-t-2 border-t-[#ffd700] rounded-b-[4px] z-50"> <!-- Absolute-positioned dropdown sub-menu container hidden by default -->
+
+                    <li><a onclick="toggleMe()" class="block px-[16px] py-[12px] text-[#e0d8ef] text-center cursor-pointer">My Book Jacket</a></li> <!-- Dropdown menu link that triggers the toggleMe personal bio panel function on click -->
+
+                    <li><a onclick="toggleWard()" class="block px-[16px] py-[12px] text-[#e0d8ef] text-center cursor-pointer">Security Protocols</a></li> <!-- Dropdown menu link that triggers the toggleWard security protocols panel function on click -->
+
+                </ul> <!-- Closes Book Jacket dropdown sub-menu list -->
+
+            </li> <!-- Closes Book Jacket primary navigation item container -->
+
+        </ul> <!-- Closes the primary navigation list element -->
+
+    </nav> <!-- Closes the primary navigation wrapper element -->
+
+    <!-- #endregion -->
+
+
+    <!-- #region 3. CHARACTER SHEET TERMINAL SECTION -->
+
+    <!-- Main Character Sheet Terminal Container --> <!-- Section header comment for the interactive D&D/Cyberpunk character matrix terminal -->
+
+    <section id="characterContainer" class="panel sub-panel hidden-sheet hidden bg-[#140728] border-l-4 border-l-[#00ffff] border-r border-r-[rgba(255,215,0,0.3)] p-[22px] rounded-[4px] mb-[25px]" aria-label="Character Sheet Interface"> <!-- Collapsible section container holding character sheet UI components, hidden by default -->
+
+        <div class="flex justify-between items-center mb-4 px-2"> <!-- Flex container aligning section header title and log action button horizontally -->
+
+            <h2 class="cyber-font text-purple-300 text-sm tracking-wider uppercase font-bold">CHARACTER MATRIX</h2> <!-- Section header displaying uppercase subtitle in Orbitron cyber font -->
+
+            <button onclick="toggleRollLogModal()" class="cyber-btn bg-purple-950/80 hover:bg-purple-900 border border-purple-500/50 text-purple-300 cyber-font text-xs px-3 py-1.5 rounded shadow-[0_0_15px_rgba(168,85,247,0.3)] backdrop-blur-md transition-all flex items-center gap-2 group"> <!-- Button element triggering the toggleRollLogModal JavaScript function to view history log -->
+
+                <span class="w-2 h-2 rounded-full bg-purple-400 group-hover:animate-ping"></span> <!-- Decorative status dot indicator with pulse ping effect on hover -->
+
+                <span>ACCESS ROLL LOG</span> <!-- Button text label for opening roll history log modal -->
+
+            </button> <!-- Closes roll log trigger button -->
+
+        </div> <!-- Closes section header flex container -->
+
+
+        <div class="sheet-page-container relative perspective-[1400px]"> <!-- Perspective container wrapper facilitating 3D page turn animations -->
+
+            <!-- PAGE 1: PRIMARY MATRIX --> <!-- Subsection comment indicating page 1 character sheet content -->
+
+            <div id="sheet-main" class="sheet-page active block"> <!-- Main active page panel containing character statistics and attack actions -->
+
+                <header class="dnd-sketch-header flex gap-[20px] bg-[#0a0314] p-[16px] rounded-[4px] mb-[22px] border border-[rgba(0,255,255,0.4)]"> <!-- Character summary banner box styled with dark background and cyan border -->
+
+                    <div class="header-field flex flex-col flex-1"> <!-- Form input field displaying character name 'Echo' -->
+
+                        <label class="text-[0.8rem] uppercase text-white tracking-[1.2px] mb-[5px]">Character Name</label>
+
+                        <input type="text" name="charName" value="Echo" readonly class="bg-[#16082d] border border-[#ff00ff] text-white p-[8px_12px] rounded-[2px] outline-none">
+
+                    </div>
+
+
+                    <div class="header-field flex flex-col flex-1"> <!-- Form input field displaying character class 'Monk' -->
+
+                        <label class="text-[0.8rem] uppercase text-white tracking-[1.2px] mb-[5px]">Class</label>
+
+                        <input type="text" name="class" value="Monk" readonly class="bg-[#16082d] border border-[#ff00ff] text-white p-[8px_12px] rounded-[2px] outline-none">
+
+                    </div>
+
+
+                    <div class="header-field flex flex-col flex-1"> <!-- Form input field displaying character age '16' -->
+
+                        <label class="text-[0.8rem] uppercase text-white tracking-[1.2px] mb-[5px]">Age</label>
+
+                        <input type="text" name="age" value="16" readonly class="bg-[#16082d] border border-[#ff00ff] text-white p-[8px_12px] rounded-[2px] outline-none">
+
+                    </div>
+
+
+                    <div class="header-field flex flex-col flex-1"> <!-- Form input field displaying character race 'Human' -->
+
+                        <label class="text-[0.8rem] uppercase text-white tracking-[1.2px] mb-[5px]">Race</label>
+
+                        <input type="text" name="race" value="Human" readonly class="bg-[#16082d] border border-[#ff00ff] text-white p-[8px_12px] rounded-[2px] outline-none">
+
+                    </div>
+
+                </header> <!-- Closes character header summary banner box -->
+
+
+                <div class="sketch-main-grid grid grid-cols-[115px_1fr_1fr] gap-[18px]"> <!-- Three-column main layout grid dividing attributes, attacks, and skills -->
+
+                    <!-- COLUMN 1: COMPACT ABILITY SCORES --> <!-- Section comment for ability score input column -->
+
+                    <div class="ability-vitals-grid flex flex-col gap-[10px] w-[115px]"> <!-- Column container arranging ability modifier boxes vertically -->
+
+                        <div class="ability-box"> <!-- Ability score box container for Strength attribute -->
+
+                            <label class="rollable-text text-[0.75rem] font-bold text-[#ff00ff] block mb-[4px] cursor-pointer" data-roll="1d20" data-stat="str" data-label="Strength Check">Strength (STR)</label> <!-- Interactive label element triggering 1d20 Strength check roll on click -->
+
+                            <div class="ability-score-row"> <!-- Row container aligning raw score input and calculated modifier value -->
+
+                                <input type="text" value="17" class="score-input" readonly> <!-- Input field displaying raw Strength attribute score of 17 -->
+
+                                <input type="text" value="+3" id="mod-str" class="mod-input" readonly> <!-- Input field displaying calculated Strength modifier of +3 -->
+
+                            </div> <!-- Closes Strength score row flex container -->
+
+                        </div> <!-- Closes Strength ability score box container -->
+
+
+                        <div class="ability-box"> <!-- Ability score box container for Dexterity attribute -->
+
+                            <label class="rollable-text text-[0.75rem] font-bold text-[#ff00ff] block mb-[4px] cursor-pointer" data-roll="1d20" data-stat="dex" data-label="Dexterity Check">Dexterity (DEX)</label> <!-- Interactive label element triggering 1d20 Dexterity check roll on click -->
+
+                            <div class="ability-score-row"> <!-- Row container aligning raw score input and calculated modifier value -->
+
+                                <input type="text" value="20" class="score-input" readonly> <!-- Input field displaying raw Dexterity attribute score of 20 -->
+
+                                <input type="text" value="+5" id="mod-dex" class="mod-input" readonly> <!-- Input field displaying calculated Dexterity modifier of +5 -->
+
+                            </div> <!-- Closes Dexterity score row flex container -->
+
+                        </div> <!-- Closes Dexterity ability score box container -->
+
+
+                        <div class="ability-box"> <!-- Ability score box container for Constitution attribute -->
+
+                            <label class="rollable-text text-[0.75rem] font-bold text-[#ff00ff] block mb-[4px] cursor-pointer" data-roll="1d20" data-stat="con" data-label="Constitution Check">Constitution (CON)</label> <!-- Interactive label element triggering 1d20 Constitution check roll on click -->
+
+                            <div class="ability-score-row"> <!-- Row container aligning raw score input and calculated modifier value -->
+
+                                <input type="text" value="15" class="score-input" readonly> <!-- Input field displaying raw Constitution attribute score of 15 -->
+
+                                <input type="text" value="+2" id="mod-con" class="mod-input" readonly> <!-- Input field displaying calculated Constitution modifier of +2 -->
+
+                            </div> <!-- Closes Constitution score row flex container -->
+
+                        </div> <!-- Closes Constitution ability score box container -->
+
+
+                        <div class="ability-box"> <!-- Ability score box container for Intelligence attribute -->
+
+                            <label class="rollable-text text-[0.75rem] font-bold text-[#ff00ff] block mb-[4px] cursor-pointer" data-roll="1d20" data-stat="int" data-label="Intelligence Check">Intelligence (INT)</label> <!-- Interactive label element triggering 1d20 Intelligence check roll on click -->
+
+                            <div class="ability-score-row"> <!-- Row container aligning raw score input and calculated modifier value -->
+
+                                <input type="text" value="14" class="score-input" readonly> <!-- Input field displaying raw Intelligence attribute score of 14 -->
+
+                                <input type="text" value="+2" id="mod-int" class="mod-input" readonly> <!-- Input field displaying calculated Intelligence modifier of +2 -->
+
+                            </div> <!-- Closes Intelligence score row flex container -->
+
+                        </div> <!-- Closes Intelligence ability score box container -->
+
+
+                        <div class="ability-box"> <!-- Ability score box container for Wisdom attribute -->
+
+                            <label class="rollable-text text-[0.75rem] font-bold text-[#ff00ff] block mb-[4px] cursor-pointer" data-roll="1d20" data-stat="wis" data-label="Wisdom Check">Wisdom (WIS)</label> <!-- Interactive label element triggering 1d20 Wisdom check roll on click -->
+
+                            <div class="ability-score-row"> <!-- Row container aligning raw score input and calculated modifier value -->
+
+                                <input type="text" value="14" class="score-input" readonly> <!-- Input field displaying raw Wisdom attribute score of 14 -->
+
+                                <input type="text" value="+2" id="mod-wis" class="mod-input" readonly> <!-- Input field displaying calculated Wisdom modifier of +2 -->
+
+                            </div> <!-- Closes Wisdom score row flex container -->
+
+                        </div> <!-- Closes Wisdom ability score box container -->
+
+
+                        <div class="ability-box"> <!-- Ability score box container for Charisma attribute -->
+
+                            <label class="rollable-text text-[0.75rem] font-bold text-[#ff00ff] block mb-[4px] cursor-pointer" data-roll="1d20" data-stat="cha" data-label="Charisma Check">Charisma (CHA)</label> <!-- Interactive label element triggering 1d20 Charisma check roll on click -->
+
+                            <div class="ability-score-row"> <!-- Row container aligning raw score input and calculated modifier value -->
+
+                                <input type="text" value="15" class="score-input" readonly> <!-- Input field displaying raw Charisma attribute score of 15 -->
+
+                                <input type="text" value="+2" id="mod-cha" class="mod-input" readonly> <!-- Input field displaying calculated Charisma modifier of +2 -->
+
+                            </div> <!-- Closes Charisma score row flex container -->
+
+                        </div> <!-- Closes Charisma ability score box container -->
+
+                    </div> <!-- Closes ability score column container -->
+
+
+                    <!-- COLUMN 2: ATTACKS & COMBAT ACTIONS --> <!-- Section comment for combat actions and strikes column -->
+
+                    <div class="dnd-box attack-sketch-box bg-[#090212] border border-[#00ffff] rounded-[4px] p-[18px] flex flex-col"> <!-- Dark cyan-bordered box container holding Muay Thai combat actions -->
+
+                        <h2>Attacks & Combat Actions</h2> <!-- Header title for combat attacks section -->
+
+                        <div class="attack-list-container max-h-[500px] overflow-y-auto pr-[6px]"> <!-- Scrollable list container for attack action items -->
+
+                            <ul class="attack-list list-none"> <!-- Unordered list holding individual attack move items -->
+
+                                <li class="attack-item"> <!-- List item for Jab attack with rollable damage trigger and expandable technique note -->
+
+                                    <span>Jab</span> 
+
+                                    <span class="rollable-text" data-roll="1d4+5" data-label="Jab Attack">Attack Damage: 1d4+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Punch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Mat Nueng]: A quick, straight lead-hand strike used to gauge distance, disrupt an opponent's rhythm, and set up heavier combinations.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Cross attack with rollable damage trigger and expandable technique note -->
+
+                                    <span>Cross</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Cross Attack">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Punch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Mat Chong]: A powerful straight punch thrown with the rear hand, driving rotation from the hips and back foot for maximum impact.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Hook attack with rollable damage trigger and expandable technique note --> 
+
+                                    <span>Hook</span>
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Hook Attack">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Punch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Punches (Chok)]: A circular punch targeting the side of the opponent's jaw, cheek, or body, executed with a bent elbow.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Uppercut attack with rollable damage trigger and expandable technique note -->
+
+                                    <span>Uppercut</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+4" data-label="Uppercut Attack">Attack Damage: 1d10+4</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Punch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Punches (Chok)]: An upward-striking punch aimed under the chin or into the solar plexus, usually thrown from a lower, loaded stance.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Overhand attack with rollable damage trigger and expandable technique note -->
+
+                                    <span>Overhand</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+4" data-label="Overhand Attack">Attack Damage: 1d10+4</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Punch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Punches (Chok)]: A looping, downward-arc punch thrown over an opponent’s guard, leveraging heavy body weight shift.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Spinning Back Fist attack with rollable damage trigger and expandable technique note -->
+
+                                    <span>Spinning Back Fist</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Spinning Back Fist Attack">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Punch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Punches (Chok)]: A rotational surprise attack where the fighter spins 360 degrees to strike with the back of the fist or knuckle line.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Roundhouse Kick with rollable damage trigger and expandable technique note -->
+
+                                    <span>Roundhouse Kick</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+5" data-label="Roundhouse Kick">Attack Damage: 1d10+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Kick)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Kicks (Te)]: The quintessential Muay Thai kick, thrown with a fully extended leg using the shinbone as the striking surface, powered by full hip rotation.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Low Kick with rollable damage trigger and expandable technique note -->
+
+                                    <span>Low Kick</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Low Kick">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Kick)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Kicks (Te)]: A roundhouse kick directed at the opponent's thighs designed to damage muscle tissue and compromise movement.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Middle Kick with rollable damage trigger and expandable technique note -->
+
+                                    <span>Middle Kick</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Middle Kick">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Kick)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Kicks (Te)]: A mid-level roundhouse targeting the ribs, liver, and arms.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for High Kick with rollable damage trigger and expandable technique note -->
+
+                                    <span>High Kick</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+5" data-label="High Kick">Attack Damage: 1d10+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Kick)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Kicks (Te)]: A high-level roundhouse aimed at the neck or head, capable of delivering immediate knockouts.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Axe Kick with rollable damage trigger and expandable technique note -->
+
+                                    <span>Axe Kick</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+4" data-label="Axe Kick">Attack Damage: 1d10+4</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Kick)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Kicks (Te)]: A vertical downward heel strike aimed at the face or collarbone.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Spinning Hook Kick with rollable damage trigger and expandable technique note -->
+
+                                    <span>Spinning Hook / Wheel Kick</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+5" data-label="Spinning Hook Kick">Attack Damage: 1d10+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Kick)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Kicks (Te)]: A rotational kick whipped around to hit the head or body with the heel or sole.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Straight Teep with rollable damage trigger and expandable technique note -->
+
+                                    <span>Straight Teep</span> 
+
+                                    <span class="rollable-text" data-roll="1d6+5" data-label="Straight Teep">Attack Damage: 1d6+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Teep)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Push Kicks / Teeps (Thap)]: A front-pushing foot jab used to maintain distance or stop an incoming attack.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Side Teep with rollable damage trigger and expandable technique note -->
+
+                                    <span>Side Teep</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+4" data-label="Side Teep">Attack Damage: 1d8+4</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Teep)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Push Kicks / Teeps (Thap)]: Turning the hip sideways to drive the sole or heel into the midsection or thigh.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Jumping Teep with rollable damage trigger and expandable technique note -->
+
+                                    <span>Jumping Teep</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Jumping Teep">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Teep)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Push Kicks / Teeps (Thap)]: A leaping front push kick designed to gain sudden reach and power.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Horizontal Elbow strike with rollable damage trigger and expandable note -->
+
+                                    <span>Horizontal Elbow</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Horizontal Elbow">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Elbow)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Elbow Strikes (Sok)]: A parallel slashing motion across the face or jawline.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Slashing Elbow strike with rollable damage trigger and expandable note -->
+
+                                    <span>Slashing / Diagonal Elbow</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Slashing Elbow">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Elbow)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Elbow Strikes (Sok)]: A diagonal downward or upward slice across the opponent's guard.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Uppercut Elbow strike with rollable damage trigger and expandable note -->
+
+                                    <span>Uppercut Elbow</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Uppercut Elbow">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Elbow)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Elbow Strikes (Sok)]: An upward-striking elbow driven directly through the center of guard.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Chop Elbow strike with rollable damage trigger and expandable note -->
+
+                                    <span>Downward / Chop Elbow</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+4" data-label="Chop Elbow">Attack Damage: 1d10+4</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Elbow)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Elbow Strikes (Sok)]: A high-to-low vertical chopping motion targeting the forehead, nose, or crown.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Spinning Back Elbow strike with rollable damage trigger and expandable note -->
+
+                                    <span>Spinning Back Elbow</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+5" data-label="Spinning Back Elbow">Attack Damage: 1d10+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Elbow)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Elbow Strikes (Sok)]: A blind-spot rotational attack executed after turning the torso.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Jumping Elbow strike with rollable damage trigger and expandable note -->
+
+                                    <span>Jumping Elbow</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+5" data-label="Jumping Elbow">Attack Damage: 1d10+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Elbow)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Elbow Strikes (Sok)]: A leap into the air delivering a crushing downward elbow strike.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Straight Knee strike with rollable damage trigger and expandable note -->
+
+                                    <span>Straight Knee</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+4" data-label="Straight Knee">Attack Damage: 1d10+4</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Knee)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Knee Strikes (Khao)]: Driven forward into the abdomen or solar plexus.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Diagonal Knee strike with rollable damage trigger and expandable note -->
+
+                                    <span>Diagonal Knee</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Diagonal Knee">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Knee)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Knee Strikes (Khao)]: A curved knee strike brought up at an angle to bypass a front guard.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Curving Knee strike with rollable damage trigger and expandable note -->
+
+                                    <span>Curving / Side Knee</span> 
+
+                                    <span class="rollable-text" data-roll="1d8+5" data-label="Curving Knee">Attack Damage: 1d8+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Knee)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Knee Strikes (Khao)]: Swung horizontally around the body to target floating ribs during a clinch.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Jumping Knee strike with rollable damage trigger and expandable note -->
+
+                                    <span>Jumping Knee</span> 
+
+                                    <span class="rollable-text" data-roll="1d10+5" data-label="Jumping Knee">Attack Damage: 1d10+5</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Knee)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Knee Strikes (Khao)]: A high-flying knee strike launched straight toward the chest or chin.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Slapping Knee strike with rollable damage trigger and expandable note -->
+
+                                    <span>Slapping Knee</span> 
+
+                                    <span class="rollable-text" data-roll="1d4+3" data-stat="str" data-label="Slapping Knee">Attack Damage: 1d4+3</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Knee)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Knee Strikes (Khao)]: Used inside the clinch to hit the inner or outer thigh.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Main Clinch technique with rollable d20 check trigger and expandable note -->
+
+                                    <span>Full Plum / Main Clinch</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-stat="str" data-label="Main Clinch Check">Clinch Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Clinch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Clinch Work (Pam)]: Locking both hands behind the opponent's head to control posture and deliver knees.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Body Lock clinch technique with rollable d20 check trigger and expandable note -->
+
+                                    <span>Double Underhooks / Body Lock</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-stat="str" data-label="Body Lock Check">Clinch Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Clinch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Clinch Work (Pam)]: Gripping under both arms to control center of gravity.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Single Collar Tie technique with rollable d20 check trigger and expandable note -->
+
+                                    <span>Single Collar Tie / Half Plum</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Single Collar Tie Check">Clinch Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Clinch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Clinch Work (Pam)]: One hand behind the neck with the other controlling an arm or shoulder.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Pummeling technique with rollable d20 check trigger and expandable note -->
+
+                                    <span>Pummeling</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Pummeling Check">Clinch Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Clinch)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Clinch Work (Pam)]: The fluid hand-fighting process inside the clinch.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Catch and Sweep defensive maneuver with rollable d20 check trigger and expandable note -->
+
+                                    <span>Catch and Sweep</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Sweep Check">Sweep Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Sweep)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Sweeps]: Catching an incoming kick and sweeping the standing leg.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Clinch Throw technique with rollable d20 check trigger and expandable note -->
+
+                                    <span>Clinch Throws / Off-Balancing</span>
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Clinch Throw Check">Throw Check</span>
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Throw)</span>
+
+                                    <button type="button" class="info-btn">?</button>
+
+                                    <span class="skill-note">[Throws]: Turning shoulders inside the clinch while stepping around hips to throw off balance.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Foot Sweep technique with rollable d20 check trigger and expandable note -->
+
+                                    <span>Foot Sweeps</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Foot Sweep Check">Sweep Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Sweep)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Sweeps]: Sweeping the bottom ankle/foot when weight is transitioning.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Shin Block defense with rollable d20 check trigger and expandable note -->
+
+                                    <span>Shin Block / Check</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Shin Block Check">Defense Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Defense)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Defensive Tactics]: Raising the shin to absorb roundhouse kicks.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Lean Back evasion defense with rollable d20 check trigger and expandable note -->
+
+                                    <span>Lean Back / Evasion</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Evasion Check">Defense Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Defense)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Defensive Tactics]: Bending the upper torso backward at the waist to dodge strikes.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Parrying defense with rollable d20 check trigger and expandable note -->
+
+                                    <span>Parrying</span>
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Parry Check">Defense Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Defense)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Defensive Tactics]: Redirecting punches off line using forearms or hands.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"> <!-- List item for Catching Kicks defense with rollable d20 check trigger and expandable note -->
+
+                                    <span>Catching Kicks</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Catch Kick Check">Defense Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Defense)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Defensive Tactics]: Trapping incoming body kicks between arm and torso.</span>
+
+                                </li>
+
+
+                                <li class="attack-item"><!-- List item for Footwork defensive movement with rollable d20 check trigger and expandable note -->
+
+                                    <span>Footwork and Pivot</span> 
+
+                                    <span class="rollable-text" data-roll="1d20" data-label="Footwork Check">Defense Check</span> 
+
+                                    <span class="attack-type text-[#9a88b3] text-[0.8rem] italic">(Defense)</span> 
+
+                                    <button type="button" class="info-btn">?</button> 
+
+                                    <span class="skill-note">[Defensive Tactics]: Circling out and stepping off angles to slip away from pressure.</span>
+
+                                </li>
+
+                            </ul> <!-- Closes unordered attacks list element -->
+
+                        </div> <!-- Closes scrollable attack list container div -->
+
+                    </div> <!-- Closes attacks and combat actions column container -->
+
+
+                    <!-- COLUMN 3: SKILLS --> <!-- Section comment for proficiencies and skills column -->
+
+                    <div class="dnd-box skills-sketch-box bg-[#090212] border border-[#00ffff] rounded-[4px] p-[18px] flex flex-col"> <!-- Dark cyan-bordered box container holding character skills -->
+
+                        <h2>Skills</h2> <!-- Header title for character skills section -->
+
+                        <ul class="checkbox-list list-none max-h-[500px] overflow-y-auto pr-[6px]"> <!-- Scrollable list container for skill proficiency items -->
+
+                            <li class="skill-item"><!-- Skill entry for Adaptable (+10) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_adaptable" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_adaptable" value="+10" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+10" data-label="Adaptable Check">Adaptable</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Adjusts quickly to new environments and challenges.</span>
+
+                            </li> 
+
+
+                            <li class="skill-item"> <!-- Skill entry for Affectionate (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_affectionate" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_affectionate" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Affectionate Check">Affectionate</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Warm and expressive in building emotional bonds.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Agreeable (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_agreeable" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_agreeable" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Agreeable Check">Agreeable</span> 
+
+                                <button type="button" class="info-btn">?</button> <span class="skill-note">Fosters harmony and diffuses social friction.</span>
+
+                            </li> 
+
+
+                            <li class="skill-item"> <!-- Skill entry for Attentive (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_attentive" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_attentive" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Attentive Check">Attentive</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Notices subtle details and hidden clues easily.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Authentic (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_authentic" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_authentic" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Authentic Check">Authentic</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Stays genuine and true without pretense.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Calm (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_calm" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_calm" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Calm Check">Calm</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Maintains focus under intense pressure.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Candid (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_candid" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_candid" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Candid Check">Candid</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Speaks directly and cuts through deception.</span>
+
+                            </li> 
+
+
+                            <li class="skill-item"> <!-- Skill entry for Caring (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_caring" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_caring" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Caring Check">Caring</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Shows deep concern for the well-being of others.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Cheerful (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_cheerful" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_cheerful" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Cheerful Check">Cheerful</span> 
+
+                                <button type="button" class="info-btn">?</button> <span class="skill-note">Lifts party morale in difficult situations.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Compassionate (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_compassionate" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_compassionate" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Compassionate Check">Compassionate</span> 
+
+                                <button type="button" class="info-btn">?</button> <span class="skill-note">Acts with mercy and deep empathy toward others.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Courageous (+8) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_courageous" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_courageous" value="+8" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+8" data-label="Courageous Check">Courageous</span> 
+
+                                <button type="button" class="info-btn">?</button> <span class="skill-note">Stands firm against overwhelming threats.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Creative (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_creative" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_creative" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Creative Check">Creative</span> 
+
+                                <button type="button" class="info-btn">?</button> <span class="skill-note">Devises innovative and unexpected solutions.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Curious (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_curious" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_curious" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Curious Check">Curious</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Driven to investigate and uncover mysteries.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Daring (+8) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_daring" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_daring" value="+8" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+8" data-label="Daring Check">Daring</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Executes bold, high-risk physical actions.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Earnest (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_earnest" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_earnest" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Earnest Check">Earnest</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Shows sincere and dedicated commitment.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Easygoing (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_easygoing" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_easygoing" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Easygoing Check">Easygoing</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Shrugs off fatigue and minor troubles effortlessly.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Empathetic (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_empathetic" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_empathetic" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Empathetic Check">Empathetic</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Senses hidden feelings and intentions of others.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Energetic (+8) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_energetic" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_energetic" value="+8" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+8" data-label="Energetic Check">Energetic</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Possesses relentless stamina and vigor.</span>
+
+                            </li>
+
+
+                            <li class="skill-item"> <!-- Skill entry for Faithful (+7) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_faithful" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_faithful" value="+7" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+7" data-label="Faithful Check">Faithful</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Stays steadfast to personal beliefs and oaths.</span>
+
+                            </li> 
+
+
+                            <li class="skill-item"> <!-- Skill entry for Fearless (+8) with roll trigger and info button -->
+
+                                <input type="checkbox" checked disabled name="skillProf_fearless" class="accent-[#ff00ff] w-[16px] h-[16px] cursor-pointer"> 
+
+                                <input type="text" name="skillMod_fearless" value="+8" readonly class="skill-mod"> 
+
+                                <span class="rollable-text" data-roll="1d20+8" data-label="Fearless Check">Fearless</span> 
+
+                                <button type="button" class="info-btn">?</button> 
+
+                                <span class="skill-note">Resists physical intimidation with ease.</span>
+
+                            </li>
+
+                        </ul> <!-- Closes skills unordered list -->
+
+                    </div> <!-- Closes skills column box div container -->
+
+                </div> <!-- Closes three-column main sketch grid layout div -->
+
+            </div> <!-- Closes sheet main page 1 container -->
+
+        </div>
+
+    </section> <!-- Closes main characterContainer section -->
+
+    <!-- #endregion -->
+
+
+    <!-- #region 4. MAIN CONTENT & 3D DICE ENGINE MODAL -->
+
+    <!-- Main Content Layout --> <!-- Section comment for main content container -->
+
+    <main class="flex-1 flex flex-col relative overflow-hidden"> <!-- Flexbox container managing primary view placement -->
+
+        <!-- 3D Canvas Area Container (Hidden when dice isn't active) --> <!-- Section comment for 3D dice viewport modal overlay -->
+
+        <div id="dice-result-box" class="hidden fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-slate-950/95 border-2 border-purple-400 cyber-tile p-4 shadow-[0_0_35px_rgba(168,85,247,0.7)] backdrop-blur-md flex flex-col items-center"> <!-- Fixed popup modal box displaying WebGL 3D dice simulation, hidden by default -->
+
+            <!-- Close Button Linked to closeRollModal() --> <!-- Section comment for modal close button -->
+
+            <button onclick="closeRollModal()" class="close-btn absolute top-2 right-3 text-purple-400 hover:text-fuchsia-300 font-bold text-sm tracking-wider z-30"> <!-- Button element executing closeRollModal JavaScript function to hide dice popup -->
+
+                ✕ CLOSE <!-- Close icon text label -->
+
+            </button> <!-- Closes close button element -->
+
+
+            <!-- Rolling Title Banner --> <!-- Section comment for dice check title header -->
+
+            <div id="roll-title" class="cyber-font text-xs uppercase tracking-widest text-purple-400 font-bold mb-2 self-start pr-12">CYBER-D20 // SYSTEM</div> <!-- Title banner text updated dynamically during dice rolls -->
+
+
+            <!-- Floating 3D Viewport Box --> <!-- Section comment for 3D WebGL viewport canvas container -->
+
+            <div id="canvas-container" class="w-full h-56 relative cursor-grab active:cursor-grabbing bg-slate-900/60 border border-purple-500/30 rounded cyber-tile overflow-hidden mb-3"> <!-- Viewport box holding the Three.js WebGL canvas element -->
+
+                <!-- Three.js Canvas renders inside here --> <!-- Explanatory comment indicating canvas insertion point -->
+
+            </div> <!-- Closes canvas container viewport div -->
+
+
+            <!-- Result Details HUD --> <!-- Section comment for final score outcome HUD overlay -->
+
+            <div id="result-overlay" class="w-full text-center transition-all duration-300 opacity-0 scale-75"> <!-- Result score overlay container with scale and opacity fade animation classes -->
+
+                <div id="result-subtitle" class="cyber-font text-[10px] uppercase tracking-widest text-purple-400 font-bold">DICE ROLL COMPLETED</div> <!-- Status subtitle text element dynamically updated on crits or failures -->
+
+                <div id="roll-details-text" class="mono-font text-xs text-purple-300 mt-1">Roll: d20 (+0)</div> <!-- Score formula breakdown text element displaying raw roll and modifiers -->
+
+                <div id="overlay-number" class="cyber-font text-5xl font-black text-purple-300 tracking-tighter text-glow-purple">20</div> <!-- Displays large final calculated roll result value -->
+
+            </div> <!-- Closes result details overlay HUD div -->
+
+
+            <!-- Re-roll Action Button --> <!-- Section comment for quick re-roll action button -->
+
+            <button id="roll-btn" onclick="triggerRoll()" class="w-full mt-2 relative cyber-btn bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 p-0.5 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_25px_rgba(217,70,239,0.8)] active:scale-[0.98] transition-all"> <!-- Button element triggering re-roll action -->
+
+                <div class="w-full bg-slate-950 py-2 px-4 cyber-btn flex items-center justify-center space-x-2 hover:bg-slate-900 transition-colors"> <!-- Inner styled button layer with gradient text effect -->
+
+                    <svg class="w-4 h-4 text-purple-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <!-- SVG icon displaying spinning refresh icon -->
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.03 8.03 0 01-15.357-2m15.357 2H15" /> <!-- SVG path geometry for refresh icon -->
+
+                    </svg> <!-- Closes SVG icon element -->
+
+                    <span class="cyber-font font-black text-xs tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-fuchsia-300 uppercase">RE-ROLL D20</span> <!-- Button text label for re-rolling active die notation -->
+
+                </div> <!-- Closes inner styled button container -->
+
+            </button> <!-- Closes re-roll action button element -->
+
+        </div> <!-- Closes fixed 3D dice result modal box div -->
+
+    </main> <!-- Closes main content layout container -->
+
+    <!-- #endregion -->
+
+
+    <!-- #region 5. SYSTEM NOTIFICATION MODAL -->
+
+    <!-- Custom Cyber Notification Modal --> <!-- Section comment for system message pop-up notifications -->
+
+    <div id="notification-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300"> <!-- Dark translucent modal backdrop wrapper hidden by default -->
+
+        <div class="bg-slate-950 border-2 border-purple-400 cyber-tile p-6 max-w-sm w-full mx-4 shadow-[0_0_30px_rgba(168,85,247,0.5)] transform scale-95 transition-transform duration-300 relative scanlines"> <!-- Notification message dialog box card -->
+
+            <div class="flex items-center space-x-3 mb-3"> <!-- Header row container aligning status icon and modal titles -->
+
+                <div class="w-8 h-8 bg-purple-950 border border-purple-400 flex items-center justify-center text-purple-400 font-bold"> <!-- Exclamation mark alert icon box -->
+
+                    ! <!-- Alert symbol text -->
+
+                </div> <!-- Closes alert icon box div -->
+
+                <div> <!-- Sub-header text wrapper div -->
+
+                    <h3 id="modal-title" class="cyber-font font-bold text-purple-400 text-sm">SYSTEM MESSAGE</h3> <!-- Dynamic notification header title element -->
+
+                    <p class="mono-font text-[10px] text-fuchsia-400">CYBER-D20 PROTOCOL</p> <!-- Protocol subtitle text label -->
+
+                </div> <!-- Closes sub-header text wrapper div -->
+
+            </div> <!-- Closes modal header flex container -->
+
+            <p id="modal-message" class="mono-font text-xs text-slate-300 mb-5 leading-relaxed">Message content goes here.</p> <!-- Dynamic notification body message paragraph -->
+
+            <button onclick="closeModal()" class="w-full py-2 bg-purple-600 hover:bg-purple-500 text-white cyber-font font-bold text-xs uppercase tracking-wider transition-all"> <!-- Button element triggering closeModal function to dismiss notification -->
+
+                ACKNOWLEDGE <!-- Acknowledge button text label -->
+
+            </button> <!-- Closes modal button element -->
+
+        </div> <!-- Closes notification message dialog card div -->
+
+    </div> <!-- Closes notification modal backdrop wrapper div -->
+
+    <!-- #endregion -->
+
+</body> <!-- Closes body container element -->
+
+</html> <!-- Closes root html document element -->

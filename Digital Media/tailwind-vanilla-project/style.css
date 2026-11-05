@@ -1,0 +1,1694 @@
+/* #region 1. GLOBAL STYLES, VARIABLES & BASE THEME */
+
+@layer base { /* Defines baseline tailwind layer rules for base resets and variables */
+
+    :root { /* Declares global CSS custom property variables for color palettes, borders, and typography */
+
+        --cyber-bg-main: #07030d; /* Deep dark purple-black background color for main page layout */
+
+        --cyber-bg-panel: #0f041b; /* Secondary dark purple background color for panel wrappers */
+
+        --cyber-bg-card: #140728; /* Card background color for nested sub-components */
+
+        --cyber-bg-dark: #090212; /* Darkest shade background color for grid cards and interiors */
+
+        --cyber-neon-pink: #ff00ff; /* Vibrant cyberpunk magenta pink accent color */
+
+        --cyber-neon-purple: #8a2be2; /* Electric purple neon glow color */
+
+        --cyber-neon-cyan: #00ffff; /* Cyberpunk neon cyan highlight and text color */
+
+        --cyber-neon-gold: #ffd700; /* Neon gold accent and border color */
+
+        --cyber-neon-red: #ff0055; /* Critical failure warning red accent color */
+
+        --cyber-text-main: #ffffff; /* Primary crisp white text color */
+
+        --cyber-text-muted: #b8a6d1; /* Muted soft purple text color for secondary info */
+
+        --cyber-border-glow: rgba(138, 43, 226, 0.6); /* Translucent purple border box shadow glow */
+
+        --cyber-font-family: 'Consolas', 'Cinzel', 'Courier New', Georgia, monospace; /* Default monospace font family stack */
+
+    }
+
+
+    * { /* Universal wildcard selector targeting all elements in the document */
+
+        box-sizing: border-box; /* Includes padding and borders within element total width and height calculations */
+
+        margin: 0; /* Resets default outer margins to zero across all elements */
+
+        padding: 0; /* Resets default inner padding to zero across all elements */
+
+    }
+
+
+    html { /* Root HTML element styling configuration */
+
+        scroll-behavior: smooth; /* Enables smooth animated scrolling when jumping to anchor links */
+
+        background-color: var(--cyber-bg-main); /* Sets baseline root background color */
+
+    }
+
+
+    body { /* Document body container element styling */
+
+        font-family: var(--cyber-font-family); /* Applies the cyberpunk monospace font stack */
+
+        background-color: var(--cyber-bg-main); /* Sets background color to main dark shade */
+
+        background-image: /* Creates layered futuristic background gradients and cyber grid patterns */
+
+            radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.12) 0%, transparent 80%), /* Subtle central radial purple vignette glow */
+
+            linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px), /* Horizontal grid line stroke */
+
+            linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px); /* Vertical grid line stroke */
+
+        background-size: 100% 100%, 30px 30px, 30px 30px; /* Defines repetition dimensions for grid pattern textures */
+
+        background-attachment: fixed; /* Locks background texture fixed in place during page scrolling */
+
+        color: var(--cyber-text-main); /* Sets default text color to white */
+
+        line-height: 1.6; /* Sets comfortable proportional line height spacing */
+
+        padding: 20px; /* Applies outer container padding space around the body */
+
+        min-height: 100vh; /* Ensures body height expands to at least full viewport height */
+
+        overflow-x: hidden; /* Prevents unwanted horizontal scrollbars from layout overflows */
+
+    }
+
+}
+
+
+/* Custom Scrollbars */ /* Section header comment for custom webkit scrollbar styling */
+
+::-webkit-scrollbar { /* Targets WebKit scrollbar width dimensions */
+
+    width: 8px; /* Sets vertical scrollbar track width */
+
+    height: 8px; /* Sets horizontal scrollbar track height */
+
+}
+
+
+::-webkit-scrollbar-track { /* Targets scrollbar background track */
+
+    background: var(--cyber-bg-dark); /* Sets track background to darkest cyber shade */
+
+    border: 1px solid rgba(0, 255, 255, 0.2); /* Applies thin translucent cyan border around track */
+
+}
+
+
+::-webkit-scrollbar-thumb { /* Targets draggable scrollbar thumb handle */
+
+    background: var(--cyber-neon-pink); /* Sets scrollbar handle color to neon pink */
+
+    border-radius: 2px; /* Rounds scrollbar handle corners slightly */
+
+    box-shadow: 0 0 10px var(--cyber-neon-pink); /* Adds glowing neon shadow effect to scrollbar handle */
+
+}
+
+
+::-webkit-scrollbar-thumb:hover { /* Targets scrollbar handle on mouse hover state */
+
+    background: var(--cyber-neon-cyan); /* Shifts handle color to neon cyan on hover */
+
+    box-shadow: 0 0 14px var(--cyber-neon-cyan); /* Intensifies cyan glow shadow on hover */
+
+}
+
+/* #endregion */
+
+
+/* #region 2. HEADER & BRANDING */
+
+#header-box { /* Main header container element styling */
+
+    background: #000000; /* Sets solid black background fill */
+
+    padding: 18px 30px; /* Applies vertical and horizontal inner padding */
+
+    border-radius: 4px; /* Rounds header corners slightly */
+
+    margin-bottom: 25px; /* Adds bottom margin spacing below header */
+
+    border: 2px solid var(--cyber-neon-pink); /* Applies vibrant neon pink outer border */
+
+    box-shadow: 0 0 20px var(--cyber-border-glow), inset 0 0 15px rgba(255, 215, 0, 0.15); /* Adds outer purple glow shadow and inner gold inset shadow */
+
+    display: flex; /* Enables flexible box layout positioning */
+
+    flex-direction: row; /* Arranges child elements horizontally in a row */
+
+    align-items: center; /* Centers child items vertically */
+
+    justify-content: center; /* Centers child items horizontally */
+
+    gap: 25px; /* Sets spacing gap between logo and header title */
+
+    position: relative; /* Sets relative positioning to contain absolute pseudo-elements */
+
+    overflow: hidden; /* Clips overflowing background shine animation effects */
+
+}
+
+
+#header-box::before { /* Creates an animated light reflection sheen sweep across the header */
+
+    content: ''; /* Initializes empty content string required for pseudo-elements */
+
+    position: absolute; /* Positions sheen absolutely over header box */
+
+    top: 0; /* Aligns sheen to top edge */
+
+    left: -100%; /* Starts sheen off-screen to the left */
+
+    width: 50%; /* Sets width of sheen beam to half header size */
+
+    height: 100%; /* Matches full header height */
+
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.15), transparent); /* Creates translucent cyan light gradient streak */
+
+    transform: skewX(-25deg); /* Skews sheen beam at an aggressive angle */
+
+    animation: headerShine 6s infinite; /* Applies infinite looping header shine animation */
+
+}
+
+
+@keyframes headerShine { /* Keyframe animation sequence for header shine sweep */
+
+    0% { left: -100%; } /* Starts sheen beam completely hidden off-screen left */
+
+    20% { left: 200%; } /* Sweeps sheen beam across header to the right */
+
+    100% { left: 200%; } /* Holds sheen off-screen for remaining duration */
+
+}
+
+
+.header-logo { /* Portfolio header logo image styling */
+
+    max-height: 120px; /* Restricts maximum logo height */
+
+    width: auto; /* Maintains proportional logo width */
+
+    filter: drop-shadow(0 0 10px var(--cyber-neon-pink)); /* Applies glowing neon pink drop shadow filter around logo */
+
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooths hover transition effects for transform and filter */
+
+}
+
+
+.header-logo:hover { /* Logo hover interaction state */
+
+    transform: scale(1.05) rotate(-1deg); /* Slightly enlarges and rotates logo on hover */
+
+    filter: drop-shadow(0 0 18px var(--cyber-neon-cyan)); /* Shifts drop shadow glow to neon cyan on hover */
+
+}
+
+
+#header-box h1 { /* Header main title heading text styling */
+
+    color: var(--cyber-text-main); /* Sets text color to white */
+
+    font-size: 2.4rem; /* Sets large bold font size */
+
+    text-shadow: 0 0 8px var(--cyber-neon-pink), 0 0 20px var(--cyber-neon-pink), 0 0 2px var(--cyber-neon-gold); /* Layers multiple pink and gold text shadows for intense glowing effect */
+
+    letter-spacing: 3.5px; /* Expands letter spacing for futuristic title appearance */
+
+    text-transform: uppercase; /* Converts title text to uppercase */
+
+    margin: 0; /* Removes default heading margins */
+
+}
+
+/* #endregion */
+
+
+/* #region 3. NAVIGATION BAR & DROPDOWN MENU */
+
+.nav-bar { /* Main navigation bar container list styling */
+
+    list-style: none; /* Removes default bullet point markers */
+
+    display: flex; /* Arranges nav items in a flexible row */
+
+    justify-content: center; /* Centers navigation items horizontally */
+
+    background-color: var(--cyber-bg-panel); /* Sets background to dark panel purple */
+
+    border: 1px solid var(--cyber-neon-gold); /* Applies neon gold border outline */
+
+    border-radius: 2px; /* Rounds navigation bar corners slightly */
+
+    padding: 0 10px; /* Applies horizontal inner padding */
+
+    margin-bottom: 25px; /* Adds bottom margin spacing */
+
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.2), inset 0 0 8px rgba(0, 255, 255, 0.1); /* Adds outer gold glow and inner cyan inset shadow */
+
+}
+
+
+.nav-item { /* Individual navigation list item container */
+
+    position: relative; /* Sets relative positioning to anchor absolute dropdown menus */
+
+}
+
+
+.nav-item > a { /* Primary navigation link anchor styling */
+
+    display: block; /* Displays link as block element filling padding area */
+
+    padding: 14px 24px; /* Sets comfortable clickable tap padding */
+
+    color: var(--cyber-neon-cyan); /* Sets link text color to neon cyan */
+
+    text-decoration: none; /* Removes default underline decoration */
+
+    cursor: pointer; /* Displays pointer cursor on hover */
+
+    font-weight: bold; /* Makes link text bold */
+
+    text-transform: uppercase; /* Converts navigation text to uppercase */
+
+    letter-spacing: 1.5px; /* Adds slight letter spacing */
+
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Smooths all property transitions with cubic-bezier easing */
+
+}
+
+
+.nav-item > a:hover { /* Navigation link hover interaction state */
+
+    background-color: var(--cyber-neon-pink); /* Fills background with neon pink on hover */
+
+    color: var(--cyber-bg-main); /* Inverts text color to dark background shade */
+
+    box-shadow: 0 0 15px var(--cyber-neon-pink), inset 0 0 6px var(--cyber-neon-gold); /* Adds intense pink glow shadow and gold inset shadow */
+
+}
+
+
+.dropdown { /* Dropdown sub-menu container styling */
+
+    display: none; /* Hides dropdown menu by default */
+
+    position: absolute; /* Positions dropdown absolutely relative to parent nav item */
+
+    top: 100%; /* Places dropdown directly beneath parent nav link */
+
+    left: 50%; /* Centers dropdown horizontally relative to parent */
+
+    transform: translateX(-50%); /* Adjusts translation to center alignment perfectly */
+
+    background-color: var(--cyber-bg-panel); /* Sets background color to dark panel purple */
+
+    min-width: 200px; /* Sets minimum width constraint for dropdown menu */
+
+    list-style: none; /* Removes bullet point markers from dropdown list */
+
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.9), 0 0 14px rgba(255, 0, 255, 0.4); /* Adds heavy dark drop shadow and purple glow */
+
+    border: 1px solid var(--cyber-neon-pink); /* Applies neon pink border outline */
+
+    border-top: 2px solid var(--cyber-neon-gold); /* Applies thick gold top accent border */
+
+    border-radius: 0 0 4px 4px; /* Rounds bottom corners of dropdown box */
+
+    z-index: 100; /* Ensures dropdown renders above surrounding page content */
+
+}
+
+
+.dropdown li a { /* Individual dropdown menu item link styling */
+
+    display: block; /* Displays link as block element */
+
+    padding: 12px 16px; /* Sets inner padding for dropdown items */
+
+    color: #e0d8ef; /* Sets soft off-white text color */
+
+    text-decoration: none; /* Removes underline */
+
+    cursor: pointer; /* Displays pointer cursor on hover */
+
+    text-align: center; /* Centers dropdown text alignment */
+
+    transition: background 0.2s, color 0.2s; /* Smooths background and text color transitions */
+
+}
+
+
+.dropdown li a:hover { /* Dropdown item hover interaction state */
+
+    background-color: rgba(0, 255, 255, 0.2); /* Fills background with semi-transparent cyan on hover */
+
+    color: var(--cyber-neon-cyan); /* Shifts text color to bright neon cyan */
+
+    text-shadow: 0 0 8px var(--cyber-neon-cyan); /* Adds glowing cyan text shadow on hover */
+
+}
+
+
+.nav-item:hover .dropdown { /* Displays dropdown menu when parent nav item is hovered */
+
+    display: block; /* Changes display from none to block */
+
+    animation: dropdownFade 0.25s ease-out; /* Applies smooth fade-in entrance animation */
+
+}
+
+
+@keyframes dropdownFade { /* Keyframe animation for dropdown appearance */
+
+    from { opacity: 0; transform: translate(-50%, -8px); } /* Starts invisible and shifted slightly upward */
+
+    to { opacity: 1; transform: translate(-50%, 0); } /* Fades to full opacity at final resting position */
+
+}
+
+/* #endregion */
+
+
+/* #region 4. LAYOUT PANELS & GENERAL CONTAINERS */
+
+.panel { /* General content panel box styling */
+
+    background: radial-gradient(circle at top left, #1a0833 0%, #0e041a 100%); /* Applies radial purple gradient fill from top-left corner */
+
+    padding: 22px; /* Sets inner padding space */
+
+    border-radius: 4px; /* Rounds panel corners slightly */
+
+    margin-bottom: 25px; /* Adds bottom margin spacing */
+
+    border: 1px solid var(--cyber-neon-pink); /* Applies neon pink border outline */
+
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.25), inset 0 0 20px rgba(0, 0, 0, 0.6); /* Adds outer pink glow and deep dark inner shadow */
+
+}
+
+
+#characterContainer, /* Selects specific character sheet terminal panel */
+
+#wardContainer, /* Selects security protocols ward panel */
+
+#meContainer, /* Selects personal book jacket profile panel */
+
+.sub-panel { /* Selects general sub-panel class elements */
+
+    display: none; /* Hides specific specialty panels by default */
+
+    background-color: var(--cyber-bg-card); /* Sets background to card purple shade */
+
+    border-left: 4px solid var(--cyber-neon-cyan); /* Applies thick cyan accent border on left edge */
+
+    border-right: 1px solid rgba(255, 215, 0, 0.3); /* Applies translucent gold border on right edge */
+
+}
+
+
+.sub-panel.active-panel { /* Active state modifier class for displaying panels */
+
+    display: block !important; /* Forces panel display to block overriding hidden states */
+
+}
+
+
+.forgery-image-wrapper { /* Wrapper container for portfolio forgery image displays */
+
+    display: flex; /* Enables flexbox centering */
+
+    justify-content: center; /* Centers image horizontally */
+
+    align-items: center; /* Centers image vertically */
+
+    padding: 20px 0; /* Applies vertical padding space */
+
+}
+
+
+.forgery-img { /* Individual forgery image element styling */
+
+    max-width: 100%; /* Restricts max image width to container size */
+
+    height: auto; /* Maintains proportional image height */
+
+    border: 2px solid var(--cyber-neon-pink); /* Applies neon pink image border */
+
+    border-radius: 4px; /* Rounds image corners slightly */
+
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); /* Adds glowing neon pink drop shadow around image */
+
+}
+
+
+button { /* General interactive button styling */
+
+    background: linear-gradient(180deg, #18062e 0%, #0a0214 100%); /* Applies vertical dark purple gradient fill */
+
+    color: var(--cyber-neon-gold); /* Sets button text color to neon gold */
+
+    border: 1px solid var(--cyber-neon-gold); /* Applies neon gold border outline */
+
+    padding: 9px 18px; /* Sets vertical and horizontal inner button padding */
+
+    border-radius: 2px; /* Rounds button corners slightly */
+
+    cursor: pointer; /* Displays pointer cursor on hover */
+
+    font-weight: bold; /* Makes button text bold */
+
+    text-transform: uppercase; /* Converts button text to uppercase */
+
+    letter-spacing: 1px; /* Adds slight letter spacing */
+
+    transition: all 0.2s ease-in-out; /* Smooths all property transitions on interaction */
+
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.25); /* Adds subtle gold glow shadow */
+
+    font-family: inherit; /* Inherits typography font family from parent elements */
+
+}
+
+
+button:hover { /* Button hover interaction state */
+
+    background: var(--cyber-neon-pink); /* Fills button background with neon pink on hover */
+
+    color: #000; /* Shifts text color to solid black for high contrast */
+
+    border-color: var(--cyber-neon-pink); /* Matches border color to neon pink */
+
+    box-shadow: 0 0 16px var(--cyber-neon-pink), 0 0 6px var(--cyber-neon-gold); /* Intensifies pink glow shadow and gold accent shadow */
+
+}
+
+
+button:active { /* Button active click press interaction state */
+
+    transform: translateY(1px); /* Nudges button down slightly to simulate physical press depth */
+
+}
+
+/* #endregion */
+
+
+/* #region 5. CHARACTER SHEET (HERO CARD GRID) */
+
+.sheet-controls { /* Character sheet control buttons container */
+
+    display: flex; /* Arranges controls in a flexible row */
+
+    gap: 12px; /* Sets gap spacing between control buttons */
+
+    margin-bottom: 22px; /* Adds bottom margin space */
+
+}
+
+
+.dnd-sketch-header { /* Character sheet summary header banner styling */
+
+    display: flex; /* Arranges summary fields horizontally in a flex row */
+
+    gap: 20px; /* Sets spacing gap between header fields */
+
+    background-color: #0a0314; /* Sets very dark purple-black background fill */
+
+    padding: 16px; /* Sets inner padding space */
+
+    border-radius: 4px; /* Rounds header corners slightly */
+
+    margin-bottom: 22px; /* Adds bottom margin spacing */
+
+    border: 1px solid rgba(0, 255, 255, 0.4); /* Applies translucent cyan border outline */
+
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8); /* Adds heavy dark inner shadow */
+
+}
+
+
+.header-field { /* Individual header data field container */
+
+    display: flex; /* Arranges label and input vertically */
+
+    flex-direction: column; /* Stacks children vertically in a column */
+
+    flex: 1; /* Allows fields to flex and distribute available width evenly */
+
+}
+
+
+.header-field label { /* Header field label text styling */
+
+    font-size: 0.8rem; /* Sets small uppercase label text size */
+
+    text-transform: uppercase; /* Converts label text to uppercase */
+
+    color: var(--cyber-text-main); /* Sets label color to white */
+
+    letter-spacing: 1.2px; /* Adds slight letter spacing */
+
+    margin-bottom: 5px; /* Adds space below label */
+
+    text-shadow: 0 0 4px rgba(255, 215, 0, 0.3); /* Adds subtle gold text shadow */
+
+}
+
+
+.header-field input { /* Header field read-only input styling */
+
+    background: #16082d; /* Sets dark purple input background fill */
+
+    border: 1px solid var(--cyber-neon-pink); /* Applies neon pink input border */
+
+    color: var(--cyber-text-main); /* Sets input text color to white */
+
+    padding: 8px 12px; /* Sets inner input padding */
+
+    border-radius: 2px; /* Rounds input corners slightly */
+
+    outline: none; /* Removes default browser outline ring */
+
+    font-family: inherit; /* Inherits font family */
+
+    transition: box-shadow 0.2s, border-color 0.2s; /* Smooths focus transition effects */
+
+}
+
+
+.header-field input:focus { /* Header input focus interaction state */
+
+    border-color: var(--cyber-neon-cyan); /* Shifts border color to neon cyan on focus */
+
+    box-shadow: 0 0 12px var(--cyber-neon-pink), inset 0 0 4px var(--cyber-neon-cyan); /* Adds pink outer glow and cyan inset shadow */
+
+}
+
+
+.sketch-main-grid { /* Main character sheet three-column layout grid */
+
+    display: grid; /* Enables CSS Grid layout */
+
+    grid-template-columns: 115px 1fr 1fr; /* Defines 3 columns: fixed 115px for stats, and two flexible 1fr columns for combat/skills */
+
+    gap: 18px; /* Sets grid gap spacing between columns */
+
+}
+
+
+.ability-vitals-grid { /* Container for stacked ability score boxes */
+
+    display: flex; /* Arranges ability boxes in a flexible column */
+
+    flex-direction: column; /* Stacks boxes vertically */
+
+    gap: 10px; /* Sets gap spacing between ability boxes */
+
+    width: 115px; /* Fixes column width to 115 pixels */
+
+}
+
+
+.ability-box { /* Individual ability score card container */
+
+    background: var(--cyber-bg-dark); /* Sets background to darkest cyber shade */
+
+    border: 1px solid var(--cyber-neon-pink); /* Applies neon pink border outline */
+
+    border-top: 2px solid var(--cyber-neon-gold); /* Applies thicker gold top border accent */
+
+    border-radius: 4px; /* Rounds card corners slightly */
+
+    padding: 8px; /* Sets inner card padding */
+
+    text-align: center; /* Centers text content alignment */
+
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2); /* Adds subtle pink glow shadow */
+
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooths hover transition effects */
+
+}
+
+
+.ability-box:hover { /* Ability box hover interaction state */
+
+    transform: translateY(-2px); /* Lifts box upward slightly on hover */
+
+    box-shadow: 0 0 14px rgba(255, 0, 255, 0.4); /* Intensifies pink glow shadow on hover */
+
+}
+
+
+.ability-box label { /* Ability box title label styling */
+
+    font-size: 0.75rem; /* Sets compact font size */
+
+    font-weight: bold; /* Makes ability label bold */
+
+    color: var(--cyber-neon-pink); /* Sets text color to neon pink */
+
+    display: block; /* Displays label as block element */
+
+    margin-bottom: 4px; /* Adds space below label */
+
+    letter-spacing: 1px; /* Adds letter spacing */
+
+    text-shadow: 0 0 5px var(--cyber-neon-pink); /* Adds neon pink text glow shadow */
+
+}
+
+
+.ability-box label.rollable-text { /* Rollable variant of ability box label */
+
+    background: transparent; /* Sets transparent background fill */
+
+    padding: 2px 4px; /* Sets minimal padding */
+
+    margin-bottom: 4px; /* Adds bottom margin */
+
+    display: block; /* Displays as block element */
+
+}
+
+
+.ability-box label.rollable-text:hover { /* Rollable label hover state */
+
+    background: rgba(0, 255, 255, 0.2); /* Fills background with semi-transparent cyan on hover */
+
+    border-radius: 2px; /* Rounds corners on hover highlight */
+
+    color: var(--cyber-neon-cyan); /* Shifts text color to neon cyan */
+
+}
+
+
+.ability-score-row { /* Row container for raw score and modifier inputs */
+
+    display: flex; /* Enables flexbox row alignment */
+
+    align-items: center; /* Centers items vertically */
+
+    justify-content: center; /* Centers items horizontally */
+
+    gap: 6px; /* Sets gap spacing between score and modifier */
+
+}
+
+
+.ability-box input.score-input, /* Selects ability score input */
+
+.score-input { /* Selects general score input elements */
+
+    width: 32px; /* Fixes input width */
+
+    font-size: 1rem; /* Sets readable bold font size */
+
+    font-weight: bold; /* Makes score text bold */
+
+    color: #fff; /* Sets text color to white */
+
+    background: transparent; /* Transparent background */
+
+    border: none; /* Removes borders */
+
+    text-align: center; /* Centers score number text */
+
+}
+
+
+.ability-box input.mod-input, /* Selects ability modifier input */
+
+.mod-input { /* Selects general modifier input elements */
+
+    width: 30px; /* Fixes input width */
+
+    font-size: 0.85rem; /* Sets compact font size */
+
+    color: var(--cyber-neon-cyan); /* Sets modifier text color to neon cyan */
+
+    background: #16082d; /* Sets dark purple background fill */
+
+    border: 1px solid var(--cyber-neon-cyan); /* Applies neon cyan border outline */
+
+    border-radius: 2px; /* Rounds corners slightly */
+
+    text-align: center; /* Centers modifier text */
+
+    padding: 2px 0; /* Sets vertical inner padding */
+
+}
+
+
+.dnd-box { /* Content card container styling for combat and skills */
+
+    background: var(--cyber-bg-dark); /* Sets background to darkest cyber shade */
+
+    border: 1px solid var(--cyber-neon-cyan); /* Applies neon cyan border outline */
+
+    border-radius: 4px; /* Rounds box corners slightly */
+
+    padding: 18px; /* Sets inner padding space */
+
+    display: flex; /* Arranges contents vertically in a flex column */
+
+    flex-direction: column; /* Stacks children vertically */
+
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.15), inset 0 0 15px rgba(0, 0, 0, 0.7); /* Adds outer cyan glow and heavy dark inset shadow */
+
+}
+
+
+.dnd-box h2 { /* Content card section heading styling */
+
+    font-size: 1.2rem; /* Sets heading font size */
+
+    margin-bottom: 16px; /* Adds space below heading */
+
+    border-bottom: 1px solid var(--cyber-neon-pink); /* Applies bottom divider line in neon pink */
+
+    padding-bottom: 6px; /* Adds space below text before divider line */
+
+    color: var(--cyber-neon-gold); /* Sets heading text color to neon gold */
+
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.4), 0 0 10px var(--cyber-neon-pink); /* Layers gold and pink glowing text shadows */
+
+    text-transform: uppercase; /* Converts heading text to uppercase */
+
+    letter-spacing: 1.5px; /* Expands letter spacing */
+
+}
+
+/* #endregion */
+
+
+/* #region 6. COMBAT & ATTACK LISTINGS */
+
+.attack-list-container { /* Scrollable container wrapper for combat attacks */
+
+    max-height: 500px; /* Restricts maximum container height */
+
+    overflow-y: auto; /* Enables vertical scrolling when content exceeds max height */
+
+    padding-right: 6px; /* Adds right padding space to accommodate scrollbar */
+
+}
+
+
+.attack-list { /* Unordered list for combat attacks */
+
+    list-style: none; /* Removes default bullet point markers */
+
+}
+
+
+.attack-item { /* Individual attack move list item card */
+
+    background-color: var(--cyber-bg-card); /* Sets background to card purple shade */
+
+    margin-bottom: 12px; /* Adds space below each attack item */
+
+    padding: 12px; /* Sets inner padding space */
+
+    border-radius: 3px; /* Rounds corners slightly */
+
+    border-left: 3px solid var(--cyber-neon-pink); /* Applies thick neon pink accent border on left edge */
+
+    border-right: 1px solid rgba(255, 215, 0, 0.2); /* Applies translucent gold border on right edge */
+
+    font-size: 0.92rem; /* Sets readable font size */
+
+    transition: background-color 0.2s, border-color 0.2s; /* Smooths hover state color transitions */
+
+}
+
+
+.attack-item:hover { /* Attack item hover interaction state */
+
+    background-color: #1a0a33; /* Shifts background to lighter purple shade on hover */
+
+    border-left-color: var(--cyber-neon-cyan); /* Shifts left accent border color to neon cyan on hover */
+
+}
+
+
+.attack-item > span:first-child { /* Targets primary attack title text span */
+
+    font-weight: bold; /* Makes attack name bold */
+
+    color: #fff; /* Sets text color to white */
+
+    display: inline-block; /* Displays as inline-block element */
+
+    margin-right: 8px; /* Adds right margin spacing */
+
+}
+
+
+.attack-type { /* Attack classification label styling (e.g., Punch, Kick) */
+
+    color: #9a88b3; /* Sets muted purple text color */
+
+    font-size: 0.8rem; /* Sets compact font size */
+
+    font-style: italic; /* Applies italic styling */
+
+}
+
+
+.rollable-text { /* Interactive rollable text badge styling (e.g., damage dice) */
+
+    color: var(--cyber-neon-cyan); /* Sets text color to neon cyan */
+
+    cursor: pointer; /* Displays pointer cursor on hover */
+
+    background: rgba(0, 255, 255, 0.1); /* Sets semi-transparent cyan background fill */
+
+    border: 1px solid rgba(0, 255, 255, 0.35); /* Applies translucent cyan border outline */
+
+    padding: 3px 8px; /* Sets inner badge padding */
+
+    border-radius: 3px; /* Rounds badge corners slightly */
+
+    font-weight: bold; /* Makes roll text bold */
+
+    transition: all 0.2s ease; /* Smooths all property transitions on hover */
+
+    display: inline-block; /* Displays as inline-block element */
+
+}
+
+
+.rollable-text:hover { /* Rollable badge hover interaction state */
+
+    background: var(--cyber-neon-cyan); /* Fills background solidly with neon cyan on hover */
+
+    color: var(--cyber-bg-main); /* Inverts text color to dark background shade */
+
+    box-shadow: 0 0 12px var(--cyber-neon-cyan); /* Adds glowing neon cyan shadow around badge */
+
+    transform: scale(1.03); /* Slightly enlarges badge on hover */
+
+}
+
+
+.info-btn { /* Expandable technique info question mark button styling */
+
+    background: var(--cyber-bg-panel); /* Sets background to dark panel purple */
+
+    color: var(--cyber-neon-gold); /* Sets question mark icon color to neon gold */
+
+    border: 1px solid var(--cyber-neon-gold); /* Applies neon gold border outline */
+
+    border-radius: 50%; /* Rounds button into a perfect circle */
+
+    width: 20px; /* Fixes button width */
+
+    height: 20px; /* Fixes button height matching width */
+
+    padding: 0; /* Removes default padding */
+
+    font-size: 0.75rem; /* Sets small font size for question mark */
+
+    line-height: 18px; /* Centers line height vertically inside circle */
+
+    margin-left: 6px; /* Adds left margin spacing */
+
+    cursor: pointer; /* Displays pointer cursor on hover */
+
+    transition: all 0.2s ease; /* Smooths hover transition effects */
+
+    vertical-align: middle; /* Aligns button vertically with text line */
+
+}
+
+
+.info-btn:hover, /* Info button hover state */
+
+.info-btn.active { /* Info button active expanded state */
+
+    background: var(--cyber-neon-pink); /* Fills background with neon pink */
+
+    color: #000; /* Shifts text color to solid black */
+
+    border-color: var(--cyber-neon-pink); /* Matches border to neon pink */
+
+    box-shadow: 0 0 10px var(--cyber-neon-pink); /* Adds glowing neon pink shadow */
+
+}
+
+
+.skill-note { /* Expandable technique description note container */
+
+    display: none; /* Hides description note by default */
+
+    margin-top: 10px; /* Adds space above note box */
+
+    padding: 10px 12px; /* Sets inner padding space */
+
+    background: #0d031a; /* Sets deep dark purple background fill */
+
+    border-left: 2px solid var(--cyber-neon-cyan); /* Applies cyan accent border on left edge */
+
+    border-right: 1px solid rgba(255, 0, 255, 0.2); /* Applies translucent pink border on right edge */
+
+    border-radius: 2px; /* Rounds corners slightly */
+
+    color: #c7b8de; /* Sets soft lavender text color */
+
+    font-size: 0.85rem; /* Sets compact readable font size */
+
+    line-height: 1.4; /* Sets line height spacing */
+
+    animation: fadeInNote 0.25s ease-out; /* Applies smooth fade-in entrance animation */
+
+}
+
+
+@keyframes fadeInNote { /* Keyframe animation for skill note appearance */
+
+    from { opacity: 0; transform: translateY(-4px); } /* Starts invisible and shifted slightly upward */
+
+    to { opacity: 1; transform: translateY(0); } /* Fades to full opacity at resting position */
+
+}
+
+
+.skill-note.show { /* Active modifier class to display skill note */
+
+    display: block; /* Changes display property from none to block */
+
+}
+
+/* #endregion */
+
+
+/* #region 7. SKILLS CHECKLIST SECTION */
+
+.checkbox-list { /* Scrollable container list for character skills */
+
+    list-style: none; /* Removes default bullet point markers */
+
+    max-height: 500px; /* Restricts maximum list height */
+
+    overflow-y: auto; /* Enables vertical scrolling */
+
+    padding-right: 6px; /* Adds right padding space for scrollbar */
+
+}
+
+
+.skill-item, /* Selects individual skill items */
+
+.checkbox-list li { /* Selects list items inside checkbox lists */
+
+    display: flex; /* Enables flexible row alignment */
+
+    flex-wrap: wrap; /* Allows items to wrap on smaller widths */
+
+    align-items: center; /* Centers items vertically */
+
+    gap: 8px; /* Sets gap spacing between checkboxes, modifiers, and labels */
+
+    margin-bottom: 10px; /* Adds space below each skill item */
+
+    font-size: 0.92rem; /* Sets readable font size */
+
+    padding: 4px 0; /* Sets vertical padding space */
+
+}
+
+
+.checkbox-list input[type="checkbox"] { /* Checkbox input element styling */
+
+    accent-color: var(--cyber-neon-pink); /* Styles checkbox accent color with neon pink */
+
+    width: 16px; /* Sets checkbox width */
+
+    height: 16px; /* Sets checkbox height */
+
+    cursor: pointer; /* Displays pointer cursor on hover */
+
+}
+
+
+.skill-mod, /* Selects skill modifier input boxes */
+
+.checkbox-list input[type="text"] { /* Selects text inputs inside checkbox lists */
+
+    width: 38px; /* Fixes input width */
+
+    background: var(--cyber-bg-card); /* Sets background to card purple shade */
+
+    border: 1px solid var(--cyber-neon-cyan); /* Applies neon cyan border outline */
+
+    color: var(--cyber-neon-cyan); /* Sets modifier text color to neon cyan */
+
+    text-align: center; /* Centers modifier number text */
+
+    border-radius: 2px; /* Rounds corners slightly */
+
+    font-weight: bold; /* Makes modifier text bold */
+
+    font-size: 0.88rem; /* Sets compact font size */
+
+    padding: 2px 0; /* Sets vertical inner padding */
+
+}
+
+
+.checkbox-list .skill-note { /* Ensures skill notes inside lists span full width */
+
+    width: 100%; /* Forces skill note container to occupy 100% width */
+
+}
+
+/* #endregion */
+
+
+/* #region 8. CYBERPUNK 3D D20 MODAL & SOLID MESH VIEWPORT */
+
+#dice-result-box { /* Fixed popup modal container for 3D dice roll results */
+
+    display: none; /* Hides dice result modal by default */
+
+    position: fixed; /* Fixes modal position relative to viewport window */
+
+    bottom: 25px; /* Positions modal near bottom right corner */
+
+    right: 25px; /* Positions modal near right screen edge */
+
+    background: radial-gradient(circle at center, #230846 0%, #090212 100%); /* Applies central radial purple gradient fill */
+
+    border: 2px solid var(--cyber-neon-purple); /* Applies electric purple outer border */
+
+    border-top: 2px solid var(--cyber-neon-pink); /* Applies vibrant neon pink top border accent */
+
+    border-radius: 6px; /* Rounds modal corners */
+
+    padding: 22px 26px; /* Sets inner modal padding space */
+
+    box-shadow: 0 0 35px var(--cyber-border-glow), inset 0 0 15px rgba(255, 0, 255, 0.2); /* Adds outer purple glow and pink inset shadow */
+
+    z-index: 1000; /* Ensures modal renders above surrounding page elements */
+
+    width: 380px; /* Fixes modal container width */
+
+    text-align: center; /* Centers text content alignment */
+
+    backdrop-filter: blur(8px); /* Applies frosted glass backdrop blur filter */
+
+}
+
+
+.close-btn { /* Close button styling inside dice modal */
+
+    position: absolute; /* Positions close button absolutely inside modal */
+
+    top: 6px; /* Aligns button near top edge */
+
+    right: 12px; /* Aligns button near right edge */
+
+    color: var(--cyber-neon-gold); /* Sets close icon color to neon gold */
+
+    font-size: 1.4rem; /* Sets large readable icon size */
+
+    cursor: pointer; /* Displays pointer cursor on hover */
+
+    z-index: 1010; /* Ensures close button renders above modal contents */
+
+    transition: color 0.2s, text-shadow 0.2s; /* Smooths hover color and shadow transitions */
+
+}
+
+
+.close-btn:hover { /* Close button hover state */
+
+    color: var(--cyber-neon-pink); /* Shifts icon color to neon pink on hover */
+
+    text-shadow: 0 0 10px var(--cyber-neon-pink); /* Adds glowing neon pink text shadow on hover */
+
+}
+
+
+#roll-title { /* Title heading inside dice roll modal */
+
+    color: var(--cyber-neon-cyan); /* Sets title color to neon cyan */
+
+    margin-bottom: 8px; /* Adds space below title */
+
+    text-shadow: 0 0 6px var(--cyber-neon-cyan); /* Adds glowing cyan text shadow */
+
+    text-transform: uppercase; /* Converts title text to uppercase */
+
+    letter-spacing: 1.2px; /* Adds letter spacing */
+
+    font-size: 1rem; /* Sets readable font size */
+
+}
+
+
+.visual-die-container, /* Selects visual die container class */
+
+#canvas-container { /* Selects Three.js canvas container wrapper */
+
+    display: flex; /* Enables flexbox centering */
+
+    justify-content: center; /* Centers Three.js canvas horizontally */
+
+    align-items: center; /* Centers Three.js canvas vertically */
+
+    height: 260px; /* Fixes container height for 3D viewport */
+
+    margin: 10px 0; /* Adds vertical margin spacing */
+
+    position: relative; /* Relative positioning for child canvas absolute placement */
+
+    overflow: hidden; /* Clips overflowing canvas pixels */
+
+    border-radius: 4px; /* Rounds container corners slightly */
+
+    background: radial-gradient(circle at center, #17042e 0%, #05010a 100%); /* Deep radial gradient background for canvas viewport */
+
+    border: 1px solid rgba(192, 132, 252, 0.6); /* Applies translucent light purple border outline */
+
+    box-shadow: inset 0 0 30px rgba(147, 51, 234, 0.4), 0 0 25px rgba(138, 43, 226, 0.5); /* Adds deep inner purple glow and outer glow shadow */
+
+}
+
+
+#threeD20CanvasContainer { /* Three.js WebGL canvas wrapper element */
+
+    width: 100%; /* Occupies 100% container width */
+
+    height: 260px; /* Fixes height to 260 pixels */
+
+    position: relative; /* Relative positioning */
+
+    z-index: 1005; /* Ensures canvas renders correctly above viewport background */
+
+}
+
+/* #endregion */
+
+
+/* #region 9. SCANLINES & CODE STREAM ANIMATIONS */
+
+.sheet-typing-active, /* Active modifier class for character sheet opening scanline effect */
+
+.sheet-typing-closing { /* Active modifier class for character sheet closing scanline effect */
+
+    position: relative; /* Relative positioning to anchor absolute pseudo-element scanlines */
+
+    overflow: hidden; /* Clips sweeping scanline beam effects to panel boundaries */
+
+}
+
+
+.code-typing-banner { /* Terminal command typing banner container styling */
+
+    background: #020108; /* Sets near-black terminal background fill */
+
+    color: var(--cyber-neon-cyan); /* Sets terminal text color to neon cyan */
+
+    font-family: 'Consolas', 'Courier New', monospace; /* Applies strict monospace font */
+
+    font-size: 0.88rem; /* Sets terminal text font size */
+
+    padding: 10px 14px; /* Sets inner terminal padding space */
+
+    margin-bottom: 18px; /* Adds space below banner */
+
+    border: 1px solid var(--cyber-neon-cyan); /* Applies neon cyan terminal border outline */
+
+    border-radius: 2px; /* Rounds corners slightly */
+
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.2); /* Adds subtle cyan glow shadow */
+
+    display: flex; /* Arranges prompt and text horizontally */
+
+    align-items: center; /* Centers items vertically */
+
+    gap: 8px; /* Sets gap space between prompt icon and text */
+
+    animation: fadeInBanner 0.2s ease-out forwards; /* Applies smooth fade-in entrance animation */
+
+}
+
+
+.code-typing-banner::before { /* Terminal prompt chevron symbol (>) */
+
+    content: ">"; /* Sets content string to greater-than chevron symbol */
+
+    color: var(--cyber-neon-pink); /* Colors prompt chevron in neon pink */
+
+    font-weight: bold; /* Makes prompt chevron bold */
+
+}
+
+
+.code-typing-cursor { /* Blinking terminal cursor block styling */
+
+    display: inline-block; /* Displays as inline block */
+
+    width: 8px; /* Sets cursor block width */
+
+    height: 14px; /* Sets cursor block height */
+
+    background: var(--cyber-neon-cyan); /* Colors cursor block in neon cyan */
+
+    margin-left: 4px; /* Adds space before cursor */
+
+    animation: blinkCursor 0.4s infinite alternate; /* Applies infinite blinking pulse animation */
+
+}
+
+
+.code-stream-item { /* Individual element targeted for code stream reveal animations */
+
+    opacity: 0; /* Starts completely transparent */
+
+    transform: translateY(10px); /* Starts shifted downward slightly */
+
+    filter: blur(2px); /* Starts slightly blurred for digital glitch effect */
+
+    transition: opacity 0.2s cubic-bezier(0.25, 1, 0.5, 1), /* Smooths opacity transition */
+
+                transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), /* Smooths transform position transition */
+
+                filter 0.2s ease; /* Smooths blur filter transition */
+
+}
+
+
+.code-stream-item.typed-in { /* Active state when code stream item has finished typing/revealing */
+
+    opacity: 1; /* Fades to full opacity */
+
+    transform: translateY(0); /* Returns to resting vertical position */
+
+    filter: blur(0px); /* Removes blur for crisp rendering */
+
+}
+
+
+.code-stream-item.untyping { /* Active state when element is reversing/closing */
+
+    opacity: 0 !important; /* Forces total transparency during close */
+
+    transform: translateY(-10px) !important; /* Shifts upward during close */
+
+    filter: blur(3px) !important; /* Increases blur effect during close */
+
+}
+
+
+.code-stream-item.typing-glow { /* Flashing neon highlight glow applied during typing sequence */
+
+    outline: 1px solid var(--cyber-neon-cyan); /* Applies neon cyan outline border */
+
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.6), inset 0 0 8px rgba(255, 0, 255, 0.2); /* Adds intense cyan outer glow and pink inset shadow */
+
+    background-color: rgba(0, 255, 255, 0.08) !important; /* Flashes semi-transparent cyan background highlight */
+
+}
+
+
+.sheet-typing-active::after { /* Sweeping downward cyan/pink scanline beam on panel open */
+
+    content: ''; /* Initializes empty content string */
+
+    position: absolute; /* Positions scanline beam absolutely over panel */
+
+    top: 0; /* Starts scanline at top edge */
+
+    left: 0; /* Aligns to left edge */
+
+    right: 0; /* Stretches across to right edge */
+
+    height: 4px; /* Sets scanline beam height thickness */
+
+    background: linear-gradient(90deg, transparent, var(--cyber-neon-cyan) 50%, var(--cyber-neon-pink) 80%, transparent); /* Creates gradient beam of cyan and pink */
+
+    box-shadow: 0 0 14px var(--cyber-neon-cyan), 0 0 28px var(--cyber-neon-pink); /* Adds intense cyan and pink glow shadows to beam */
+
+    animation: scanlineDown 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) forwards; /* Applies downward scanline sweep animation */
+
+    pointer-events: none; /* Prevents scanline from blocking mouse interactions */
+
+    z-index: 20; /* Renders scanline beam above panel contents */
+
+}
+
+
+.sheet-typing-closing::after { /* Sweeping upward pink/cyan scanline beam on panel close */
+
+    content: ''; /* Initializes empty content string */
+
+    position: absolute; /* Positions scanline beam absolutely over panel */
+
+    bottom: 0; /* Starts scanline at bottom edge */
+
+    left: 0; /* Aligns to left edge */
+
+    right: 0; /* Stretches across to right edge */
+
+    height: 4px; /* Sets scanline beam height thickness */
+
+    background: linear-gradient(90deg, transparent, var(--cyber-neon-pink) 50%, var(--cyber-neon-cyan) 80%, transparent); /* Creates gradient beam of pink and cyan */
+
+    box-shadow: 0 0 14px var(--cyber-neon-pink), 0 0 28px var(--cyber-neon-pink); /* Adds glowing neon pink shadows to beam */
+
+    animation: scanlineUp 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards; /* Applies upward scanline sweep animation */
+
+    pointer-events: none; /* Prevents scanline from blocking mouse interactions */
+
+    z-index: 20; /* Renders scanline beam above panel contents */
+
+}
+
+
+@keyframes scanlineDown { /* Keyframe animation for downward scanline sweep */
+
+    0% { top: 0%; opacity: 1; } /* Starts at top with full opacity */
+
+    85% { opacity: 1; } /* Holds opacity during sweep */
+
+    100% { top: 100%; opacity: 0; } /* Reaches bottom edge and fades out */
+
+}
+
+
+@keyframes scanlineUp { /* Keyframe animation for upward scanline sweep */
+
+    0% { top: 100%; opacity: 1; } /* Starts at bottom with full opacity */
+
+    85% { opacity: 1; } /* Holds opacity during sweep */
+
+    100% { top: 0%; opacity: 0; } /* Reaches top edge and fades out */
+
+}
+
+
+@keyframes blinkCursor { /* Keyframe animation for blinking terminal cursor */
+
+    0% { opacity: 0; } /* Fades cursor out */
+
+    100% { opacity: 1; } /* Fades cursor in solidly */
+
+}
+
+
+@keyframes fadeInBanner { /* Keyframe animation for typing banner entrance */
+
+    from { opacity: 0; transform: translateY(-4px); } /* Starts invisible and shifted slightly upward */
+
+    to { opacity: 1; transform: translateY(0); } /* Fades to full opacity at resting position */
+
+}
+
+/* #endregion */
+
+
+/* #region 10. 3D BOOK JACKET & PAGE FLIP TRANSITIONS */
+
+.book-jacket-container { /* 3D perspective wrapper container for book jacket panels */
+
+    perspective: 1200px; /* Sets 3D camera depth perspective distance */
+
+    transform-style: preserve-3d; /* Preserves 3D spatial positioning for child elements */
+
+}
+
+
+.book-jacket-panel { /* Individual 3D book jacket panel styling */
+
+    transform-origin: left center; /* Sets pivot point for 3D rotation along left spine edge */
+
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease; /* Smooths transform and opacity transitions */
+
+    backface-visibility: hidden; /* Hides back face during 3D rotations */
+
+}
+
+
+.book-jacket-panel.book-opening { /* Active animation class when book jacket panel opens */
+
+    animation: animateBookOpen 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Applies bouncy 3D book opening rotation keyframe animation */
+
+}
+
+
+.book-jacket-panel.book-closing { /* Active animation class when book jacket panel closes */
+
+    animation: animateBookClose 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards; /* Applies snap-shut 3D book closing keyframe animation */
+
+}
+
+
+@keyframes animateBookOpen { /* Keyframe animation for 3D book opening sequence */
+
+    0% {
+
+        transform: rotateY(-90deg) scale(0.9) translateZ(-50px); /* Starts rotated 90 degrees away like a closed book spine */
+
+        opacity: 0; /* Starts completely transparent */
+
+        box-shadow: -20px 0 30px rgba(0, 0, 0, 0.8); /* Applies deep shadow along spine edge */
+
+    }
+
+    50% { opacity: 0.8; } /* Fades in during rotation midway point */
+
+    100% {
+
+        transform: rotateY(0deg) scale(1) translateZ(0); /* Rotates flat to 0 degrees facing user */
+
+        opacity: 1; /* Full opacity */
+
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.25); /* Settles into standard panel shadow glow */
+
+    }
+
+}
+
+
+@keyframes animateBookClose { /* Keyframe animation for 3D book closing sequence */
+
+    0% {
+
+        transform: rotateY(0deg) scale(1) translateZ(0); /* Starts flat facing user at 0 degrees */
+
+        opacity: 1; /* Full opacity */
+
+    }
+
+    50% { opacity: 0.5; } /* Fades out midway through closing rotation */
+
+    100% {
+
+        transform: rotateY(-90deg) scale(0.85) translateZ(-50px); /* Rotates away 90 degrees and shrinks slightly into distance */
+
+        opacity: 0; /* Fully transparent at close */
+
+    }
+
+}
+
+
+.sheet-page-container { /* 3D perspective wrapper container for character sheet tab pages */
+
+    perspective: 1400px; /* Sets deep 3D perspective viewing distance */
+
+    transform-style: preserve-3d; /* Preserves 3D spatial transformations */
+
+    position: relative; /* Relative positioning */
+
+}
+
+
+.sheet-page { /* Individual character sheet tab page panel styling */
+
+    display: none; /* Hides inactive sheet pages by default */
+
+    transform-origin: left center; /* Sets pivot point for page turn rotation along left edge */
+
+    backface-visibility: hidden; /* Hides back face during page flip rotations */
+
+}
+
+
+.sheet-page.active { /* Active state modifier class for currently displayed sheet page */
+
+    display: block; /* Changes display property to block */
+
+    animation: pageTurnFlip 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards; /* Applies smooth 3D page-turning flip entrance animation */
+
+}
+
+
+@keyframes pageTurnFlip { /* Keyframe animation sequence for 3D page turn flip effect */
+
+    0% {
+
+        transform: rotateY(-70deg) translateZ(-40px); /* Starts flipped inward with negative z-depth */
+
+        opacity: 0; /* Starts transparent */
+
+        filter: brightness(0.6); /* Starts dimmed in shadow */
+
+    }
+
+    50% { opacity: 0.8; } /* Fades in during flip rotation */
+
+    100% {
+
+        transform: rotateY(0deg) translateZ(0); /* Settles flat facing user at 0 degrees */
+
+        opacity: 1; /* Full opacity */
+
+        filter: brightness(1); /* Full brightness */
+
+    }
+
+}
+
+/* #endregion */
+
+
+/* #region 11. RESPONSIVE BREAKPOINTS & TAILWIND LAYER UTILITIES */
+
+@layer utilities { /* Tailwind layer utility block containing responsive media query breakpoints */
+
+    @media (max-width: 992px) { /* Media query breakpoint for tablets and medium screens (max width 992px) */
+
+        .sketch-main-grid { /* Adjusts character sheet main grid layout for tablets */
+
+            grid-template-columns: 1fr; /* Switches 3-column grid layout to single stacked column */
+
+        }
+
+
+        .ability-vitals-grid { /* Adjusts ability scores layout container for tablets */
+
+            width: 100%; /* Expands width to occupy 100% container span */
+
+            flex-direction: row; /* Switches vertical column stack to flexible horizontal row */
+
+            flex-wrap: wrap; /* Allows ability boxes to wrap onto multiple lines */
+
+            justify-content: space-between; /* Distributes ability boxes evenly across width */
+
+        }
+
+
+        .ability-box { /* Adjusts individual ability box sizing for tablets */
+
+            flex: 1 1 calc(33.333% - 10px); /* Sets flex basis to fit roughly 3 boxes per row */
+
+            min-width: 90px; /* Sets minimum box width constraint */
+
+        }
+
+    }
+
+
+    @media (max-width: 600px) { /* Media query breakpoint for mobile phones and small screens (max width 600px) */
+
+        body { /* Adjusts document body padding for mobile screens */
+
+            padding: 10px; /* Reduces outer body padding space */
+
+        }
+
+
+        #header-box { /* Adjusts portfolio header layout for mobile screens */
+
+            flex-direction: column; /* Stacks logo and header title vertically in a column */
+
+            gap: 12px; /* Reduces gap spacing between stacked items */
+
+            text-align: center; /* Centers header text alignment */
+
+            padding: 15px; /* Adjusts inner header padding */
+
+        }
+
+
+        #header-box h1 { /* Scales down header title font size for mobile phones */
+
+            font-size: 1.6rem; /* Reduces title font size for smaller screens */
+
+        }
+
+
+        .nav-bar { /* Adjusts navigation bar layout for mobile screens */
+
+            flex-direction: column; /* Stacks navigation items vertically in a column */
+
+            align-items: stretch; /* Stretches nav items to fill container width */
+
+        }
+
+
+        .nav-item > a { /* Adjusts navigation link padding and alignment for mobile phones */
+
+            text-align: center; /* Centers link text alignment */
+
+            padding: 10px; /* Sets comfortable mobile tap padding */
+
+        }
+
+
+        .dropdown { /* Adjusts dropdown menu positioning for mobile screens */
+
+            position: static; /* Removes absolute positioning for static mobile flow */
+
+            transform: none; /* Clears centering transforms */
+
+            width: 100%; /* Expands dropdown width to 100% */
+
+            box-shadow: none; /* Removes heavy drop shadow on mobile */
+
+        }
+
+
+        .ability-box { /* Adjusts ability box sizing for mobile screens */
+
+            flex: 1 1 calc(50% - 10px); /* Adjusts flex basis to fit 2 boxes per row on phones */
+
+        }
+
+
+        #dice-result-box { /* Adjusts 3D dice result popup modal placement for mobile screens */
+
+            right: 50%; /* Centers modal horizontally from right edge */
+
+            transform: translateX(50%); /* Adjusts translation to center modal perfectly */
+
+            width: calc(100% - 30px); /* Sets width to full screen minus margins */
+
+            max-width: 320px; /* Constrains maximum modal width */
+
+            bottom: 15px; /* Positions modal closer to screen bottom */
+
+        }
+
+    }
+
+}
+
+/* #endregion */
